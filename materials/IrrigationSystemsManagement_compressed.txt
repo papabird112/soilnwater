@@ -1,0 +1,163 @@
+IRRIGATION SYSTEMS
+   MANAGEMENT
+
+
+
+
+      Dean E. Eisenhauer • Derrel L. Martin
+Derek M. Heeren, General Editor • Glenn J. Hoffman
+                                                                                    ISBN 9781940956428
+
+
+
+
+                                                                                    9 781940 956428
+
+
+For more information and material for instructors, see https://www.asabe.org/ISM.
+Irrigation
+Systems
+Management
+
+
+
+               Dean E. Eisenhauer
+                   Derrel L. Martin
+   Derek M. Heeren, General Editor
+                 Glenn J. Hoffman
+Copyright © 2021 by the American Society of Agricultural and Biological
+Engineers (ASABE)
+All rights reserved
+Manufactured in the United States of America
+Print date: 6 December 2021
+
+DOI: 10.13031/ISM.2021
+International Standard Book Number (ISBN) 978-1-940956-42-8
+ASABE Publication 801M0221OA
+
+For more information and material for instructors,
+see https://www.asabe.org/ISM.
+
+
+Copy editing and layout by Peg McCann
+Cover design by Melissa Miller
+Cover photos:
+  Drip lateral, photo courtesy of Toro
+  Lake McConaughy, photo courtesy of Steve Melvin, Nebraska Extension
+  Weather station, canal, furrow irrigation in corn, and center pivot photos by the authors
+
+This work is licensed with a Creative Commons Attribution 4.0
+International License
+            CC BY-NC-ND
+
+
+
+
+ASABE is an educational and scientific organization
+dedicated to the advancement of engineering applicable
+to agricultural, food, and biological systems.
+For more information visit www.asabe.org.
+
+ASABE, 2950 Niles Rd., St. Joseph, MI 49085-9659 USA
+phone: 269-429-0300 fax: 269-429-3852 e-mail: hq@asabe.org
+
+The American Society of Agricultural and Biological Engineers is not
+responsible for statements and opinions advanced in its meetings or printed
+in its publications. They represent the views of the individual to whom
+they are credited and are not binding on the Society as a whole.
+This book is dedicated to our wives and children for
+   their love and support:
+
+ Maria, Emily, and April
+                                                       DEE
+
+ JoAnn, Jennifer, and Kimberly
+                                                       DLM
+
+ Amber, David, Elizabeth, Nathan, and Joshua
+                                                       DMH
+
+ Maria, Kimberly, Karen, and Sheryl
+                                                       GJH
+ Contents
+
+Foreword ....................................................................... xiii
+
+Preface ........................................................................... xv
+
+Acknowledgements ...................................................... xvii
+
+About the Authors ......................................................... xix
+
+Common Unit Conversions for Irrigation ....................... xxi
+
+Chapter 1 Introduction to Irrigation ................................. 1
+1.1 Introduction .................................................................. 1
+1.2 Role of Irrigation ............................................................ 2
+1.3 Irrigation Development ................................................... 3
+1.4 Impact of Irrigation on Water Resources and
+    the Environment ............................................................ 6
+1.5 Irrigation Management Concepts...................................... 7
+1.6 Summary ...................................................................... 8
+Questions ........................................................................... 8
+References ......................................................................... 8
+
+Chapter 2 Soil Water ...................................................... 11
+2.1 Introduction ................................................................ 11
+2.2 Soil Composition .......................................................... 11
+2.3 Soil Water Content ....................................................... 12
+2.4 Soil Water Potential ...................................................... 14
+2.5 Available Water and the Soil Water Reservoir ................... 16
+2.6 Determining Available Water Capacity............................. 18
+2.7 Tabulated Values of Typical Soil Properties....................... 19
+2.8 Infiltration ................................................................... 20
+2.9 Storage of Infiltrated Water ........................................... 23
+2.10 Measuring Soil Water Content and Matric Potential ......... 24
+  2.10.1 Gravimetric Method............................................... 24
+  2.10.2 Feel and Appearance ............................................. 25
+  2.10.3 Neutron Scattering................................................ 25
+                                                                                         vi
+
+
+  2.10.4 Time Domain Reflectometry ................................... 26
+  2.10.5 Capacitance Probes ............................................... 27
+  2.10.6 Tensiometers........................................................ 27
+  2.10.7 Electrical Resistance Blocks and Granular
+         Matrix Sensors ..................................................... 28
+  2.10.8 Thermal Dissipation Blocks .................................... 29
+  2.10.9 Placement of Soil Water Sensors ............................. 29
+  2.10.10 Remote Sensing .................................................. 29
+2.11 Summary .................................................................. 30
+Questions ......................................................................... 30
+References ....................................................................... 32
+
+Chapter 3 Measuring Water Applications ........................ 35
+3.1 Introduction ................................................................ 35
+  3.1.1 Need for Water Measurement ................................... 35
+  3.1.2 Depth Volume Relationships ..................................... 35
+3.2 Basic Principles of Flow Measurement ............................. 37
+  3.2.1 Velocity-Flow-Area Relationship ................................ 37
+  3.2.2 Measurement of Mean Velocity ................................. 38
+  3.2.3 Distribution of Velocity ............................................ 38
+3.3 Flow Measurement in Pipelines ...................................... 38
+  3.3.1 Mechanical Meters .................................................. 38
+  3.3.2 Pressure Differential Methods ................................... 40
+  3.3.3 Ultrasonic Measurement .......................................... 41
+  3.3.4 Magnetic Flowmeters .............................................. 42
+3.4 Flow Measurement in Open Channels.............................. 43
+  3.4.1 Velocity Methods .................................................... 43
+  3.4.2 Pressure Differential Methods ................................... 44
+3.5 Summary .................................................................... 46
+Questions ......................................................................... 46
+References ....................................................................... 47
+
+Chapter 4 Plant Water Use ............................................. 49
+4.1 Introduction ................................................................ 49
+4.2 Water Use Processes .................................................... 50
+4.3 Measurement of Evapotranspiration ................................ 52
+  4.3.1 Aerodynamic Methods ............................................. 52
+  4.3.2 Soil Water Methods ................................................. 53
+  4.3.3 Lysimetry .............................................................. 53
+  4.3.4 Plant Monitoring Methods ........................................ 55
+4.4 Calculating ET ............................................................. 55
+

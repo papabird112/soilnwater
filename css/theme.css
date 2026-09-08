@@ -1,0 +1,83 @@
+/* ============================================================
+   theme.css — ชุดสีและฟอนต์ทั้งหมดของเว็บอยู่ในไฟล์นี้ไฟล์เดียว
+   All colours and fonts live here. Edit this file to restyle
+   the whole site; style.css never hard-codes a colour.
+   โหลดไฟล์นี้ "ก่อน" style.css เสมอ
+
+   ชุดสีหลัก / Base palette:
+     #007979  teal เข้ม      #24B1B1  teal สว่าง
+     #FFE2AF  ครีม           #E37434  ส้ม
+   ============================================================ */
+
+:root {
+  /* ---- สีพื้นหลัง / Backgrounds ---- */
+  --bg:          #ffe2af;   /* พื้นหลังหน้าเว็บ = ครีม        page background */
+  --paper:       #fff4df;   /* พื้นกล่อง/ตาราง/แถบเมนู (ครีมอ่อน)  cards, sidebar */
+
+  /* ---- สีตัวอักษร / Text ---- */
+  --ink:         #063b3a;   /* ตัวอักษรหลัก (teal เข้มมาก)   body text      */
+  --ink-soft:    #00615f;   /* ตัวอักษรรอง (teal)            secondary text */
+
+  /* ---- เส้นและสีเน้น / Lines & accents ---- */
+  --rule:        #ecca8f;   /* เส้นคั่น ขอบกล่อง (ครีมเข้ม)   borders, rules */
+  --accent:      #007979;   /* สีเน้นหลัก: เลขบท หัวข้อกำกับ  primary accent */
+  --accent-light:#24b1b1;   /* teal สว่าง: เส้นเน้น โฟกัส     highlights, focus */
+  --accent-hot:  #e37434;   /* ส้ม: ใช้กับพื้น/เส้น/ลูกศร      decorative orange */
+  --link:        #9a4315;   /* ส้มเข้ม สำหรับ "ตัวอักษร" ให้อ่านชัดบนพื้นครีม
+                               deep orange — text-safe shade of --accent-hot  */
+
+  /* ---- สีผลตรวจข้อสอบ / Quiz feedback ---- */
+  --ok:          #00615f;   /* ข้อความเมื่อตอบถูก  correct text */
+  --bad:         #9a4315;   /* ข้อความเมื่อตอบผิด  wrong text   */
+  --hi-ok:   rgba(0, 121, 121, .16);   /* พื้นไฮไลต์ข้อที่ถูก */
+  --hi-bad:  rgba(227, 116, 52, .24);  /* พื้นไฮไลต์ข้อที่ผิด */
+
+  /* ---- เงาและฉากหลังเมนูบนมือถือ / Shadow & scrim ---- */
+  --shadow:  rgba(6, 59, 58, .20);
+  --scrim:   rgba(6, 59, 58, .40);
+
+  /* ---- ฟอนต์ / Typefaces ---- */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body:    "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ui:      "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ---- ขนาด / Metrics ---- */
+  --sidebar-w: 268px;     /* ความกว้างแถบเมนูด้านซ้าย */
+}
+
+/* ============================================================
+   ชุดสีสำรอง — ลบเครื่องหมายคอมเมนต์ของชุดที่ต้องการเพื่อใช้งาน
+   Alternate palettes — uncomment one block to switch.
+   (ทับค่าด้านบนได้เพราะประกาศทีหลัง)
+   ============================================================ */
+
+/* --- Teal on white / teal พื้นขาว: สว่างกว่า อ่านง่ายเวลาพิมพ์ ---
+:root {
+  --bg: #f2f7f6;  --paper: #ffffff;  --ink: #063b3a;  --ink-soft: #00615f;
+  --rule: #cbe3e1; --accent: #007979; --accent-light: #24b1b1;
+  --accent-hot: #e37434; --link: #9a4315;
+}
+*/
+
+/* --- Warm original / โทนกระดาษเก่า (ชุดเดิม) ---
+:root {
+  --bg: #ece2d0;  --paper: #faf6ed;  --ink: #1c1812;  --ink-soft: #4a4033;
+  --rule: #d4c9b0; --accent: #a87d3a; --accent-light: #c9a25c;
+  --accent-hot: #9a4628; --link: #9a4628;
+  --ok: #3f6b3f; --bad: #9a4628;
+  --hi-ok: rgba(63,107,63,.14); --hi-bad: rgba(154,70,40,.14);
+  --shadow: rgba(28,24,18,.14); --scrim: rgba(28,24,18,.35);
+}
+*/
+
+/* --- Dark / โหมดมืด teal ---
+:root {
+  --bg: #062b2a;  --paper: #0b3a38;  --ink: #ffe2af;  --ink-soft: #b9d9d5;
+  --rule: #12514e; --accent: #24b1b1; --accent-light: #6fd6d6;
+  --accent-hot: #e37434; --link: #f0a06a;
+  --ok: #24b1b1; --bad: #e37434;
+  --hi-ok: rgba(36,177,177,.20); --hi-bad: rgba(227,116,52,.24);
+  --shadow: rgba(0,0,0,.45); --scrim: rgba(0,0,0,.55);
+}
+*/

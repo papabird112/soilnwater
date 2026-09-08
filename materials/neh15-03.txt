@@ -1,0 +1,360 @@
+ Use bookmarks and buttons to navigate document
+
+
+
+ SCS
+ National
+ Engineering
+ Handbook
+
+
+                                            Section 15
+
+IRRIGATION
+                            Chapter 3
+
+                                  PLANNING FARM
+                                  IRRIGATION SYSTEMS
+
+
+
+
+  Soil Conservation Service
+  United States Department of Agriculture
+                     SCS NATIONAL ENGINEERING HANDBOOK
+
+                                SECTION 15
+
+                                IRRIGATION
+
+                 CHAPTER .3 PLANNING FARM IRRIGATION SYSTEMS
+
+
+                                  Contents
+
+                                                                     Page
+                                                                     .
+0 Introduction....................................................... 3-1
+       Proper planning permits conservation irrigation ............... 3-1
+       Preliminary considerations .................................... 3-3
+            What the irrigator should h o w........................... 3-3
+            What the planner should h o w............................. 3-3
+       Planning procedure ............................................ 3-4
+            Select method ........................................... 3-4
+            Layout ...................................................
+    0       Application ..............................................
+            &lively  .................................................
+            Dispssal .................................................
+@ Factars in planning ................................................
+       Sails.........................................................
+            Intake rates .............................................
+            Wa-ter-hclding capacity...................................
+            Depth ....................................................
+            Other characteristics ....................................
+            Drainage.................................................
+            Erasion..................................................
+            Saline or alkali conditions..............................
+       Topography....................................................
+            Sprinkler irrigation.....................................
+            Surface irrigation.......................................
+            Subirrigation............................................
+            Supply lines.............................................
+            Conservation practices ...................................
+       Water supply..................................................
+            Water rights.............................................
+            Quantity.................................................
+                    .
+
+
+
+            Quality ..................................................
+            ' m e of supply...........................................
+            Location of supply.......................................
+       Climate....................................................... 3-25
+            Precipitation............................................ 3-25
+            Temperature ............................................ 3-26
+                                                                      Page
+                                                                      .
+       Farm enterprise ............................................... 3-26
+            Crops .................................................... 3-26
+            Labor .................................................... 3-27
+       Field arrangement ............................................. 3-27
+       Farm equipment available...................................... 3-27
+       Available power ............................................... 3-28
+       Existing facilities.................go...................e....3-28
+   0 Field road system............................................. 3-28
+       Finances...................................................... 3-28
+       Physical features............................................. 3-28
+@ Adapted methods of water application............................... 3-29
+       Sprinkler irrigation.......................................... 3-29
+            Sprinkler method ......................................... 3-30
+       Surface irrigation............................................ 3-35
+            Graded-border method ..................................... 3-35
+            Level-border (basin) method .............................. 3-36
+            Contour-levee method ..................................... 3-37
+            Contour-ditch method ..................................... 3-39
+            Graded-furrow method ..................................... 3-40
+            Contour-furrow method .................................... 3-41
+            Level-furrow method ...................................... 3-43
+            Corrugation method ....................................... 3-44
+    0 Subirrigation  ................................................. 3-45
+            Subirrigation method ..................................... 3-46
+0 Irrigation water conveyance........................................ 3-47
+       Ditches....................................................... 3-48
+            Unlined ditches.......................................... 3-48
+            Lined ditches............................................ 3-49
+            Conveyance structures.....................................3-54
+            Grade-control structures................................. 3-57
+            Distribution-control structures.......................... 3-58
+            Application-control structures........................... 3-62
+       Hpelines..................................................... 3-73
+            Low-pressure pipelines................................... 3-74
+            High-pressure pipelines .................................. 3-74
+            Inlet structures......................................... 3-77
+            Vents .................................................... 3-78
+            Control structures....................................... 3-80
+    0
+            Outlets .................................................. 3-83
+0 water disposal..................................................... 3-87
+       Surface-water disposal........................................ 3-87
+            Effect of irrigation method .............................. 3-87'
+            Design considerations.................................... 3-88
+       Subsurface-water disposal..................................... 3-88
+            Interceptor drains....................................... 3-88
+    0       Relief
+            Wells
+                   drains............................................ 3-88
+                 .................................................... 3-88
+       Outlets....................................................... 3-89
+@ water measurement.................................................. 3-89
+                                                                       Page
+
+@ Irrigation guides .................................................. 3-90
+       Area covered .................................................. 3-90
+       Content ....................................................... 3-90
+            Soils ....................................................3-90
+            Crops .................................................... 3-90
+            Irrigation specifications ................................ 3-91
+       Use ........................................................... 3-91
+                                   FIGURES
+  Figure                                                                Page
+
+           A farm irrigation system................................... 3-16
+                                                                         3-2
+           Water loss in an irrigation reservoir......................
+           Off-stream storage reservoir............................... 3-18
+           Ground-water storage reservoir............................. 3-22
+           Regulating reservoir....................................... 3-22
+           Sprinkler irrigation....................................... 3-30
+           Hand-mow sprinkler........................................ 3-31
+           Big-gun sprialer.......................................... 3-31
+           Rotating-boom sprinkler.................................... 3-32
+           Side-roll sprinkler........................................ 3-32
+           Two-lateral sprinklsr...................................... 3-32
+           Self-propelled sprinkler................................... 3-33
+           Solid-set sprinkler........................................ 3-33
+           Perforated-pipe sprinkler.................................. 3-33
+           Graded-border irrigation................................... 3-35
+           Level-border irrigation.................................... 3-36
+           Contour-levee irrigation................................... 3-38
+           Contour-ditch irrigation................................... 3-39
+           Graded-furrow irrigation................................... 3-40
+           Contour-furrow irrigation.................................. 3-42
+           Level-furrow irrigation.................................... 3-43
+           Corrugation irrigation..................................... 3-44
+           Subirrigation.............................................. 3-46
+           Placing concrete ditch lining by slip-form method .......... 3-51
+           Constructing concrete ditch lining by alternate-panel
+           method.....................................................
+           Timber-supported metal flume
+                                                                       3-51
+                                       ............................... 3-56
+           Section of a concrete inverted siphon
+           Five drop structures
+                                                ...................... 3-57
+                               ....................................... 3-59
+           Headgate equipped to measure water directly from an
+           irrigation canal to a farm ditch  ........................... 3-60
+                                                                '
+
+
+
+
+           Pump stilling basin and division box
+           Division box with four chambers
+                                                ....................... 3-61
+                                          ............................ 3-61
+           Combination drop and check
+           Portable plastic check
+                                     ................................. 3-63
+                                 ..................................... 3-63
+           Portable canvas check...................................... 3-63
+Figure                                                                                       Page
+                                                        ...................
+          Canvas check with a d j u s t a b l e sack o u t l e t
+         Metal windless check     .......................................
+                                                       ....................
+         Adjustable metal check i n a l i n e d d i t c h
+         Permanent concrete check.     ..................................
+                                      ...................................
+         I n s t a l l i n g a metal check
+                                                  ........................
+         Metal-pipe turnout i n a l i n e d d i t c h
+          Tw2-inch g a t e turnout ......................................
+                                                       ....................
+          Ccncrete-block turnout i n a l i n e d d i t c h
+         Metal turnout     ..............................................
+         Turnout boxes i n background    ................................
+                                                        ...................
+          Concrete turnout with a f l a s h board g a t e
+          Concrete-pipe turnout    ......................................
+                                                 .........................
+         I n s t a l l i n g a concrete-pipe turnout
+                                                        ...................
+         Two-inch siphon tubes i r r i g a t i n g furrows
+                                                           ................
+         Eight-inch siphon tubes i r r i g a t i n g a border
+         Large metal siphon and pump f o r priming     ....................
+                                                        ...................
+         Gated pipe f o r furrow i r r i g a t i o n of corn
+         Closeup of g a t e i n pipe ....................................
+         F l e x i b l e gated pipe; sacks prevent erosion and clothespins
+                           ..............................................
+         r e g u l a t e flow
+                                         ................................
+         Installing p l a s t i c pipeline
+                                                                     ................
+         I n s t a l l i n g 15-inch concrete i r r i g a t i o n pipe
+         Removing i n s i d e form from concrete p i p e l i n e c a s t i n place ..
+                                                               ......
+         Pouring concrete p i p e l i n e using sheet-metal s l i p form
+                                               ......................
+         Low-head open stand f o r concrete pipe
+                                      ...............................
+         Capped high-head s t e e l stand
+                                                        .............
+         Gravity i n l e t f o r buried low-pressure p i p e l i n e
+                                         ............................
+         Typical concrete-pipe sand t r a p
+                              .......................................
+         Typical t r a s h s c r e e n
+                                        .............................
+         D e s i l t i n g box and t r a s h screen
+         Typical capped vent ........................................
+         Section of a capped vent ...................................
+         Closeup of a i r - r e l e a s e valve on r i g h t and a l f a l f a valve on
+         left .......................................................
+         Section of a concrete pipe g a t e stand used t o c o n t r o l flow
+                           ..........................................
+         i n t o two l a t e r a l s
+                                                 ....................
+         Section of concrete-pipe overflow s t a n d
+         Concrete-pipe overflow stand ...............................
+                                        .............................
+         Section of a f l o a t - v a l v e stand
+                                                           ..........
+         Section of a l f a l f a valve mounted on concrete pipe
+                                                          ...........
+         m d r a n t a t t a c h e d t o a l f a l f a valve f o r gated p i p e
+         Section of an orchard valve ................................
+         Orchard valve ..............................................
+         Open-pot o u t l e t with an orchard valve and s l i d e - g a t e
+         control ....................................................
+                                               ......................
+         Section 3f capped r i s e r o r pot o u t l e t
+                                                                                   ......
+         I r r i g a t i o n guide f o r a l l i r r i g a t e d s e c t i o n s of Kansas
+                               SCS NATIONAL ENGINEERING EANDBOOK
+                                                 SECTION 15
+
+
+
+
+                       CHAPTER 3--FLANNING FARM IRRIGATION SYSTEMS
+
+
+
+                  - Conservation--
+I'raper Planning Permits         Irrigation
+
+Cmaervatian i r r i g a t i o n i s t h e use af i r r i g a t e d s o i l s and i r r i g a t i s n
+water i n a way t h a t i n s u r e s high p r o d u c t i m withcut wasting e i t h e r water
+g r s c i l . It means using c r ~ p p i n g , i r r i g a t i m , and c u l t u r a l p r a c t i c e s
+t h a t maintain t h e land i n permanent a g r i c u l t u r e . To a n i r r i g a t o r con-
+s e r v a t i o n i r r i g a t i o n can mean saving water, c o n t r o l l i n g erosion, b e t t e r
+c m p y i e l d s , lower productisri c a s t s , and continued p r o d u c t i v i t y of h i s
+i r r i g a t e d land.
+
+One of the maj3-r f a c t o r s i n conservation i r r i g a t i o n i s a properly plan-
+ned ccnservation farm i r r i g a t i o n system. A conservation farm i r r i g a t i o n
+system i s t h e complete arrangement of t h e d e l i v e r y and a p p l i c a t i o n f a c i l -
+i t i e s needed t o d i s t r i b u t e i r r i g a t i o n water e f f i c i e n t l y t o a l l land
+served by t h e system.
+
+A farm i r r i g a t i o n system c o n s i s t s of t h r e e p a r t s - - d e l i v e r y , a p p l i c a t i o n ,
+and d i s p o s a l ( f i g . 1). The d e l i v e r y p a r t c o n s i s t s of t h e f a c i l i t i e s
+needed t o c3r~vzyi r r i g a t i o n water from t h e s m r c e 3f supply t a i n d i v i d -
+u a l f i e l d s and includes supply d i t c h e s and p i p e l i n e s , valves, hydrants,
+flumes, measuring devices, t u r n o u t s , and checks. For t h e a p p l i c a t i o n and
+d i s t r i b u t i o n of water on a f i e l d , head d i t c h e s , d i s t r i b u t i o n p i p e l i n e s
+( b u r i e d a r s u r f a c e ) , valves and hydrants, gated pipe, siphon tubes,
+s p r i n k l e r l i n e s , and s p r i n k l e r nozzles and equipment mst be planned.
+Tail-water 3r c a l l e c t i c n d i t c h e s , sumps, and any o t h e r f a c i l i t i e s needed
+t o c o l l e c t and safely dispose o f , o r recover f o r f u r t h e r i r r i g a t i o n , any
+waste water and starm runoff make up t h e d i s p o s a l p a r t of t h e system.
+
+Few, i f any, farm operating u n i t s have i d e n t i c a l p h y s i c a l , economic, and
+managerial c m d i t i o n c . Careful and adequate planning i s necessary i f t h e
+i r r i g a t i o n system i s t o meet t h e requirements of t h e farm o p e r a t i n g u n i t
+on whicn i t i s t o be used. I t must f i t t h e s o i l s , crops, climate, water
+supply, and farming operations. To be adequate, a system must have t h e
+c a p a c i t y t o meet the peak-use requirements of t h e crops t o be grown
+(chap. 1) and t o d e l i v e r water a t t h e r a t e r e q u i r e d f o r t h e i r r i g a t i o n
+method used. I t should be planned and designed t o operate a t high e f f i -
+ciency t o conserve i r r i g a t i o n water.
+Figure 3-1. --A farm i r r i g a t i o n system.
+e   Preliminary Considerations
+    For an irrigation system to function as planned both irrigator and plan-
+    ner must know and agree on some things before they spend much time in
+    planning.
+    What the Irrigator Should Know
+    Conservation irrigation, like other farm ~perations,must be undertaken
+    only if it can be done successfully and at a profit. In other words, the
+    benefits from irrigation must increase farm income enough to cover all
+    costs of purchasing, installing, operating, and maintaining the irriga-
+    t i m system and prwide a reasonable return from the owner's investment.
+    Water is only one of several limiting factors in producing high yields
+    of any crop. An irrigator should know the capability of his land under
+    irrigation. He should know the soil management practices necessary to
+    maintain good tilth and fertility. He should be willing to use the best
+    adapted crop variety and the plant population that will produce the best
+    yields and to have an adequate system for controlling plant diseases and
+    insects. He should understand and be willing to practice irrigation
+    water management.
+    Irrigation Water Management.--Conservation irrigation water management
+    means controlling 3r regulating water application in a way that insures
+    high crop yields without wasting water, soil, or plant nutrients. It
+@   means applying water according to crop needs in amounts that can be held
+    in the soil available to crops and at rates consistent with the intake
+    characteristics of the soil and the erosion hazard of the site.
+    A n irrigatcr must have a reasonably good understanding of the basic
+    principles of conservation irrigation. He must have a general idea of
+    how water is held in the soil and released to plants and how much water
+    his soils hold. He needs to b o w how to determine when to irrigate and
+    how much water to apply. He needs to have a general understanding of
+    soil-intake characteristics and of the adjustments in stream size and
+    time of water application needed to fit the intake characteristics of
+    his soils (chap. 1).
+    What the Planner Should Know
+    It is impossible to design an effective conservation irrigation system
+    without complete understanding by both irrigator and planner. There
+    should be mutual understanding of the water supply needed. The planner
+    must h o w the farmer's wishes. He must consider the entire farm even if
+    only one field is to be planned for irrigation at any one time.
+    Adequacy of Water Supply.--The first things to consider are availability,
+    quality, and adequacy of the farm water supply. If there is no adequate
+    supply or no possibility of developing one, further planning is a waste
+    of time for both farmer and planner. Successful irrigation is not pos-
+
+a   sible without a water supply adequate for the crops to be grown.
+

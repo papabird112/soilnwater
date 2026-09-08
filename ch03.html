@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 3 การใช้น้ำของพืช · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-chapter="ch03">
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">3 · Plant Water Use</span>
+          <span class="th">บทที่ 3 · การใช้น้ำของพืช</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 3</span><span class="th">บทที่ 3</span>
+        </span>
+        <h1>
+          <span class="en">Plant Water Use &amp; Crop Water Requirements</span>
+          <span class="th">การใช้น้ำของพืชและความต้องการน้ำของพืช</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">Chapter 2 measured the tank. This chapter measures the rate at which the crop empties it — the second question of the course: <em>how much water should be applied?</em></span>
+          <span class="th">บทที่ 2 วัดขนาดถังน้ำไปแล้ว บทนี้จะวัดอัตราที่พืชใช้น้ำในถังนั้นให้หมดไป ซึ่งเป็นคำถามข้อที่สองของวิชา คือ <em>ต้องให้น้ำปริมาณเท่าใด</em></span>
+        </p>
+      </header>
+
+      <!-- ===================== 3.1 ===================== -->
+      <section id="s-et">
+        <h2><span class="en">3.1 Evapotranspiration: two losses, one number</span><span class="th">3.1 การคายระเหยน้ำ: สองทาง แต่นับเป็นค่าเดียว</span></h2>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Definition</span><span class="th">นิยาม</span></div>
+          <p>
+            <span class="en"><strong>Evapotranspiration (ET) = Evaporation + Transpiration.</strong> Evaporation is water leaving the soil and wet surfaces directly; transpiration is water pulled through the plant and released from the leaves.</span>
+            <span class="th"><strong>การคายระเหยน้ำ (ET) = การระเหย + การคายน้ำ</strong> การระเหยคือน้ำที่ออกจากผิวดินและผิวเปียกโดยตรง ส่วนการคายน้ำคือน้ำที่ถูกดูดผ่านตัวพืชแล้วปล่อยออกทางใบ</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">We measure them together because in the field they cannot be separated, and because for irrigation the distinction does not matter: both take water out of the root zone. Early in the season, with bare soil between the rows, evaporation dominates; at full canopy, transpiration does.</span>
+          <span class="th">เราวัดทั้งสองอย่างรวมกัน เพราะในแปลงจริงแยกออกจากกันไม่ได้ และเพราะในงานชลประทานความแตกต่างนี้ไม่มีผล ทั้งสองทางต่างก็นำน้ำออกจากเขตรากพืชเหมือนกัน ในช่วงต้นฤดูที่ยังมีดินเปล่าระหว่างแถวปลูก การระเหยจะเป็นส่วนใหญ่ แต่เมื่อทรงพุ่มคลุมเต็มพื้นที่แล้ว การคายน้ำจะกลายเป็นส่วนใหญ่แทน</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="Evapotranspiration equals evaporation plus transpiration">
+            <defs>
+              <marker id="et-up" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="var(--accent-hot)"/>
+              </marker>
+            </defs>
+
+            <!-- soil -->
+            <line x1="60" y1="215" x2="660" y2="215" stroke="var(--ink)" stroke-width="1.6"/>
+            <rect x="60" y="215" width="600" height="55" fill="var(--rule)" opacity=".5"/>
+            <rect x="60" y="215" width="600" height="55" fill="none" stroke="var(--rule)"/>
+
+            <!-- plant -->
+            <path d="M360,215 L360,150" stroke="var(--accent)" stroke-width="3" fill="none"/>
+            <ellipse cx="336" cy="170" rx="22" ry="8" fill="var(--accent)" opacity=".85" transform="rotate(-24 336 170)"/>
+            <ellipse cx="386" cy="160" rx="22" ry="8" fill="var(--accent)" opacity=".85" transform="rotate(24 386 160)"/>
+            <ellipse cx="360" cy="142" rx="10" ry="15" fill="var(--accent)" opacity=".7"/>
+            <g stroke="var(--accent)" stroke-width="1.4" fill="none" opacity=".65">
+              <path d="M360,215 C352,232 336,244 322,252"/>
+              <path d="M360,215 C368,232 384,244 398,252"/>
+              <path d="M360,215 C358,235 356,252 354,264"/>
+              <path d="M360,215 C362,235 366,252 370,264"/>
+            </g>
+
+            <!-- transpiration arrows -->
+            <g class="fig-flow" stroke="var(--accent-hot)" stroke-width="2" marker-end="url(#et-up)" fill="none">
+              <line x1="330" y1="150" x2="322" y2="88"/>
+              <line x1="392" y1="142" x2="400" y2="88"/>
+            </g>
+            <!-- evaporation arrows -->
+            <g class="fig-flow" stroke="var(--accent-hot)" stroke-width="2" marker-end="url(#et-up)" fill="none" opacity=".75">
+              <line x1="150" y1="210" x2="150" y2="120"/>
+              <line x1="230" y1="210" x2="230" y2="140"/>
+              <line x1="500" y1="210" x2="500" y2="140"/>
+              <line x1="580" y1="210" x2="580" y2="120"/>
+            </g>
+
+            <g font-family="Inter, sans-serif" font-size="12" text-anchor="middle">
+              <text x="190" y="105" font-weight="700" fill="var(--ink)" class="en">EVAPORATION</text>
+              <text x="190" y="105" font-weight="700" fill="var(--ink)" class="th">การระเหย</text>
+              <text x="190" y="123" font-size="10.5" fill="var(--ink-soft)" class="en">from soil &amp; wet surfaces</text>
+              <text x="190" y="123" font-size="10.5" fill="var(--ink-soft)" class="th">จากผิวดินและผิวเปียก</text>
+
+              <text x="361" y="70" font-weight="700" fill="var(--ink)" class="en">TRANSPIRATION</text>
+              <text x="361" y="70" font-weight="700" fill="var(--ink)" class="th">การคายน้ำ</text>
+              <text x="361" y="88" font-size="10.5" fill="var(--ink-soft)" class="en">through the leaves</text>
+              <text x="361" y="88" font-size="10.5" fill="var(--ink-soft)" class="th">ผ่านทางใบพืช</text>
+
+              <text x="545" y="105" font-weight="700" fill="var(--ink)" class="en">EVAPORATION</text>
+              <text x="545" y="105" font-weight="700" fill="var(--ink)" class="th">การระเหย</text>
+            </g>
+
+            <!-- the sum -->
+            <rect x="248" y="24" width="226" height="30" rx="2" fill="var(--accent)" opacity=".18" stroke="var(--ink)"/>
+            <g font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" text-anchor="middle" fill="var(--ink)">
+              <text x="361" y="44">ET = E + T</text>
+            </g>
+
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <text x="60" y="290" class="en">Both are measured in mm/day — the same unit as rainfall and as irrigation depth.</text>
+              <text x="60" y="290" class="th">ทั้งสองอย่างวัดเป็น มม./วัน ซึ่งเป็นหน่วยเดียวกับน้ำฝนและความลึกน้ำชลประทาน</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 3.1 — Evapotranspiration. Early in the season the bare soil between rows evaporates most of the water; once the canopy closes, transpiration takes over.</span>
+            <span class="th">รูปที่ 3.1 — การคายระเหยน้ำ ในช่วงต้นฤดู ดินเปล่าระหว่างแถวปลูกทำให้เกิดการระเหยเป็นส่วนใหญ่ เมื่อทรงพุ่มปิดคลุมพื้นที่แล้ว การคายน้ำจะกลายเป็นส่วนหลักแทน</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== 3.2 ===================== -->
+      <section id="s-terms">
+        <h2><span class="en">3.2 The three ET terms</span><span class="th">3.2 ค่า ET สามตัว</span></h2>
+
+        <p>
+          <span class="en">Nearly every mistake in crop water calculation comes from mixing up these three. They form a chain, and each step multiplies by one coefficient.</span>
+          <span class="th">ความผิดพลาดเกือบทั้งหมดในการคำนวณความต้องการน้ำของพืช เกิดจากการสับสนระหว่างสามค่านี้ ทั้งสามค่าเรียงกันเป็นลูกโซ่ และแต่ละขั้นคือการคูณด้วยสัมประสิทธิ์หนึ่งตัว</span>
+        </p>
+
+        <div class="formula">
+            <div class="eq"><code>ETo</code><span class="eq-note"><span class="en">reference crop ET — depends on climate only</span><span class="th">ค่า ET ของพืชอ้างอิง — ขึ้นกับภูมิอากาศเท่านั้น</span></span></div>
+            <div class="eq"><code>ETc = Kc · ETo</code><span class="eq-note"><span class="en">crop ET under standard conditions</span><span class="th">ค่า ET ของพืชในสภาพมาตรฐาน</span></span></div>
+            <div class="eq result"><code>ETa = Ks · ETc</code><span class="eq-note"><span class="en">actual ET when the crop is stressed</span><span class="th">ค่า ET จริงเมื่อพืชอยู่ในภาวะเครียด</span></span></div>
+          </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Kc</dt><dd><span class="en">crop coefficient — depends on the type of crop and its stage of growth</span><span class="th">สัมประสิทธิ์การใช้น้ำของพืช — ขึ้นกับชนิดพืชและระยะการเจริญเติบโต</span></dd>
+          <dt>Ks</dt><dd><span class="en">water stress coefficient — 1.0 when soil water is adequate, less than 1.0 when it is not</span><span class="th">สัมประสิทธิ์ความเครียดน้ำ — เท่ากับ 1.0 เมื่อน้ำในดินเพียงพอ และน้อยกว่า 1.0 เมื่อไม่เพียงพอ</span></dd>
+        </dl>
+
+        <figure>
+          <svg viewBox="0 0 760 230" role="img" aria-label="The chain from ETo to ETc to ETa">
+            <defs>
+              <marker id="ch-ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="var(--accent-hot)"/>
+              </marker>
+            </defs>
+
+            <g stroke="var(--ink)" stroke-width="1.3">
+              <rect x="30"  y="70" width="180" height="82" rx="2" fill="var(--accent)"       opacity=".22"/>
+              <rect x="290" y="70" width="180" height="82" rx="2" fill="var(--accent)"       opacity=".42"/>
+              <rect x="550" y="70" width="180" height="82" rx="2" fill="var(--accent-hot)"   opacity=".28"/>
+            </g>
+
+            <g class="fig-flow" stroke="var(--accent-hot)" stroke-width="2" marker-end="url(#ch-ar)" fill="none">
+              <line x1="216" y1="111" x2="282" y2="111"/>
+              <line x1="476" y1="111" x2="542" y2="111"/>
+            </g>
+
+            <g font-family="JetBrains Mono, monospace" font-size="20" font-weight="600" text-anchor="middle" fill="var(--ink)">
+              <text x="120" y="108">ETo</text>
+              <text x="380" y="108">ETc</text>
+              <text x="640" y="108">ETa</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="120" y="132" class="en">clipped grass, never short of water</text>
+              <text x="120" y="132" class="th">หญ้าอ้างอิง ไม่ขาดน้ำ</text>
+              <text x="380" y="132" class="en">your crop, well watered</text>
+              <text x="380" y="132" class="th">พืชของเรา ในสภาพน้ำเพียงพอ</text>
+              <text x="640" y="132" class="en">your crop, actually short of water</text>
+              <text x="640" y="132" class="th">พืชของเรา ในสภาพที่ขาดน้ำจริง</text>
+            </g>
+
+            <g font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" text-anchor="middle" fill="var(--link)">
+              <text x="249" y="98">× Kc</text>
+              <text x="509" y="98">× Ks</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="10.5" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="249" y="142" class="en">crop factor</text>
+              <text x="249" y="142" class="th">ตามชนิดพืช</text>
+              <text x="509" y="142" class="en">stress factor</text>
+              <text x="509" y="142" class="th">ตามความเครียดน้ำ</text>
+            </g>
+
+            <g font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" fill="var(--accent)" font-weight="600">
+              <text x="120" y="52" class="en">CLIMATE ONLY</text>
+              <text x="120" y="52" class="th">ขึ้นกับภูมิอากาศเท่านั้น</text>
+              <text x="380" y="52" class="en">CLIMATE + CROP</text>
+              <text x="380" y="52" class="th">ภูมิอากาศ + ชนิดพืช</text>
+              <text x="640" y="52" class="en">CLIMATE + CROP + MANAGEMENT</text>
+              <text x="640" y="52" class="th">ภูมิอากาศ + พืช + การจัดการ</text>
+            </g>
+
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <text x="30" y="196" class="en">Design uses ETc — we plan for a crop that is NOT short of water. ETa is what actually happened; if ETa &lt; ETc, yield has already been lost.</text>
+              <text x="30" y="196" class="th">การออกแบบใช้ค่า ETc เพราะเราวางแผนสำหรับพืชที่ไม่ขาดน้ำ ส่วน ETa คือสิ่งที่เกิดขึ้นจริง ถ้า ETa น้อยกว่า ETc แปลว่าผลผลิตได้เสียหายไปแล้ว</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 3.2 — ETo → ETc → ETa. Each arrow is one multiplication.</span>
+            <span class="th">รูปที่ 3.2 — ETo → ETc → ETa ลูกศรแต่ละอันคือการคูณหนึ่งครั้ง</span>
+          </figcaption>
+        </figure>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Link back to Chapter 2</span><span class="th">เชื่อมโยงกับบทที่ 2</span></div>
+          <p>
+            <span class="en">Ks is the bridge between the two chapters. As long as the soil water stays above the critical point — that is, within RAW — Ks = 1 and the crop transpires at ETc. Once depletion goes past RAW, Ks falls below 1 and so does the yield. <strong>Irrigation scheduling exists to keep Ks = 1.</strong></span>
+            <span class="th">ค่า Ks คือสะพานเชื่อมระหว่างสองบทนี้ ตราบใดที่ความชื้นในดินยังอยู่เหนือจุดวิกฤต คืออยู่ในช่วง RAW ค่า Ks จะเท่ากับ 1 และพืชคายน้ำได้เต็มที่ที่อัตรา ETc แต่เมื่อใช้น้ำเกินช่วง RAW ไปแล้ว ค่า Ks จะลดต่ำกว่า 1 และผลผลิตก็ลดลงตาม <strong>การกำหนดเวลาให้น้ำมีขึ้นเพื่อรักษาให้ Ks เท่ากับ 1 เสมอ</strong></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 3.3 ===================== -->
+      <section id="s-eto">
+        <h2><span class="en">3.3 ETo = f(climate)</span><span class="th">3.3 ETo = f(ภูมิอากาศ)</span></h2>
+
+        <p>
+          <span class="en">To compare climates fairly we need a crop that is always the same. That is the <strong>reference crop</strong>: the evapotranspiration rate from a reference surface, not short of water, is called the reference crop evapotranspiration, ETo.</span>
+          <span class="th">การจะเปรียบเทียบภูมิอากาศระหว่างพื้นที่ได้อย่างเป็นธรรม เราต้องมีพืชที่เหมือนกันทุกที่ นั่นคือ <strong>พืชอ้างอิง</strong> โดยอัตราการคายระเหยน้ำจากผิวอ้างอิงที่ไม่ขาดน้ำ เรียกว่าการคายระเหยน้ำของพืชอ้างอิง หรือ ETo</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The reference surface — memorise these three numbers</span><span class="th">ผิวอ้างอิง — จำตัวเลขสามตัวนี้</span></div>
+          <p>
+            <span class="en">A hypothetical <strong>grass</strong> reference crop with a height of <strong>0.12 m</strong>, a surface resistance of <strong>70 s/m</strong> and an albedo of <strong>0.23</strong>. It closely resembles green grass of uniform height, actively growing and adequately watered.</span>
+            <span class="th">คือ <strong>หญ้า</strong> อ้างอิงในทางทฤษฎี ที่มีความสูง <strong>0.12 ม.</strong> ค่าความต้านทานที่ผิว <strong>70 s/m</strong> และค่าสะท้อนแสง (albedo) <strong>0.23</strong> ซึ่งใกล้เคียงกับสนามหญ้าเขียวที่มีความสูงสม่ำเสมอ กำลังเจริญเติบโต และได้รับน้ำอย่างเพียงพอ</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Because the crop is fixed, any difference in ETo between two places or two months is caused purely by weather: <strong>radiation, air temperature, humidity and wind speed</strong>. <em>Penman-Monteith is the recommended method for ETo calculation.</em></span>
+          <span class="th">เนื่องจากพืชถูกกำหนดให้เหมือนกันหมด ความแตกต่างของค่า ETo ระหว่างสองพื้นที่หรือสองเดือน จึงเกิดจากสภาพอากาศล้วน ๆ ได้แก่ <strong>รังสี อุณหภูมิอากาศ ความชื้นสัมพัทธ์ และความเร็วลม</strong> <em>วิธีที่แนะนำให้ใช้คำนวณ ETo คือวิธี Penman-Monteith</em></span>
+        </p>
+
+        <h3><span class="en">Typical ETo by agroclimatic region (mm/day)</span><span class="th">ค่า ETo โดยทั่วไปตามเขตภูมิอากาศเกษตร (มม./วัน)</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Region</span><span class="th">เขตภูมิอากาศ</span></th>
+                <th colspan="3"><span class="en">Mean daily temperature</span><span class="th">อุณหภูมิเฉลี่ยรายวัน</span></th>
+              </tr>
+              <tr>
+                <th><span class="en">Cool ~10 °C</span><span class="th">เย็น ~10 °C</span></th>
+                <th><span class="en">Moderate 20 °C</span><span class="th">ปานกลาง 20 °C</span></th>
+                <th><span class="en">Warm &gt; 30 °C</span><span class="th">ร้อน &gt; 30 °C</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4"><strong><span class="en">Tropics and subtropics</span><span class="th">เขตร้อนและกึ่งร้อน</span></strong></td></tr>
+              <tr><td><span class="en">— humid and sub-humid</span><span class="th">— ชื้นและกึ่งชื้น</span></td><td class="num">2 – 3</td><td class="num">3 – 5</td><td class="num">5 – 7</td></tr>
+              <tr><td><span class="en">— arid and semi-arid</span><span class="th">— แห้งแล้งและกึ่งแห้งแล้ง</span></td><td class="num">2 – 4</td><td class="num">4 – 6</td><td class="num">6 – 8</td></tr>
+              <tr><td colspan="4"><strong><span class="en">Temperate region</span><span class="th">เขตอบอุ่น</span></strong></td></tr>
+              <tr><td><span class="en">— humid and sub-humid</span><span class="th">— ชื้นและกึ่งชื้น</span></td><td class="num">1 – 2</td><td class="num">2 – 4</td><td class="num">4 – 7</td></tr>
+              <tr><td><span class="en">— arid and semi-arid</span><span class="th">— แห้งแล้งและกึ่งแห้งแล้ง</span></td><td class="num">1 – 3</td><td class="num">4 – 7</td><td class="num">6 – 9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="quiz-note">
+          <span class="en">Thailand sits in the humid / sub-humid tropics: expect ETo of roughly 3–5 mm/day, rising towards 5–7 mm/day in the hot dry season. Use this table to sanity-check any computed value — a Penman-Monteith result of 15 mm/day means an input error.</span>
+          <span class="th">ประเทศไทยอยู่ในเขตร้อนชื้นถึงกึ่งชื้น จึงคาดว่าค่า ETo อยู่ราว 3–5 มม./วัน และเพิ่มขึ้นเป็น 5–7 มม./วัน ในช่วงฤดูร้อนแล้ง ให้ใช้ตารางนี้ตรวจสอบความสมเหตุสมผลของค่าที่คำนวณได้ ถ้าคำนวณ Penman-Monteith แล้วได้ 15 มม./วัน แสดงว่าใส่ข้อมูลผิดแน่นอน</span>
+        </p>
+      </section>
+
+      <!-- ===================== 3.4 ===================== -->
+      <section id="s-pm">
+        <h2><span class="en">3.4 The FAO Penman-Monteith equation</span><span class="th">3.4 สมการ FAO Penman-Monteith</span></h2>
+
+        <div class="formula">
+          <div class="eq eq-block">
+            <code>ETo =</code>
+            <span class="frac">
+              <span class="num">0.408 Δ (R<sub>n</sub> − G) + γ · [900 / (T + 273.16)] · u₂ (e<sub>s</sub> − e<sub>a</sub>)</span>
+              <span class="den">Δ + γ (1 + 0.34 u₂)</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>ETo</dt><dd><span class="en">reference evapotranspiration (mm/day)</span><span class="th">การคายระเหยน้ำของพืชอ้างอิง (มม./วัน)</span></dd>
+          <dt>Rn</dt><dd><span class="en">net radiation at the crop surface (MJ/m²/day)</span><span class="th">รังสีสุทธิที่ผิวพืช (MJ/m²/วัน)</span></dd>
+          <dt>G</dt><dd><span class="en">soil heat flux density (MJ/m²/day)</span><span class="th">ความร้อนที่ไหลเข้าสู่ดิน (MJ/m²/วัน)</span></dd>
+          <dt>T</dt><dd><span class="en">mean air temperature at 2 m height (°C)</span><span class="th">อุณหภูมิอากาศเฉลี่ยที่ความสูง 2 ม. (°C)</span></dd>
+          <dt>u₂</dt><dd><span class="en">wind speed at 2 m height (m/s)</span><span class="th">ความเร็วลมที่ความสูง 2 ม. (ม./วินาที)</span></dd>
+          <dt>es</dt><dd><span class="en">saturation vapour pressure (kPa)</span><span class="th">ความดันไอน้ำอิ่มตัว (kPa)</span></dd>
+          <dt>ea</dt><dd><span class="en">actual vapour pressure (kPa)</span><span class="th">ความดันไอน้ำจริง (kPa)</span></dd>
+          <dt>es − ea</dt><dd><span class="en">saturation vapour pressure deficit (kPa)</span><span class="th">ความพร่องความดันไอน้ำ (kPa)</span></dd>
+          <dt>Δ</dt><dd><span class="en">slope of the vapour pressure curve (kPa/°C)</span><span class="th">ความชันของเส้นโค้งความดันไอน้ำ (kPa/°C)</span></dd>
+          <dt>γ</dt><dd><span class="en">psychrometric constant (kPa/°C)</span><span class="th">ค่าคงที่ไซโครเมตริก (kPa/°C)</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the equation as two halves</span><span class="th">อ่านสมการเป็นสองครึ่ง</span></div>
+          <p>
+            <span class="en">The first term of the numerator, <span class="mono">0.408 Δ (Rn − G)</span>, is the <strong>radiation term</strong> — energy from the sun driving evaporation. The second, <span class="mono">γ · 900/(T+273) · u₂ (es − ea)</span>, is the <strong>aerodynamic term</strong> — dry moving air carrying vapour away. Sun supplies the energy; wind and dryness remove the product. Neither alone gives ET.</span>
+            <span class="th">พจน์แรกของตัวเศษ <span class="mono">0.408 Δ (Rn − G)</span> คือ <strong>พจน์รังสี</strong> คือพลังงานจากดวงอาทิตย์ที่ผลักดันให้เกิดการระเหย ส่วนพจน์ที่สอง <span class="mono">γ · 900/(T+273) · u₂ (es − ea)</span> คือ <strong>พจน์อากาศพลศาสตร์</strong> คืออากาศแห้งที่เคลื่อนที่มาพัดพาไอน้ำออกไป ดวงอาทิตย์ให้พลังงาน ส่วนลมและความแห้งเป็นตัวขนไอน้ำออก ขาดอย่างใดอย่างหนึ่งก็ไม่เกิด ET</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>1 mm/day = 2.45 MJ/m²/day</code><span class="eq-note"><span class="en">latent heat of vaporisation</span><span class="th">ความร้อนแฝงของการกลายเป็นไอ</span></span></div>
+          <div class="eq"><code>1 bar = 100 kPa</code><span class="eq-note"><span class="en">pressure conversion</span><span class="th">การแปลงหน่วยความดัน</span></span></div>
+        </div>
+      </section>
+
+      <!-- ===================== 3.5 ===================== -->
+      <section id="s-equations">
+        <h2><span class="en">3.5 Computing every term</span><span class="th">3.5 การคำนวณค่าแต่ละตัว</span></h2>
+
+        <p>
+          <span class="en">The measured data are only Tmax, Tmin, RH, wind speed, sunshine hours, latitude and altitude. Everything else in the equation is computed from them, in the order below. Work through the steps in sequence — later steps need earlier results.</span>
+          <span class="th">ข้อมูลที่ตรวจวัดได้จริงมีเพียง Tmax, Tmin, ความชื้นสัมพัทธ์, ความเร็วลม, จำนวนชั่วโมงแสงแดด, ละติจูด และความสูงจากระดับน้ำทะเล ส่วนค่าที่เหลือทั้งหมดในสมการต้องคำนวณต่อจากข้อมูลเหล่านี้ตามลำดับด้านล่าง ให้ทำเรียงตามขั้นตอน เพราะขั้นหลังต้องใช้ผลจากขั้นก่อนหน้า</span>
+        </p>
+
+        <h3><span class="en">Step 1 · Δ, T and es</span><span class="th">ขั้นที่ 1 · หา Δ, T และ es</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>#</th><th><span class="en">Term</span><span class="th">ตัวแปร</span></th>
+              <th><span class="en">Formula</span><span class="th">สูตร</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="num">[5]</td><td class="num">T</td><td><code><span class="frac"><span class="num">Tmax + Tmin</span><span class="den">2</span></span></code></td></tr>
+              <tr><td class="num">[3]</td><td class="num">e°(Tmax)</td><td><code>0.6108 · exp[ <span class="frac"><span class="num">17.27 · Tmax</span><span class="den">Tmax + 237.3</span></span> ]</code></td></tr>
+              <tr><td class="num">[4]</td><td class="num">e°(Tmin)</td><td><code>0.6108 · exp[ <span class="frac"><span class="num">17.27 · Tmin</span><span class="den">Tmin + 237.3</span></span> ]</code></td></tr>
+              <tr><td class="num">[2]</td><td class="num">es</td><td><code><span class="frac"><span class="num">e°(Tmax) + e°(Tmin)</span><span class="den">2</span></span></code></td></tr>
+              <tr><td class="num">[1]</td><td class="num">Δ</td><td><code><span class="frac"><span class="num">4098 · es</span><span class="den">(T + 237.3)<sup>2</sup></span></span></code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Step 2 · Actual vapour pressure</span><span class="th">ขั้นที่ 2 · หาความดันไอน้ำจริง</span></h3>
+        <div class="formula">
+          <div class="eq"><code>[6]&nbsp;&nbsp; ea = <span class="frac"><span class="num">RHmean</span><span class="den">100</span></span> · es</code><span class="eq-note"><span class="en">the drier the air, the larger es − ea</span><span class="th">อากาศยิ่งแห้ง ค่า es − ea ยิ่งมาก</span></span></div>
+        </div>
+
+        <h3><span class="en">Step 3 · Wind speed at 2 m</span><span class="th">ขั้นที่ 3 · ปรับความเร็วลมให้เป็นที่ 2 เมตร</span></h3>
+        <div class="formula">
+          <div class="eq"><code>[7]&nbsp;&nbsp; u₂ = <span class="frac"><span class="num">u<sub>z'</sub> · 4.87</span><span class="den">ln(67.8 z' − 5.42)</span></span></code><span class="eq-note"><span class="en">z' = height of the wind vane (m)</span><span class="th">z' = ความสูงของเครื่องวัดลม (ม.)</span></span></div>
+        </div>
+
+        <h3><span class="en">Step 4 · Psychrometric constant</span><span class="th">ขั้นที่ 4 · หาค่าคงที่ไซโครเมตริก</span></h3>
+        <div class="formula">
+          <div class="eq"><code>[9]&nbsp;&nbsp; P = 101.3 · [ <span class="frac"><span class="num">293 − 0.0065 z</span><span class="den">293</span></span> ]<sup>5.256</sup></code><span class="eq-note"><span class="en">atmospheric pressure at altitude z (kPa)</span><span class="th">ความดันบรรยากาศที่ความสูง z (kPa)</span></span></div>
+          <div class="eq"><code>[8]&nbsp;&nbsp; γ = 0.665 × 10<sup>−3</sup> · P</code><span class="eq-note"><span class="en">kPa/°C</span><span class="th">kPa/°C</span></span></div>
+        </div>
+
+        <h3><span class="en">Step 5 · Net radiation Rn</span><span class="th">ขั้นที่ 5 · หารังสีสุทธิ Rn</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>#</th><th><span class="en">Term</span><span class="th">ตัวแปร</span></th>
+              <th><span class="en">Formula</span><span class="th">สูตร</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="num">[17]</td><td class="num">J</td><td><code>Int(30.4 M − 15)</code> · <span class="en">day of year, M = month</span><span class="th">ลำดับวันในปี, M = เดือน</span></td></tr>
+              <tr><td class="num">[18]</td><td class="num">J</td><td><code>Int(275 M/9 − 30 + D) − 2</code> · <span class="en">leap year form</span><span class="th">รูปแบบสำหรับปีอธิกสุรทิน</span></td></tr>
+              <tr><td class="num">[16]</td><td class="num">dr</td><td><code>1 + 0.033 · cos( <span class="frac"><span class="num">2π J</span><span class="den">365</span></span> )</code></td></tr>
+              <tr><td class="num">[21]</td><td class="num">δ</td><td><code>0.409 · sin( <span class="frac"><span class="num">2π J</span><span class="den">365</span></span> − 1.39 )</code></td></tr>
+              <tr><td class="num">[19a]</td><td class="num">ωs</td><td><code>arccos[ −tan(φ) · tan(δ) ]</code></td></tr>
+              <tr><td class="num">[14]</td><td class="num">Ra</td><td><code><span class="frac"><span class="num">24 · 60</span><span class="den">π</span></span> · Gsc · dr · [ ωs sin φ sin δ + cos φ cos δ sin ωs ]</code></td></tr>
+              <tr><td class="num">[15]</td><td class="num">Gsc</td><td><code>0.0820 MJ/m²/min</code> · <span class="en">solar constant</span><span class="th">ค่าคงที่สุริยะ</span></td></tr>
+              <tr><td class="num">[13]</td><td class="num">N</td><td><code><span class="frac"><span class="num">24</span><span class="den">π</span></span> · ωs</code> · <span class="en">daylight hours</span><span class="th">จำนวนชั่วโมงกลางวัน</span></td></tr>
+              <tr><td class="num">[12]</td><td class="num">Rs</td><td><code>(0.25 + 0.50 · n/N) · Ra</code></td></tr>
+              <tr><td class="num">[26]</td><td class="num">Rso</td><td><code>(0.75 + 2×10<sup>−5</sup> z) · Ra</code> · <span class="en">clear-sky radiation</span><span class="th">รังสีในสภาพท้องฟ้าโปร่ง</span></td></tr>
+              <tr><td class="num">[11]</td><td class="num">Rns</td><td><code>(1 − α) Rs = (1 − 0.23) Rs</code></td></tr>
+              <tr><td class="num">[22]</td><td class="num">Rnl</td><td><code>σ · <span class="frac"><span class="num">Tmax,K<sup>4</sup> + Tmin,K<sup>4</sup></span><span class="den">2</span></span> · (0.34 − 0.14 √ea) · (1.35 Rs/Rso − 0.35)</code></td></tr>
+              <tr><td class="num">[23]</td><td class="num">σ</td><td><code>4.903 × 10<sup>−9</sup> MJ/m²/day</code> · <span class="en">Stefan-Boltzmann</span><span class="th">ค่าคงที่ Stefan-Boltzmann</span></td></tr>
+              <tr><td class="num">[10]</td><td class="num">Rn</td><td><code>Rns − Rnl</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="quiz-note">
+          <span class="en">Tmax,K = Tmax(°C) + 273.16 and Tmin,K = Tmin(°C) + 273.16 [24][25]. The ratio Rs/Rso must not exceed 1.0. φ is the latitude in radians — degrees × π/180.</span>
+          <span class="th">โดย Tmax,K = Tmax(°C) + 273.16 และ Tmin,K = Tmin(°C) + 273.16 [24][25] ทั้งนี้อัตราส่วน Rs/Rso ต้องไม่เกิน 1.0 และค่า φ คือละติจูดในหน่วยเรเดียน (องศา × π/180)</span>
+        </p>
+
+        <h3><span class="en">Step 6 · Soil heat flux</span><span class="th">ขั้นที่ 6 · หาความร้อนที่ไหลเข้าสู่ดิน</span></h3>
+        <div class="formula">
+          <div class="eq"><code>[27]&nbsp;&nbsp; G = 0.14 · (T<sub>i</sub> − T<sub>i−1</sub>)</code><span class="eq-note"><span class="en">this month's mean minus last month's</span><span class="th">อุณหภูมิเฉลี่ยเดือนนี้ ลบเดือนก่อนหน้า</span></span></div>
+        </div>
+        <p>
+          <span class="en">G is almost always small compared with Rn — but it is not zero, and on a monthly step it is the one term that needs data from the <em>previous</em> month.</span>
+          <span class="th">ค่า G มักมีค่าน้อยมากเมื่อเทียบกับ Rn แต่ก็ไม่ใช่ศูนย์ และเมื่อคำนวณเป็นรายเดือน ค่านี้เป็นตัวเดียวที่ต้องใช้ข้อมูลของ <em>เดือนก่อนหน้า</em></span>
+        </p>
+      </section>
+
+      <!-- ===================== 3.6 ===================== -->
+      <section id="s-example">
+        <h2><span class="en">3.6 Worked example: ETo for February</span><span class="th">3.6 ตัวอย่างการคำนวณ ETo เดือนกุมภาพันธ์</span></h2>
+
+        <h3><span class="en">Given data</span><span class="th">ข้อมูลที่ให้</span></h3>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td><span class="en">Month (M)</span><span class="th">เดือน (M)</span></td><td class="num">2</td><td><span class="en">February</span><span class="th">กุมภาพันธ์</span></td></tr>
+              <tr><td><span class="en">Latitude (φ)</span><span class="th">ละติจูด (φ)</span></td><td class="num">26.56</td><td class="num">°</td></tr>
+              <tr><td>Tmean (i−1)</td><td class="num">18</td><td class="num">°C</td></tr>
+              <tr><td>Tmax</td><td class="num">26.3</td><td class="num">°C</td></tr>
+              <tr><td>Tmin</td><td class="num">11.9</td><td class="num">°C</td></tr>
+              <tr><td>Tmean</td><td class="num">19.1</td><td class="num">°C</td></tr>
+              <tr><td><span class="en">Altitude (z)</span><span class="th">ความสูง (z)</span></td><td class="num">120</td><td class="num">m</td></tr>
+              <tr><td>u₂</td><td class="num">1.2</td><td class="num">m/s</td></tr>
+              <tr><td>RHmean</td><td class="num">63</td><td class="num">%</td></tr>
+              <tr><td><span class="en">Actual sunshine (n)</span><span class="th">ชั่วโมงแสงแดดจริง (n)</span></td><td class="num">8.4</td><td class="num">hrs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Calculation 1 — the aerodynamic side</span><span class="th">การคำนวณชุดที่ 1 — ฝั่งอากาศพลศาสตร์</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th><span class="en">Term</span><span class="th">ตัวแปร</span></th><th><span class="en">Value</span><span class="th">ค่า</span></th>
+              <th><span class="en">Unit</span><span class="th">หน่วย</span></th><th><span class="en">Description</span><span class="th">คำอธิบาย</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="num">e°(Tmax)</td><td class="num">3.42</td><td class="num">kPa</td><td><span class="en">saturation vapour pressure at Tmax</span><span class="th">ความดันไอน้ำอิ่มตัวที่ Tmax</span></td></tr>
+              <tr><td class="num">e°(Tmin)</td><td class="num">1.39</td><td class="num">kPa</td><td><span class="en">saturation vapour pressure at Tmin</span><span class="th">ความดันไอน้ำอิ่มตัวที่ Tmin</span></td></tr>
+              <tr><td class="num">es</td><td class="num">2.41</td><td class="num">kPa</td><td><span class="en">saturation vapour pressure</span><span class="th">ความดันไอน้ำอิ่มตัว</span></td></tr>
+              <tr><td class="num">Δ</td><td class="num">0.15</td><td class="num">kPa/°C</td><td><span class="en">slope of the vapour pressure curve</span><span class="th">ความชันของเส้นโค้งความดันไอน้ำ</span></td></tr>
+              <tr><td class="num">P</td><td class="num">99.89</td><td class="num">kPa</td><td><span class="en">atmospheric pressure</span><span class="th">ความดันบรรยากาศ</span></td></tr>
+              <tr><td class="num">γ</td><td class="num">0.07</td><td class="num">kPa/°C</td><td><span class="en">psychrometric constant</span><span class="th">ค่าคงที่ไซโครเมตริก</span></td></tr>
+              <tr><td class="num">(1 + 0.34 u₂)</td><td class="num">1.41</td><td class="num">–</td><td></td></tr>
+              <tr><td class="num">Δ + γ(1 + 0.34 u₂)</td><td class="num">0.24</td><td class="num">–</td><td><span class="en">the denominator</span><span class="th">ตัวส่วนของสมการ</span></td></tr>
+              <tr><td class="num">Δ / [Δ + γ(1+0.34u₂)]</td><td class="num">0.62</td><td class="num">–</td><td><span class="en">radiation weighting</span><span class="th">น้ำหนักของพจน์รังสี</span></td></tr>
+              <tr><td class="num">γ / [Δ + γ(1+0.34u₂)]</td><td class="num">0.27</td><td class="num">–</td><td><span class="en">aerodynamic weighting</span><span class="th">น้ำหนักของพจน์อากาศพลศาสตร์</span></td></tr>
+              <tr><td class="num">[900/(T+273.16)] u₂</td><td class="num">3.71</td><td class="num">–</td><td></td></tr>
+              <tr><td class="num">ea = (RH/100) es</td><td class="num">1.52</td><td class="num">kPa</td><td><span class="en">actual vapour pressure</span><span class="th">ความดันไอน้ำจริง</span></td></tr>
+              <tr><td class="num">es − ea</td><td class="num">0.89</td><td class="num">kPa</td><td><span class="en">vapour pressure deficit</span><span class="th">ความพร่องความดันไอน้ำ</span></td></tr>
+              <tr><td class="num"><strong>Aerodynamic term</strong></td><td class="num"><strong>0.90</strong></td><td class="num">mm/day</td><td><span class="en">0.27 × 3.71 × 0.89</span><span class="th">0.27 × 3.71 × 0.89</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Calculation 2 — the radiation side</span><span class="th">การคำนวณชุดที่ 2 — ฝั่งรังสี</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th><span class="en">Term</span><span class="th">ตัวแปร</span></th><th><span class="en">Value</span><span class="th">ค่า</span></th>
+              <th><span class="en">Unit</span><span class="th">หน่วย</span></th><th><span class="en">Description</span><span class="th">คำอธิบาย</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="num">J</td><td class="num">45</td><td class="num">–</td><td><span class="en">day number of the year</span><span class="th">ลำดับวันในรอบปี</span></td></tr>
+              <tr><td class="num">φ</td><td class="num">0.4636</td><td class="num">rad</td><td><span class="en">latitude in radians</span><span class="th">ละติจูดในหน่วยเรเดียน</span></td></tr>
+              <tr><td class="num">δ</td><td class="num">−0.2361</td><td class="num">rad</td><td><span class="en">solar declination angle</span><span class="th">มุมเดคลิเนชันของดวงอาทิตย์</span></td></tr>
+              <tr><td class="num">ωs</td><td class="num">1.4502</td><td class="num">rad</td><td><span class="en">sunset hour angle</span><span class="th">มุมชั่วโมงดวงอาทิตย์ตก</span></td></tr>
+              <tr><td class="num">dr</td><td class="num">1.0236</td><td class="num">–</td><td><span class="en">inverse relative Earth–Sun distance</span><span class="th">ระยะสัมพัทธ์ผกผันโลก–ดวงอาทิตย์</span></td></tr>
+              <tr><td class="num">Ra</td><td class="num">27.3794</td><td class="num">MJ/m²/d</td><td><span class="en">extraterrestrial radiation</span><span class="th">รังสีนอกบรรยากาศโลก</span></td></tr>
+              <tr><td class="num">N</td><td class="num">11.0790</td><td class="num">hrs</td><td><span class="en">daylight hours</span><span class="th">จำนวนชั่วโมงกลางวัน</span></td></tr>
+              <tr><td class="num">Rs</td><td class="num">17.22</td><td class="num">MJ/m²/d</td><td><span class="en">solar radiation, from n/N = 8.4/11.08</span><span class="th">รังสีดวงอาทิตย์ จาก n/N = 8.4/11.08</span></td></tr>
+              <tr><td class="num">Rso</td><td class="num">20.5351</td><td class="num">MJ/m²/d</td><td><span class="en">clear-sky radiation</span><span class="th">รังสีในสภาพท้องฟ้าโปร่ง</span></td></tr>
+              <tr><td class="num">Rs / Rso</td><td class="num">0.8388</td><td class="num">–</td><td><span class="en">relative shortwave radiation</span><span class="th">รังสีคลื่นสั้นสัมพัทธ์</span></td></tr>
+              <tr><td class="num">Rnl</td><td class="num">4.7416</td><td class="num">MJ/m²/d</td><td><span class="en">net long-wave radiation (outgoing)</span><span class="th">รังสีคลื่นยาวสุทธิ (ที่แผ่ออก)</span></td></tr>
+              <tr><td class="num">Rn</td><td class="num">8.5210</td><td class="num">MJ/m²/d</td><td><span class="en">net radiation = Rns − Rnl</span><span class="th">รังสีสุทธิ = Rns − Rnl</span></td></tr>
+              <tr><td class="num">G = 0.14(19.1 − 18)</td><td class="num">0.1540</td><td class="num">MJ/m²/d</td><td><span class="en">soil heat flux</span><span class="th">ความร้อนที่ไหลเข้าสู่ดิน</span></td></tr>
+              <tr><td class="num"><strong>Radiation term</strong></td><td class="num"><strong>2.10</strong></td><td class="num">mm/day</td><td><span class="en">0.408 × 0.62 × (8.521 − 0.154)</span><span class="th">0.408 × 0.62 × (8.521 − 0.154)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Result</span><span class="th">ผลลัพธ์</span></h3>
+        <div class="formula">
+          <div class="eq"><code>Radiation term&nbsp;&nbsp;&nbsp; = 2.10 mm/day</code><span class="eq-note"><span class="en">70% of ETo</span><span class="th">คิดเป็น 70% ของ ETo</span></span></div>
+          <div class="eq"><code>Aerodynamic term = 0.90 mm/day</code><span class="eq-note"><span class="en">30% of ETo</span><span class="th">คิดเป็น 30% ของ ETo</span></span></div>
+          <div class="eq result"><code>ETo = 2.10 + 0.90 = 3.00 mm/day = 84.1 mm/month</code><span class="eq-note"><span class="en">February, 28 days</span><span class="th">เดือนกุมภาพันธ์ 28 วัน</span></span></div>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 180" role="img" aria-label="ETo split into radiation and aerodynamic terms">
+            <g class="fig-grow" stroke="var(--ink)" stroke-width="1">
+              <rect x="60"  y="52" width="420" height="46" fill="var(--accent)"     opacity=".8"/>
+              <rect x="480" y="52" width="180" height="46" fill="var(--accent-hot)" opacity=".7"/>
+            </g>
+            <g class="fig-fade" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" text-anchor="middle" fill="var(--paper)">
+              <text x="270" y="81">2.10 mm/day</text>
+              <text x="570" y="81">0.90</text>
+            </g>
+            <g class="fig-fade" font-family="Inter, sans-serif" font-size="11.5" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="270" y="122" class="en">RADIATION TERM — the sun supplies the energy</text>
+              <text x="270" y="122" class="th">พจน์รังสี — ดวงอาทิตย์ให้พลังงาน</text>
+              <text x="570" y="122" class="en">AERODYNAMIC — wind &amp; dry air remove the vapour</text>
+              <text x="570" y="122" class="th">พจน์อากาศพลศาสตร์ — ลมและอากาศแห้งพาไอน้ำออก</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">
+              <text x="360" y="36" class="en">ETo = 3.00 mm/day</text>
+              <text x="360" y="36" class="th">ETo = 3.00 มม./วัน</text>
+            </g>
+            <path d="M60,150 L60,158 M60,154 L660,154 M660,150 L660,158" stroke="var(--ink-soft)" stroke-width="1" fill="none"/>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 3.3 — In this February example the sun does 70% of the work. In a hot windy dry season the aerodynamic term grows and can dominate.</span>
+            <span class="th">รูปที่ 3.3 — ในตัวอย่างเดือนกุมภาพันธ์นี้ ดวงอาทิตย์เป็นตัวขับเคลื่อนถึง 70% แต่ในฤดูร้อนที่ลมแรงและอากาศแห้ง พจน์อากาศพลศาสตร์จะใหญ่ขึ้นจนอาจกลายเป็นส่วนหลักได้</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== 3.7 ===================== -->
+      <section id="s-kc">
+        <h2><span class="en">3.7 The crop coefficient Kc</span><span class="th">3.7 สัมประสิทธิ์การใช้น้ำของพืช Kc</span></h2>
+
+        <p>
+          <span class="en">Kc converts the reference grass into your actual crop. It changes through the season because the crop changes: bare soil at planting, full canopy at mid-season, drying leaves at harvest.</span>
+          <span class="th">ค่า Kc คือตัวแปลงจากหญ้าอ้างอิงมาเป็นพืชจริงที่เราปลูก ค่านี้เปลี่ยนไปตลอดฤดู เพราะตัวพืชเองก็เปลี่ยน คือเป็นดินเปล่าตอนเพิ่งปลูก เป็นทรงพุ่มเต็มพื้นที่ในช่วงกลางฤดู และเป็นใบที่เริ่มแห้งตอนใกล้เก็บเกี่ยว</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 340" role="img" aria-label="Crop coefficient curve through the four growth stages">
+            <!-- axes -->
+            <line x1="90" y1="60" x2="90" y2="270" stroke="var(--ink)" stroke-width="1.4"/>
+            <line x1="80" y1="270" x2="650" y2="270" stroke="var(--ink)" stroke-width="1.4"/>
+            <g stroke="var(--rule)" stroke-dasharray="4 4">
+              <line x1="90" y1="199" x2="645" y2="199"/>
+              <line x1="90" y1="127" x2="645" y2="127"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end" fill="var(--ink-soft)">
+              <text x="82" y="274">0</text>
+              <text x="82" y="203">0.5</text>
+              <text x="82" y="131">1.0</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="var(--accent)">
+              <text x="52" y="52">Kc</text>
+            </g>
+
+            <!-- stage separators -->
+            <g stroke="var(--rule)">
+              <line x1="200" y1="60" x2="200" y2="278"/>
+              <line x1="340" y1="60" x2="340" y2="278"/>
+              <line x1="500" y1="60" x2="500" y2="278"/>
+              <line x1="620" y1="60" x2="620" y2="278"/>
+            </g>
+
+            <!-- the Kc curve -->
+            <polyline points="90,213 200,213 340,106 500,106 620,184" fill="none"
+                      stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="var(--accent)">
+              <circle cx="200" cy="213" r="4"/><circle cx="340" cy="106" r="4"/>
+              <circle cx="500" cy="106" r="4"/><circle cx="620" cy="184" r="4"/>
+            </g>
+
+            <!-- Kc values -->
+            <g font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--link)">
+              <text x="120" y="205">Kc ini ≈ 0.4</text>
+              <text x="384" y="98">Kc mid ≈ 1.15</text>
+              <text x="562" y="178">Kc end ≈ 0.6</text>
+            </g>
+
+            <!-- stage labels -->
+            <g font-family="Inter, sans-serif" font-size="11" text-anchor="middle" fill="var(--ink)" font-weight="600">
+              <text x="145" y="296" class="en">INITIAL</text>
+              <text x="145" y="296" class="th">ระยะแรก</text>
+              <text x="270" y="296" class="en">DEVELOPMENT</text>
+              <text x="270" y="296" class="th">ระยะเจริญเติบโต</text>
+              <text x="420" y="296" class="en">MID-SEASON</text>
+              <text x="420" y="296" class="th">ระยะกลางฤดู</text>
+              <text x="560" y="296" class="en">LATE</text>
+              <text x="560" y="296" class="th">ระยะปลายฤดู</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="10" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="145" y="312" class="en">bare soil, evaporation</text>
+              <text x="145" y="312" class="th">ดินเปล่า เกิดการระเหย</text>
+              <text x="270" y="312" class="en">canopy closing</text>
+              <text x="270" y="312" class="th">ทรงพุ่มปิดคลุม</text>
+              <text x="420" y="312" class="en">full canopy, peak use</text>
+              <text x="420" y="312" class="th">ทรงพุ่มเต็มที่ ใช้น้ำสูงสุด</text>
+              <text x="560" y="312" class="en">ripening, drying</text>
+              <text x="560" y="312" class="th">สุกแก่ ใบเริ่มแห้ง</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="360" y="332" class="en">time from planting →</text>
+              <text x="360" y="332" class="th">เวลานับจากวันปลูก →</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 3.4 — A typical crop coefficient curve. The values shown are illustrative for a field crop such as maize; use the Kc table for your own crop. Peak irrigation demand — and therefore the capacity your system must have — is set by Kc mid.</span>
+            <span class="th">รูปที่ 3.4 — เส้นโค้งสัมประสิทธิ์การใช้น้ำของพืชโดยทั่วไป ค่าที่แสดงเป็นค่าตัวอย่างของพืชไร่ เช่น ข้าวโพด ในการใช้งานจริงต้องเปิดตาราง Kc ของพืชนั้น ๆ ทั้งนี้ความต้องการน้ำสูงสุด ซึ่งเป็นตัวกำหนดขนาดของระบบชลประทาน ถูกกำหนดด้วยค่า Kc ในระยะกลางฤดู</span>
+          </figcaption>
+        </figure>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Design consequence</span><span class="th">ผลต่อการออกแบบ</span></div>
+          <p>
+            <span class="en">A system sized on the seasonal <em>average</em> Kc will fail in mid-season, exactly when the crop is most sensitive. <strong>Size the system on peak ETc</strong> — this is the "capacity to meet the peak-use requirements of the crops" from Chapter 1.</span>
+            <span class="th">ระบบที่ออกแบบด้วยค่า Kc <em>เฉลี่ย</em> ตลอดฤดู จะส่งน้ำไม่พอในช่วงกลางฤดู ซึ่งเป็นช่วงที่พืชอ่อนไหวที่สุดพอดี <strong>จึงต้องออกแบบระบบด้วยค่า ETc สูงสุด</strong> ซึ่งก็คือหลัก "ระบบต้องมีความสามารถรองรับการใช้น้ำสูงสุดของพืช" ที่กล่าวไว้ในบทที่ 1</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 3.8 ===================== -->
+      <section id="s-iwr">
+        <h2><span class="en">3.8 From ETc to irrigation water requirement</span><span class="th">3.8 จาก ETc สู่ความต้องการน้ำชลประทาน</span></h2>
+
+        <p>
+          <span class="en">The crop does not care where the water comes from. Rain pays part of the bill; irrigation pays the rest.</span>
+          <span class="th">พืชไม่สนใจว่าน้ำมาจากไหน ฝนจ่ายให้ส่วนหนึ่ง ส่วนที่เหลือคือหน้าที่ของการชลประทาน</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>ETc = Kc · ETo</code><span class="eq-note"><span class="en">what the crop needs</span><span class="th">ปริมาณที่พืชต้องการ</span></span></div>
+          <div class="eq result"><code>Net IWR = ETc − Pe</code><span class="eq-note"><span class="en">net irrigation water requirement</span><span class="th">ความต้องการน้ำชลประทานสุทธิ</span></span></div>
+          <div class="eq result"><code>Gross IWR = <span class="frac"><span class="num">Net IWR</span><span class="den">Ei</span></span></code><span class="eq-note"><span class="en">what must be released at the source</span><span class="th">ปริมาณที่ต้องปล่อยจากแหล่งน้ำ</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Pe</dt><dd><span class="en">effective rainfall — only the part that reaches and stays in the root zone</span><span class="th">ฝนใช้การได้ — เฉพาะส่วนที่ลงไปถึงและค้างอยู่ในเขตรากพืช</span></dd>
+          <dt>Ei</dt><dd><span class="en">overall irrigation efficiency (Chapter 7); losses in conveyance and in application</span><span class="th">ประสิทธิภาพชลประทานรวม (บทที่ 7) คือการสูญเสียทั้งระหว่างการส่งน้ำและการให้น้ำ</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why "effective" rainfall</span><span class="th">ทำไมต้องเป็น "ฝนใช้การได้"</span></div>
+          <p>
+            <span class="en">A 90 mm storm on a soil whose root zone can only hold 60 mm does not deliver 90 mm of useful water: the excess runs off or percolates below the roots. Rain that falls after harvest is worth nothing at all. Effective rainfall is always <strong>less than</strong> measured rainfall, and the difference grows with rainfall intensity.</span>
+            <span class="th">ฝนที่ตก 90 มม. ลงบนดินที่เขตรากเก็บน้ำได้เพียง 60 มม. ไม่ได้ให้น้ำที่เป็นประโยชน์ 90 มม. เพราะส่วนเกินจะไหลนองไปหรือซึมลึกเลยเขตราก ส่วนฝนที่ตกหลังเก็บเกี่ยวแล้วก็ไม่มีประโยชน์เลย ดังนั้นฝนใช้การได้จึง <strong>น้อยกว่า</strong> ปริมาณฝนที่วัดได้เสมอ และยิ่งฝนตกหนักเท่าไร ผลต่างก็ยิ่งมากขึ้น</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 3.9 ===================== -->
+      <section id="s-rid">
+        <h2><span class="en">3.9 Seasonal crop water requirements in Thailand</span><span class="th">3.9 ความต้องการน้ำของพืชตลอดฤดูในประเทศไทย</span></h2>
+
+        <p>
+          <span class="en">The Royal Irrigation Department publishes seasonal crop water requirements for every province. A sample from the Prachuap Khiri Khan table (Central and Western Thailand):</span>
+          <span class="th">กรมชลประทานเผยแพร่ค่าความต้องการน้ำของพืชตลอดฤดูปลูกไว้ทุกจังหวัด ตัวอย่างจากตารางของจังหวัดประจวบคีรีขันธ์ (ภาคกลางและภาคตะวันตก):</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th><span class="en">Crop</span><span class="th">ชนิดพืช</span></th>
+              <th><span class="en">Growth period (days)</span><span class="th">อายุการเจริญเติบโต (วัน)</span></th>
+              <th>mm/<span class="en">season</span><span class="th">ฤดู</span></th>
+              <th>m³/<span class="en">rai</span><span class="th">ไร่</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td><span class="en">Rice — RD high yield variety</span><span class="th">ข้าว — พันธุ์ผลผลิตสูงของกรมการข้าว</span></td><td class="num">100</td><td class="num">699</td><td class="num">1,119</td></tr>
+              <tr><td><span class="en">Rice — Khao Dok Mali 105</span><span class="th">ข้าว — ขาวดอกมะลิ 105</span></td><td class="num">100</td><td class="num">629</td><td class="num">1,006</td></tr>
+              <tr><td><span class="en">Maize</span><span class="th">ข้าวโพด</span></td><td class="num">100</td><td class="num">351</td><td class="num">561</td></tr>
+              <tr><td><span class="en">Sweet corn</span><span class="th">ข้าวโพดหวาน</span></td><td class="num">75</td><td class="num">274</td><td class="num">438</td></tr>
+              <tr><td><span class="en">Soy bean</span><span class="th">ถั่วเหลือง</span></td><td class="num">100</td><td class="num">373</td><td class="num">596</td></tr>
+              <tr><td><span class="en">Mung bean</span><span class="th">ถั่วเขียว</span></td><td class="num">70</td><td class="num">215</td><td class="num">344</td></tr>
+              <tr><td><span class="en">Sugarcane</span><span class="th">อ้อย</span></td><td class="num">300</td><td class="num">978</td><td class="num">1,564</td></tr>
+              <tr><td><span class="en">Asparagus</span><span class="th">หน่อไม้ฝรั่ง</span></td><td class="num">365</td><td class="num">1,526</td><td class="num">2,442</td></tr>
+              <tr><td><span class="en">Tomato</span><span class="th">มะเขือเทศ</span></td><td class="num">110</td><td class="num">494</td><td class="num">791</td></tr>
+              <tr><td><span class="en">Chinese kale</span><span class="th">คะน้า</span></td><td class="num">55</td><td class="num">165</td><td class="num">265</td></tr>
+              <tr><td><span class="en">Potato</span><span class="th">มันฝรั่ง</span></td><td class="num">95</td><td class="num">368</td><td class="num">588</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The unit conversion you will use constantly</span><span class="th">การแปลงหน่วยที่ต้องใช้บ่อยที่สุด</span></div>
+          <div class="formula">
+            <div class="eq"><code>1 rai = 1,600 m²</code></div>
+            <div class="eq"><code>volume (m³/rai) = depth (mm) × 1.6</code><span class="eq-note"><span class="en">check: 699 × 1.6 = 1,118 ≈ 1,119 ✓</span><span class="th">ตรวจสอบ: 699 × 1.6 = 1,118 ≈ 1,119 ✓</span></span></div>
+            <div class="eq"><code>volume (m³/ha) = depth (mm) × 10</code><span class="eq-note"><span class="en">1 ha = 10,000 m² = 6.25 rai</span><span class="th">1 เฮกตาร์ = 10,000 ตร.ม. = 6.25 ไร่</span></span></div>
+          </div>
+        </div>
+
+        <p>
+          <span class="en">Notice the pattern: growth period drives the total almost as strongly as the daily rate does. Sugarcane needs 978 mm not because it is thirsty per day (978/300 ≈ 3.3 mm/day) but because it stands in the field for 300 days. Chinese kale at 165 mm uses 3.0 mm/day — practically the same rate, for 55 days.</span>
+          <span class="th">ให้สังเกตรูปแบบนี้ไว้ อายุการเจริญเติบโตมีผลต่อปริมาณน้ำรวมเกือบเท่า ๆ กับอัตราการใช้น้ำรายวัน อ้อยต้องการน้ำ 978 มม. ไม่ใช่เพราะใช้น้ำมากต่อวัน (978/300 ≈ 3.3 มม./วัน) แต่เพราะอยู่ในแปลงนานถึง 300 วัน ขณะที่คะน้าใช้น้ำ 165 มม. คิดเป็น 3.0 มม./วัน ซึ่งเป็นอัตราที่แทบไม่ต่างกัน เพียงแต่อยู่ในแปลงแค่ 55 วัน</span>
+        </p>
+      </section>
+
+      <!-- ===================== 3.10 ===================== -->
+      <section id="s-tools">
+        <h2><span class="en">3.10 Tools</span><span class="th">3.10 เครื่องมือช่วยคำนวณ</span></h2>
+
+        <h3><span class="en">CROPWAT 8.0 (FAO)</span><span class="th">โปรแกรม CROPWAT 8.0 (FAO)</span></h3>
+        <p>
+          <span class="en">Eight modules: five for data input and basic calculation, three for the calculations themselves.</span>
+          <span class="th">ประกอบด้วย 8 โมดูล แบ่งเป็น 5 โมดูลสำหรับป้อนข้อมูลและคำนวณพื้นฐาน และอีก 3 โมดูลสำหรับการคำนวณผลลัพธ์</span>
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th><span class="en">Module</span><span class="th">โมดูล</span></th><th><span class="en">What it does</span><span class="th">หน้าที่</span></th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>Climate / ETo</td><td><span class="en">measured ETo, or climate data from which ETo is calculated</span><span class="th">รับค่า ETo ที่วัดได้ หรือข้อมูลอากาศเพื่อนำไปคำนวณ ETo</span></td></tr>
+              <tr><td class="num">2</td><td>Rain</td><td><span class="en">rainfall data, and calculation of effective rainfall</span><span class="th">ข้อมูลน้ำฝน และคำนวณฝนใช้การได้</span></td></tr>
+              <tr><td class="num">3</td><td>Crop</td><td><span class="en">crop data and planting date, for ETc in module 6</span><span class="th">ข้อมูลพืชและวันปลูก เพื่อใช้คำนวณ ETc ในโมดูล 6</span></td></tr>
+              <tr><td class="num">4</td><td>Soil</td><td><span class="en">soil data, for the scheduling in module 7</span><span class="th">ข้อมูลดิน เพื่อใช้จัดรอบเวรในโมดูล 7</span></td></tr>
+              <tr><td class="num">5</td><td>Crop pattern</td><td><span class="en">cropping pattern, for the scheme supply in module 8</span><span class="th">แผนการเพาะปลูก เพื่อคำนวณการส่งน้ำทั้งโครงการในโมดูล 8</span></td></tr>
+              <tr><td class="num">6</td><td>CWR</td><td><span class="en">calculation of crop water requirements</span><span class="th">คำนวณความต้องการน้ำของพืช</span></td></tr>
+              <tr><td class="num">7</td><td>Schedules</td><td><span class="en">calculation of irrigation schedules</span><span class="th">คำนวณตารางการให้น้ำ</span></td></tr>
+              <tr><td class="num">8</td><td>Scheme</td><td><span class="en">scheme water supply for a given cropping pattern</span><span class="th">คำนวณปริมาณน้ำที่ต้องส่งทั้งโครงการตามแผนการเพาะปลูก</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Remote sensing — NDVI</span><span class="th">การสำรวจระยะไกล — ค่า NDVI</span></h3>
+        <div class="formula">
+          <div class="eq"><code>NDVI = <span class="frac"><span class="num">NIR − Red</span><span class="den">NIR + Red</span></span></code><span class="eq-note"><span class="en">from satellite, aircraft or drone imagery</span><span class="th">คำนวณจากภาพถ่ายดาวเทียม เครื่องบิน หรือโดรน</span></span></div>
+        </div>
+        <p>
+          <span class="en">Healthy leaves absorb visible red light for photosynthesis and reflect large amounts of near-infrared. A high NDVI therefore means dense, healthy canopy — which relates directly to Kc and to crop stress, and lets a whole scheme be monitored without walking every field.</span>
+          <span class="th">ใบพืชที่สมบูรณ์จะดูดกลืนแสงสีแดงในช่วงที่ตามองเห็นไปใช้สังเคราะห์แสง และสะท้อนรังสีอินฟราเรดใกล้ออกมามาก ค่า NDVI ที่สูงจึงหมายถึงทรงพุ่มที่หนาแน่นและสมบูรณ์ ซึ่งสัมพันธ์โดยตรงกับค่า Kc และภาวะเครียดน้ำของพืช ทำให้ติดตามสถานะทั้งโครงการได้โดยไม่ต้องเดินสำรวจทุกแปลง</span>
+        </p>
+      </section>
+
+      <!-- ===================== Summary ===================== -->
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">ET = evaporation + transpiration, measured in mm/day.</span><span class="th">ET = การระเหย + การคายน้ำ วัดเป็น มม./วัน</span></li>
+            <li><span class="en">ETo depends on climate only; the reference is grass 0.12 m tall, rs = 70 s/m, albedo 0.23.</span><span class="th">ETo ขึ้นกับภูมิอากาศเท่านั้น พืชอ้างอิงคือหญ้าสูง 0.12 ม. rs = 70 s/m และ albedo 0.23</span></li>
+            <li><span class="en"><span class="mono">ETc = Kc · ETo</span> and <span class="mono">ETa = Ks · ETc</span>. Design on ETc; Ks = 1 is the goal of scheduling.</span><span class="th"><span class="mono">ETc = Kc · ETo</span> และ <span class="mono">ETa = Ks · ETc</span> การออกแบบใช้ ETc ส่วนเป้าหมายของการจัดรอบเวรคือรักษาให้ Ks = 1</span></li>
+            <li><span class="en">Penman-Monteith = radiation term + aerodynamic term. Energy in, vapour out.</span><span class="th">สมการ Penman-Monteith = พจน์รังสี + พจน์อากาศพลศาสตร์ คือพลังงานเข้า และไอน้ำออก</span></li>
+            <li><span class="en">Kc follows four stages; peak demand at Kc mid sets the capacity of the system.</span><span class="th">ค่า Kc เปลี่ยนตาม 4 ระยะการเจริญเติบโต โดยความต้องการสูงสุดที่ Kc กลางฤดูเป็นตัวกำหนดขนาดของระบบ</span></li>
+            <li><span class="en"><span class="mono">Net IWR = ETc − Pe</span>; <span class="mono">Gross IWR = Net IWR / Ei</span>.</span><span class="th"><span class="mono">ความต้องการน้ำชลประทานสุทธิ = ETc − Pe</span> และ <span class="mono">ปริมาณรวม = สุทธิ / Ei</span></span></li>
+            <li><span class="en">Unit conversions: 1 mm over 1 rai = 1.6 m³; 1 mm over 1 ha = 10 m³.</span><span class="th">การแปลงหน่วย: น้ำลึก 1 มม. บน 1 ไร่ = 1.6 ลบ.ม. และบน 1 เฮกตาร์ = 10 ลบ.ม.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== Exercises ===================== -->
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">Explain the difference between ETo, ETc and ETa, and state which one an engineer uses to size an irrigation system — and why not the other two.</span>
+            <span class="th">จงอธิบายความแตกต่างระหว่าง ETo, ETc และ ETa และระบุว่าวิศวกรใช้ค่าใดในการกำหนดขนาดระบบชลประทาน พร้อมเหตุผลว่าทำไมจึงไม่ใช้อีกสองค่า</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">ETo is the evapotranspiration of a fixed reference grass; it measures the <em>climate</em> only and applies to no real crop. ETc = Kc·ETo is the water use of the actual crop under standard conditions — disease-free, well fertilised, in a large field, with optimum soil water. ETa = Ks·ETc is what the crop really transpired, which is lower whenever soil water, salinity or disease limit it. <strong>Design uses ETc</strong>: ETo describes the wrong plant, and ETa describes a crop that is already suffering — sizing a system on ETa would guarantee the shortage it assumes.</span>
+            <span class="th">ETo คือค่าการคายระเหยน้ำของหญ้าอ้างอิงที่กำหนดตายตัว จึงวัด <em>ภูมิอากาศ</em> อย่างเดียวและไม่ตรงกับพืชจริงชนิดใดเลย ส่วน ETc = Kc·ETo คือการใช้น้ำของพืชจริงในสภาพมาตรฐาน คือปลอดโรค ได้ปุ๋ยเพียงพอ ปลูกในแปลงขนาดใหญ่ และมีน้ำในดินเหมาะสม ขณะที่ ETa = Ks·ETc คือค่าที่พืชคายน้ำจริง ซึ่งจะต่ำลงเมื่อถูกจำกัดด้วยน้ำในดิน ความเค็ม หรือโรคพืช <strong>การออกแบบต้องใช้ ETc</strong> เพราะ ETo เป็นค่าของพืชคนละชนิด ส่วน ETa เป็นค่าของพืชที่กำลังเสียหายอยู่แล้ว การออกแบบระบบด้วย ETa จึงเท่ากับการรับประกันว่าจะขาดน้ำตามที่สมมติไว้</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">In a given month ETo = 4.5 mm/day and the crop is in mid-season with Kc = 1.15. Effective rainfall is 1.2 mm/day. Find ETc, the net irrigation water requirement per day, and the gross requirement if the overall irrigation efficiency is 65%.</span>
+            <span class="th">ในเดือนหนึ่ง ETo = 4.5 มม./วัน พืชอยู่ในระยะกลางฤดูซึ่งมี Kc = 1.15 และมีฝนใช้การได้ 1.2 มม./วัน จงหา ETc ความต้องการน้ำชลประทานสุทธิต่อวัน และปริมาณรวมเมื่อประสิทธิภาพชลประทานรวมเท่ากับ 65%</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+              <div class="eq"><code>ETc = Kc × ETo = 1.15 × 4.5 = 5.18 mm/day</code></div>
+              <div class="eq result"><code>Net IWR = 5.18 − 1.2 = 3.98 mm/day</code></div>
+              <div class="eq result"><code>Gross IWR = <span class="frac"><span class="num">3.98</span><span class="den">0.65</span></span> = 6.12 mm/day</code></div>
+            </div>
+            <span class="en">Over a 30-day month that is 184 mm gross, or 184 × 1.6 = 294 m³ per rai. Note how much the efficiency costs: 2.14 mm/day — more than half of what the rainfall contributed.</span>
+            <span class="th">ตลอดเดือน 30 วัน คิดเป็น 184 มม. หรือ 184 × 1.6 = 294 ลบ.ม. ต่อไร่ ให้สังเกตว่าประสิทธิภาพที่ไม่ถึง 100% ทำให้ต้องเพิ่มน้ำอีก 2.14 มม./วัน ซึ่งมากกว่าครึ่งหนึ่งของปริมาณที่ฝนช่วยได้เสียอีก</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">A maize crop grows for 100 days with ETo averaging 4.0 mm/day. The stages are: initial 20 days (Kc 0.4), development 30 days (Kc rising from 0.4 to 1.15, use the average), mid-season 30 days (Kc 1.15), late 20 days (Kc falling from 1.15 to 0.6, use the average). Find the seasonal ETc in mm and in m³/rai, and compare it with the RID table value for maize.</span>
+            <span class="th">ข้าวโพดมีอายุ 100 วัน ค่า ETo เฉลี่ย 4.0 มม./วัน แบ่งระยะดังนี้ ระยะแรก 20 วัน (Kc 0.4) ระยะเจริญเติบโต 30 วัน (Kc เพิ่มจาก 0.4 เป็น 1.15 ให้ใช้ค่าเฉลี่ย) ระยะกลางฤดู 30 วัน (Kc 1.15) และระยะปลายฤดู 20 วัน (Kc ลดจาก 1.15 เป็น 0.6 ให้ใช้ค่าเฉลี่ย) จงหาค่า ETc ตลอดฤดูเป็นมิลลิเมตรและเป็น ลบ.ม./ไร่ แล้วเปรียบเทียบกับค่าของข้าวโพดในตารางกรมชลประทาน</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+              <div class="eq-head"><span class="en">Stage by stage</span><span class="th">คำนวณทีละระยะ</span></div>
+              <div class="eq"><code>initial&nbsp;&nbsp;&nbsp;&nbsp; 20 d × 0.40 × 4.0 = 32.0 mm</code></div>
+              <div class="eq"><code>development 30 d × 0.78 × 4.0 = 93.0 mm</code><span class="eq-note"><span class="en">Kc avg = (0.4+1.15)/2 = 0.775</span><span class="th">Kc เฉลี่ย = (0.4+1.15)/2 = 0.775</span></span></div>
+              <div class="eq"><code>mid-season&nbsp; 30 d × 1.15 × 4.0 = 138.0 mm</code></div>
+              <div class="eq"><code>late&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20 d × 0.875 × 4.0 = 70.0 mm</code><span class="eq-note"><span class="en">Kc avg = (1.15+0.6)/2</span><span class="th">Kc เฉลี่ย = (1.15+0.6)/2</span></span></div>
+              <div class="eq result"><code>Seasonal ETc = 333 mm</code></div>
+              <div class="eq result"><code>= 333 × 1.6 = 533 m³/rai</code></div>
+            </div>
+            <span class="en">The RID table gives 351 mm (561 m³/rai) for maize — within about 5% of our estimate, which is good agreement given that we assumed a flat ETo of 4.0 mm/day for the whole season. Note also that mid-season alone accounts for 138 of the 333 mm: 41% of the water in 30% of the time. That is why the system is sized on that stage.</span>
+            <span class="th">ตารางกรมชลประทานให้ค่าข้าวโพดไว้ที่ 351 มม. (561 ลบ.ม./ไร่) ซึ่งต่างจากค่าที่คำนวณได้ราว 5% ถือว่าใกล้เคียงมาก เมื่อพิจารณาว่าเราสมมติให้ ETo คงที่ 4.0 มม./วัน ตลอดฤดู นอกจากนี้ให้สังเกตว่าเฉพาะระยะกลางฤดูใช้น้ำ 138 มม. จาก 333 มม. คือใช้น้ำ 41% ในเวลาเพียง 30% ของฤดู นี่คือเหตุผลที่ต้องออกแบบระบบด้วยระยะนี้</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">Continue exercise 3. The maize is grown on loam with an effective root depth of 80 cm and p = 0.6 (RAW = 80.6 mm, from Chapter 2, Example 1). At peak ETc, what is the irrigation interval, and what gross depth must be delivered each time at Ea = 70%?</span>
+            <span class="th">ต่อจากข้อ 3 ข้าวโพดปลูกบนดินร่วน ความลึกเขตรากที่มีผลจริง 80 ซม. และ p = 0.6 (ได้ RAW = 80.6 มม. จากตัวอย่างที่ 1 บทที่ 2) ที่ค่า ETc สูงสุด จงหารอบเวรการให้น้ำ และความลึกน้ำรวมที่ต้องส่งในแต่ละครั้งเมื่อ Ea = 70%</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+              <div class="eq"><code>peak ETc = 1.15 × 4.0 = 4.6 mm/day</code></div>
+              <div class="eq result"><code>interval = <span class="frac"><span class="num">RAW</span><span class="den">ETc</span></span> = <span class="frac"><span class="num">80.6</span><span class="den">4.6</span></span> = 17.5 → 17 days</code></div>
+              <div class="eq"><code>net depth = 4.6 × 17 = 78.2 mm</code></div>
+              <div class="eq result"><code>gross depth = <span class="frac"><span class="num">78.2</span><span class="den">0.70</span></span> = 111.7 mm</code></div>
+            </div>
+            <span class="en">This is the whole course in one calculation: Chapter 2 supplied RAW (how big the tank is), Chapter 3 supplied ETc (how fast it empties), and the efficiency from Chapter 1 turned the crop's need into what the system must actually deliver. Note that had we used the seasonal average ETc (333/100 = 3.33 mm/day) the interval would come out as 24 days — and the crop would be in water stress for a week in mid-season.</span>
+            <span class="th">การคำนวณเดียวนี้คือทั้งวิชารวมกัน บทที่ 2 ให้ค่า RAW (ถังใหญ่แค่ไหน) บทที่ 3 ให้ค่า ETc (น้ำในถังหมดเร็วแค่ไหน) และค่าประสิทธิภาพจากบทที่ 1 แปลงความต้องการของพืชให้เป็นปริมาณที่ระบบต้องส่งจริง ให้สังเกตว่าถ้าเราใช้ ETc เฉลี่ยทั้งฤดู (333/100 = 3.33 มม./วัน) จะได้รอบเวร 24 วัน ซึ่งจะทำให้พืชขาดน้ำอยู่นานราวหนึ่งสัปดาห์ในช่วงกลางฤดู</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">In the February worked example the radiation term was 2.10 mm/day and the aerodynamic term 0.90 mm/day. Suppose the same station in April has stronger sun, higher temperature, drier air and stronger wind. Explain qualitatively what happens to each of Rn, es − ea, u₂, Δ and the two terms — and what that means for the irrigation schedule.</span>
+            <span class="th">ในตัวอย่างเดือนกุมภาพันธ์ พจน์รังสีมีค่า 2.10 มม./วัน และพจน์อากาศพลศาสตร์ 0.90 มม./วัน สมมติว่าสถานีเดียวกันในเดือนเมษายนมีแดดแรงขึ้น อุณหภูมิสูงขึ้น อากาศแห้งขึ้น และลมแรงขึ้น จงอธิบายเชิงคุณภาพว่าค่า Rn, es − ea, u₂, Δ และพจน์ทั้งสองจะเปลี่ยนไปอย่างไร และมีผลอย่างไรต่อรอบเวรการให้น้ำ</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">The sun is higher and days are longer, so Ra and hence Rs and Rn all rise — the radiation term grows. Higher temperature raises es steeply (it is exponential in T), while drier air lowers ea, so the deficit es − ea widens considerably; combined with a larger u₂ the aerodynamic term grows even faster in proportion. Δ also increases with temperature, which shifts the weighting <em>towards</em> the radiation term, partly offsetting. The net effect is a substantially larger ETo — 5 to 7 mm/day is typical for the Thai hot season against 3 in February. Consequences: ETc roughly doubles, so RAW is emptied in about half the time and <strong>the irrigation interval must be halved</strong>, while the depth per irrigation stays the same (it is set by RAW, a soil property). Peak demand in April, not February, is what the system must be sized for.</span>
+            <span class="th">ดวงอาทิตย์อยู่สูงขึ้นและกลางวันยาวขึ้น ค่า Ra จึงเพิ่ม ส่งผลให้ Rs และ Rn เพิ่มตาม พจน์รังสีจึงใหญ่ขึ้น ส่วนอุณหภูมิที่สูงขึ้นทำให้ es เพิ่มขึ้นอย่างรวดเร็ว (เพราะเป็นฟังก์ชันเอกซ์โพเนนเชียลของ T) ขณะที่อากาศแห้งทำให้ ea ลดลง ค่าความพร่อง es − ea จึงกว้างขึ้นมาก เมื่อรวมกับ u₂ ที่แรงขึ้น พจน์อากาศพลศาสตร์จึงโตเร็วกว่าในเชิงสัดส่วน ทั้งนี้ค่า Δ ก็เพิ่มตามอุณหภูมิด้วย ซึ่งจะดึงน้ำหนักกลับ <em>ไปทาง</em> พจน์รังสี จึงหักล้างกันไปบางส่วน ผลรวมสุทธิคือ ETo สูงขึ้นมาก โดยฤดูร้อนของไทยมักอยู่ที่ 5–7 มม./วัน เทียบกับ 3 มม./วัน ในเดือนกุมภาพันธ์ ผลที่ตามมาคือ ETc เพิ่มขึ้นราวเท่าตัว น้ำ RAW จึงหมดในเวลาประมาณครึ่งเดียว <strong>รอบเวรการให้น้ำต้องสั้นลงครึ่งหนึ่ง</strong> ขณะที่ความลึกน้ำต่อครั้งยังเท่าเดิม เพราะถูกกำหนดด้วย RAW ซึ่งเป็นคุณสมบัติของดิน และความต้องการสูงสุดที่ต้องใช้ออกแบบระบบคือเดือนเมษายน ไม่ใช่เดือนกุมภาพันธ์</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">A farmer reports 90 mm of rain in one storm and asks you to skip the next two irrigations of 55 mm each. The crop is on clay loam with RAW = 56.7 mm and TAW = 113.4 mm, and the soil was at the refill point when the rain fell. What do you tell him?</span>
+            <span class="th">เกษตรกรแจ้งว่ามีฝนตก 90 มม. ในครั้งเดียว และขอให้งดการให้น้ำสองครั้งถัดไปที่ครั้งละ 55 มม. พืชปลูกบนดินร่วนเหนียวที่มี RAW = 56.7 มม. และ TAW = 113.4 มม. โดยขณะฝนตกดินอยู่ที่จุดที่ต้องให้น้ำพอดี จงให้คำแนะนำแก่เกษตรกรรายนี้</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">At the refill point the root zone is short by RAW = 56.7 mm, so it can absorb only 56.7 mm before reaching field capacity. Of the 90 mm that fell, at most about 57 mm is <strong>effective</strong>; the remaining 33 mm runs off or percolates below the roots and is lost. So the rain has paid for roughly one irrigation of 55 mm, not two. Skip the next irrigation, then resume the normal schedule counting the interval from the day of the storm. Skipping both would put the crop past the refill point and into the stress zone, where Ks &lt; 1 and yield is already being lost.</span>
+            <span class="th">ที่จุดที่ต้องให้น้ำ เขตรากพืชพร่องน้ำอยู่เท่ากับ RAW = 56.7 มม. จึงรับน้ำเพิ่มได้เพียง 56.7 มม. ก่อนจะถึงความจุสนาม ดังนั้นจากฝน 90 มม. ที่ตกลงมา มีเพียงราว 57 มม. เท่านั้นที่เป็น <strong>ฝนใช้การได้</strong> ส่วนที่เหลืออีก 33 มม. ไหลนองไปหรือซึมลึกเลยเขตรากและสูญเปล่า สรุปคือฝนครั้งนี้ทดแทนการให้น้ำได้ประมาณหนึ่งครั้งที่ 55 มม. ไม่ใช่สองครั้ง จึงควรงดการให้น้ำครั้งถัดไปเพียงครั้งเดียว แล้วกลับสู่รอบเวรปกติโดยเริ่มนับรอบใหม่จากวันที่ฝนตก หากงดทั้งสองครั้ง ดินจะเลยจุดที่ต้องให้น้ำเข้าสู่ช่วงเครียดน้ำ ซึ่ง Ks น้อยกว่า 1 และผลผลิตเริ่มเสียหายแล้ว</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Graded quiz ===================== -->
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">ข้อสอบเก็บคะแนน</span></h2>
+        <p class="quiz-note">
+          <span class="en">10 questions · 1 point each · answer all, then submit. Your best score is kept in this browser.</span>
+          <span class="th">10 ข้อ · ข้อละ 1 คะแนน · ตอบให้ครบแล้วกดส่งคำตอบ ระบบจะเก็บคะแนนสูงสุดไว้ในเบราว์เซอร์นี้</span>
+        </p>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 3 · Plant Water Use &amp; Crop Water Requirements</span>
+      <span class="th">บทที่ 3 · การใช้น้ำของพืชและความต้องการน้ำของพืช</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'Evapotranspiration (ET) is defined as:',
+         th: 'การคายระเหยน้ำ (ET) หมายถึงข้อใด' },
+    choices: [
+      { en: 'Evaporation from the soil only', th: 'การระเหยจากผิวดินเพียงอย่างเดียว' },
+      { en: 'Transpiration from the leaves only', th: 'การคายน้ำจากใบพืชเพียงอย่างเดียว' },
+      { en: 'Evaporation + transpiration', th: 'การระเหย + การคายน้ำ' },
+      { en: 'Rainfall − runoff', th: 'น้ำฝน − น้ำไหลนอง' }
+    ],
+    answer: 2,
+    why: { en: 'They are measured together because in the field they cannot be separated, and both remove water from the root zone.',
+           th: 'วัดรวมกันเพราะในแปลงจริงแยกจากกันไม่ได้ และทั้งสองทางต่างก็นำน้ำออกจากเขตรากพืชเหมือนกัน' }
+  },
+  {
+    q: { en: 'The reference crop for ETo is defined as grass of which height, surface resistance and albedo?',
+         th: 'พืชอ้างอิงสำหรับค่า ETo กำหนดเป็นหญ้าที่มีความสูง ความต้านทานที่ผิว และค่า albedo เท่าใด' },
+    choices: [
+      { en: '0.12 m · 70 s/m · 0.23', th: '0.12 ม. · 70 s/m · 0.23' },
+      { en: '0.50 m · 100 s/m · 0.30', th: '0.50 ม. · 100 s/m · 0.30' },
+      { en: '0.12 m · 100 s/m · 0.30', th: '0.12 ม. · 100 s/m · 0.30' },
+      { en: '1.00 m · 70 s/m · 0.23',  th: '1.00 ม. · 70 s/m · 0.23' }
+    ],
+    answer: 0,
+    why: { en: 'Grass 0.12 m tall, surface resistance 70 s/m, albedo 0.23 — actively growing and adequately watered.',
+           th: 'หญ้าสูง 0.12 ม. ความต้านทานที่ผิว 70 s/m และ albedo 0.23 ในสภาพกำลังเจริญเติบโตและได้รับน้ำเพียงพอ' }
+  },
+  {
+    q: { en: 'Which relationship is correct?',
+         th: 'ความสัมพันธ์ในข้อใดถูกต้อง' },
+    choices: [
+      { en: 'ETo = Kc · ETc',  th: 'ETo = Kc · ETc' },
+      { en: 'ETc = Kc · ETo',  th: 'ETc = Kc · ETo' },
+      { en: 'ETc = Ks · ETo',  th: 'ETc = Ks · ETo' },
+      { en: 'ETa = Kc · ETo',  th: 'ETa = Kc · ETo' }
+    ],
+    answer: 1,
+    why: { en: 'The chain is ETo → ×Kc → ETc → ×Ks → ETa. Kc converts the reference grass into your crop; Ks accounts for water stress.',
+           th: 'ลูกโซ่คือ ETo → ×Kc → ETc → ×Ks → ETa โดย Kc แปลงจากหญ้าอ้างอิงมาเป็นพืชของเรา ส่วน Ks คิดผลของความเครียดน้ำ' }
+  },
+  {
+    q: { en: 'ETo = 5.0 mm/day and Kc = 0.9. What is ETc?',
+         th: 'ถ้า ETo = 5.0 มม./วัน และ Kc = 0.9 ค่า ETc เท่ากับเท่าใด' },
+    choices: [
+      { en: '4.5 mm/day', th: '4.5 มม./วัน' },
+      { en: '5.6 mm/day', th: '5.6 มม./วัน' },
+      { en: '5.9 mm/day', th: '5.9 มม./วัน' },
+      { en: '0.18 mm/day', th: '0.18 มม./วัน' }
+    ],
+    answer: 0,
+    why: { en: 'ETc = Kc × ETo = 0.9 × 5.0 = 4.5 mm/day. A Kc below 1 means the crop uses less than the reference grass.',
+           th: 'ETc = Kc × ETo = 0.9 × 5.0 = 4.5 มม./วัน ค่า Kc ที่ต่ำกว่า 1 หมายความว่าพืชใช้น้ำน้อยกว่าหญ้าอ้างอิง' }
+  },
+  {
+    q: { en: 'Which value of Ks means the crop is NOT under water stress?',
+         th: 'ค่า Ks ในข้อใดหมายความว่าพืชไม่อยู่ในภาวะเครียดน้ำ' },
+    choices: [
+      { en: 'Ks = 0',   th: 'Ks = 0' },
+      { en: 'Ks = 0.5', th: 'Ks = 0.5' },
+      { en: 'Ks = 1.0', th: 'Ks = 1.0' },
+      { en: 'Ks = 1.5', th: 'Ks = 1.5' }
+    ],
+    answer: 2,
+    why: { en: 'Ks = 1 means ETa = ETc: the crop transpires freely. Keeping soil water within RAW is exactly what keeps Ks = 1.',
+           th: 'Ks = 1 หมายถึง ETa = ETc คือพืชคายน้ำได้เต็มที่ การรักษาความชื้นในดินให้อยู่ในช่วง RAW คือสิ่งที่ทำให้ Ks = 1' }
+  },
+  {
+    q: { en: 'In the Penman-Monteith equation, the term 0.408 Δ (Rn − G) is called:',
+         th: 'ในสมการ Penman-Monteith พจน์ 0.408 Δ (Rn − G) เรียกว่าอะไร' },
+    choices: [
+      { en: 'The aerodynamic term', th: 'พจน์อากาศพลศาสตร์' },
+      { en: 'The radiation term',   th: 'พจน์รังสี' },
+      { en: 'The psychrometric term', th: 'พจน์ไซโครเมตริก' },
+      { en: 'The soil heat term',   th: 'พจน์ความร้อนในดิน' }
+    ],
+    answer: 1,
+    why: { en: 'It is the energy from the sun that drives evaporation. The other half, γ·900/(T+273)·u₂(es−ea), is the aerodynamic term.',
+           th: 'เป็นพลังงานจากดวงอาทิตย์ที่ผลักดันให้เกิดการระเหย ส่วนอีกครึ่งหนึ่ง γ·900/(T+273)·u₂(es−ea) คือพจน์อากาศพลศาสตร์' }
+  },
+  {
+    q: { en: 'In the February worked example, ETo came out as:',
+         th: 'ในตัวอย่างการคำนวณเดือนกุมภาพันธ์ ได้ค่า ETo เท่าใด' },
+    choices: [
+      { en: '0.90 mm/day', th: '0.90 มม./วัน' },
+      { en: '2.10 mm/day', th: '2.10 มม./วัน' },
+      { en: '3.00 mm/day', th: '3.00 มม./วัน' },
+      { en: '8.52 mm/day', th: '8.52 มม./วัน' }
+    ],
+    answer: 2,
+    why: { en: 'ETo = radiation term 2.10 + aerodynamic term 0.90 = 3.00 mm/day, or about 84 mm for the month. 8.52 is Rn in MJ/m²/day, not ETo.',
+           th: 'ETo = พจน์รังสี 2.10 + พจน์อากาศพลศาสตร์ 0.90 = 3.00 มม./วัน หรือราว 84 มม. ต่อเดือน ส่วน 8.52 คือค่า Rn ในหน่วย MJ/m²/วัน ไม่ใช่ ETo' }
+  },
+  {
+    q: { en: 'During which growth stage is Kc — and therefore the peak system capacity — highest?',
+         th: 'ค่า Kc สูงสุด ซึ่งเป็นตัวกำหนดขนาดสูงสุดของระบบ อยู่ในระยะการเจริญเติบโตใด' },
+    choices: [
+      { en: 'Initial stage', th: 'ระยะแรก' },
+      { en: 'Development stage', th: 'ระยะเจริญเติบโต' },
+      { en: 'Mid-season stage', th: 'ระยะกลางฤดู' },
+      { en: 'Late season stage', th: 'ระยะปลายฤดู' }
+    ],
+    answer: 2,
+    why: { en: 'At mid-season the canopy is complete and water use peaks. Sizing a system on the seasonal average instead would starve the crop exactly then.',
+           th: 'ในระยะกลางฤดูทรงพุ่มปิดคลุมเต็มที่และใช้น้ำสูงสุด หากออกแบบระบบด้วยค่าเฉลี่ยทั้งฤดู พืชจะขาดน้ำในช่วงนี้พอดี' }
+  },
+  {
+    q: { en: 'A crop needs 400 mm over its season. How many m³ per rai is that?',
+         th: 'พืชชนิดหนึ่งต้องการน้ำ 400 มม. ตลอดฤดูปลูก คิดเป็นกี่ลูกบาศก์เมตรต่อไร่' },
+    choices: [
+      { en: '400 m³/rai',  th: '400 ลบ.ม./ไร่' },
+      { en: '640 m³/rai',  th: '640 ลบ.ม./ไร่' },
+      { en: '4,000 m³/rai', th: '4,000 ลบ.ม./ไร่' },
+      { en: '250 m³/rai',  th: '250 ลบ.ม./ไร่' }
+    ],
+    answer: 1,
+    why: { en: '1 rai = 1,600 m², so 0.400 m × 1,600 m² = 640 m³. Shortcut: mm × 1.6 = m³/rai.',
+           th: '1 ไร่ = 1,600 ตร.ม. ดังนั้น 0.400 ม. × 1,600 ตร.ม. = 640 ลบ.ม. วิธีลัด: มม. × 1.6 = ลบ.ม./ไร่' }
+  },
+  {
+    q: { en: 'ETc = 6 mm/day, effective rainfall = 1.5 mm/day, overall irrigation efficiency = 60%. What gross depth must be released per day?',
+         th: 'ETc = 6 มม./วัน ฝนใช้การได้ 1.5 มม./วัน ประสิทธิภาพชลประทานรวม 60% ต้องปล่อยน้ำรวมวันละกี่มิลลิเมตร' },
+    choices: [
+      { en: '2.7 mm/day',  th: '2.7 มม./วัน' },
+      { en: '4.5 mm/day',  th: '4.5 มม./วัน' },
+      { en: '7.5 mm/day',  th: '7.5 มม./วัน' },
+      { en: '10.0 mm/day', th: '10.0 มม./วัน' }
+    ],
+    answer: 2,
+    why: { en: 'Net IWR = 6 − 1.5 = 4.5 mm/day; gross = 4.5 / 0.60 = 7.5 mm/day. Choice 2 forgets the efficiency; choice 1 multiplies by it instead of dividing.',
+           th: 'ความต้องการสุทธิ = 6 − 1.5 = 4.5 มม./วัน แล้วปริมาณรวม = 4.5 / 0.60 = 7.5 มม./วัน ข้อ ข. คือลืมคิดประสิทธิภาพ ส่วนข้อ ก. คือเอาไปคูณแทนที่จะหาร' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>

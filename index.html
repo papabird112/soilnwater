@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Irrigation Technology · เทคโนโลยีการชลประทาน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="stage">
+  <div class="topbar">
+    <div class="topbar-left">
+      <a class="sidebar-brand" href="index.html" style="padding:0">Irrigation.</a>
+    </div>
+    <div class="topbar-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="th">TH</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <span class="chapter-number">
+      <span class="en">Course site · Asst. Prof. Charatchai Yenphayap</span>
+      <span class="th">เว็บไซต์ประกอบการเรียน · ผศ.จรัสชัย เย็นพยับ</span>
+    </span>
+    <h1>
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </h1>
+    <p class="subtitle">
+      <span class="en">When to irrigate, how much water to apply, and how to apply it efficiently — from soil water and crop water use to methods, systems, and management.</span>
+      <span class="th">ให้น้ำเมื่อไร ให้เท่าไร และให้อย่างไรจึงมีประสิทธิภาพ — ตั้งแต่น้ำในดิน การใช้น้ำของพืช วิธีการให้น้ำ ระบบชลประทาน จนถึงการจัดการน้ำ</span>
+    </p>
+
+    <div class="quote">
+      <p>Irrigation in many countries is an old art — as old as civilization — but for the whole world it is a modern science: the science of survival.</p>
+      <cite>N. D. Gulhati, India</cite>
+    </div>
+
+    <p class="quiz-note">
+      <span class="en">Every chapter ends with practice exercises (with worked answers) and a graded quiz.</span>
+      <span class="th">ทุกบทมีแบบฝึกหัดท้ายบทพร้อมเฉลย และข้อสอบเก็บคะแนน</span>
+    </p>
+  </div>
+
+  <ul class="toc-list" id="toc"></ul>
+
+  <footer>
+    <span class="en">Built from course slides, ASABE Irrigation Systems Management, and SCS NEH Section 15</span>
+    <span class="th">เรียบเรียงจากเอกสารประกอบการสอน, ASABE Irrigation Systems Management และ SCS NEH Section 15</span>
+  </footer>
+</div>
+
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+<script>
+  document.querySelector('#toc').innerHTML = CHAPTERS.map((c, i) => `
+    <li><a class="toc-link ${c.ready ? '' : 'todo'}" href="${c.ready ? c.file : '#'}">
+      <span class="toc-num">${String(i + 1).padStart(2, '0')}</span>
+      <span class="toc-text">
+        <span class="en">${c.en}</span><span class="th">${c.th}</span>
+        <small><span class="en">Exercises + graded quiz</span><span class="th">แบบฝึกหัด + ข้อสอบเก็บคะแนน</span></small>
+      </span>
+      <span class="badge">${c.ready
+        ? '<span class="en">Ready</span><span class="th">พร้อมเรียน</span>'
+        : '<span class="en">Coming soon</span><span class="th">เร็ว ๆ นี้</span>'}</span>
+    </a></li>`).join('');
+</script>
+</body>
+</html>

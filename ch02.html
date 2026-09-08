@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 2 น้ำในดิน · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-chapter="ch02">
+
+<div class="layout">
+
+  <!-- ===== Sidebar (rendered by js/sidebar.js from the chapter registry) ===== -->
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <!-- ===== Stage ===== -->
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">2 · Soil Water</span>
+          <span class="th">บทที่ 2 · น้ำในดิน</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 2</span><span class="th">บทที่ 2</span>
+        </span>
+        <h1>
+          <span class="en">Soil Water</span>
+          <span class="th">น้ำในดิน</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">This chapter answers the first question of the course — <em>when</em> to irrigate — by learning to measure the tank: how much water the soil holds, how much of it the crop can actually use, and how much is left right now.</span>
+          <span class="th">บทนี้ตอบคำถามข้อแรกของวิชา คือ <em>จะให้น้ำเมื่อไร</em> ด้วยการเรียนรู้วิธี "วัดถังน้ำ" ว่าดินเก็บน้ำได้เท่าไร พืชใช้ได้จริงเท่าไร และตอนนี้เหลืออยู่เท่าไร</span>
+        </p>
+      </header>
+
+      <!-- ===================== 2.1 ===================== -->
+      <section id="s-phase">
+        <h2><span class="en">2.1 Soil is three things at once</span><span class="th">2.1 ดินประกอบด้วยสามส่วนพร้อมกัน</span></h2>
+
+        <p>
+          <span class="en">A block of field soil is never solid. It is a mixture of <strong>solid particles</strong>, <strong>water</strong> and <strong>air</strong>, and the three compete for the same total volume: when water goes in, air goes out. Every soil-water formula in this chapter comes from bookkeeping on this one diagram.</span>
+          <span class="th">ดินในแปลงไม่เคยเป็นเนื้อตันทั้งก้อน แต่เป็นส่วนผสมของ <strong>เม็ดดิน</strong> <strong>น้ำ</strong> และ <strong>อากาศ</strong> ทั้งสามส่วนแย่งกันอยู่ในปริมาตรรวมก้อนเดียวกัน เมื่อน้ำเข้าไปมากขึ้น อากาศก็ถูกไล่ออกไป ทุกสูตรเรื่องน้ำในดินในบทนี้ล้วนมาจากการทำบัญชีบนแผนภาพรูปเดียวนี้</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 350" role="img" aria-label="Soil three-phase diagram">
+            <!-- column headings -->
+            <g font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="var(--ink)" text-anchor="middle">
+              <text x="205" y="42" class="en">VOLUME</text>
+              <text x="205" y="42" class="th">ปริมาตร</text>
+              <text x="530" y="42" class="en">MASS</text>
+              <text x="530" y="42" class="th">มวล</text>
+            </g>
+
+            <!-- the three phases -->
+            <g stroke="var(--ink)" stroke-width="1.3">
+              <rect x="290" y="60"  width="180" height="52" fill="var(--rule)"   opacity=".45"/>
+              <rect x="290" y="112" width="180" height="66" fill="var(--accent)" opacity=".45"/>
+              <rect x="290" y="178" width="180" height="92" fill="var(--ink)"    opacity=".30"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--ink)" text-anchor="middle">
+              <text x="380" y="92"  class="en">Air</text>
+              <text x="380" y="92"  class="th">อากาศ</text>
+              <text x="380" y="151" class="en">Water</text>
+              <text x="380" y="151" class="th">น้ำ</text>
+              <text x="380" y="230" class="en">Soil solids</text>
+              <text x="380" y="230" class="th">เม็ดดิน</text>
+            </g>
+
+            <!-- volume brackets -->
+            <g stroke="var(--ink-soft)" stroke-width="1.1" fill="none">
+              <path d="M275,60 L268,60 M268,60 L268,112 M275,112 L268,112"/>
+              <path d="M275,112 L268,112 M268,112 L268,178 M275,178 L268,178"/>
+              <path d="M275,178 L268,178 M268,178 L268,270 M275,270 L268,270"/>
+              <path d="M245,60 L238,60 M238,60 L238,178 M245,178 L238,178"/>
+              <path d="M205,60 L198,60 M198,60 L198,270 M205,270 L198,270"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink)" text-anchor="end">
+              <text x="262" y="90">Va</text>
+              <text x="262" y="149">Vw</text>
+              <text x="262" y="228">Vs</text>
+              <text x="232" y="123">Vv</text>
+              <text x="192" y="168">V</text>
+            </g>
+
+            <!-- mass brackets -->
+            <g stroke="var(--ink-soft)" stroke-width="1.1" fill="none">
+              <path d="M485,112 L492,112 M492,112 L492,178 M485,178 L492,178"/>
+              <path d="M485,178 L492,178 M492,178 L492,270 M485,270 L492,270"/>
+              <path d="M515,60 L522,60 M522,60 L522,270 M515,270 L522,270"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink)">
+              <text x="498" y="149">Mw</text>
+              <text x="498" y="228">Ms</text>
+              <text x="528" y="168">M</text>
+              <text x="498" y="90" fill="var(--ink-soft)">Ma ≈ 0</text>
+            </g>
+
+            <!-- equations -->
+            <line x1="60" y1="292" x2="660" y2="292" stroke="var(--rule)"/>
+            <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--ink)">
+              <text x="60" y="316">V = Va + Vw + Vs</text>
+              <text x="60" y="336" font-size="11.5" fill="var(--ink-soft)">Vv = Va + Vw</text>
+              <text x="400" y="316">M = Ma + Mw + Ms</text>
+              <text x="400" y="336" font-size="11.5" fill="var(--ink-soft)" class="en">air has no useful mass</text>
+              <text x="400" y="336" font-size="11.5" fill="var(--ink-soft)" class="th">มวลอากาศถือว่าเป็นศูนย์</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 2.1 — The three-phase diagram of soil. Volumes on the left, masses on the right; <span class="mono">Vv</span> is the pore space that air and water share.</span>
+            <span class="th">รูปที่ 2.1 — แผนภาพสามเฟสของดิน ด้านซ้ายคือปริมาตร ด้านขวาคือมวล โดย <span class="mono">Vv</span> คือช่องว่างในดินที่อากาศและน้ำใช้ร่วมกัน</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== 2.2 ===================== -->
+      <section id="s-props">
+        <h2><span class="en">2.2 Soil moisture properties</span><span class="th">2.2 คุณสมบัติของดินที่เกี่ยวกับความชื้น</span></h2>
+
+        <div class="formula">
+            <div class="eq"><code>As = <span class="frac"><span class="num">Ms</span><span class="den">V · γw</span></span></code><span class="eq-note"><span class="en">apparent specific gravity (no unit)</span><span class="th">ความถ่วงจำเพาะปรากฏ (ไม่มีหน่วย)</span></span></div>
+            <div class="eq"><code>DB = <span class="frac"><span class="num">Ms</span><span class="den">V</span></span></code><span class="eq-note"><span class="en">bulk density (g/cm³)</span><span class="th">ความหนาแน่นรวม (g/cm³)</span></span></div>
+            <div class="eq"><code>n (%) = 100 · <span class="frac"><span class="num">Vv</span><span class="den">V</span></span></code><span class="eq-note"><span class="en">porosity (%)</span><span class="th">ความพรุน (%)</span></span></div>
+          </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Ms</dt><dd><span class="en">mass of oven-dry soil (g)</span><span class="th">มวลดินอบแห้ง (กรัม)</span></dd>
+          <dt>V</dt><dd><span class="en">total volume of the sample (cm³)</span><span class="th">ปริมาตรรวมของตัวอย่างดิน (cm³)</span></dd>
+          <dt>Vv</dt><dd><span class="en">volume of voids = Va + Vw (cm³)</span><span class="th">ปริมาตรช่องว่างในดิน = Va + Vw (cm³)</span></dd>
+          <dt>γw</dt><dd><span class="en">unit weight of water = 1 g/cm³</span><span class="th">หน่วยน้ำหนักของน้ำ = 1 g/cm³</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why As and DB look the same</span><span class="th">ทำไม As กับ DB จึงมีค่าเท่ากัน</span></div>
+          <p>
+            <span class="en">Because γw = 1 g/cm³, the number for <strong>As</strong> is numerically identical to <strong>DB</strong> in g/cm³ — but As is a pure ratio with <em>no unit</em>, while DB carries g/cm³. Use As inside the moisture formulas so the units cancel cleanly.</span>
+            <span class="th">เนื่องจาก γw = 1 g/cm³ ค่าตัวเลขของ <strong>As</strong> จึงเท่ากับ <strong>DB</strong> ที่มีหน่วย g/cm³ ทุกประการ ต่างกันตรงที่ As เป็นอัตราส่วนล้วน <em>ไม่มีหน่วย</em> ส่วน DB มีหน่วย g/cm³ ในสูตรคำนวณความชื้นให้ใช้ As เพื่อให้หน่วยตัดกันหมดพอดี</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Typical values: a loose sandy soil has As ≈ 1.55–1.80; a heavy clay, which holds far more pore space, has As ≈ 1.20–1.30. <strong>A low As means a lot of pore space, which means a lot of room for water.</strong> Compaction raises DB and destroys that room — which is why traffic pans matter to an irrigation engineer.</span>
+          <span class="th">ค่าโดยทั่วไป: ดินทรายที่มีเนื้อหยาบและร่วน As ≈ 1.55–1.80 ส่วนดินเหนียวจัดซึ่งมีช่องว่างมากกว่า As ≈ 1.20–1.30 <strong>ค่า As ต่ำ หมายถึงช่องว่างในดินมาก จึงมีที่ให้น้ำอยู่มาก</strong> การอัดแน่นของดินทำให้ DB สูงขึ้นและทำลายช่องว่างเหล่านั้น นี่คือเหตุผลที่ชั้นดินดานจากการบดอัดเป็นเรื่องสำคัญสำหรับวิศวกรชลประทาน</span>
+        </p>
+      </section>
+
+      <!-- ===================== 2.3 ===================== -->
+      <section id="s-moisture">
+        <h2><span class="en">2.3 Soil moisture calculation</span><span class="th">2.3 การคำนวณความชื้นในดิน</span></h2>
+
+        <p>
+          <span class="en">Soil moisture is reported two ways, and confusing them is the single most common mistake in this subject.</span>
+          <span class="th">ความชื้นในดินรายงานได้สองแบบ และการสับสนระหว่างสองแบบนี้คือความผิดพลาดที่พบบ่อยที่สุดในวิชานี้</span>
+        </p>
+
+        <div class="formula">
+            <div class="eq"><code>θM (%) = 100 · <span class="frac"><span class="num">Mw</span><span class="den">Ms</span></span></code><span class="eq-note"><span class="en">moisture by dry mass</span><span class="th">ความชื้นโดยมวลดินแห้ง</span></span></div>
+            <div class="eq"><code>θV (%) = 100 · <span class="frac"><span class="num">Vw</span><span class="den">V</span></span></code><span class="eq-note"><span class="en">moisture by volume</span><span class="th">ความชื้นโดยปริมาตร</span></span></div>
+            <div class="eq"><code>θV (%) = θM (%) · As</code><span class="eq-note"><span class="en">the bridge between the two</span><span class="th">สะพานเชื่อมระหว่างสองแบบ</span></span></div>
+            <div class="eq result"><code>d (mm) = <span class="frac"><span class="num">θV (%) · D</span><span class="den">100</span></span></code><span class="eq-note"><span class="en">depth of water in the layer</span><span class="th">ความลึกน้ำในชั้นดินนั้น</span></span></div>
+          </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Mw</dt><dd><span class="en">mass of water in the sample (g)</span><span class="th">มวลน้ำในตัวอย่างดิน (กรัม)</span></dd>
+          <dt>Vw</dt><dd><span class="en">volume of water (cm³)</span><span class="th">ปริมาตรน้ำ (cm³)</span></dd>
+          <dt>D</dt><dd><span class="en">depth of the soil layer (mm)</span><span class="th">ความลึกของชั้นดิน (มม.)</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the last line again</span><span class="th">อ่านบรรทัดสุดท้ายอีกครั้ง</span></div>
+          <p>
+            <span class="en">The line <span class="mono">d = θV · D / 100</span> is the whole point of the chapter: it converts a laboratory percentage into <strong>millimetres of water</strong> — the same unit as rainfall, as ET, and as the irrigation you are about to apply. Once soil moisture is in millimetres, every quantity in irrigation can be added and subtracted in one water balance.</span>
+            <span class="th">บรรทัด <span class="mono">d = θV · D / 100</span> คือหัวใจของบทนี้ เพราะเป็นการแปลงค่าเปอร์เซ็นต์จากห้องปฏิบัติการให้กลายเป็น <strong>มิลลิเมตรของน้ำ</strong> ซึ่งเป็นหน่วยเดียวกับน้ำฝน ค่า ET และน้ำชลประทานที่กำลังจะให้ เมื่อความชื้นในดินอยู่ในหน่วยมิลลิเมตรแล้ว ทุกปริมาณในงานชลประทานก็บวกลบกันได้ในสมดุลน้ำเดียวกัน</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Worked micro-example</span><span class="th">ตัวอย่างสั้น ๆ</span></h3>
+        <p>
+          <span class="en">A sample weighs 240 g wet and 200 g after oven drying. The soil has As = 1.35 and the layer is 300 mm deep.</span>
+          <span class="th">ตัวอย่างดินหนัก 240 กรัมขณะชื้น และหนัก 200 กรัมหลังอบแห้ง ดินมีค่า As = 1.35 และชั้นดินหนา 300 มม.</span>
+        </p>
+        <div class="formula">
+            <div class="eq-head"><span class="en">Given</span><span class="th">ข้อมูลที่ให้</span></div>
+            <div class="eq"><code class="en">wet 240 g · oven-dry 200 g · As = 1.35 · D = 300 mm</code><code class="th">ชื้น 240 g · อบแห้ง 200 g · As = 1.35 · D = 300 มม.</code></div>
+            <div class="eq-head"><span class="en">Solution</span><span class="th">วิธีทำ</span></div>
+            <div class="eq"><code>Mw = 240 − 200 = 40 g</code><span class="eq-note"><span class="en">mass of water</span><span class="th">มวลน้ำ</span></span></div>
+            <div class="eq"><code>θM = 100 × <span class="frac"><span class="num">40</span><span class="den">200</span></span> = 20 %</code><span class="eq-note"><span class="en">by dry mass</span><span class="th">โดยมวลดินแห้ง</span></span></div>
+            <div class="eq"><code>θV = 20 × 1.35 = 27 %</code><span class="eq-note"><span class="en">by volume</span><span class="th">โดยปริมาตร</span></span></div>
+            <div class="eq result"><code>d = <span class="frac"><span class="num">27 × 300</span><span class="den">100</span></span> = 81 mm</code><span class="eq-note"><span class="en">water in that layer</span><span class="th">น้ำในชั้นดินนั้น</span></span></div>
+          </div>
+      </section>
+
+      <!-- ===================== 2.4 ===================== -->
+      <section id="s-texture">
+        <h2><span class="en">2.4 Soil texture</span><span class="th">2.4 เนื้อดิน</span></h2>
+
+        <p>
+          <span class="en">Texture is the proportion of sand, silt and clay in the soil. It is fixed for a given field — you cannot change it by management — and it controls nearly everything else: how fast water enters, how much is held, and how tightly.</span>
+          <span class="th">เนื้อดินคือสัดส่วนของทราย ทรายแป้ง และดินเหนียวในดินนั้น เป็นสมบัติที่คงที่สำหรับแปลงหนึ่ง ๆ เปลี่ยนด้วยการจัดการไม่ได้ และเป็นตัวควบคุมเกือบทุกอย่างที่เหลือ ทั้งอัตราการซึมของน้ำ ปริมาณน้ำที่เก็บได้ และแรงยึดน้ำของดิน</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 175" role="img" aria-label="Soil particle size classification">
+            <g stroke="var(--ink)" stroke-width="1.2">
+              <rect x="60"  y="60" width="160" height="46" fill="var(--accent)"     opacity=".30"/>
+              <rect x="220" y="60" width="200" height="46" fill="var(--accent-light)" opacity=".45"/>
+              <rect x="420" y="60" width="240" height="46" fill="var(--rule)"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="var(--ink)">
+              <text x="140" y="89" class="en">CLAY</text>
+              <text x="140" y="89" class="th">ดินเหนียว</text>
+              <text x="320" y="89" class="en">SILT</text>
+              <text x="320" y="89" class="th">ทรายแป้ง</text>
+              <text x="540" y="89" class="en">SAND</text>
+              <text x="540" y="89" class="th">ทราย</text>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle" fill="var(--ink-soft)">
+              <text x="140" y="128">φ &lt; 0.002 mm</text>
+              <text x="320" y="128">φ = 0.002 – 0.05 mm</text>
+              <text x="540" y="128">φ &gt; 0.05 mm</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <text x="60" y="44" class="en">finer particles → more surface area → holds more water, more tightly</text>
+              <text x="60" y="44" class="th">อนุภาคเล็กลง → พื้นที่ผิวมากขึ้น → เก็บน้ำได้มากขึ้นและยึดแน่นขึ้น</text>
+              <text x="60" y="156" class="en">Slow intake, high storage</text>
+              <text x="60" y="156" class="th">ซึมช้า เก็บน้ำได้มาก</text>
+              <text x="660" y="156" text-anchor="end" class="en">Fast intake, low storage</text>
+              <text x="660" y="156" text-anchor="end" class="th">ซึมเร็ว เก็บน้ำได้น้อย</text>
+            </g>
+            <line x1="60" y1="140" x2="660" y2="140" stroke="var(--rule)"/>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 2.2 — Particle size classification. A soil named "clay loam" is a mixture; the proportions are read off the USDA soil texture triangle in the lecture slides.</span>
+            <span class="th">รูปที่ 2.2 — การจำแนกขนาดอนุภาคดิน ชื่อดินอย่าง "ดินร่วนเหนียว" หมายถึงส่วนผสม โดยอ่านสัดส่วนได้จากสามเหลี่ยมเนื้อดิน (soil texture triangle) ในสไลด์ประกอบการสอน</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== 2.5 ===================== -->
+      <section id="s-constants">
+        <h2><span class="en">2.5 The soil water constants</span><span class="th">2.5 ค่าคงที่ความชื้นในดิน</span></h2>
+
+        <p>
+          <span class="en">Water in the soil is not all equally available. As the soil dries, the remaining water is held more and more tightly, until the plant can no longer pull it out. Four levels divide that range, and irrigation scheduling is nothing more than deciding where between them you want to live.</span>
+          <span class="th">น้ำในดินไม่ได้เป็นประโยชน์เท่ากันทั้งหมด เมื่อดินแห้งลง น้ำที่เหลือจะถูกยึดไว้แน่นขึ้นเรื่อย ๆ จนถึงจุดที่พืชดูดขึ้นมาไม่ได้อีก มีระดับสำคัญอยู่ 4 ระดับที่แบ่งช่วงนี้ และการกำหนดเวลาให้น้ำก็คือการตัดสินใจว่าจะให้ดินอยู่ตรงไหนระหว่างระดับเหล่านั้น</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 760 330" role="img" aria-label="Soil water constants and management lines">
+            <!-- column headings -->
+            <g font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="95"  y="42" class="en">MANAGEMENT</text>
+              <text x="95"  y="42" class="th">เส้นการจัดการ</text>
+              <text x="195" y="42">TENSION (cb)</text>
+              <text x="275" y="42" class="en">VWC SAND</text>
+              <text x="275" y="42" class="th">VWC ทราย</text>
+              <text x="355" y="42" class="en">VWC CLAY</text>
+              <text x="355" y="42" class="th">VWC เหนียว</text>
+              <text x="590" y="42" class="en">PHYSICAL MEANING</text>
+              <text x="590" y="42" class="th">ความหมายทางกายภาพ</text>
+            </g>
+            <line x1="40" y1="50" x2="720" y2="50" stroke="var(--rule)"/>
+
+            <!-- zone bar -->
+            <g stroke="var(--ink)" stroke-width="1">
+              <rect x="410" y="75"  width="110" height="40" fill="var(--accent-light)" opacity=".35"/>
+              <rect x="410" y="115" width="110" height="90" fill="var(--accent)"       opacity=".55"/>
+              <rect x="410" y="205" width="110" height="50" fill="var(--accent-hot)"   opacity=".35"/>
+              <rect x="410" y="255" width="110" height="35" fill="var(--accent-hot)"   opacity=".8"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">
+              <text x="465" y="99"  class="en">EXCESS</text>
+              <text x="465" y="99"  class="th">น้ำส่วนเกิน</text>
+              <text x="465" y="165" class="en">OPTIMAL</text>
+              <text x="465" y="165" class="th">ช่วงเหมาะสม</text>
+              <text x="465" y="234" class="en">STRESS</text>
+              <text x="465" y="234" class="th">เครียดน้ำ</text>
+              <text x="465" y="277" fill="var(--paper)" class="en">EXTREME</text>
+              <text x="465" y="277" fill="var(--paper)" class="th">เครียดรุนแรง</text>
+            </g>
+
+            <!-- moisture line drying down from FC to CP / เส้นความชื้นที่ค่อย ๆ แห้งลง -->
+            <g class="fig-dry">
+              <path d="M398,109 l10,6 l-10,6 z" fill="var(--link)"/>
+              <line x1="410" y1="115" x2="522" y2="115" stroke="var(--link)" stroke-width="1.6" stroke-dasharray="5 3"/>
+            </g>
+
+            <!-- the four constant lines -->
+            <g stroke="var(--ink)" stroke-width="1.4">
+              <line x1="150" y1="75"  x2="560" y2="75"/>
+              <line x1="150" y1="115" x2="560" y2="115"/>
+              <line x1="150" y1="205" x2="560" y2="205" stroke-dasharray="5 3"/>
+              <line x1="150" y1="255" x2="560" y2="255"/>
+            </g>
+
+            <!-- numbers -->
+            <g font-family="JetBrains Mono, monospace" font-size="11.5" text-anchor="middle" fill="var(--ink)">
+              <text x="195" y="70">−10</text>   <text x="275" y="70">15%</text>  <text x="355" y="70">60%</text>
+              <text x="195" y="110">−20</text>  <text x="275" y="110">10%</text> <text x="355" y="110">50%</text>
+              <text x="195" y="200">−50</text>  <text x="275" y="200">5%</text>  <text x="355" y="200">40%</text>
+              <text x="195" y="250">−1500</text><text x="275" y="250">2%</text>  <text x="355" y="250">30%</text>
+            </g>
+
+            <!-- management line labels -->
+            <g font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="var(--accent)" text-anchor="middle">
+              <text x="95" y="110" class="en">FULL</text>
+              <text x="95" y="110" class="th">เต็มถัง</text>
+              <text x="95" y="200" class="en">REFILL</text>
+              <text x="95" y="200" class="th">ต้องให้น้ำ</text>
+              <text x="95" y="250" class="en">STRESS</text>
+              <text x="95" y="250" class="th">เครียด</text>
+            </g>
+
+            <!-- physical meaning labels -->
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)">
+              <text x="570" y="72"  class="en">Saturation</text>
+              <text x="570" y="72"  class="th">จุดอิ่มตัว</text>
+              <text x="570" y="112" font-weight="700" class="en">Field capacity (FC)</text>
+              <text x="570" y="112" font-weight="700" class="th">ความจุสนาม (FC)</text>
+              <text x="570" y="202" font-weight="700" class="en">Critical point (CP)</text>
+              <text x="570" y="202" font-weight="700" class="th">จุดวิกฤต (CP)</text>
+              <text x="570" y="252" class="en">Permanent wilting point</text>
+              <text x="570" y="252" class="th">จุดเหี่ยวถาวร (PWP)</text>
+              <text x="570" y="286" fill="var(--ink-soft)" font-size="10.5" class="en">crop dies — no recovery</text>
+              <text x="570" y="286" fill="var(--ink-soft)" font-size="10.5" class="th">พืชตาย ฟื้นไม่ได้</text>
+            </g>
+
+            <!-- RAW / TAW brackets -->
+            <g stroke="var(--accent)" stroke-width="1.5" fill="none">
+              <path d="M534,115 L541,115 M541,115 L541,205 M534,205 L541,205"/>
+            </g>
+            <g stroke="var(--link)" stroke-width="1.5" fill="none">
+              <path d="M548,115 L555,115 M555,115 L555,255 M548,255 L555,255"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="12" font-weight="700">
+              <text x="528" y="163" text-anchor="end" fill="var(--accent)">RAW</text>
+              <text x="528" y="300" text-anchor="end" fill="var(--link)">TAW</text>
+            </g>
+            <line x1="500" y1="292" x2="551" y2="292" stroke="var(--link)" stroke-width="1" stroke-dasharray="3 2"/>
+
+            <g font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)">
+              <text x="40" y="316" class="en">Tension is negative: the drier the soil, the harder it pulls. 1 cb = 1 kPa; PWP is conventionally −1500 kPa (−15 bar).</text>
+              <text x="40" y="316" class="th">แรงดึงน้ำมีค่าติดลบ ยิ่งดินแห้งยิ่งดึงแรง (1 cb = 1 kPa) จุดเหี่ยวถาวรกำหนดไว้ที่ −1500 kPa (−15 บาร์)</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 2.3 — Soil water constants, management lines and the sand/clay contrast. Redrawn from the course slides. Note how differently sand and clay express the <em>same</em> physical condition: at field capacity a sand holds 10% water by volume, a clay 50%.</span>
+            <span class="th">รูปที่ 2.3 — ค่าคงที่ความชื้นในดิน เส้นการจัดการ และการเปรียบเทียบดินทรายกับดินเหนียว เขียนใหม่จากสไลด์ประกอบการสอน ให้สังเกตว่าดินทรายกับดินเหนียวแสดงสภาพทางกายภาพ <em>เดียวกัน</em> ด้วยตัวเลขที่ต่างกันมาก คือที่ความจุสนาม ดินทรายมีน้ำ 10% โดยปริมาตร ส่วนดินเหนียวมีถึง 50%</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">The four levels in words</span><span class="th">อธิบายทั้งสี่ระดับ</span></h3>
+        <div class="cards">
+          <div class="card">
+            <h4><span class="en">Saturation</span><span class="th">จุดอิ่มตัว (Saturation)</span></h4>
+            <p><span class="en">Every pore is full of water; there is no air left. Roots suffocate if it lasts. Water above field capacity drains away under gravity within a day or two.</span><span class="th">ช่องว่างทุกช่องเต็มไปด้วยน้ำ ไม่เหลืออากาศเลย ถ้าเป็นอยู่นานรากพืชจะขาดอากาศ น้ำส่วนที่เกินความจุสนามจะไหลซึมลงไปด้วยแรงโน้มถ่วงภายในหนึ่งถึงสองวัน</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="en">Field capacity — FC</span><span class="th">ความจุสนาม — FC</span></h4>
+            <p><span class="en">The water left after free drainage stops. This is the <strong>full</strong> mark of the tank — applying more than this is wasted. Roughly −20 cb (−0.2 bar).</span><span class="th">ปริมาณน้ำที่เหลืออยู่หลังจากน้ำอิสระหยุดไหลซึมแล้ว นี่คือขีด <strong>"เต็มถัง"</strong> การให้น้ำเกินกว่านี้คือการให้เปล่า อยู่ที่ประมาณ −20 cb (−0.2 บาร์)</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="en">Critical point — CP</span><span class="th">จุดวิกฤต — CP</span></h4>
+            <p><span class="en">The <strong>refill</strong> line you choose. Above it the crop transpires freely; below it yield starts to fall. Its position is set by the depletion fraction p.</span><span class="th">คือเส้น <strong>"ต้องให้น้ำ"</strong> ที่เราเป็นผู้กำหนด เหนือเส้นนี้พืชคายน้ำได้เต็มที่ ต่ำกว่าเส้นนี้ผลผลิตเริ่มลดลง ตำแหน่งของเส้นนี้กำหนดด้วยสัดส่วนการใช้น้ำที่ยอมให้ลดลง (p)</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="en">Permanent wilting point — PWP</span><span class="th">จุดเหี่ยวถาวร — PWP</span></h4>
+            <p><span class="en">Water is held at −1500 kPa; the plant cannot extract it. A crop wilted to this point does <strong>not</strong> recover even if you irrigate afterwards.</span><span class="th">น้ำถูกยึดไว้ที่ −1500 kPa พืชดูดขึ้นมาไม่ได้ พืชที่เหี่ยวถึงจุดนี้แล้วจะ <strong>ไม่ฟื้น</strong> แม้จะให้น้ำตามหลังก็ตาม</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 2.6 ===================== -->
+      <section id="s-taw">
+        <h2><span class="en">2.6 TAW, RAW and the depletion fraction</span><span class="th">2.6 TAW, RAW และสัดส่วนการใช้น้ำที่ยอมให้ลดลง</span></h2>
+
+        <div class="formula">
+            <div class="eq"><code>TAW = <span class="frac"><span class="num">(FC − PWP) · As · D</span><span class="den">100</span></span></code><span class="eq-note"><span class="en">total available water (mm)</span><span class="th">น้ำที่เป็นประโยชน์ทั้งหมด (มม.)</span></span></div>
+            <div class="eq result"><code>RAW = p · TAW</code><span class="eq-note"><span class="en">readily available water (mm)</span><span class="th">น้ำที่เป็นประโยชน์อย่างง่าย (มม.)</span></span></div>
+          </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>FC</dt><dd><span class="en">field capacity (% by dry mass)</span><span class="th">ความจุสนาม (% โดยมวลดินแห้ง)</span></dd>
+          <dt>PWP</dt><dd><span class="en">permanent wilting point (% by dry mass)</span><span class="th">จุดเหี่ยวถาวร (% โดยมวลดินแห้ง)</span></dd>
+          <dt>As</dt><dd><span class="en">apparent specific gravity (no unit)</span><span class="th">ความถ่วงจำเพาะปรากฏ (ไม่มีหน่วย)</span></dd>
+          <dt>D</dt><dd><span class="en">effective root depth (mm)</span><span class="th">ความลึกเขตรากที่มีผลจริง (มม.)</span></dd>
+          <dt>p</dt><dd><span class="en">depletion fraction — a management choice</span><span class="th">สัดส่วนการใช้น้ำที่ยอมให้ลดลง — เป็นค่าที่เราเลือกเอง</span></dd>
+        </dl>
+
+        <p>
+          <span class="en"><strong>TAW</strong> is the size of the tank: all the water between full (FC) and empty (PWP). <strong>RAW</strong> is the part of the tank you are willing to use before refilling — because the last portion of TAW, although physically available, is held so tightly that the crop suffers to get it.</span>
+          <span class="th"><strong>TAW</strong> คือขนาดของถังน้ำ ได้แก่ น้ำทั้งหมดระหว่างระดับเต็ม (FC) กับระดับหมด (PWP) ส่วน <strong>RAW</strong> คือส่วนของถังที่เรายอมให้ใช้ก่อนจะเติมน้ำใหม่ เพราะน้ำส่วนท้าย ๆ ของ TAW แม้จะยังเป็นประโยชน์ในทางกายภาพ แต่ถูกยึดไว้แน่นมากจนพืชต้องออกแรงและเกิดความเครียด</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The depletion fraction p</span><span class="th">ค่า p (depletion fraction / MAD)</span></div>
+          <p>
+            <span class="en">p is the fraction of TAW you allow the crop to use up. It is a <strong>management decision</strong>, not a soil property. Typical values: p ≈ 0.3–0.4 for shallow-rooted, sensitive, high-value crops (vegetables); p ≈ 0.5–0.6 for field crops such as corn; p up to 0.7 for deep-rooted, drought-tolerant crops. Sensitive crops in hot weather get a lower p — you irrigate more often, with less water each time.</span>
+            <span class="th">p คือสัดส่วนของ TAW ที่เรายอมให้พืชใช้ไปก่อนเติมน้ำใหม่ ค่านี้เป็น <strong>การตัดสินใจเชิงการจัดการ</strong> ไม่ใช่คุณสมบัติของดิน ค่าโดยทั่วไป: p ≈ 0.3–0.4 สำหรับพืชรากตื้น อ่อนไหว และมูลค่าสูง (พืชผัก) p ≈ 0.5–0.6 สำหรับพืชไร่ เช่น ข้าวโพด และ p สูงถึง 0.7 สำหรับพืชรากลึกที่ทนแล้ง พืชที่อ่อนไหวในสภาพอากาศร้อนควรใช้ p ต่ำ คือให้น้ำถี่ขึ้นแต่ครั้งละน้อยลง</span>
+          </p>
+        </div>
+
+        <div class="formula">
+            <div class="eq"><code class="en">Irrigation frequency (days) = <span class="frac"><span class="num">RAW (mm)</span><span class="den">ETc (mm/day)</span></span></code><code class="th">รอบเวรการให้น้ำ (วัน) = <span class="frac"><span class="num">RAW (มม.)</span><span class="den">ETc (มม./วัน)</span></span></code><span class="eq-note"><span class="en">round DOWN to whole days</span><span class="th">ปัดลงเป็นจำนวนวันเต็ม</span></span></div>
+          </div>
+
+        <p>
+          <span class="en">This one line links the tank to the calendar. The crop empties RAW at the rate ETc; when RAW is gone, it is time to irrigate. Chapter 3 shows how ETc itself is found.</span>
+          <span class="th">บรรทัดเดียวนี้เชื่อม "ถังน้ำ" เข้ากับ "ปฏิทิน" พืชใช้น้ำ RAW หมดไปด้วยอัตรา ETc เมื่อ RAW หมดก็ถึงเวลาให้น้ำ ส่วนวิธีหาค่า ETc จะอธิบายในบทที่ 3</span>
+        </p>
+      </section>
+
+      <!-- ===================== 2.7 ===================== -->
+      <section id="s-rootzone">
+        <h2><span class="en">2.7 The effective root zone</span><span class="th">2.7 เขตรากพืชที่มีผลจริง</span></h2>
+
+        <p>
+          <span class="en">In the formula for TAW, <span class="mono">D</span> is not how deep the deepest root goes — it is the depth from which the crop actually draws most of its water. Roots do not extract uniformly: the top quarter of the root zone supplies about 40% of the water, the next quarter 30%, then 20%, then 10%.</span>
+          <span class="th">ในสูตร TAW ค่า <span class="mono">D</span> ไม่ใช่ความลึกที่รากยาวที่สุดหยั่งถึง แต่คือความลึกที่พืชดูดน้ำขึ้นมาใช้จริงเป็นส่วนใหญ่ รากพืชไม่ได้ดูดน้ำเท่ากันทุกระดับ โดยหนึ่งในสี่ส่วนบนของเขตรากให้น้ำประมาณ 40% ถัดลงมา 30% แล้ว 20% และ 10% ตามลำดับ</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 268" role="img" aria-label="Moisture extraction pattern in the effective root zone">
+            <defs>
+              <g id="p2">
+                <path d="M0,0 L0,-26" stroke="var(--accent)" stroke-width="2"/>
+                <path d="M0,-14 C-13,-20 -17,-31 -2,-30" fill="var(--accent)" opacity=".85"/>
+                <path d="M0,-18 C13,-24 17,-35 2,-34" fill="var(--accent)" opacity=".85"/>
+              </g>
+            </defs>
+
+            <use href="#p2" x="250" y="70"/>
+            <line x1="90" y1="70" x2="620" y2="70" stroke="var(--ink)" stroke-width="1.6"/>
+
+            <!-- extraction layers -->
+            <g stroke="var(--ink)" stroke-width=".9">
+              <rect x="150" y="70"  width="200" height="45" fill="var(--accent)" opacity=".60"/>
+              <rect x="150" y="115" width="200" height="45" fill="var(--accent)" opacity=".45"/>
+              <rect x="150" y="160" width="200" height="45" fill="var(--accent)" opacity=".28"/>
+              <rect x="150" y="205" width="200" height="45" fill="var(--accent)" opacity=".14"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" text-anchor="middle" fill="var(--ink)">
+              <text x="250" y="99">40 %</text>
+              <text x="250" y="144">30 %</text>
+              <text x="250" y="189">20 %</text>
+              <text x="250" y="234">10 %</text>
+            </g>
+
+            <!-- roots sketch -->
+            <g stroke="var(--ink)" stroke-width="1" fill="none" opacity=".55">
+              <path d="M250,70 C240,95 215,105 195,112"/>
+              <path d="M250,70 C262,96 288,104 308,112"/>
+              <path d="M250,70 C246,110 232,140 218,158"/>
+              <path d="M250,70 C254,112 268,142 282,158"/>
+              <path d="M250,70 C250,130 248,180 246,204"/>
+              <path d="M250,70 C252,140 256,190 258,230"/>
+            </g>
+
+            <!-- water drawn upward by the roots / น้ำถูกดูดขึ้นไปตามราก -->
+            <g fill="var(--accent)">
+              <circle class="fig-rise" cx="196" cy="150" r="3.2"/>
+              <circle class="fig-rise" style="animation-delay:.7s" cx="222" cy="196" r="2.8"/>
+              <circle class="fig-rise" style="animation-delay:1.2s" cx="286" cy="176" r="2.8"/>
+              <circle class="fig-rise" style="animation-delay:.35s" cx="306" cy="128" r="3.2"/>
+            </g>
+
+            <!-- depth bracket -->
+            <g stroke="var(--ink-soft)" stroke-width="1.1" fill="none">
+              <path d="M370,70 L378,70 M378,70 L378,250 M370,250 L378,250"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="12" fill="var(--ink)">
+              <text x="388" y="150" font-weight="700" class="en">D = effective root depth</text>
+              <text x="388" y="150" font-weight="700" class="th">D = ความลึกเขตรากที่มีผลจริง</text>
+              <text x="388" y="170" font-size="11" fill="var(--ink-soft)" class="en">the depth used in TAW — not the deepest root</text>
+              <text x="388" y="170" font-size="11" fill="var(--ink-soft)" class="th">คือความลึกที่ใช้ในสูตร TAW ไม่ใช่ความลึกของรากที่ยาวที่สุด</text>
+            </g>
+
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 2.4 — Water extraction by quarter of the root zone. The top half supplies 70% of the water, which is why a shallow, frequent irrigation still works and why compaction near the surface hurts most. Root depth also grows through the season: use the depth appropriate to the growth stage, not the final maximum.</span>
+            <span class="th">รูปที่ 2.4 — สัดส่วนการดูดน้ำในแต่ละหนึ่งในสี่ของเขตราก ครึ่งบนให้น้ำถึง 70% จึงเป็นเหตุผลว่าทำไมการให้น้ำตื้นแต่บ่อยครั้งจึงยังใช้ได้ผล และทำไมการอัดแน่นของดินชั้นบนจึงส่งผลเสียมากที่สุด ทั้งนี้ความลึกรากยังเพิ่มขึ้นตลอดฤดูปลูก จึงควรใช้ความลึกที่สอดคล้องกับระยะการเจริญเติบโตขณะนั้น ไม่ใช่ความลึกสูงสุดตอนโตเต็มที่</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== 2.8 ===================== -->
+      <section id="s-table">
+        <h2><span class="en">2.8 Soil properties and water holding capacity</span><span class="th">2.8 ตารางคุณสมบัติดินและความจุความชื้น</span></h2>
+
+        <p>
+          <span class="en">When no laboratory data exist, these tabulated means are used. They are the source of every number in the worked examples that follow.</span>
+          <span class="th">เมื่อไม่มีผลวิเคราะห์จากห้องปฏิบัติการ ให้ใช้ค่าเฉลี่ยจากตารางนี้ ซึ่งเป็นที่มาของตัวเลขทุกตัวในตัวอย่างการคำนวณถัดไป</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Soil type</span><span class="th">ชนิดดิน</span></th>
+                <th colspan="2">FC (% <span class="en">dry mass</span><span class="th">มวลแห้ง</span>)</th>
+                <th colspan="2">PWP (% <span class="en">dry mass</span><span class="th">มวลแห้ง</span>)</th>
+                <th colspan="2"><span class="en">Porosity n (%)</span><span class="th">ความพรุน n (%)</span></th>
+                <th colspan="2">As (-)</th>
+              </tr>
+              <tr>
+                <th><span class="en">Range</span><span class="th">ช่วง</span></th><th><span class="en">Mean</span><span class="th">เฉลี่ย</span></th>
+                <th><span class="en">Range</span><span class="th">ช่วง</span></th><th><span class="en">Mean</span><span class="th">เฉลี่ย</span></th>
+                <th><span class="en">Range</span><span class="th">ช่วง</span></th><th><span class="en">Mean</span><span class="th">เฉลี่ย</span></th>
+                <th><span class="en">Range</span><span class="th">ช่วง</span></th><th><span class="en">Mean</span><span class="th">เฉลี่ย</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Sand</span><span class="th">ดินทราย</span></td>
+                  <td class="num">6–12</td><td class="num">9</td><td class="num">2–6</td><td class="num">4</td>
+                  <td class="num">32–42</td><td class="num">38</td><td class="num">1.55–1.80</td><td class="num">1.65 *</td></tr>
+              <tr><td><span class="en">Sandy loam</span><span class="th">ดินร่วนปนทราย</span></td>
+                  <td class="num">10–18</td><td class="num">14</td><td class="num">4–8</td><td class="num">6</td>
+                  <td class="num">40–47</td><td class="num">43</td><td class="num">1.40–1.60</td><td class="num">1.50</td></tr>
+              <tr><td><span class="en">Loam</span><span class="th">ดินร่วน</span></td>
+                  <td class="num">18–26</td><td class="num">22</td><td class="num">8–12</td><td class="num">10</td>
+                  <td class="num">43–49</td><td class="num">46</td><td class="num">1.35–1.50</td><td class="num">1.40</td></tr>
+              <tr><td><span class="en">Clay loam</span><span class="th">ดินร่วนเหนียว</span></td>
+                  <td class="num">23–31</td><td class="num">27</td><td class="num">11–15</td><td class="num">13</td>
+                  <td class="num">47–51</td><td class="num">49</td><td class="num">1.30–1.40</td><td class="num">1.35</td></tr>
+              <tr><td><span class="en">Silty clay</span><span class="th">ดินเหนียวปนทรายแป้ง</span></td>
+                  <td class="num">27–35</td><td class="num">31</td><td class="num">13–17</td><td class="num">15</td>
+                  <td class="num">49–53</td><td class="num">51</td><td class="num">1.25–1.35</td><td class="num">1.30</td></tr>
+              <tr><td><span class="en">Clay</span><span class="th">ดินเหนียว</span></td>
+                  <td class="num">31–39</td><td class="num">36</td><td class="num">15–19</td><td class="num">17</td>
+                  <td class="num">51–55</td><td class="num">53</td><td class="num">1.20–1.30</td><td class="num">1.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="quiz-note">
+          <span class="en">* The printed slide shows 16.5 for the mean As of sand. Since the stated range is 1.55–1.80, this is a decimal-point slip; 1.65 is used here. Please confirm with your lecturer before an exam.</span>
+          <span class="th">* ในสไลด์พิมพ์ค่า As เฉลี่ยของดินทรายไว้ว่า 16.5 แต่ช่วงที่ระบุคือ 1.55–1.80 จึงน่าจะเป็นการพิมพ์ตกจุดทศนิยม ที่นี่ใช้ค่า 1.65 กรุณายืนยันกับอาจารย์ผู้สอนก่อนใช้ตอบข้อสอบ</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Reading the table like an engineer</span><span class="th">อ่านตารางแบบวิศวกร</span></div>
+          <p>
+            <span class="en">Going from sand down to clay, FC rises much faster than PWP — so <strong>(FC − PWP), the available water, gets larger</strong>. But As falls at the same time, which partly cancels it. Never eyeball it: multiply.</span>
+            <span class="th">เมื่อไล่จากดินทรายลงมาถึงดินเหนียว ค่า FC เพิ่มเร็วกว่าค่า PWP ดังนั้น <strong>ผลต่าง (FC − PWP) หรือน้ำที่เป็นประโยชน์จึงมากขึ้น</strong> แต่ในขณะเดียวกันค่า As ก็ลดลง ซึ่งหักล้างกันไปบางส่วน อย่ากะด้วยสายตา ให้คูณออกมาเสมอ</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 2.9 ===================== -->
+      <section id="s-examples">
+        <h2><span class="en">2.9 Worked examples</span><span class="th">2.9 ตัวอย่างการคำนวณ</span></h2>
+        <p class="quiz-note">
+          <span class="en">These three examples are taken directly from the course slides. Learn the sequence: TAW → RAW → frequency → net application.</span>
+          <span class="th">ตัวอย่างทั้งสามนี้ยกมาจากสไลด์ประกอบการสอนโดยตรง ให้จำลำดับขั้นตอนไว้: TAW → RAW → รอบเวร → ปริมาณน้ำสุทธิที่ให้</span>
+        </p>
+
+        <h3><span class="en">Example 1 — TAW and RAW</span><span class="th">ตัวอย่างที่ 1 — หา TAW และ RAW</span></h3>
+        <p>
+          <span class="en">Determine RAW for corn growing on <strong>loam</strong>, with maximum rooting depth 80 cm and depletion fraction p = 0.6. From the soil properties table: FC = 22% by dry mass, PWP = 10% by dry mass, As = 1.4.</span>
+          <span class="th">จงหาค่า RAW ของข้าวโพดที่ปลูกบน <strong>ดินร่วน</strong> โดยมีความลึกรากสูงสุด 80 ซม. และสัดส่วนการใช้น้ำที่ยอมให้ลดลง p = 0.6 จากตารางคุณสมบัติดิน: FC = 22% โดยมวลแห้ง, PWP = 10% โดยมวลแห้ง, As = 1.4</span>
+        </p>
+        <div class="formula">
+            <div class="eq-head"><span class="en">Given</span><span class="th">ข้อมูลที่ให้</span></div>
+            <div class="eq"><code class="en">loam: FC = 22 % · PWP = 10 % · As = 1.4 · D = 80 cm · p = 0.6</code><code class="th">ดินร่วน: FC = 22 % · PWP = 10 % · As = 1.4 · D = 80 ซม. · p = 0.6</code></div>
+            <div class="eq-head"><span class="en">Solution</span><span class="th">วิธีทำ</span></div>
+            <div class="eq result"><code>TAW = <span class="frac"><span class="num">(22 − 10) × 1.4 × 80 × 10</span><span class="den">100</span></span> = 134.4 mm</code><span class="eq-note"><span class="en">total available water</span><span class="th">น้ำที่เป็นประโยชน์ทั้งหมด</span></span></div>
+            <div class="eq result"><code>RAW = p × TAW = 0.6 × 134.4 = 80.6 mm</code><span class="eq-note"><span class="en">readily available water</span><span class="th">น้ำที่เป็นประโยชน์อย่างง่าย</span></span></div>
+          </div>
+        <p class="quiz-note">
+          <span class="en">Where does the “× 80 × 10” come from? The root depth is 80 <strong>cm</strong> = 800 <strong>mm</strong>. Writing it as 80 × 10 keeps the slide's habit of entering the depth in centimetres. Check: (22 − 10) × 1.4 = 16.8% by volume; 16.8 × 800 / 100 = 134.4 mm. ✓</span>
+          <span class="th">เลข “× 80 × 10” มาจากไหน? ความลึกราก 80 <strong>ซม.</strong> = 800 <strong>มม.</strong> การเขียนเป็น 80 × 10 คือการคงวิธีใส่ค่าความลึกเป็นเซนติเมตรตามสไลด์ ตรวจสอบ: (22 − 10) × 1.4 = 16.8% โดยปริมาตร แล้ว 16.8 × 800 / 100 = 134.4 มม. ✓</span>
+        </p>
+
+        <h3><span class="en">Example 2 — Irrigation schedule, no rain</span><span class="th">ตัวอย่างที่ 2 — รอบเวรการให้น้ำ กรณีไม่มีฝน</span></h3>
+        <p>
+          <span class="en">Determine the irrigation schedule of the same corn crop if its crop water requirement ETc = 8 mm/day.</span>
+          <span class="th">จงหารอบเวรการให้น้ำของข้าวโพดแปลงเดิม ถ้าความต้องการน้ำของพืช ETc = 8 มม./วัน</span>
+        </p>
+        <div class="formula">
+            <div class="eq result"><code>Irrigation frequency = <span class="frac"><span class="num">RAW</span><span class="den">ETc</span></span> = <span class="frac"><span class="num">80.6</span><span class="den">8</span></span> = 10 days</code><span class="eq-note"><span class="en">10.08 rounded down</span><span class="th">ปัดลงจาก 10.08</span></span></div>
+            <div class="eq result"><code>Net water applied = ETc × frequency = 8 × 10 = 80 mm</code><span class="eq-note"><span class="en">every 10 days, no rain</span><span class="th">ทุก 10 วัน กรณีไม่มีฝน</span></span></div>
+          </div>
+
+        <h3><span class="en">Example 3 — With effective rainfall</span><span class="th">ตัวอย่างที่ 3 — กรณีมีฝนใช้การได้</span></h3>
+        <p>
+          <span class="en">Now assume 2 mm/day of effective rainfall is available during the growing season.</span>
+          <span class="th">สมมติว่ามีฝนใช้การได้ (effective rainfall) 2 มม./วัน ตลอดฤดูปลูก</span>
+        </p>
+        <div class="formula">
+            <div class="eq result"><code>Net water applied = 80 − (2 × 10) = 60 mm</code><span class="eq-note"><span class="en">every 10 days, with 2 mm/day effective rain</span><span class="th">ทุก 10 วัน เมื่อมีฝนใช้การได้ 2 มม./วัน</span></span></div>
+          </div>
+        <p>
+          <span class="en">The crop still needs 80 mm every ten days; rainfall pays for 20 mm of it, so irrigation supplies the remaining 60 mm. <strong>Effective</strong> rainfall means only the part that actually enters the root zone — heavy rain that runs off or percolates below the roots does not count.</span>
+          <span class="th">พืชยังคงต้องการน้ำ 80 มม. ทุก 10 วันเท่าเดิม แต่ฝนช่วยจ่ายให้ 20 มม. การชลประทานจึงเหลือส่งเพียง 60 มม. คำว่า <strong>ฝนใช้การได้</strong> หมายถึงเฉพาะส่วนที่ลงไปอยู่ในเขตรากพืชจริง ๆ ฝนที่ตกหนักจนไหลนองไปหรือซึมลึกเลยเขตรากไม่นับรวมด้วย</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">One warning about Example 2</span><span class="th">ข้อควรระวังจากตัวอย่างที่ 2</span></div>
+          <p>
+            <span class="en">80.6 / 8 = 10.08 days, rounded <strong>down</strong> to 10. Always round the interval down, never up: rounding up means the crop passes the refill point before the water arrives.</span>
+            <span class="th">80.6 / 8 = 10.08 วัน ปัดลงเหลือ 10 วัน ให้ <strong>ปัดลงเสมอ</strong> ห้ามปัดขึ้น เพราะการปัดขึ้นหมายความว่าพืชจะเลยจุดที่ต้องให้น้ำไปแล้วก่อนที่น้ำจะมาถึง</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 2.10 ===================== -->
+      <section id="s-measure">
+        <h2><span class="en">2.10 Measuring soil water in the field</span><span class="th">2.10 การวัดความชื้นดินในสนาม</span></h2>
+
+        <p>
+          <span class="en">All of the above is arithmetic until someone measures the actual soil. Methods split into two families: those that measure <strong>how much</strong> water is there (content), and those that measure <strong>how hard it is held</strong> (tension). The management lines in Fig. 2.3 are given in both because different instruments speak different languages.</span>
+          <span class="th">ทั้งหมดข้างต้นยังเป็นเพียงการคำนวณ จนกว่าจะมีการวัดดินจริงในแปลง เครื่องมือวัดแบ่งเป็นสองกลุ่ม คือกลุ่มที่วัดว่า <strong>มีน้ำอยู่เท่าไร</strong> (ปริมาณความชื้น) กับกลุ่มที่วัดว่า <strong>ดินยึดน้ำไว้แน่นแค่ไหน</strong> (แรงดึงน้ำ) เส้นการจัดการในรูปที่ 2.3 จึงให้ค่าไว้ทั้งสองแบบ เพราะเครื่องมือแต่ละชนิดพูดกันคนละภาษา</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Method</span><span class="th">วิธี</span></th>
+                <th><span class="en">Measures</span><span class="th">วัดอะไร</span></th>
+                <th><span class="en">Notes</span><span class="th">ข้อสังเกต</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Gravimetric (oven drying)</span><span class="th">วิธีชั่งน้ำหนัก (อบแห้ง)</span></td>
+                <td>θM</td>
+                <td><span class="en">The reference standard: 105 °C for 24 h. Accurate, destructive, slow — you get the answer a day late.</span><span class="th">เป็นวิธีมาตรฐานอ้างอิง อบที่ 105 °C นาน 24 ชม. แม่นยำ แต่ต้องทำลายตัวอย่างและช้า คือได้คำตอบช้าไปหนึ่งวัน</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Feel and appearance</span><span class="th">วิธีสัมผัสและดูลักษณะ</span></td>
+                <td><span class="en">θ (estimate)</span><span class="th">θ (โดยประมาณ)</span></td>
+                <td><span class="en">Free, instant, needs experience and a calibration chart. Still the most used method in the world.</span><span class="th">ไม่มีค่าใช้จ่าย รู้ผลทันที แต่ต้องอาศัยประสบการณ์และตารางเทียบ ยังเป็นวิธีที่ใช้มากที่สุดในโลก</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Tensiometer</span><span class="th">เทนซิโอมิเตอร์</span></td>
+                <td><span class="en">Tension (cb)</span><span class="th">แรงดึงน้ำ (cb)</span></td>
+                <td><span class="en">Directly reads the −20 / −50 cb management lines. Works only to about −80 cb, so it suits wet-regime crops.</span><span class="th">อ่านค่าเส้นการจัดการ −20 / −50 cb ได้โดยตรง แต่ใช้ได้ถึงราว −80 cb เท่านั้น จึงเหมาะกับพืชที่ต้องรักษาความชื้นสูง</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Electrical resistance / gypsum block</span><span class="th">บล็อกวัดความต้านทานไฟฟ้า</span></td>
+                <td><span class="en">Tension</span><span class="th">แรงดึงน้ำ</span></td>
+                <td><span class="en">Cheap, covers the dry range well, but is affected by soil salinity and needs calibration.</span><span class="th">ราคาถูก ใช้ได้ดีในช่วงดินแห้ง แต่ได้รับผลกระทบจากความเค็มของดินและต้องสอบเทียบ</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Capacitance / TDR probe</span><span class="th">หัววัดแบบ Capacitance / TDR</span></td>
+                <td>θV</td>
+                <td><span class="en">Reads volumetric content instantly and can be logged continuously; needs soil-specific calibration.</span><span class="th">อ่านค่าความชื้นโดยปริมาตรได้ทันทีและบันทึกต่อเนื่องได้ แต่ต้องสอบเทียบกับดินแต่ละชนิด</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Neutron probe</span><span class="th">เครื่องวัดแบบนิวตรอน</span></td>
+                <td>θV</td>
+                <td><span class="en">Accurate over a large soil volume and a deep profile, but is a radiation source and requires a licence.</span><span class="th">แม่นยำและครอบคลุมปริมาตรดินมากทั้งชั้นลึก แต่เป็นแหล่งกำเนิดรังสี ต้องมีใบอนุญาตในการครอบครองและใช้งาน</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Where to put the sensor</span><span class="th">ควรติดตั้งเซนเซอร์ตรงไหน</span></div>
+          <p>
+            <span class="en">Put one sensor in the upper quarter of the root zone — where 40% of the water is taken and where drying happens first — and a second near the bottom of the root zone to tell you whether you are over-irrigating. Choose a spot that represents the field, not the wettest or driest corner, and keep it away from the edge of a sprinkler pattern or a dripper line.</span>
+            <span class="th">ควรติดตั้งเซนเซอร์ตัวหนึ่งไว้ในหนึ่งในสี่ส่วนบนของเขตราก ซึ่งเป็นบริเวณที่พืชดูดน้ำไปถึง 40% และแห้งก่อนที่อื่น และอีกตัวหนึ่งไว้ใกล้ก้นเขตราก เพื่อบอกว่าเราให้น้ำมากเกินไปหรือไม่ ทั้งนี้ต้องเลือกจุดที่เป็นตัวแทนของทั้งแปลง ไม่ใช่มุมที่ชื้นที่สุดหรือแห้งที่สุด และต้องหลีกเลี่ยงบริเวณขอบรัศมีสปริงเกลอร์หรือแนวท่อน้ำหยด</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Summary ===================== -->
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">Soil = solids + water + air. <span class="mono">V = Va + Vw + Vs</span>, <span class="mono">M = Mw + Ms</span>.</span><span class="th">ดิน = เม็ดดิน + น้ำ + อากาศ โดย <span class="mono">V = Va + Vw + Vs</span> และ <span class="mono">M = Mw + Ms</span></span></li>
+            <li><span class="en"><span class="mono">As = Ms/(V·γw)</span>, <span class="mono">DB = Ms/V</span>, <span class="mono">n = 100·Vv/V</span>. As is numerically DB but has no unit.</span><span class="th"><span class="mono">As = Ms/(V·γw)</span>, <span class="mono">DB = Ms/V</span>, <span class="mono">n = 100·Vv/V</span> โดย As มีค่าเท่ากับ DB แต่ไม่มีหน่วย</span></li>
+            <li><span class="en"><span class="mono">θV = θM · As</span> and <span class="mono">d = θV · D / 100</span> — the bridge from a laboratory percentage to millimetres of water.</span><span class="th"><span class="mono">θV = θM · As</span> และ <span class="mono">d = θV · D / 100</span> คือสะพานจากค่าเปอร์เซ็นต์ในห้องปฏิบัติการไปสู่มิลลิเมตรของน้ำ</span></li>
+            <li><span class="en">Four constants: saturation, FC (−20 cb), CP (the refill line you choose), PWP (−1500 kPa).</span><span class="th">ค่าคงที่สี่ระดับ: จุดอิ่มตัว, FC (−20 cb), CP (เส้นที่เรากำหนดว่าต้องให้น้ำ) และ PWP (−1500 kPa)</span></li>
+            <li><span class="en"><span class="mono">TAW = (FC − PWP)·As·D/100</span>; <span class="mono">RAW = p·TAW</span>; <span class="mono">frequency = RAW/ETc</span>.</span><span class="th"><span class="mono">TAW = (FC − PWP)·As·D/100</span>; <span class="mono">RAW = p·TAW</span>; <span class="mono">รอบเวร = RAW/ETc</span></span></li>
+            <li><span class="en">D is the <em>effective</em> root depth; extraction follows 40-30-20-10 from top to bottom.</span><span class="th">ค่า D คือความลึกเขตราก <em>ที่มีผลจริง</em> และการดูดน้ำเป็นไปตามสัดส่วน 40-30-20-10 จากบนลงล่าง</span></li>
+            <li><span class="en">Instruments measure either content (θ) or tension. Know which one your management line is written in.</span><span class="th">เครื่องมือวัดได้สองแบบ คือวัดปริมาณความชื้น (θ) หรือวัดแรงดึงน้ำ ต้องรู้ว่าเส้นการจัดการของเราเขียนไว้ในหน่วยแบบใด</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== Exercises ===================== -->
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">A soil sample weighs 250 g wet and 200 g after oven drying. Its apparent specific gravity is 1.30. (a) Find θM and θV. (b) How many millimetres of water are held in a 600 mm deep layer of this soil?</span>
+            <span class="th">ตัวอย่างดินหนัก 250 กรัมขณะชื้น และ 200 กรัมหลังอบแห้ง มีค่าความถ่วงจำเพาะปรากฏ 1.30 (ก) จงหา θM และ θV (ข) ในชั้นดินหนา 600 มม. จะมีน้ำอยู่กี่มิลลิเมตร</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+            <div class="eq"><code>Mw = 250 − 200 = 50 g</code><span class="eq-note"><span class="en">mass of water</span><span class="th">มวลน้ำ</span></span></div>
+            <div class="eq result"><code>θM = 100 × <span class="frac"><span class="num">50</span><span class="den">200</span></span> = 25 %</code><span class="eq-note"><span class="en">by dry mass</span><span class="th">โดยมวลดินแห้ง</span></span></div>
+            <div class="eq result"><code>θV = 25 × 1.30 = 32.5 %</code><span class="eq-note"><span class="en">by volume</span><span class="th">โดยปริมาตร</span></span></div>
+            <div class="eq result"><code>d = <span class="frac"><span class="num">32.5 × 600</span><span class="den">100</span></span> = 195 mm</code><span class="eq-note"><span class="en">water held in the 600 mm layer</span><span class="th">น้ำในชั้นดินหนา 600 มม.</span></span></div>
+          </div>
+            <span class="en">Note the denominator: θM divides by the <strong>dry</strong> mass (200 g), never by the wet mass. Dividing by 250 g gives 20% — a wrong but very common answer.</span>
+            <span class="th">ให้สังเกตตัวหาร: θM หารด้วยมวลดิน <strong>แห้ง</strong> (200 กรัม) ไม่ใช่มวลดินชื้น ถ้าเผลอหารด้วย 250 กรัมจะได้ 20% ซึ่งผิด แต่เป็นคำตอบที่นักศึกษาตอบผิดกันบ่อยมาก</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">A vegetable crop is grown on <strong>clay loam</strong> with an effective root depth of 60 cm and p = 0.5. Using the table means, find TAW and RAW.</span>
+            <span class="th">ปลูกพืชผักบน <strong>ดินร่วนเหนียว</strong> ความลึกเขตรากที่มีผลจริง 60 ซม. และ p = 0.5 จงหา TAW และ RAW โดยใช้ค่าเฉลี่ยจากตาราง</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+            <div class="eq-head"><span class="en">From the table</span><span class="th">จากตาราง</span></div>
+            <div class="eq"><code class="en">clay loam: FC = 27 % · PWP = 13 % · As = 1.35</code><code class="th">ดินร่วนเหนียว: FC = 27 % · PWP = 13 % · As = 1.35</code></div>
+            <div class="eq-head"><span class="en">Solution</span><span class="th">วิธีทำ</span></div>
+            <div class="eq result"><code>TAW = <span class="frac"><span class="num">(27 − 13) × 1.35 × 600</span><span class="den">100</span></span> = 113.4 mm</code><span class="eq-note"><span class="en">18.9 % available water by volume</span><span class="th">น้ำเป็นประโยชน์ 18.9 % โดยปริมาตร</span></span></div>
+            <div class="eq result"><code>RAW = 0.5 × 113.4 = 56.7 mm</code><span class="eq-note"><span class="en">at p = 0.5</span><span class="th">เมื่อ p = 0.5</span></span></div>
+          </div>
+            <span class="en">Check the volumetric step: (27 − 13) × 1.35 = 18.9% available water by volume, over 600 mm of soil → 113.4 mm.</span>
+            <span class="th">ตรวจขั้นตอนการแปลงเป็นปริมาตร: (27 − 13) × 1.35 = 18.9% ของน้ำที่เป็นประโยชน์โดยปริมาตร คูณกับความลึกดิน 600 มม. ได้ 113.4 มม.</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">Continuing exercise 2: ETc is 5 mm/day and there is no effective rainfall. Find the irrigation interval and the net depth applied each irrigation. Then find the gross depth if the application efficiency is 70%, and the volume of water needed for an 8 ha field.</span>
+            <span class="th">ต่อจากข้อ 2: ค่า ETc = 5 มม./วัน และไม่มีฝนใช้การได้ จงหารอบเวรการให้น้ำและความลึกน้ำสุทธิที่ให้ในแต่ละครั้ง จากนั้นหาความลึกน้ำรวม (gross) เมื่อประสิทธิภาพการให้น้ำเท่ากับ 70% และหาปริมาตรน้ำที่ต้องใช้สำหรับแปลงขนาด 8 เฮกตาร์</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+            <div class="eq result"><code>Interval = <span class="frac"><span class="num">RAW</span><span class="den">ETc</span></span> = <span class="frac"><span class="num">56.7</span><span class="den">5</span></span> = 11.3 → 11 days</code><span class="eq-note"><span class="en">always round DOWN</span><span class="th">ปัดลงเสมอ</span></span></div>
+            <div class="eq result"><code>Net depth = ETc × 11 = 5 × 11 = 55 mm</code><span class="eq-note"><span class="en">what the crop receives</span><span class="th">ส่วนที่พืชได้รับจริง</span></span></div>
+            <div class="eq result"><code>Gross depth = <span class="frac"><span class="num">55</span><span class="den">0.70</span></span> = 78.6 mm</code><span class="eq-note"><span class="en">what must leave the field inlet at Ea = 70 %</span><span class="th">ที่ต้องปล่อยที่หัวแปลง เมื่อ Ea = 70 %</span></span></div>
+            <div class="eq result"><code>Volume = 78.6 mm × 8 ha × 10 = 6,288 m³</code><span class="eq-note"><span class="en">1 mm over 1 ha = 10 m³</span><span class="th">น้ำลึก 1 มม. บนพื้นที่ 1 ha = 10 ลบ.ม.</span></span></div>
+          </div>
+            <span class="en">The net depth is what the crop gets; the gross depth is what you must release at the field inlet. The 23.6 mm difference is the price of a 70% efficient system.</span>
+            <span class="th">ความลึกน้ำสุทธิคือส่วนที่พืชได้รับจริง ส่วนความลึกน้ำรวมคือปริมาณที่ต้องปล่อยที่หัวแปลง ผลต่าง 23.6 มม. คือราคาที่ต้องจ่ายให้กับระบบที่มีประสิทธิภาพ 70%</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">Two fields have the same crop, the same 80 cm root depth and the same p = 0.5 — but one is <strong>sand</strong> and the other <strong>clay</strong>. Compute TAW and RAW for both, and comment on what this means for the irrigation schedule if ETc = 6 mm/day.</span>
+            <span class="th">แปลงสองแปลงปลูกพืชชนิดเดียวกัน ความลึกราก 80 ซม. เท่ากัน และ p = 0.5 เท่ากัน แต่แปลงหนึ่งเป็น <strong>ดินทราย</strong> อีกแปลงเป็น <strong>ดินเหนียว</strong> จงคำนวณ TAW และ RAW ของทั้งสองแปลง แล้ววิจารณ์ว่ามีผลต่อรอบเวรการให้น้ำอย่างไร ถ้า ETc = 6 มม./วัน</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <div class="formula">
+            <div class="eq-head"><span class="en">Sand</span><span class="th">ดินทราย</span></div>
+            <div class="eq"><code>FC = 9 % · PWP = 4 % · As = 1.65</code></div>
+            <div class="eq result"><code>TAW = <span class="frac"><span class="num">(9 − 4) × 1.65 × 800</span><span class="den">100</span></span> = 66.0 mm</code><span class="eq-note"><span class="en">small tank</span><span class="th">ถังใบเล็ก</span></span></div>
+            <div class="eq"><code>RAW = 0.5 × 66.0 = 33.0 mm</code></div>
+            <div class="eq result"><code>interval = <span class="frac"><span class="num">33.0</span><span class="den">6</span></span> = 5.5 → 5 days</code><span class="eq-note"><span class="en">frequent, light irrigation</span><span class="th">ให้น้ำถี่ ครั้งละน้อย</span></span></div>
+            <div class="eq-head"><span class="en">Clay</span><span class="th">ดินเหนียว</span></div>
+            <div class="eq"><code>FC = 36 % · PWP = 17 % · As = 1.25</code></div>
+            <div class="eq result"><code>TAW = <span class="frac"><span class="num">(36 − 17) × 1.25 × 800</span><span class="den">100</span></span> = 190.0 mm</code><span class="eq-note"><span class="en">about 3× larger</span><span class="th">ใหญ่กว่าราว 3 เท่า</span></span></div>
+            <div class="eq"><code>RAW = 0.5 × 190.0 = 95.0 mm</code></div>
+            <div class="eq result"><code>interval = <span class="frac"><span class="num">95.0</span><span class="den">6</span></span> = 15.8 → 15 days</code><span class="eq-note"><span class="en">infrequent, heavy irrigation</span><span class="th">ให้น้ำห่าง ครั้งละมาก</span></span></div>
+          </div>
+            <span class="en">The clay tank is roughly three times the size of the sand tank, so it is refilled three times less often — but each refill is three times larger, and must be applied slowly because clay has a low intake rate. The sandy field needs light, frequent irrigation, which is exactly why sprinkler or micro systems suit it (Chapter 1, Fig. 1.4).</span>
+            <span class="th">ถังน้ำของดินเหนียวใหญ่กว่าดินทรายราวสามเท่า จึงเติมน้ำห่างกว่าประมาณสามเท่า แต่การเติมแต่ละครั้งก็มากกว่าสามเท่า และต้องให้อย่างช้า ๆ เพราะดินเหนียวมีอัตราการซึมต่ำ ส่วนแปลงดินทรายต้องให้น้ำครั้งละน้อยแต่บ่อยครั้ง ซึ่งเป็นเหตุผลที่ระบบสปริงเกลอร์หรือมินิ/ไมโครเหมาะกับดินทราย (ดูบทที่ 1 รูปที่ 1.4)</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">A tensiometer at 30 cm depth reads −52 cb in a loam field. What should the irrigator do, and why? What would the same reading mean in a sandy field?</span>
+            <span class="th">เทนซิโอมิเตอร์ที่ความลึก 30 ซม. ในแปลงดินร่วนอ่านค่าได้ −52 cb ผู้ให้น้ำควรทำอย่างไร และเพราะเหตุใด ถ้าเป็นแปลงดินทราย ค่าเดียวกันนี้จะหมายความว่าอย่างไร</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">−52 cb is past the refill line (−50 cb, the critical point): irrigate now. The soil is still far from PWP (−1500 cb) so the crop is not dying, but it has already crossed into the stress zone where transpiration — and therefore yield — begins to fall. The lesson is that the refill line is a management decision made <em>well before</em> the plant is in danger. In a sandy soil the same tension corresponds to a much lower water content (about 5% by volume instead of 40% in clay), and because the sandy tank is small, the crop reaches −52 cb again within a few days: same instrument reading, very different urgency about the next irrigation.</span>
+            <span class="th">ค่า −52 cb เลยเส้นที่ต้องให้น้ำ (−50 cb คือจุดวิกฤต) ไปแล้ว จึงควรให้น้ำทันที ดินยังห่างจากจุดเหี่ยวถาวร (−1500 cb) มาก พืชจึงยังไม่ตาย แต่ได้เข้าสู่ช่วงเครียดน้ำซึ่งการคายน้ำและผลผลิตเริ่มลดลงแล้ว บทเรียนคือเส้น "ต้องให้น้ำ" เป็นการตัดสินใจเชิงการจัดการที่กำหนดไว้ <em>ล่วงหน้านานก่อน</em> ที่พืชจะเข้าขั้นอันตราย ส่วนในดินทราย แรงดึงเท่ากันนี้ตรงกับปริมาณความชื้นที่ต่ำกว่ามาก (ราว 5% โดยปริมาตร เทียบกับ 40% ในดินเหนียว) และเนื่องจากถังน้ำของดินทรายเล็ก พืชจะกลับมาถึง −52 cb อีกครั้งภายในไม่กี่วัน คืออ่านค่าได้เท่ากัน แต่ความเร่งด่วนของการให้น้ำครั้งต่อไปต่างกันมาก</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">A farmer says: "My soil is clay, so it holds a lot of water — I will irrigate with 200 mm at a time to save labour." Give three separate reasons why this is a bad plan.</span>
+            <span class="th">เกษตรกรรายหนึ่งบอกว่า "ดินของผมเป็นดินเหนียว เก็บน้ำได้เยอะ ผมจะให้น้ำทีเดียว 200 มม. เลย จะได้ประหยัดแรงงาน" จงให้เหตุผลสามข้อที่แตกต่างกันว่าทำไมแผนนี้จึงไม่ดี</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">(1) <strong>The tank is smaller than he thinks.</strong> TAW for clay at 80 cm depth is 190 mm, and only RAW — about 95 mm at p = 0.5 — is the useful working range. Anything above FC drains below the roots within a day or two: roughly half of the 200 mm is deep percolation, carrying nitrate with it. (2) <strong>The intake rate, not the storage, limits the rate.</strong> Clay accepts water slowly; 200 mm applied faster than the soil can absorb ponds, runs off and erodes. This is the "rate" clause in the definition of irrigation water management. (3) <strong>Prolonged saturation starves the roots of air</strong> and, in a poorly drained field, raises the water table — waterlogging, then salinity as that water evaporates. The correct plan is to apply RAW each time, at a rate the soil can take.</span>
+            <span class="th">(1) <strong>ถังน้ำเล็กกว่าที่เขาคิด</strong> ดินเหนียวที่ความลึกราก 80 ซม. มี TAW = 190 มม. และช่วงที่ใช้งานได้จริงคือ RAW ราว 95 มม. เท่านั้นเมื่อ p = 0.5 น้ำส่วนที่เกิน FC จะไหลซึมเลยเขตรากภายในหนึ่งถึงสองวัน กล่าวคือประมาณครึ่งหนึ่งของ 200 มม. กลายเป็นน้ำซึมลึกและพาไนเตรตลงไปด้วย (2) <strong>ตัวจำกัดคืออัตราการซึม ไม่ใช่ความจุ</strong> ดินเหนียวรับน้ำได้ช้า การให้น้ำ 200 มม. เร็วกว่าที่ดินจะซึมรับไหวจะทำให้น้ำขังผิวดิน ไหลนอง และกัดเซาะ ซึ่งตรงกับเงื่อนไขเรื่อง "อัตราการให้น้ำ" ในนิยามการจัดการน้ำชลประทาน (3) <strong>การที่ดินอิ่มตัวนาน ทำให้รากขาดอากาศ</strong> และในแปลงที่ระบายน้ำไม่ดีจะทำให้ระดับน้ำใต้ดินสูงขึ้น เกิดน้ำขังและตามด้วยดินเค็มเมื่อน้ำนั้นระเหย แผนที่ถูกต้องคือให้น้ำครั้งละเท่ากับ RAW ด้วยอัตราที่ดินรับไหว</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Graded quiz ===================== -->
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">ข้อสอบเก็บคะแนน</span></h2>
+        <p class="quiz-note">
+          <span class="en">10 questions · 1 point each · answer all, then submit. Your best score is kept in this browser.</span>
+          <span class="th">10 ข้อ · ข้อละ 1 คะแนน · ตอบให้ครบแล้วกดส่งคำตอบ ระบบจะเก็บคะแนนสูงสุดไว้ในเบราว์เซอร์นี้</span>
+        </p>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 2 · Soil Water</span>
+      <span class="th">บทที่ 2 · น้ำในดิน</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'Which formula gives soil moisture by dry mass?',
+         th: 'ข้อใดคือสูตรของความชื้นในดินโดยมวลดินแห้ง' },
+    choices: [
+      { en: 'θM = 100 · Mw / Ms', th: 'θM = 100 · Mw / Ms' },
+      { en: 'θM = 100 · Mw / M',  th: 'θM = 100 · Mw / M' },
+      { en: 'θM = 100 · Vw / V',  th: 'θM = 100 · Vw / V' },
+      { en: 'θM = 100 · Ms / Mw', th: 'θM = 100 · Ms / Mw' }
+    ],
+    answer: 0,
+    why: { en: 'Divide by the DRY soil mass Ms, not the total wet mass M. 100·Vw/V is θV, moisture by volume.',
+           th: 'ต้องหารด้วยมวลดินแห้ง Ms ไม่ใช่มวลรวมขณะชื้น M ส่วน 100·Vw/V คือ θV ซึ่งเป็นความชื้นโดยปริมาตร' }
+  },
+  {
+    q: { en: 'A sample is 240 g wet, 200 g oven-dry. What is θM?',
+         th: 'ตัวอย่างดินหนัก 240 กรัมขณะชื้น และ 200 กรัมหลังอบแห้ง θM มีค่าเท่าใด' },
+    choices: [
+      { en: '16.7 %', th: '16.7 %' },
+      { en: '20.0 %', th: '20.0 %' },
+      { en: '40.0 %', th: '40.0 %' },
+      { en: '83.3 %', th: '83.3 %' }
+    ],
+    answer: 1,
+    why: { en: 'Mw = 40 g; θM = 100 × 40/200 = 20%. Dividing by the wet mass 240 g would wrongly give 16.7%.',
+           th: 'Mw = 40 กรัม; θM = 100 × 40/200 = 20% ถ้าหารด้วยมวลชื้น 240 กรัมจะได้ 16.7% ซึ่งผิด' }
+  },
+  {
+    q: { en: 'Which expression converts moisture by dry mass into moisture by volume?',
+         th: 'ข้อใดใช้แปลงความชื้นโดยมวลแห้งให้เป็นความชื้นโดยปริมาตร' },
+    choices: [
+      { en: 'θV = θM / As', th: 'θV = θM / As' },
+      { en: 'θV = θM · As', th: 'θV = θM · As' },
+      { en: 'θV = θM · n',  th: 'θV = θM · n' },
+      { en: 'θV = θM · D / 100', th: 'θV = θM · D / 100' }
+    ],
+    answer: 1,
+    why: { en: 'θV = θM · As. Since As > 1 for real soils, the volumetric figure is always the larger of the two.',
+           th: 'θV = θM · As เนื่องจากดินจริงมี As > 1 ค่าความชื้นโดยปริมาตรจึงมากกว่าค่าโดยมวลแห้งเสมอ' }
+  },
+  {
+    q: { en: 'A soil layer 400 mm deep has θV = 30%. What depth of water does it hold?',
+         th: 'ชั้นดินหนา 400 มม. มีค่า θV = 30% จะมีน้ำอยู่ลึกเท่าใด' },
+    choices: [
+      { en: '12 mm',  th: '12 มม.' },
+      { en: '120 mm', th: '120 มม.' },
+      { en: '133 mm', th: '133 มม.' },
+      { en: '1,200 mm', th: '1,200 มม.' }
+    ],
+    answer: 1,
+    why: { en: 'd = θV · D / 100 = 30 × 400 / 100 = 120 mm.',
+           th: 'd = θV · D / 100 = 30 × 400 / 100 = 120 มม.' }
+  },
+  {
+    q: { en: 'Field capacity (FC) is best described as:',
+         th: 'ข้อใดอธิบาย "ความจุสนาม" (FC) ได้ถูกต้องที่สุด' },
+    choices: [
+      { en: 'The moisture content when every pore is filled with water',
+        th: 'ปริมาณความชื้นเมื่อช่องว่างทุกช่องเต็มไปด้วยน้ำ' },
+      { en: 'The moisture content remaining after free gravitational drainage has stopped',
+        th: 'ปริมาณความชื้นที่เหลืออยู่หลังจากน้ำอิสระหยุดไหลซึมด้วยแรงโน้มถ่วงแล้ว' },
+      { en: 'The moisture content at which the crop wilts permanently',
+        th: 'ปริมาณความชื้นที่พืชเหี่ยวถาวร' },
+      { en: 'The moisture content at which the farmer decides to irrigate',
+        th: 'ปริมาณความชื้นที่เกษตรกรตัดสินใจให้น้ำ' }
+    ],
+    answer: 1,
+    why: { en: 'Choice 1 is saturation, choice 3 is PWP, choice 4 is the critical point (refill line). FC ≈ −20 cb is the "full" mark of the tank.',
+           th: 'ข้อ ก. คือจุดอิ่มตัว ข้อ ค. คือ PWP และข้อ ง. คือจุดวิกฤต (เส้นที่ต้องให้น้ำ) ส่วน FC ≈ −20 cb คือขีด "เต็มถัง"' }
+  },
+  {
+    q: { en: 'The permanent wilting point is conventionally taken at a soil water tension of:',
+         th: 'จุดเหี่ยวถาวรกำหนดไว้ที่แรงดึงน้ำในดินเท่าใด' },
+    choices: [
+      { en: '−20 kPa (−0.2 bar)',   th: '−20 kPa (−0.2 บาร์)' },
+      { en: '−50 kPa (−0.5 bar)',   th: '−50 kPa (−0.5 บาร์)' },
+      { en: '−1500 kPa (−15 bar)',  th: '−1500 kPa (−15 บาร์)' },
+      { en: '−100 kPa (−1 bar)',    th: '−100 kPa (−1 บาร์)' }
+    ],
+    answer: 2,
+    why: { en: '−1500 kPa = −1500 cb = −15 bar. −20 cb is field capacity and −50 cb is a typical refill (critical) point.',
+           th: '−1500 kPa = −1500 cb = −15 บาร์ ส่วน −20 cb คือความจุสนาม และ −50 cb คือจุดวิกฤตที่ใช้กันทั่วไป' }
+  },
+  {
+    q: { en: 'Corn on loam (FC 22%, PWP 10%, As 1.4) with a 80 cm root depth. What is TAW?',
+         th: 'ข้าวโพดบนดินร่วน (FC 22%, PWP 10%, As 1.4) ความลึกราก 80 ซม. ค่า TAW เท่ากับเท่าใด' },
+    choices: [
+      { en: '96.0 mm',  th: '96.0 มม.' },
+      { en: '134.4 mm', th: '134.4 มม.' },
+      { en: '168.0 mm', th: '168.0 มม.' },
+      { en: '80.6 mm',  th: '80.6 มม.' }
+    ],
+    answer: 1,
+    why: { en: 'TAW = (22 − 10) × 1.4 × 800/100 = 134.4 mm. 80.6 mm is RAW at p = 0.6, and 96 mm is what you get if you forget As.',
+           th: 'TAW = (22 − 10) × 1.4 × 800/100 = 134.4 มม. ส่วน 80.6 มม. คือ RAW ที่ p = 0.6 และ 96 มม. คือคำตอบที่ได้ถ้าลืมคูณ As' }
+  },
+  {
+    q: { en: 'For that corn crop RAW = 80.6 mm and ETc = 8 mm/day. The irrigation interval is:',
+         th: 'ข้าวโพดแปลงนั้นมี RAW = 80.6 มม. และ ETc = 8 มม./วัน รอบเวรการให้น้ำเท่ากับ' },
+    choices: [
+      { en: '8 days',  th: '8 วัน' },
+      { en: '10 days', th: '10 วัน' },
+      { en: '11 days', th: '11 วัน' },
+      { en: '17 days', th: '17 วัน' }
+    ],
+    answer: 1,
+    why: { en: '80.6/8 = 10.08, rounded DOWN to 10 days. Rounding up to 11 would let the crop pass the refill point before water arrives.',
+           th: '80.6/8 = 10.08 ปัดลงเป็น 10 วัน ถ้าปัดขึ้นเป็น 11 วัน พืชจะเลยจุดที่ต้องให้น้ำไปก่อนที่น้ำจะมาถึง' }
+  },
+  {
+    q: { en: 'The depletion fraction p is best described as:',
+         th: 'ค่า p (depletion fraction) อธิบายได้ถูกต้องที่สุดว่าอย่างไร' },
+    choices: [
+      { en: 'A fixed property of the soil, read from the soil properties table',
+        th: 'ค่าคงที่ของดิน อ่านได้จากตารางคุณสมบัติดิน' },
+      { en: 'A management decision: the fraction of TAW allowed to be used before refilling',
+        th: 'การตัดสินใจเชิงการจัดการ คือสัดส่วนของ TAW ที่ยอมให้ใช้ไปก่อนเติมน้ำใหม่' },
+      { en: 'The efficiency of the irrigation system',
+        th: 'ค่าประสิทธิภาพของระบบชลประทาน' },
+      { en: 'The fraction of rainfall that becomes effective rainfall',
+        th: 'สัดส่วนของน้ำฝนที่กลายเป็นฝนใช้การได้' }
+    ],
+    answer: 1,
+    why: { en: 'p depends on the crop, its stage and the weather, and is chosen by the manager — typically 0.5–0.6 for field crops, lower for sensitive high-value crops.',
+           th: 'ค่า p ขึ้นกับชนิดพืช ระยะการเจริญเติบโต และสภาพอากาศ และเป็นค่าที่ผู้จัดการเลือกเอง โดยทั่วไปประมาณ 0.5–0.6 สำหรับพืชไร่ และต่ำกว่านั้นสำหรับพืชมูลค่าสูงที่อ่อนไหว' }
+  },
+  {
+    q: { en: 'Which instrument reads soil water TENSION directly, and so can be set to the −20 / −50 cb management lines?',
+         th: 'เครื่องมือใดอ่านค่า "แรงดึงน้ำ" ในดินได้โดยตรง จึงตั้งค่าตามเส้นการจัดการ −20 / −50 cb ได้' },
+    choices: [
+      { en: 'Neutron probe',  th: 'เครื่องวัดแบบนิวตรอน' },
+      { en: 'Tensiometer',    th: 'เทนซิโอมิเตอร์' },
+      { en: 'Oven-drying (gravimetric) method', th: 'วิธีอบแห้งแล้วชั่งน้ำหนัก' },
+      { en: 'Capacitance probe', th: 'หัววัดแบบ capacitance' }
+    ],
+    answer: 1,
+    why: { en: 'Tensiometers measure matric potential (tension). Neutron and capacitance probes measure volumetric content θV; oven drying gives θM.',
+           th: 'เทนซิโอมิเตอร์วัดแรงดึงน้ำ (matric potential) ส่วนเครื่องวัดนิวตรอนและหัววัด capacitance วัดความชื้นโดยปริมาตร θV และวิธีอบแห้งให้ค่า θM' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>

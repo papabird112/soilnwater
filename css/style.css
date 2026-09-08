@@ -1,0 +1,679 @@
+/* ============================================================
+   Irrigation Technology — course site: layout & components
+   สีและฟอนต์ทั้งหมดอยู่ใน css/theme.css (ต้องโหลดก่อนไฟล์นี้)
+   Colours/fonts live in css/theme.css — load it before this file.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* ===== Language switching (CSS-driven, no JS re-render) ===== */
+html[lang="th"] .en, html[lang="en"] .th { display: none !important; }
+
+/* ===== Layout ===== */
+.layout { display: flex; min-height: 100vh; }
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--paper);
+  border-right: 1px solid var(--rule);
+  padding: 1.2rem 0 3rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform .3s, margin .3s;
+  z-index: 20;
+}
+.sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w))); margin-right: calc(-1 * var(--sidebar-w)); }
+
+.sidebar-brand {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0 1.1rem .9rem;
+  letter-spacing: -.02em;
+}
+.sidebar-brand:hover { color: var(--accent); }
+.sidebar-title {
+  font-family: var(--font-ui);
+  font-size: .62rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-weight: 600;
+  padding: 0 1.1rem .7rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: .5rem;
+}
+
+.sidebar-lecturer {
+  display: block;
+  margin-top: .35rem;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .02em;
+  text-transform: none;
+  color: var(--accent);
+}
+
+.nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  padding: .5rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: .8rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.nav-item:hover { background: var(--bg); color: var(--ink); }
+.nav-item.active { background: var(--bg); color: var(--ink); border-left-color: var(--accent-light); }
+.nav-item.todo { opacity: .45; pointer-events: none; }
+.nav-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--accent);
+  min-width: 1.3rem;
+}
+.nav-item.active .nav-num { color: var(--link); }
+
+.nav-group {
+  font-family: var(--font-ui);
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 1.2rem 1.1rem .3rem;
+}
+
+.nav-sub {
+  display: block;
+  padding: .28rem 1.1rem .28rem 2.9rem;
+  font-family: var(--font-ui);
+  font-size: .72rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+.nav-sub:hover { color: var(--link); }
+.nav-sub.active { color: var(--ink); border-left-color: var(--rule); }
+
+/* ===== Stage ===== */
+.stage { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .5rem 1.2rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  min-height: 46px;
+}
+.topbar-left, .topbar-right { display: flex; align-items: center; gap: .6rem; }
+.topbar-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: .95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: .25rem .7rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 150ms, color 150ms;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn.solid { background: var(--ink); color: var(--bg); }
+.btn.solid:hover { background: var(--ink-soft); }
+.btn[disabled], .btn.disabled { opacity: .25; pointer-events: none; }
+
+/* language toggle */
+.lang-toggle { display: flex; border: 1px solid var(--ink); border-radius: 2px; overflow: hidden; }
+.lang-btn {
+  font-family: var(--font-ui);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  padding: .28rem .7rem;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.lang-btn + .lang-btn { border-left: 1px solid var(--ink); }
+.lang-btn.active { background: var(--ink); color: var(--bg); }
+.lang-btn:hover:not(.active) { background: var(--bg); color: var(--ink); }
+
+/* ===== Content ===== */
+.chapter { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; width: 100%; }
+.chapter-header { margin-bottom: 2.5rem; }
+.chapter-number {
+  display: block;
+  font-family: var(--font-ui);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: .72rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+.chapter h1 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.chapter-lede { color: var(--ink-soft); margin-top: 1rem; max-width: 62ch; }
+
+section { padding-top: 2.6rem; scroll-margin-top: 60px; }
+section h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  margin-bottom: .9rem;
+}
+section h3 {
+  font-family: var(--font-ui);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  margin: 1.6rem 0 .5rem;
+}
+p { max-width: 66ch; margin-bottom: 1.1em; }
+ul, ol { max-width: 66ch; margin: 0 0 1.2em 1.3rem; }
+li { margin-bottom: .35em; }
+strong { font-weight: 700; }
+em { font-family: var(--font-display); font-style: italic; color: var(--link); }
+a { color: var(--link); }
+code, .mono { font-family: var(--font-mono); font-size: .88em; }
+
+/* เลขยกกำลัง/ตัวห้อย: ไม่ให้ดันความสูงบรรทัดของสมการ
+   real superscripts that do not stretch the line box */
+sup, sub {
+  font-size: .70em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  font-weight: inherit;
+}
+sup { top: -.52em; }
+sub { bottom: -.22em; }
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 0; }
+
+/* pull quote */
+.quote {
+  border-left: 3px solid var(--accent-light);
+  background: var(--paper);
+  padding: 1.2rem 1.4rem;
+  margin: 1.8rem 0;
+  border-radius: 2px;
+}
+.quote p { font-family: var(--font-display); font-style: italic; font-size: 1.08rem; margin-bottom: .4rem; }
+.quote cite {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* callout / key box */
+.box {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.6rem 0;
+}
+.box-title {
+  font-family: var(--font-ui);
+  font-size: .66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+.box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+
+/* card grid */
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 1.6rem 0; }
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1rem 1.1rem;
+}
+.card h4 {
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+.card p { font-size: .88rem; color: var(--ink-soft); margin: 0; }
+.card-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-right: .35rem;
+}
+
+/* tables */
+.table-wrap { overflow-x: auto; margin: 1.6rem 0; border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+th, td { padding: .55rem .8rem; text-align: left; border-bottom: 1px solid var(--rule); }
+th {
+  font-family: var(--font-ui);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-soft);
+  background: var(--bg);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--font-mono); white-space: nowrap; }
+
+/* ===== Formulas & worked calculations =====
+   โครงสร้าง / structure:
+     <div class="formula">
+       <div class="eq-head">หัวข้อย่อย (ไม่บังคับ)</div>
+       <div class="eq"><code>สมการ</code><span class="eq-note">คำอธิบาย</span></div>
+       <div class="eq result"><code>คำตอบ</code></div>
+     </div>
+   หนึ่งบรรทัด = หนึ่ง .eq เสมอ ไม่พึ่งการขึ้นบรรทัดในซอร์ส
+   one line per .eq — never relies on newlines in the source            */
+.formula {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent-light);
+  border-radius: 2px;
+  margin: 1.4rem 0;
+  overflow-x: auto;
+}
+.formula .eq {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .25rem 1.5rem;
+  padding: .5rem 1rem;
+}
+.formula .eq + .eq { border-top: 1px solid var(--rule); }
+.formula .eq > code {
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.formula .eq.result > code { font-weight: 600; color: var(--link); }
+.formula .eq-note {
+  font-family: var(--font-ui);
+  font-size: .76rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-left: auto;
+  text-align: right;
+}
+.formula .eq-head {
+  padding: .45rem 1rem;
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.formula .eq-head:first-child { border-top: 0; }
+
+/* เศษส่วนแบบซ้อนบน-ล่าง สำหรับสมการใหญ่ / stacked fraction */
+.formula .eq-block { align-items: center; }
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: inherit;          /* กลืนกับข้อความรอบข้าง ใช้ได้ทั้งใน <code> และเดี่ยว ๆ */
+  line-height: 1.45;
+  vertical-align: middle;
+  margin: 0 .15rem;
+}
+.frac .num { border-bottom: 1.5px solid currentColor; padding: 0 .55rem .18rem; }
+.frac .den { padding: .18rem .55rem 0; }
+.formula .eq-block .frac { font-size: .92rem; }
+/* .eq ที่มีเศษส่วนให้จัดกึ่งกลางแนวตั้ง แทนการอิงเส้นฐาน */
+.formula .eq:has(.frac) { align-items: center; }
+
+/* symbol list under a formula */
+.where-title {
+  font-family: var(--font-ui);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: -.6rem 0 .5rem .2rem;
+}
+dl.where {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: .3rem 1rem;
+  margin: 0 0 1.6rem;
+  padding-left: .2rem;
+  max-width: 66ch;
+  font-size: .88rem;
+}
+dl.where dt {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  white-space: nowrap;
+}
+dl.where dt::after { content: " ="; color: var(--ink-soft); }
+dl.where dd { margin: 0; color: var(--ink-soft); }
+
+@media (max-width: 560px) {
+  .formula .eq { display: block; }
+  .formula .eq-note { text-align: left; margin: .2rem 0 0; display: block; }
+  dl.where { grid-template-columns: 1fr; gap: 0 0; }
+  dl.where dd { margin: 0 0 .5rem; }
+}
+
+/* ============================================================
+   Figure animations — อนิเมชันในรูป
+   ใส่คลาสให้ element ใน SVG ได้เลย ปรับจังหวะรายชิ้นด้วย
+   style="animation-delay:.5s" หรือ style="--drip:20px"
+   ปิดทั้งหมดอัตโนมัติเมื่อผู้ใช้ตั้งค่า "ลดการเคลื่อนไหว"
+   ============================================================ */
+@keyframes fig-flow  { to   { stroke-dashoffset: -28; } }
+@keyframes fig-pulse { 0%, 100% { opacity: var(--o1, .28); } 50% { opacity: var(--o2, .5); } }
+@keyframes fig-drip  {
+  0%   { transform: translateY(0);              opacity: 0; }
+  20%  {                                        opacity: 1; }
+  80%  {                                        opacity: 1; }
+  100% { transform: translateY(var(--drip, 18px)); opacity: 0; }
+}
+@keyframes fig-rise  {
+  0%   { transform: translateY(10px);  opacity: 0; }
+  35%  {                               opacity: 1; }
+  75%  {                               opacity: 1; }
+  100% { transform: translateY(-12px); opacity: 0; }
+}
+@keyframes fig-dry   {
+  0%   { transform: translateY(0);    opacity: 0; }
+  10%  {                              opacity: 1; }
+  88%  {                              opacity: 1; }
+  100% { transform: translateY(90px); opacity: 0; }
+}
+@keyframes fig-grow  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes fig-fade  { to { opacity: 1; } }
+
+/* วนตลอด — ใช้กับการไหลของน้ำ / looping: water in motion */
+.fig-flow  { stroke-dasharray: 7 7; animation: fig-flow 1.2s linear infinite; }
+.fig-pulse { animation: fig-pulse 3.4s ease-in-out infinite; }
+.fig-drip  { animation: fig-drip 2s ease-in infinite; }
+.fig-rise  { animation: fig-rise 3s ease-in-out infinite; }
+.fig-dry   { animation: fig-dry 8s ease-in infinite; }
+
+/* เล่นครั้งเดียวเมื่อรูปเลื่อนเข้ามาในจอ / one-shot, on scroll into view */
+figure .fig-grow { transform: scaleX(0); transform-box: fill-box; transform-origin: left center; }
+figure .fig-fade { opacity: 0; }
+figure.in-view .fig-grow { animation: fig-grow .9s cubic-bezier(.2,.7,.3,1) forwards; }
+figure.in-view .fig-fade { animation: fig-fade .5s ease .75s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="fig-"] { animation: none !important; }
+  figure .fig-grow { transform: none; }
+  figure .fig-fade { opacity: 1; }
+}
+/* ถ้า JS ไม่ทำงาน อย่าให้แท่งกราฟหายไปเฉย ๆ / never hide content when JS is off */
+@media (scripting: none) {
+  figure .fig-grow { transform: none; }
+  figure .fig-fade { opacity: 1; }
+}
+@media print {
+  [class*="fig-"] { animation: none !important; }
+  figure .fig-grow { transform: none; }
+  figure .fig-fade { opacity: 1; }
+}
+
+/* figure: schematic */
+figure { margin: 1.8rem 0; }
+figure svg { display: block; width: 100%; height: auto; background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; }
+figcaption {
+  font-family: var(--font-ui);
+  font-size: .72rem;
+  color: var(--ink-soft);
+  letter-spacing: .05em;
+  margin-top: .5rem;
+}
+
+/* ===== Exercises ===== */
+.exercise {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+.exercise-q { font-weight: 600; margin-bottom: .6rem; }
+.exercise-q .qnum { font-family: var(--font-display); font-style: italic; color: var(--accent); margin-right: .4rem; }
+.exercise .answer {
+  display: none;
+  border-top: 1px dashed var(--rule);
+  margin-top: .8rem;
+  padding-top: .8rem;
+  color: var(--ink-soft);
+  font-size: .93rem;
+}
+.exercise.open .answer { display: block; }
+.reveal-btn {
+  font-family: var(--font-ui);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: .2rem .6rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.reveal-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ===== Quiz ===== */
+.quiz { border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); padding: 1.4rem; }
+.quiz-item { padding: .9rem 0; border-bottom: 1px solid var(--rule); }
+.quiz-item:last-of-type { border-bottom: 0; }
+.quiz-q { font-weight: 600; margin-bottom: .6rem; }
+.quiz-q .qnum { font-family: var(--font-display); font-style: italic; color: var(--accent); margin-right: .4rem; }
+.quiz-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  padding: .32rem .5rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+.quiz-choice:hover { background: var(--bg); }
+.quiz-choice input { margin-top: .42rem; accent-color: var(--accent); }
+.quiz-item.correct .quiz-choice.picked { background: var(--hi-ok); }
+.quiz-item.wrong .quiz-choice.picked { background: var(--hi-bad); }
+.quiz-item.wrong .quiz-choice.is-key { background: var(--hi-ok); }
+.quiz-feedback {
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  margin-top: .5rem;
+  padding-left: .5rem;
+  display: none;
+}
+.quiz-item.graded .quiz-feedback { display: block; }
+.quiz-item.correct .quiz-feedback { color: var(--ok); }
+.quiz-item.wrong .quiz-feedback { color: var(--bad); }
+
+.quiz-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+.quiz-score {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: .3rem .8rem;
+}
+.quiz-note { font-family: var(--font-ui); font-size: .72rem; color: var(--ink-soft); }
+
+/* ===== Footer / chapter pager ===== */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+footer .copyright {
+  display: block;
+  margin-top: .7rem;
+  padding-top: .7rem;
+  border-top: 1px solid var(--rule);
+  max-width: 22rem;
+  margin-inline: auto;
+  color: var(--ink-soft);
+  opacity: .8;
+}
+footer {
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 2rem 2rem 4rem;
+}
+
+/* ===== Landing page ===== */
+.hero { max-width: 860px; margin: 0 auto; padding: 10vh 2rem 3rem; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+.hero .subtitle { font-family: var(--font-ui); color: var(--ink-soft); }
+.toc-list { max-width: 860px; margin: 0 auto; padding: 0 2rem 4rem; list-style: none; }
+.toc-list li { margin: 0; }
+.toc-link {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem .6rem;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .12s;
+}
+.toc-link:hover { background: var(--paper); }
+.toc-link.todo { opacity: .45; pointer-events: none; }
+.toc-num { font-family: var(--font-display); font-style: italic; font-weight: 700; color: var(--accent); min-width: 2rem; }
+.toc-text small { display: block; font-family: var(--font-ui); font-size: .76rem; color: var(--ink-soft); }
+.badge {
+  font-family: var(--font-ui);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: .1rem .4rem;
+  border-radius: 2px;
+  margin-left: auto;
+  white-space: nowrap;
+  align-self: center;
+}
+
+:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+
+/* ===== Responsive ===== */
+.scrim { display: none; }
+@media (max-width: 900px) {
+  .sidebar { position: fixed; left: 0; top: 0; bottom: 0; box-shadow: 4px 0 20px var(--shadow); }
+  .sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w))); margin-right: 0; }
+  .scrim { display: block; position: fixed; inset: 0; background: var(--scrim); z-index: 19; }
+  .sidebar.collapsed ~ .scrim { display: none; }
+  .chapter { padding: 2.5rem 1.2rem 4rem; }
+  .topbar-title { display: none; }
+}
+@media (max-width: 700px) {
+  /* จอแคบ: ให้เลื่อนรูปแนวนอนแทนการย่อจนอ่านตัวอักษรในรูปไม่ออก
+     narrow screens: scroll the figure instead of shrinking its labels away */
+  figure { overflow-x: auto; }
+  figure svg { min-width: 560px; }
+}
+@media print {
+  .sidebar, .topbar, .pager, .scrim, .reveal-btn, .quiz-bar { display: none !important; }
+  .exercise .answer { display: block !important; }
+  body { background: #fff; }
+}

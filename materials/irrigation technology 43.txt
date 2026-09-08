@@ -1,0 +1,270 @@
+              Jo!nboz!dpvousjft-!jssjhbujpo!jt!bo!pme!bsu!bt!pme!bt!djwjmj{bujpo/!Cvu!
+              gps!uif!xipmf!xpsme-!ju!jt!b!npefso!tdjfodf-!uif!tdjfodf!pg!tvswjwbm/
+                                      O/E/Hvmibuj pg!Joejb!
+
+
+
+
+      IRRIGATION
+     TECHNOLOGY
+      BY DR.VARAWOOT VUDHIVANICH
+
+
+
+
+                Important of Irrigation
+
+
+Irrigation in many countries is an old art -
+  as old as civilization - but for the whole
+world it is a modern science- the science
+                  of survival.
+
+
+              ... O/E/HVMIBUJ PG!JOEJB!...
+
+
+
+
+                                                                                     1
+   การชลประทาน คือศาสตร์ ทเี่ กีย่ วกับการให้ นํา้ แก่ พืช
+                                     คําถาม ?
+                                     1.เมื่อไรที่พืชต้องการน้าํ
+                                     2.พืชต้องการมากน้อยเท่าใด
+                                     3.แหล่งน้ําอยู่ที่ไหน
+                                     4.ปริมาณน้าํ ต้นทุนที่มี เพียงพอหรือไม่ ถ้าไม่พอจะทํา
+                                     อย่างไร
+                                     5.จะส่งน้ําด้วยวิธีไหน
+                                     6.ค่าใช้จ่ายเท่าใด
+                                     7.ใครออกค่าใช้จ่าย
+                                     8.ให้น้ําอย่างไรจึงได้ประโยชน์สงู สุด
+                                     9.ผลประโยชน์ที่ได้คมุ้ ค่าหรือไม่
+                                     10.ใครได้ผลประโยชน์จากน้าํ ชลประทาน
+                                     11.การจัดสรรน้าํ ชลประทานมีความเป็นธรรมหรือไม่
+                                     12.การพัฒนาแหล่งน้ําเกิดผลดีผลเสียอย่างไร มีผลกระทบ
+                                     ต่อสิ่งแวดล้อมมากน้อยเพียงใด ถ้าไม่พฒ   ั นาจะเกิดผล
+                                     อย่างไร
+                                     การชลประทาน จึงเกี่ยวข้ องกับมิตติ ่ างๆ ทัง้ ด้ าน
+                                     เศรษฐกิจ สังคม สิ่งแวดล้ อม การเงิน การเมือง จึง
+                                     ต้ องรู้ศาสตร์ และเทคโนโลยีหลายด้ าน และสามารถ
+                                     บูรณาการความรู้ด้านต่ างๆเข้ าด้ วยกัน
+
+
+
+
+THINGS THAT IRRIGATION ENGINEERS MUST LEARN
+
+• BASIC IRRIGATION PRINCIPLE
+• PLANNING
+• DESIGN
+• CONSTRUCTION
+• IRRIGATION WATER MANAGEMENT
+
+
+
+
+                                                                                      2
+                   TODAY TOPICS
+
+  1. BASIC IRRIGATION PRINCIPLE
+  2. IRRIGATION METHOD
+  3. IRRIGATION SYSTEM
+  4. IRRIGATION MANAGEMENT
+
+
+
+
+        1.BASIC PRINCIPLE OF IRRIGATION
+       WHEN TO IRRIGATE, HOW MUCH WATER SHOULD BE APPLIED
+                  & HOW TO APPLIED EFFICIENTLY ?
+
+Soil Water                              Crop Consumptive Use
+
+
+
+
+                                    Irrigation Methods
+                                        Surface irrigation
+                                        Sprinkler irrigation
+                                        Micro irrigation
+                                        Sub-surface irrigation
+                                                                 3
+                   SOIL MOISTURE CALCULATION
+                                                      Soil moisture properties
+                                                      As=Ms/(V*w)
+                                                      DB=Ms/V
+                                                      n(%)=100*Vv/V
+
+                                                      Soil moisture calculation
+                                                      M(%)=100Mw/Ms
+                                                      V(%)=100Vw/V
+                                                      V(%)= M(%)*As
+                                                      d= V(%)*D/100
+  As=Apparent specific gravity(-)        M(%)=% soil moisture by dry mass
+  DB=Bulk density(g/cc)                  V(%)=%soil moisture by volume
+  n=Porosity(%)                          d=Depth of soil moisture(mm)
+  w=Unit weight of water=1g/cc.         D=Depth of soil(mm)
+
+
+
+
+                                  Soil Texture
+                                  Classification
+
+                                  Sand    mm.
+                                  Silt    mm.
+                                  Clay    mm.
+
+                                                SOIL PROPERTIES
+                                          AND WATER HOLDING CAPACITY
+Soil types         FC             PWP        Porosity(n)   Apparent Specific
+              (% dry mass)    (% dry mass)      (%)           Gravity(As)
+             Range Mean      Range Mean Range Mean         Range       Mean
+Sand          6-12     9      2-6      4   32-42 38 1.55 – 1.80        16.5
+Sandy        10-18    14      4-8      6   40-47 43      1.40-1.60     1.50
+loam
+Loam       18-26      22     8-12        10   43-49     46     1.35-1.50     1.40
+Clay loam 23-31       27     11-15       13   47-51     49     1.30-1.40     1.35
+                                                                               8
+Silty clay 27-35      31     13-17       15   49-53     51     1.25-1.35     1.30
+Clay       31-39      36     15-19       17   51-55     53     1.20-1.30     1.25
+                                                                                    4
+                When to irrigate
+      and how much water should be applied?
+Example 1 - Determine RAW for a corn growing on Loam, assuming that the maximum rooting
+depth=80 cm. and depletion traction(p)=0.6. From soil properties table
+
+         FC=22% by dry mass, PWP=10% by dry mass, As=1.4
+
+         TAW=(22-10)*1.4*80*10/100=134.4 mm
+
+         RAW=p*TAW=0.6*134.4=80.6 mm.
+
+Example 2 Determine the irrigation schedule of corn, if the crop water requirement
+of corm(ETc) = 8 mm/day.
+Irrigation frequency= RAW(mm)/ETc(mm/day)=80.6/8=10 days/irrigation
+Net water applied = ETc*Irrigation frequency=8*10=80 mm for every 10 days. (No
+rain)
+
+Example 3 In case of rain, assumed that there will be 2 mm. of effective
+rainfall available during the growing season.
+Net water applied=80-2*10=60 mm for every 10 days.
+
+
+
+
+           IRRIGATION SCHEDULING INSTRUMENTS
+
+
+
+
+                                                                                     5
+          Crop & Irrigation Water Requirements
+
+
+
+
+Evapotranspiration (ET)
+   = Evaporation +
+    Transpiration
+                                                            11
+
+
+
+
+      Crop Water Requirements(ETc)
+   Crop evapotranspiration under standard conditions;
+   disease-free, well-fertilized crops , grown in large
+   fields, under optimum soil water conditions, and
+   achieving full production under the given climatic
+   conditions.
+
+
+                             When the standard
+                             conditions are not met, the
+                             actual crop ET will be lower
+                             than ETc.
+
+                                                       12
+
+
+
+
+                                                            6
+                   An example
+                  seasonal crop
+                      water
+                   requirement
+                   published by
+                       RID
+
+
+
+                                     13
+
+
+
+
+ET can be estimated from climatic data, crop
+data, soil-moisture data.
+
+
+
+
+     3 ET terms
+     ETo  ETc  ETa
+
+     ETo= Reference crop ET depends on
+     climatic data only.
+     ETc=Kc.ETo
+     Kc=Crop coefficient depending
+     types of crop and stage of growth
+     ETa=Ks.ETc
+     Ks=Water stress coefficient
+                                     14
+
+
+
+
+                                          7
+                               ETO = f(CLIMATE)
+The evapotranspiration rate from a reference surface, not
+short of water, is called the reference crop
+evapotranspiration (ETo)
+                           The reference surface is a hypothetical
+                           grass reference crop with specific
+                           characteristics, height of 0.12 m with a
+                           surface resistance of 70 s/m and an
+                           albedo of 0.23. This crop characteristics
+                           is closely resembling the
+                           evapotranspiration of green grass of
+                           uniform height, actively growing and
+                           adequately watered.
+                                                                   15
+Penman-Monteith is recommended method for ETo calculation.
+
+
+
+
+ Average ETo for different agroclimatic regions(mm/day)
+
+
+                             Mean daily temperature (°C)
+        Regions              Cool       Moderate         Warm
+                              ~10°C        20°C           > 30°C
+ Tropics and subtropics
+
+ - humid and sub-humid
+                            2-3          3-5             5-7
+ - arid and semi-arid
+                            2-4          4-6             6-8
+ Temperate region
+
+ - humid and sub-humid
+                            1-2          2-4             4-7
+ - arid and semi-arid
+                            1-3          4-7             6-9
+                                                                        16
+
+                                                                             8
+
