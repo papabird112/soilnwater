@@ -264,6 +264,60 @@
           <span class="th">เนื่องจากพืชถูกกำหนดให้เหมือนกันหมด ความแตกต่างของค่า ETo ระหว่างสองพื้นที่หรือสองเดือน จึงเกิดจากสภาพอากาศล้วน ๆ ได้แก่ <strong>รังสี อุณหภูมิอากาศ ความชื้นสัมพัทธ์ และความเร็วลม</strong> <em>วิธีที่แนะนำให้ใช้คำนวณ ETo คือวิธี Penman-Monteith</em></span>
         </p>
 
+        <h3><span class="en">Before FAO-56: the equations your predecessors used</span><span class="th">ก่อนจะมี FAO-56: สมการที่รุ่นก่อนหน้าเราใช้กัน</span></h3>
+
+        <p>
+          <span class="en">FAO-56 Penman-Monteith is the standard because it is the most physically complete, not because it is the only one. Thai design offices worked for decades with simpler equations, and you will meet all of them in old project reports — usually with no statement of which one produced the number. Knowing their biases is how you read those reports safely.</span>
+          <span class="th">สมการ FAO-56 Penman-Monteith เป็นมาตรฐานเพราะสมบูรณ์ที่สุดในเชิงฟิสิกส์ ไม่ใช่เพราะเป็นสมการเดียวที่มี สำนักงานออกแบบของไทยใช้สมการที่ง่ายกว่านี้มาหลายสิบปี และเราจะพบสมการเหล่านี้ทั้งหมดในรายงานโครงการเก่า ๆ ซึ่งมักไม่ระบุว่าตัวเลขที่ให้มานั้นมาจากสมการใด การรู้ว่าแต่ละสมการเอนเอียงไปทางไหนจึงเป็นวิธีอ่านรายงานเหล่านั้นอย่างปลอดภัย</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Method</span><span class="th">วิธี</span></th>
+                <th><span class="en">What it needs</span><span class="th">ต้องใช้ข้อมูลอะไร</span></th>
+                <th><span class="en">Behaviour in Thailand</span><span class="th">พฤติกรรมเมื่อใช้ในประเทศไทย</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Thornthwaite</strong><br><span class="mono">ET<sub>p</sub> = 1.6 L<sub>d</sub> (10T/I)<sup>a</sup></span></td>
+                <td><span class="en">Monthly mean air temperature, and latitude for the day-length factor L<sub>d</sub>. Nothing else.</span><span class="th">อุณหภูมิเฉลี่ยรายเดือน กับละติจูดสำหรับค่าปรับความยาวกลางวัน L<sub>d</sub> เท่านั้น</span></td>
+                <td><span class="en">Over-predicts badly in the tropics. Worked for a Thai station it gives 2,300 mm a year, with 303 mm in April alone — air temperature is simply not a measure of the energy available for evaporation.</span><span class="th">ให้ค่าสูงเกินจริงมากในเขตร้อน เมื่อคำนวณกับสถานีในประเทศไทยจะได้ราว 2,300 มม. ต่อปี โดยเดือนเมษายนเดือนเดียวสูงถึง 303 มม. เพราะอุณหภูมิอากาศไม่ใช่ตัววัดพลังงานที่ใช้ระเหยน้ำ</span></td>
+              </tr>
+              <tr>
+                <td><strong>Blaney-Criddle</strong><br><span class="mono">U = K · Σ (t · p / 100)</span></td>
+                <td><span class="en">Monthly mean temperature t (°F), monthly percentage of annual daytime hours p, and a seasonal crop coefficient K. Gives seasonal use directly, in inches.</span><span class="th">อุณหภูมิเฉลี่ยรายเดือน t (°F) ร้อยละของชั่วโมงกลางวันรายเดือนเทียบทั้งปี p และสัมประสิทธิ์การใช้น้ำตลอดฤดู K ให้ค่าการใช้น้ำตลอดฤดูโดยตรงเป็นหน่วยนิ้ว</span></td>
+                <td><span class="en">The most widely used of the group, because K can be calibrated locally from measured crop water use. Maize over a four-month season with K = 0.75 gives 22.8 in ≈ 580 mm.</span><span class="th">เป็นวิธีที่นิยมใช้มากที่สุดในกลุ่มนี้ เพราะสามารถสอบเทียบค่า K กับการใช้น้ำของพืชที่วัดได้ในท้องถิ่น ตัวอย่างข้าวโพดตลอดฤดู 4 เดือน ใช้ K = 0.75 ได้ 22.8 นิ้ว หรือราว 580 มม.</span></td>
+              </tr>
+              <tr>
+                <td><strong>Makkink</strong><br><span class="mono">ET<sub>p</sub> = 0.61 Q · Δ/(Δ+γ) − 0.12</span></td>
+                <td><span class="en">Incoming solar radiation Q expressed as mm/day of evaporation, where <span class="mono">Q = Q<sub>A</sub>(0.26 + 0.50 n/N)</span>. For Thailand — latitude 6° to 26° N — Q<sub>A</sub> comes from a latitude table and n/N from sunshine hours.</span><span class="th">รังสีจากดวงอาทิตย์ที่ได้รับ Q เทียบเป็นอัตราการระเหยน้ำ มม./วัน โดย <span class="mono">Q = Q<sub>A</sub>(0.26 + 0.50 n/N)</span> สำหรับประเทศไทยซึ่งอยู่ระหว่างเส้นรุ้ง 6° ถึง 26° เหนือ ค่า Q<sub>A</sub> หาได้จากตารางตามละติจูด ส่วน n/N หาจากจำนวนชั่วโมงแสงแดด</span></td>
+                <td><span class="en">The first of the group to use radiation rather than temperature as the driver, so it behaves far better in the tropics. Calibrated on grass in the Netherlands, so it needs local adjustment.</span><span class="th">เป็นวิธีแรกในกลุ่มนี้ที่ใช้รังสีแทนอุณหภูมิเป็นตัวขับ จึงให้ผลดีกว่ามากในเขตร้อน แต่สอบเทียบมาจากหญ้าในประเทศเนเธอร์แลนด์ จึงต้องปรับให้เข้ากับท้องถิ่น</span></td>
+              </tr>
+              <tr>
+                <td><strong>Jensen-Haise</strong></td>
+                <td><span class="en">Solar radiation and mean temperature.</span><span class="th">รังสีดวงอาทิตย์และอุณหภูมิเฉลี่ย</span></td>
+                <td><span class="en">Developed for the arid western United States; tends to run high where humidity is high.</span><span class="th">พัฒนาขึ้นสำหรับเขตแห้งแล้งทางตะวันตกของสหรัฐอเมริกา จึงมักให้ค่าสูงเกินไปในที่ที่ความชื้นสัมพัทธ์สูง</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Penman</span><span class="th">Penman</span></strong></td>
+                <td><span class="en">Radiation, temperature, humidity and wind — the full combination method.</span><span class="th">รังสี อุณหภูมิ ความชื้น และลม คือวิธีผสมผสานแบบเต็มรูปแบบ</span></td>
+                <td><span class="en">The direct ancestor of §3.4. If an old report says "Penman" or "Modified Penman", it is close enough to FAO-56 to compare; if it says Thornthwaite, it is not.</span><span class="th">เป็นต้นตระกูลโดยตรงของหัวข้อ 3.4 ถ้ารายงานเก่าระบุว่าใช้ Penman หรือ Modified Penman ก็ใกล้เคียงพอที่จะนำมาเทียบกับ FAO-56 ได้ แต่ถ้าระบุว่าใช้ Thornthwaite จะเทียบไม่ได้</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The pattern worth carrying away</span><span class="th">รูปแบบที่ควรจำติดตัวไป</span></div>
+          <p>
+            <span class="en">Read the table downwards and you watch the driver change: temperature → temperature and day length → radiation → radiation plus advection. Each step adds a physical mechanism that the previous one had to hide inside an empirical constant. FAO-56 is the end of that road, not a different road — which is why §3.4 still has a radiation term and an aerodynamic term sitting side by side.</span>
+            <span class="th">ถ้าอ่านตารางจากบนลงล่าง จะเห็นตัวขับเปลี่ยนไปเรื่อย ๆ คือ อุณหภูมิ → อุณหภูมิกับความยาวกลางวัน → รังสี → รังสีบวกการพัดพา แต่ละขั้นเพิ่มกลไกทางฟิสิกส์ที่ขั้นก่อนหน้าต้องซ่อนไว้ในค่าคงที่เชิงประจักษ์ สมการ FAO-56 จึงเป็นปลายทางของถนนสายนี้ ไม่ใช่ถนนคนละสาย ด้วยเหตุนี้หัวข้อ 3.4 จึงยังมีพจน์รังสีและพจน์อากาศพลศาสตร์วางอยู่เคียงกัน</span>
+          </p>
+        </div>
+
         <h3><span class="en">Typical ETo by agroclimatic region (mm/day)</span><span class="th">ค่า ETo โดยทั่วไปตามเขตภูมิอากาศเกษตร (มม./วัน)</span></h3>
         <div class="table-wrap">
           <table>
@@ -733,6 +787,214 @@
       </section>
 
       <!-- ===================== Summary ===================== -->
+      <!-- ===================== 3.11 ===================== -->
+      <section id="s-schedule">
+        <h2><span class="en">3.11 Net depth, gross depth, and how often</span><span class="th">3.11 ปริมาณน้ำสุทธิ ปริมาณน้ำทั้งหมด และความถี่ในการให้น้ำ</span></h2>
+
+        <p class="chapter-lede">
+          <span class="en">Section 3.8 gave the requirement as a rate — millimetres per day, averaged over a season. Nobody irrigates in millimetres per day. This section converts that rate into the three numbers a system is actually built from: <strong>how deep</strong> one irrigation is, <strong>how often</strong> it repeats, and <strong>how fast</strong> the system must get round every field before the first one runs dry.</span>
+          <span class="th">หัวข้อ 3.8 ให้ความต้องการน้ำมาในรูปของอัตรา คือมิลลิเมตรต่อวันเฉลี่ยตลอดฤดู แต่ไม่มีใครให้น้ำเป็นมิลลิเมตรต่อวัน หัวข้อนี้จึงแปลงอัตรานั้นให้เป็นตัวเลขสามตัวที่ใช้สร้างระบบจริง คือการให้น้ำครั้งหนึ่ง <strong>ลึกเท่าไร</strong> <strong>ซ้ำบ่อยแค่ไหน</strong> และระบบต้อง <strong>เร็วแค่ไหน</strong> จึงจะวนไปครบทุกแปลงก่อนที่แปลงแรกจะแห้ง</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Source of this section</span><span class="th">ที่มาของหัวข้อนี้</span></div>
+          <p>
+            <span class="en">The definitions, the effective-rainfall table and the worked examples in §3.11 follow <em>หลักการชลประทาน (Irrigation Principles)</em>, Chapter 8, by Assoc. Prof. Dr. Wiboon Bunyatharokul (รศ.ดร.วิบูลย์ บุญยธโรกุล), Department of Irrigation Engineering, Faculty of Engineering, Kasetsart University, first printed January B.E. 2526 (1983). The effective-rainfall table is the USDA-SCS monthly table as reproduced there.</span>
+            <span class="th">นิยาม ตารางฝนใช้การ และตัวอย่างการคำนวณในหัวข้อ 3.11 อ้างอิงจากหนังสือ <em>หลักการชลประทาน</em> บทที่ 8 โดย รองศาสตราจารย์ ดร.วิบูลย์ บุญยธโรกุล ภาควิชาวิศวกรรมชลประทาน คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ พิมพ์ครั้งแรก มกราคม พ.ศ. 2526 ส่วนตารางฝนใช้การคือตารางรายเดือนของ USDA-SCS ตามที่ปรากฏในหนังสือเล่มนั้น</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Net water application W<sub>n</sub></span><span class="th">ปริมาณน้ำสุทธิที่ต้องให้แก่พืช W<sub>n</sub></span></h3>
+
+        <p>
+          <span class="en">The <strong>net</strong> depth is the water that must actually arrive in the root zone — the amount that refills the soil to field capacity, plus whatever extra is needed to keep salts moving downwards, minus the rain that did the job for you.</span>
+          <span class="th"><strong>ปริมาณน้ำสุทธิ</strong> คือน้ำที่ต้องลงไปถึงเขตรากจริง ๆ ได้แก่ปริมาณที่เติมดินกลับขึ้นไปถึง Field Capacity บวกกับส่วนที่ต้องเผื่อไว้ควบคุมไม่ให้เกลือสะสม แล้วหักด้วยฝนที่ทำงานส่วนนั้นให้เราไปแล้ว</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>W<sub>n</sub> = W<sub>ad</sub> + W<sub>l</sub> − R<sub>e</sub></code><span class="eq-note"><span class="en">all as depths, mm</span><span class="th">ทุกพจน์เป็นความลึกน้ำ หน่วย มม.</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>W<sub>ad</sub></dt><dd><span class="en">allowable depletion — the water taken out of the root zone since the last irrigation, which is exactly RAW when the field is irrigated on schedule (Chapter 2, §2.6)</span><span class="th">ปริมาณน้ำที่ยอมให้พร่องไปได้ คือน้ำที่ถูกดูดออกจากเขตรากนับตั้งแต่การให้น้ำครั้งก่อน ซึ่งเท่ากับ RAW พอดีเมื่อให้น้ำตรงตามกำหนด (บทที่ 2 หัวข้อ 2.6)</span></dd>
+          <dt>W<sub>l</sub></dt><dd><span class="en">leaching requirement — extra water applied so that salts are carried below the root zone. Where rainfall is ample and the water is fresh, this term is zero.</span><span class="th">ปริมาณน้ำเพื่อการชะล้างเกลือ คือน้ำส่วนเกินที่ให้เพื่อพาเกลือลงไปใต้เขตราก ถ้าฝนมากพอและน้ำมีเกลือน้อย พจน์นี้เป็นศูนย์</span></dd>
+          <dt>R<sub>e</sub></dt><dd><span class="en">effective rainfall over the same interval — see below</span><span class="th">ฝนใช้การได้ในช่วงเวลาเดียวกัน ดูรายละเอียดข้างล่าง</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Paddy is a different calculation</span><span class="th">นาข้าวคิดคนละแบบ</span></div>
+          <p>
+            <span class="en">A puddled paddy field is kept ponded, so there is no "depletion to refill" and no salt problem to leach — but there is a steady loss downwards through the plough pan that has to be replaced every day:</span>
+            <span class="th">นาข้าวที่ทำเทือกแล้วจะมีน้ำขังอยู่ตลอด จึงไม่มี "ปริมาณที่พร่องไปแล้วต้องเติมกลับ" และไม่มีปัญหาเกลือที่ต้องชะล้าง แต่มีการสูญเสียลงข้างล่างผ่านชั้นดานไถอย่างสม่ำเสมอ ซึ่งต้องเติมชดเชยทุกวัน</span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code>W<sub>n</sub> = ET + P − R<sub>e</sub></code><span class="eq-note"><span class="en">for transplanted paddy</span><span class="th">สำหรับนาดำ</span></span></div>
+          </div>
+          <p>
+            <span class="en">where <strong>P</strong> is percolation through the pan, generally not more than about <strong>5 mm/day</strong>. This covers the field <em>after transplanting only</em>. Land preparation — soaking, ploughing and puddling — needs a further <strong>250 to 350 mm</strong>, which in practice is usually met by total rainfall in the same period rather than by the project.</span>
+            <span class="th">โดย <strong>P</strong> คือการรั่วซึมผ่านชั้นดาน โดยทั่วไปมีค่าไม่เกินประมาณ <strong>วันละ 5 มม.</strong> สมการนี้ครอบคลุมเฉพาะแปลงนา <em>หลังปักดำแล้ว</em> เท่านั้น ส่วนการเตรียมดิน คือการแช่ ไถ และทำเทือก ต้องใช้น้ำอีกราว <strong>250 ถึง 350 มม.</strong> ซึ่งในทางปฏิบัติมักได้จากปริมาณฝนทั้งหมดที่ตกในช่วงเดียวกัน มากกว่าจะได้จากโครงการ</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Gross water application W<sub>g</sub></span><span class="th">ปริมาณน้ำทั้งหมดที่ต้องให้แก่พืช W<sub>g</sub></span></h3>
+
+        <p>
+          <span class="en">No system can put the same depth at every point. If you release exactly W<sub>n</sub>, the dry corners of the field get less than they need. So you release more, and accept that some of it will percolate below the roots at the wet end. The multiplier is the overall irrigation efficiency:</span>
+          <span class="th">ไม่มีระบบใดให้น้ำได้ลึกเท่ากันทุกจุด ถ้าปล่อยน้ำเท่ากับ W<sub>n</sub> พอดี มุมที่แห้งของแปลงจะได้น้ำน้อยกว่าที่ต้องการ จึงต้องปล่อยมากกว่านั้น และยอมรับว่าบางส่วนจะซึมลึกเลยรากไปที่ด้านที่เปียก ตัวคูณที่ใช้คือประสิทธิภาพชลประทานรวม</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>E<sub>i</sub> = <span class="frac"><span class="num">W<sub>n</sub></span><span class="den">W<sub>g</sub></span></span> × 100</code><span class="eq-note"><span class="en">definition of irrigation efficiency, %</span><span class="th">นิยามของประสิทธิภาพชลประทาน หน่วยร้อยละ</span></span></div>
+          <div class="eq result"><code>W<sub>g</sub> = <span class="frac"><span class="num">W<sub>n</sub></span><span class="den">E<sub>i</sub></span></span></code><span class="eq-note"><span class="en">with E<sub>i</sub> as a fraction</span><span class="th">เมื่อ E<sub>i</sub> เป็นเศษส่วน</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">Where you measure W<sub>g</sub> decides which efficiency you are quoting. Measured at the field inlet it is application efficiency; at the head of the farm ditch it includes ditch losses; at the project headworks it includes the whole conveyance system. Chapter 4, §4.11 gives typical values for each, and the rule that combines them.</span>
+          <span class="th">จุดที่วัด W<sub>g</sub> เป็นตัวกำหนดว่าเรากำลังพูดถึงประสิทธิภาพตัวไหน ถ้าวัดที่ปากแปลงคือประสิทธิภาพการให้น้ำ ถ้าวัดที่หัวคูส่งน้ำก็รวมการสูญเสียในคูเข้าไปด้วย และถ้าวัดที่หัวงานของโครงการก็รวมระบบส่งน้ำทั้งหมด บทที่ 4 หัวข้อ 4.11 ให้ค่าโดยทั่วไปของแต่ละตัว พร้อมกฎที่ใช้รวมค่าเหล่านั้นเข้าด้วยกัน</span>
+        </p>
+
+        <h3><span class="en">Frequency and period are not the same thing</span><span class="th">ความถี่กับรอบเวรไม่ใช่สิ่งเดียวกัน</span></h3>
+
+        <p>
+          <span class="en">Two intervals are involved and students confuse them constantly.</span>
+          <span class="th">มีช่วงเวลาสองค่าเข้ามาเกี่ยวข้อง และนักศึกษามักสับสนระหว่างสองค่านี้อยู่เสมอ</span>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Irrigation frequency — ความถี่ในการให้น้ำ</span><span class="th">ความถี่ในการให้น้ำ (Irrigation Frequency)</span></h4>
+            <p><span class="en">The number of days between two irrigations <em>of the same field</em>. It is a property of the crop and the soil, not of the system.</span><span class="th">จำนวนวันระหว่างการให้น้ำสองครั้ง <em>ของแปลงเดียวกัน</em> เป็นคุณสมบัติของพืชและดิน ไม่ใช่ของระบบ</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Irrigation period — รอบเวรในการให้น้ำ</span><span class="th">รอบเวรในการให้น้ำ (Irrigation Period)</span></h4>
+            <p><span class="en">The number of days the system needs to get round <em>every field</em> in the rotation area once. It is a property of the system's capacity, and it must be short enough to fit inside the frequency.</span><span class="th">จำนวนวันที่ระบบต้องใช้ในการวนให้น้ำจน <em>ครบทุกแปลง</em> ในเขตหมุนเวียนหนึ่งรอบ เป็นคุณสมบัติของสมรรถนะของระบบ และต้องสั้นพอที่จะอยู่ในช่วงความถี่ได้</span></p>
+          </div>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>IF = <span class="frac"><span class="num">FC − CP</span><span class="den">ET<sub>max</sub></span></span></code><span class="eq-note"><span class="en">design irrigation frequency, days</span><span class="th">ความถี่ในการให้น้ำสำหรับออกแบบ หน่วยวัน</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>FC</dt><dd><span class="en">water held in the root zone at field capacity (mm)</span><span class="th">ปริมาณน้ำในเขตรากที่ Field Capacity (มม.)</span></dd>
+          <dt>CP</dt><dd><span class="en">water held at the critical point — the driest the crop may be allowed to get (mm)</span><span class="th">ปริมาณน้ำที่จุดวิกฤต คือระดับแห้งที่สุดที่ยอมให้พืชไปถึงได้ (มม.)</span></dd>
+          <dt>ET<sub>max</sub></dt><dd><span class="en">the crop's <em>peak</em> daily use, not its seasonal average — design for the worst week of the season</span><span class="th">อัตราการใช้น้ำรายวัน <em>สูงสุด</em> ของพืช ไม่ใช่ค่าเฉลี่ยตลอดฤดู เพราะต้องออกแบบเผื่อสัปดาห์ที่หนักที่สุดของฤดู</span></dd>
+        </dl>
+
+        <p>
+          <span class="en">Note the trap in ET<sub>max</sub>. A crop's water use changes through the season — small at emergence, peaking at flowering, falling again as the grain fills. Design on the seasonal average and the system will be short of capacity for exactly the weeks when a shortage costs the most yield.</span>
+          <span class="th">ให้ระวังกับดักในค่า ET<sub>max</sub> การใช้น้ำของพืชเปลี่ยนไปตลอดฤดู คือน้อยตอนงอก สูงสุดตอนออกดอก แล้วลดลงอีกเมื่อเมล็ดเริ่มแก่ ถ้าออกแบบด้วยค่าเฉลี่ยตลอดฤดู ระบบจะมีสมรรถนะไม่พอพอดีในสัปดาห์ที่การขาดน้ำทำให้ผลผลิตเสียหายมากที่สุด</span>
+        </p>
+
+        <h3><span class="en">Worked example · Frequency and period from a soil reading</span><span class="th">ตัวอย่างการคำนวณ · หาความถี่และรอบเวรจากค่าความชื้นดิน</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A soil holds <strong>160 mm</strong> of available water over the root depth. The crop's peak use is <strong>8 mm/day</strong>. Irrigation begins when available water has fallen to <strong>50%</strong>, and no field may be allowed below <strong>25%</strong>. Find the irrigation frequency and the irrigation period.</span>
+            <span class="th">ดินแปลงหนึ่งมีความชื้นที่พืชนำไปใช้ได้ตลอดความลึกเขตราก <strong>160 มม.</strong> พืชที่ปลูกมีอัตราการใช้น้ำสูงสุด <strong>วันละ 8 มม.</strong> เริ่มให้น้ำเมื่อความชื้นเหลือ <strong>50 เปอร์เซ็นต์</strong> และความชื้นต่ำสุดที่ยอมให้คือ <strong>25 เปอร์เซ็นต์</strong> จงหาความถี่ในการให้น้ำและรอบเวรในการให้น้ำ</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>W<sub>n</sub> = <span class="frac"><span class="num">160 × 50</span><span class="den">100</span></span> = 80 mm</code><span class="eq-note"><span class="en">net depth per irrigation</span><span class="th">ปริมาณน้ำสุทธิต่อการให้น้ำหนึ่งครั้ง</span></span></div>
+          <div class="eq result"><code>IF = <span class="frac"><span class="num">80</span><span class="den">8</span></span> = <strong>10 days</strong></code><span class="eq-note"><span class="en">each field is irrigated every 10 days</span><span class="th">แต่ละแปลงได้รับน้ำทุก 10 วัน</span></span></div>
+          <div class="eq result"><code>Period = <span class="frac"><span class="num">160 × (50 − 25)</span><span class="den">8 × 100</span></span> = <strong>5 days</strong></code><span class="eq-note"><span class="en">the window before the first field hits the limit</span><span class="th">ช่วงเวลาก่อนที่แปลงแรกจะถึงขีดจำกัด</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">Read the two answers together. Each field wants 80 mm every <strong>10</strong> days — but the system must be big enough to serve <em>every</em> field in the rotation within <strong>5</strong> days, because a field started on day 6 would already be below 25%. The frequency sizes the <em>depth</em>; the period sizes the <em>capacity</em>. Halving the period doubles the required flow rate and the pipe, pump and labour that go with it — which is why a designer will always try to widen the window rather than buy a bigger system.</span>
+          <span class="th">ให้อ่านคำตอบทั้งสองพร้อมกัน แต่ละแปลงต้องการน้ำ 80 มม. ทุก <strong>10</strong> วัน แต่ระบบต้องใหญ่พอที่จะให้น้ำ <em>ทุก</em> แปลงในเขตหมุนเวียนได้ภายใน <strong>5</strong> วัน เพราะแปลงที่เริ่มให้น้ำในวันที่ 6 จะมีความชื้นต่ำกว่า 25 เปอร์เซ็นต์ไปแล้ว กล่าวคือความถี่เป็นตัวกำหนด <em>ความลึกน้ำ</em> ส่วนรอบเวรเป็นตัวกำหนด <em>สมรรถนะ</em> การลดรอบเวรลงครึ่งหนึ่งหมายถึงต้องเพิ่มอัตราการไหลเป็นสองเท่า พร้อมทั้งท่อ เครื่องสูบน้ำ และแรงงานที่ตามมาด้วย นี่คือเหตุผลที่ผู้ออกแบบจะพยายามขยายช่วงเวลาให้กว้างขึ้นเสมอ แทนที่จะซื้อระบบที่ใหญ่ขึ้น</span>
+        </p>
+
+        <h3><span class="en">Putting a number on effective rainfall</span><span class="th">การหาค่าฝนใช้การได้เป็นตัวเลข</span></h3>
+
+        <p>
+          <span class="en">Section 3.8 explained why R<sub>e</sub> is always less than measured rainfall. The table below turns that idea into a number. Enter with the month's <strong>average rainfall</strong> down the left and the month's <strong>crop ET</strong> across the top; the body of the table gives R<sub>e</sub> for a soil whose root zone can store 75 mm. For any other storage, multiply by the correction factor in the last row.</span>
+          <span class="th">หัวข้อ 3.8 อธิบายแล้วว่าทำไม R<sub>e</sub> จึงน้อยกว่าปริมาณฝนที่วัดได้เสมอ ตารางข้างล่างแปลงแนวคิดนั้นให้เป็นตัวเลข วิธีใช้คือเข้าตารางด้วย <strong>ฝนเฉลี่ยรายเดือน</strong> ทางด้านซ้าย และ <strong>อัตราการใช้น้ำของพืช</strong> ทางด้านบน ตัวเลขในตารางคือค่า R<sub>e</sub> สำหรับดินที่เขตรากเก็บน้ำได้ 75 มม. ถ้าดินเก็บน้ำได้ค่าอื่น ให้คูณด้วยตัวคูณปรับแก้ในแถวล่างสุด</span>
+        </p>
+
+        <h3><span class="en">Monthly effective rainfall R<sub>e</sub> (mm)</span><span class="th">ฝนใช้การได้รายเดือน R<sub>e</sub> (มม.)</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Monthly rainfall (mm)</span><span class="th">ฝนรายเดือน (มม.)</span></th>
+                <th colspan="10"><span class="en">Monthly crop water use ET (mm)</span><span class="th">อัตราการใช้น้ำของพืช ET ประจำเดือน (มม.)</span></th>
+              </tr>
+              <tr>
+                <th class="num">25</th><th class="num">50</th><th class="num">75</th><th class="num">100</th><th class="num">125</th>
+                <th class="num">150</th><th class="num">175</th><th class="num">200</th><th class="num">225</th><th class="num">250</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">15</td><td class="num">9</td><td class="num">10</td><td class="num">10</td><td class="num">11</td><td class="num">11</td><td class="num">12</td><td class="num">12</td><td class="num">13</td><td class="num">14</td><td class="num">15</td></tr>
+              <tr><td class="num">20</td><td class="num">12</td><td class="num">13</td><td class="num">14</td><td class="num">14</td><td class="num">15</td><td class="num">16</td><td class="num">17</td><td class="num">18</td><td class="num">19</td><td class="num">20</td></tr>
+              <tr><td class="num">30</td><td class="num">18</td><td class="num">19</td><td class="num">21</td><td class="num">22</td><td class="num">22</td><td class="num">23</td><td class="num">24</td><td class="num">26</td><td class="num">28</td><td class="num">30</td></tr>
+              <tr><td class="num">40</td><td class="num">23</td><td class="num">25</td><td class="num">27</td><td class="num">29</td><td class="num">30</td><td class="num">31</td><td class="num">32</td><td class="num">35</td><td class="num">38</td><td class="num">40</td></tr>
+              <tr><td class="num">50</td><td class="num">25</td><td class="num">32</td><td class="num">34</td><td class="num">35</td><td class="num">36</td><td class="num">38</td><td class="num">40</td><td class="num">43</td><td class="num">46</td><td class="num">49</td></tr>
+              <tr><td class="num">60</td><td class="num">—</td><td class="num">38</td><td class="num">40</td><td class="num">42</td><td class="num">43</td><td class="num">45</td><td class="num">47</td><td class="num">51</td><td class="num">55</td><td class="num">59</td></tr>
+              <tr><td class="num">70</td><td class="num">—</td><td class="num">43</td><td class="num">46</td><td class="num">49</td><td class="num">51</td><td class="num">53</td><td class="num">55</td><td class="num">59</td><td class="num">63</td><td class="num">68</td></tr>
+              <tr><td class="num">80</td><td class="num">—</td><td class="num">48</td><td class="num">52</td><td class="num">55</td><td class="num">58</td><td class="num">60</td><td class="num">63</td><td class="num">67</td><td class="num">71</td><td class="num">77</td></tr>
+              <tr><td class="num">90</td><td class="num">—</td><td class="num">50</td><td class="num">57</td><td class="num">61</td><td class="num">64</td><td class="num">67</td><td class="num">70</td><td class="num">75</td><td class="num">79</td><td class="num">85</td></tr>
+              <tr><td class="num">100</td><td class="num">—</td><td class="num">—</td><td class="num">63</td><td class="num">67</td><td class="num">71</td><td class="num">74</td><td class="num">78</td><td class="num">82</td><td class="num">87</td><td class="num">94</td></tr>
+              <tr><td class="num">110</td><td class="num">—</td><td class="num">—</td><td class="num">68</td><td class="num">73</td><td class="num">78</td><td class="num">80</td><td class="num">84</td><td class="num">89</td><td class="num">95</td><td class="num">102</td></tr>
+              <tr><td class="num">120</td><td class="num">—</td><td class="num">—</td><td class="num">73</td><td class="num">78</td><td class="num">84</td><td class="num">86</td><td class="num">91</td><td class="num">97</td><td class="num">102</td><td class="num">110</td></tr>
+              <tr><td class="num">130</td><td class="num">—</td><td class="num">—</td><td class="num">75</td><td class="num">83</td><td class="num">89</td><td class="num">92</td><td class="num">98</td><td class="num">104</td><td class="num">110</td><td class="num">118</td></tr>
+              <tr><td class="num">140</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">89</td><td class="num">95</td><td class="num">99</td><td class="num">105</td><td class="num">112</td><td class="num">118</td><td class="num">126</td></tr>
+              <tr><td class="num">150</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">94</td><td class="num">101</td><td class="num">105</td><td class="num">110</td><td class="num">120</td><td class="num">125</td><td class="num">134</td></tr>
+              <tr><td class="num">160</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">99</td><td class="num">106</td><td class="num">110</td><td class="num">117</td><td class="num">125</td><td class="num">132</td><td class="num">142</td></tr>
+              <tr><td class="num">170</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">100</td><td class="num">111</td><td class="num">116</td><td class="num">123</td><td class="num">131</td><td class="num">138</td><td class="num">149</td></tr>
+              <tr><td class="num">180</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">116</td><td class="num">121</td><td class="num">129</td><td class="num">136</td><td class="num">144</td><td class="num">155</td></tr>
+              <tr><td class="num">190</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">121</td><td class="num">126</td><td class="num">134</td><td class="num">142</td><td class="num">150</td><td class="num">161</td></tr>
+              <tr><td class="num">200</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">125</td><td class="num">132</td><td class="num">140</td><td class="num">148</td><td class="num">157</td><td class="num">168</td></tr>
+              <tr>
+                <td><strong><span class="en">Root-zone storage (mm)</span><span class="th">ความสามารถเก็บน้ำของดินในเขตราก (มม.)</span></strong></td>
+                <td class="num">20</td><td class="num">30</td><td class="num">40</td><td class="num">50</td><td class="num">60</td><td class="num">75</td><td class="num">100</td><td class="num">125</td><td class="num">150</td><td class="num">175</td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Correction factor</span><span class="th">ตัวคูณปรับแก้</span></strong></td>
+                <td class="num">0.74</td><td class="num">0.82</td><td class="num">0.88</td><td class="num">0.93</td><td class="num">0.96</td><td class="num">1.00</td><td class="num">1.02</td><td class="num">1.04</td><td class="num">1.06</td><td class="num">1.07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">The dashes are not missing data. Effective rainfall can never exceed either the rainfall that fell or the crop's use in the same month — water the crop does not need is not effective, however gently it arrived. Where the monthly rainfall is below the lowest value in the table, treat all of it as effective.</span>
+          <span class="th">เครื่องหมายขีดไม่ใช่ข้อมูลที่หายไป ฝนใช้การได้ย่อมไม่มีทางมากกว่าปริมาณฝนที่ตกจริง และไม่มากกว่าอัตราการใช้น้ำของพืชในเดือนเดียวกัน เพราะน้ำที่พืชไม่ต้องการก็ไม่ใช่ฝนใช้การ ไม่ว่าจะตกลงมาเบาเพียงใด ส่วนกรณีที่ฝนเฉลี่ยรายเดือนน้อยกว่าค่าต่ำสุดในตาราง ให้ถือว่าฝนทั้งหมดนั้นเป็นฝนใช้การ</span>
+        </p>
+
+        <h3><span class="en">Worked example · Effective rainfall on three soils</span><span class="th">ตัวอย่างการคำนวณ · ฝนใช้การได้บนดินสามชนิด</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A dry-season field crop inside an irrigation project uses <strong>100 mm</strong> in the month, and the average rainfall for that month is <strong>60 mm</strong>. Find the effective rainfall if the root zone can store (a) 50 mm, (b) 75 mm, (c) 100 mm.</span>
+            <span class="th">พืชไร่ฤดูแล้งในเขตโครงการชลประทานแห่งหนึ่งมีการใช้น้ำ (ET) เดือนละ <strong>100 มม.</strong> ฝนเฉลี่ยในเดือนเดียวกันเท่ากับ <strong>60 มม.</strong> จงคำนวณค่าฝนใช้การถ้าดินในเขตรากเก็บน้ำไว้ได้ (ก) 50 มม. (ข) 75 มม. (ค) 100 มม.</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Enter the table at rainfall 60 mm, ET 100 mm: the base value is <strong>42 mm</strong>. Now apply the correction factor for each storage.</span>
+          <span class="th">เข้าตารางที่ฝน 60 มม. และ ET 100 มม. จะได้ค่าพื้นฐาน <strong>42 มม.</strong> จากนั้นนำตัวคูณปรับแก้ของแต่ละความสามารถเก็บน้ำมาคูณ</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>(a) R<sub>e</sub> = 0.93 × 42 = <strong>39 mm</strong></code><span class="eq-note"><span class="en">storage 50 mm</span><span class="th">ดินเก็บน้ำได้ 50 มม.</span></span></div>
+          <div class="eq result"><code>(b) R<sub>e</sub> = 1.00 × 42 = <strong>42 mm</strong></code><span class="eq-note"><span class="en">storage 75 mm — the table's base case</span><span class="th">ดินเก็บน้ำได้ 75 มม. คือกรณีฐานของตาราง</span></span></div>
+          <div class="eq result"><code>(c) R<sub>e</sub> = 1.02 × 42 = <strong>43 mm</strong></code><span class="eq-note"><span class="en">storage 100 mm</span><span class="th">ดินเก็บน้ำได้ 100 มม.</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">What the small spread is telling you</span><span class="th">ช่วงค่าที่แคบนี้กำลังบอกอะไร</span></div>
+          <p>
+            <span class="en">Doubling the soil's storage capacity — from 50 mm to 100 mm — changed effective rainfall by only 4 mm, from 39 to 43. Storage helps, but it is second-order. What dominates is the first column you entered: of the 60 mm that fell, <strong>18 mm were lost no matter what soil it fell on</strong>. That loss is intensity and timing, not soil, and the only way to reduce it is to have the crop in the ground when the rain comes — which is an agronomic decision, not an engineering one.</span>
+            <span class="th">การเพิ่มความสามารถเก็บน้ำของดินเป็นสองเท่า คือจาก 50 มม. เป็น 100 มม. ทำให้ฝนใช้การเพิ่มขึ้นเพียง 4 มม. คือจาก 39 เป็น 43 ความสามารถเก็บน้ำช่วยได้จริง แต่เป็นผลลำดับรอง สิ่งที่มีอิทธิพลมากกว่าคือค่าที่เราเข้าตารางเป็นอย่างแรก กล่าวคือจากฝน 60 มม. ที่ตกลงมา <strong>มี 18 มม. ที่สูญเสียไปไม่ว่าจะตกลงบนดินชนิดใดก็ตาม</strong> การสูญเสียนั้นมาจากความหนักเบาและจังหวะของฝน ไม่ได้มาจากดิน และวิธีเดียวที่จะลดลงได้คือต้องมีพืชอยู่ในแปลงตอนที่ฝนตก ซึ่งเป็นการตัดสินใจทางพืชไร่ ไม่ใช่ทางวิศวกรรม</span>
+          </p>
+        </div>
+      </section>
+
       <section id="s-summary">
         <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
         <div class="box">
