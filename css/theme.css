@@ -26,6 +26,13 @@
   --link:        #9a4315;   /* ส้มเข้ม สำหรับ "ตัวอักษร" ให้อ่านชัดบนพื้นครีม
                                deep orange — text-safe shade of --accent-hot  */
 
+  /* ---- ตาราง / Tables ----
+     สีรองพื้นหัวตาราง: เป็นสีเน้นแบบโปร่งใส ซ้อนบน --bg อีกที
+     ทำให้ได้ 3 ระดับชัดเจน คือ หัวตาราง > แถวสลับสี > แถวปกติ
+     header tint, layered over --bg, so the table reads in three tiers:
+     header > striped row > plain row                                  */
+  --th-tint: rgba(0, 121, 121, .10);
+
   /* ---- สีผลตรวจข้อสอบ / Quiz feedback ---- */
   --ok:          #00615f;   /* ข้อความเมื่อตอบถูก  correct text */
   --bad:         #9a4315;   /* ข้อความเมื่อตอบผิด  wrong text   */
@@ -57,6 +64,7 @@
   --bg: #f2f7f6;  --paper: #ffffff;  --ink: #063b3a;  --ink-soft: #00615f;
   --rule: #cbe3e1; --accent: #007979; --accent-light: #24b1b1;
   --accent-hot: #e37434; --link: #9a4315;
+  --th-tint: rgba(0, 121, 121, .08);
 }
 */
 
@@ -66,6 +74,7 @@
   --rule: #d4c9b0; --accent: #a87d3a; --accent-light: #c9a25c;
   --accent-hot: #9a4628; --link: #9a4628;
   --ok: #3f6b3f; --bad: #9a4628;
+  --th-tint: rgba(168, 125, 58, .12);
   --hi-ok: rgba(63,107,63,.14); --hi-bad: rgba(154,70,40,.14);
   --shadow: rgba(28,24,18,.14); --scrim: rgba(28,24,18,.35);
 }
@@ -77,6 +86,7 @@
   --rule: #12514e; --accent: #24b1b1; --accent-light: #6fd6d6;
   --accent-hot: #e37434; --link: #f0a06a;
   --ok: #24b1b1; --bad: #e37434;
+  --th-tint: rgba(36, 177, 177, .14);
   --hi-ok: rgba(36,177,177,.20); --hi-bad: rgba(227,116,52,.24);
   --shadow: rgba(0,0,0,.45); --scrim: rgba(0,0,0,.55);
 }
