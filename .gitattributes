@@ -1,0 +1,18 @@
+# บังคับให้ไฟล์ข้อความใช้ LF ทั้งในที่เก็บและในไดเรกทอรีทำงาน
+# Normalise every text file to LF, in the repository and in the working tree.
+#
+# ถ้าไม่มีบรรทัดนี้ core.autocrlf=true บน Windows จะเช็คเอาต์ไฟล์เป็น CRLF
+# แล้ว Git จะเตือน "LF will be replaced by CRLF" ทุกครั้งที่ git add
+# Without it, core.autocrlf=true on Windows checks text files out as CRLF and
+# Git warns on every add. text=auto still detects binary files and skips them.
+* text=auto eol=lf
+
+# ระบุชัดเจนว่าไฟล์ต้นฉบับเป็นไบนารี ไม่ต้องแปลงบรรทัดและไม่ต้อง diff
+# State outright that the source material is binary: never convert, never diff.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.woff binary
+*.woff2 binary
