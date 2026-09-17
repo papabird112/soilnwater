@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 7 การจัดการน้ำชลประทาน · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-chapter="ch07">
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">7 · Irrigation Water Management</span>
+          <span class="th">บทที่ 7 · การจัดการน้ำชลประทาน</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 7</span><span class="th">บทที่ 7</span>
+        </span>
+        <h1>
+          <span class="en">Irrigation Water Management</span>
+          <span class="th">การจัดการน้ำชลประทาน</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">Six chapters have built a system that can deliver a known depth of water to a known field at a known time. This one asks the question none of them could: <em>given that the water is not enough, what should you actually do?</em> That is the whole of management — and the answers are rarely the ones a designer would guess.</span>
+          <span class="th">หกบทที่ผ่านมาสร้างระบบที่ส่งน้ำได้ในปริมาณที่รู้ค่า ไปยังแปลงที่รู้ตำแหน่ง ในเวลาที่รู้แน่นอน บทนี้ถามคำถามที่ไม่มีบทใดตอบได้ คือ <em>ในเมื่อน้ำไม่พอ แล้วเราควรทำอย่างไรกันแน่</em> นั่นคือสาระทั้งหมดของการจัดการ และคำตอบมักไม่ใช่สิ่งที่ผู้ออกแบบจะเดาได้</span>
+        </p>
+      </header>
+
+      <!-- ===================== 7.1 ===================== -->
+      <section id="s-what">
+        <h2><span class="en">7.1 What management adds</span><span class="th">7.1 การจัดการเพิ่มอะไรเข้ามา</span></h2>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Sources of this chapter</span><span class="th">ที่มาของบทนี้</span></div>
+          <p>
+            <span class="en">The critical-period table, the canal hierarchy and the three delivery methods follow <em>หลักการชลประทาน</em>, Chapters 7 and 9, by Assoc. Prof. Dr. Wiboon Bunyatharokul (รศ.ดร.วิบูลย์ บุญยธโรกุล), Kasetsart University, B.E. 2526. The yield-response relation and the leaching requirement follow FAO Irrigation and Drainage Papers 33 and 29. Every worked example here was checked numerically.</span>
+            <span class="th">ตารางช่วงวิกฤต ลำดับชั้นของคลองส่งน้ำ และวิธีการส่งน้ำสามแบบ อ้างอิงจากหนังสือ <em>หลักการชลประทาน</em> บทที่ 7 และบทที่ 9 โดย รองศาสตราจารย์ ดร.วิบูลย์ บุญยธโรกุล มหาวิทยาลัยเกษตรศาสตร์ พ.ศ. 2526 ส่วนความสัมพันธ์การตอบสนองของผลผลิตต่อน้ำและปริมาณน้ำชะล้างเกลือ อ้างอิงจากเอกสาร FAO Irrigation and Drainage Paper ฉบับที่ 33 และ 29 ตัวอย่างการคำนวณทุกข้อในบทนี้ได้ตรวจสอบด้วยการคำนวณแล้ว</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Chapter 1 gave two definitions worth going back to. <strong>Irrigation water management</strong> is controlling water application so as to get high yield without wasting water, soil or nutrients: the right <em>amount</em>, at the right <em>time</em>, at a <em>rate</em> the soil can take. Everything since then has been about making those three things possible. This chapter is about choosing them.</span>
+          <span class="th">บทที่ 1 ให้นิยามไว้สองข้อที่ควรย้อนกลับไปอ่าน <strong>การจัดการน้ำชลประทาน</strong> คือการควบคุมการให้น้ำเพื่อให้ได้ผลผลิตสูงโดยไม่สูญเสียน้ำ ดิน หรือธาตุอาหาร กล่าวคือให้ <em>ปริมาณ</em> ที่ถูกต้อง ใน <em>เวลา</em> ที่ถูกต้อง ด้วย <em>อัตรา</em> ที่ดินรับได้ ทุกบทนับจากนั้นเป็นเรื่องของการทำให้สามสิ่งนี้เป็นไปได้ ส่วนบทนี้เป็นเรื่องของการเลือกทั้งสามสิ่งนั้น</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Chapter</span><span class="th">บท</span></th>
+                <th><span class="en">Answered</span><span class="th">ตอบคำถาม</span></th>
+                <th><span class="en">Assumed without saying so</span><span class="th">สิ่งที่สมมติไว้โดยไม่ได้บอก</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">2</td><td><span class="en">How much water the soil holds, and when it runs short</span><span class="th">ดินเก็บน้ำได้เท่าไร และเมื่อใดจะขาด</span></td><td><span class="en">That you will refill it whenever it does</span><span class="th">ว่าเราจะเติมน้ำทุกครั้งที่ดินขาด</span></td></tr>
+              <tr><td class="num">3</td><td><span class="en">How much the crop needs</span><span class="th">พืชต้องการน้ำเท่าไร</span></td><td><span class="en">That the crop will get all of it</span><span class="th">ว่าพืชจะได้รับครบทั้งหมด</span></td></tr>
+              <tr><td class="num">4</td><td><span class="en">How to put it on</span><span class="th">จะเอาน้ำลงแปลงอย่างไร</span></td><td><span class="en">That there is enough water to put on</span><span class="th">ว่ามีน้ำมากพอที่จะเอาลงแปลง</span></td></tr>
+              <tr><td class="num">5</td><td><span class="en">How to know what you delivered</span><span class="th">จะรู้ได้อย่างไรว่าส่งน้ำไปเท่าไร</span></td><td><span class="en">That the number will be acted on</span><span class="th">ว่าตัวเลขนั้นจะถูกนำไปใช้</span></td></tr>
+              <tr><td class="num">6</td><td><span class="en">What hardware delivers it</span><span class="th">ใช้อุปกรณ์อะไรส่งน้ำ</span></td><td><span class="en">That one block is the whole problem</span><span class="th">ว่าแปลงเดียวคือปัญหาทั้งหมด</span></td></tr>
+              <tr><td class="num"><strong>7</strong></td><td colspan="2"><strong><span class="en">Drops every one of those assumptions</span><span class="th">ยกเลิกข้อสมมติทุกข้อข้างบน</span></strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The sentence this chapter is built around</span><span class="th">ประโยคที่บทนี้สร้างขึ้นรอบ ๆ</span></div>
+          <p>
+            <span class="en">A design問題 has one right answer. A management problem has a <em>best</em> answer, and it changes with the season, the price of the crop, and how much water is in the reservoir this year. Designers optimise a system; managers allocate a shortage. The two require different habits of mind, and an engineer who can only do the first will hand a farmer a beautifully sized pipe and no idea what to do on the day the canal runs at half flow.</span>
+            <span class="th">โจทย์การออกแบบมีคำตอบที่ถูกต้องคำตอบเดียว ส่วนโจทย์การจัดการมีคำตอบที่ <em>ดีที่สุด</em> ซึ่งเปลี่ยนไปตามฤดูกาล ราคาผลผลิต และปริมาณน้ำในอ่างเก็บน้ำของปีนั้น ผู้ออกแบบทำให้ระบบดีที่สุด ส่วนผู้จัดการจัดสรรความขาดแคลน สองอย่างนี้ต้องการนิสัยทางความคิดคนละแบบ และวิศวกรที่ทำได้เพียงอย่างแรกจะยื่นท่อขนาดสวยงามให้เกษตรกร โดยไม่รู้เลยว่าต้องทำอย่างไรในวันที่คลองส่งน้ำมาเพียงครึ่งเดียว</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 7.2 ===================== -->
+      <section id="s-balance">
+        <h2><span class="en">7.2 The soil-water balance: the checkbook method</span><span class="th">7.2 สมดุลน้ำในดิน: วิธีสมุดบัญชี</span></h2>
+
+        <p>
+          <span class="en">The most useful management tool in this course is also the simplest. Treat the root zone as a bank account: rain and irrigation are deposits, ET is the daily withdrawal, and the balance is how much the crop has left to spend. You cannot see the balance, but you can compute it every day from numbers you already have.</span>
+          <span class="th">เครื่องมือจัดการที่มีประโยชน์ที่สุดในวิชานี้ก็เป็นเครื่องมือที่ง่ายที่สุดด้วย ให้มองเขตรากพืชเป็นบัญชีธนาคาร ฝนและน้ำชลประทานคือเงินฝาก ค่า ET คือเงินที่ถอนออกทุกวัน และยอดคงเหลือคือน้ำที่พืชยังมีให้ใช้ เรามองไม่เห็นยอดคงเหลือนั้น แต่คำนวณได้ทุกวันจากตัวเลขที่เรามีอยู่แล้ว</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>D<sub>i</sub> = D<sub>i−1</sub> + ET<sub>c,i</sub> − R<sub>e,i</sub> − I<sub>n,i</sub></code><span class="eq-note"><span class="en">today's depletion, mm</span><span class="th">ปริมาณน้ำที่พร่องไปของวันนี้ หน่วย มม.</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>D<sub>i</sub></dt><dd><span class="en">depletion at the end of day i — how far below field capacity the root zone has fallen (mm). Never allowed below zero: water above field capacity drains away.</span><span class="th">ปริมาณน้ำที่พร่องไปเมื่อสิ้นวันที่ i คือเขตรากอยู่ต่ำกว่า Field Capacity เท่าใด (มม.) ค่านี้ต่ำกว่าศูนย์ไม่ได้ เพราะน้ำส่วนที่เกิน Field Capacity จะระบายทิ้งไป</span></dd>
+          <dt>ET<sub>c,i</sub></dt><dd><span class="en">crop water use on day i (mm) — from Chapter 3, <span class="mono">K<sub>c</sub> × ET<sub>o</sub></span></span><span class="th">การใช้น้ำของพืชในวันที่ i (มม.) จากบทที่ 3 คือ <span class="mono">K<sub>c</sub> × ET<sub>o</sub></span></span></dd>
+          <dt>R<sub>e,i</sub></dt><dd><span class="en">effective rainfall on day i (mm) — capped at the depletion, since rain beyond that runs off or drains</span><span class="th">ฝนใช้การได้ในวันที่ i (มม.) โดยจำกัดไม่เกินปริมาณที่พร่องไป เพราะฝนส่วนเกินจะไหลนองหรือระบายทิ้ง</span></dd>
+          <dt>I<sub>n,i</sub></dt><dd><span class="en">net irrigation applied on day i (mm)</span><span class="th">ปริมาณน้ำชลประทานสุทธิที่ให้ในวันที่ i (มม.)</span></dd>
+        </dl>
+
+        <p>
+          <span class="en">Irrigate when <span class="mono">D</span> reaches <strong>RAW</strong> — readily available water, which Chapter 2 defined as <span class="mono">p × TAW</span>. Apply enough to bring <span class="mono">D</span> back to zero, and start counting again.</span>
+          <span class="th">ให้น้ำเมื่อค่า <span class="mono">D</span> เพิ่มขึ้นถึง <strong>RAW</strong> คือความชื้นที่พืชนำไปใช้ได้ง่าย ซึ่งบทที่ 2 นิยามไว้ว่า <span class="mono">p × TAW</span> โดยให้น้ำมากพอที่จะดึงค่า <span class="mono">D</span> กลับมาเป็นศูนย์ แล้วเริ่มนับใหม่</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="Root zone as a bank account with deposits and withdrawals">
+            <!-- tank -->
+            <rect x="200" y="48" width="320" height="190" rx="4" fill="none" stroke="var(--ink)" stroke-width="2"/>
+            <!-- full water -->
+            <rect x="202" y="116" width="316" height="120" fill="var(--accent-light)" opacity=".32"/>
+            <!-- depletion band -->
+            <rect x="202" y="50" width="316" height="66" fill="var(--accent-hot)" opacity=".18"/>
+            <!-- FC line -->
+            <line x1="200" y1="50" x2="520" y2="50" stroke="var(--accent)" stroke-width="2.4"/>
+            <!-- RAW line -->
+            <line x1="200" y1="116" x2="520" y2="116" stroke="var(--link)" stroke-width="2" stroke-dasharray="7 4"/>
+            <!-- current level -->
+            <line x1="200" y1="88" x2="520" y2="88" stroke="var(--ink)" stroke-width="1.6"/>
+            <!-- PWP -->
+            <line x1="200" y1="236" x2="520" y2="236" stroke="var(--ink-soft)" stroke-width="1.6" stroke-dasharray="3 3"/>
+            <!-- deposit arrows -->
+            <g stroke="var(--accent)" stroke-width="2.4" fill="none">
+              <line x1="120" y1="30" x2="120" y2="82"/>
+              <line x1="152" y1="30" x2="152" y2="82"/>
+            </g>
+            <g fill="var(--accent)">
+              <path d="M114,78 L126,78 L120,90 z"/><path d="M146,78 L158,78 L152,90 z"/>
+            </g>
+            <!-- withdrawal arrow -->
+            <line x1="600" y1="82" x2="600" y2="30" stroke="var(--accent-hot)" stroke-width="2.4"/>
+            <path d="M594,34 L606,34 L600,22 z" fill="var(--accent-hot)"/>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)" text-anchor="middle">
+              <text x="136" y="20" class="en">rain + irrigation</text>
+              <text x="136" y="20" class="th">ฝน + น้ำชลประทาน</text>
+              <text x="600" y="14" class="en">ETc</text>
+              <text x="600" y="14" class="th">ETc</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="528" y="54" class="en">field capacity — D = 0</text>
+              <text x="528" y="54" class="th">Field Capacity — D = 0</text>
+              <text x="528" y="120" class="en">D = RAW → irrigate</text>
+              <text x="528" y="120" class="th">D = RAW → ให้น้ำ</text>
+              <text x="528" y="240" class="en">wilting point</text>
+              <text x="528" y="240" class="th">จุดเหี่ยวถาวร</text>
+            </g>
+            <g stroke="var(--accent-hot)" stroke-width="1.4">
+              <line x1="176" y1="50" x2="176" y2="88"/>
+              <line x1="170" y1="50" x2="182" y2="50"/><line x1="170" y1="88" x2="182" y2="88"/>
+            </g>
+            <text x="150" y="74" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)" text-anchor="end">D</text>
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+              <text x="360" y="272" class="en">You never measure D — you compute it, every day, and check it occasionally</text>
+              <text x="360" y="272" class="th">เราไม่เคยวัดค่า D แต่คำนวณมันทุกวัน แล้วตรวจสอบเป็นครั้งคราว</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 7.1 — The root zone as an account. The orange band is the depletion D, which grows every day by ET and shrinks when it rains. When it reaches the dashed line the crop is about to start suffering, and that is the day to irrigate — not the day the leaves tell you.</span>
+            <span class="th">รูปที่ 7.1 — เขตรากพืชในฐานะบัญชีเงินฝาก แถบสีส้มคือปริมาณน้ำที่พร่องไป D ซึ่งเพิ่มขึ้นทุกวันตามค่า ET และลดลงเมื่อฝนตก เมื่อ D ถึงเส้นประ พืชกำลังจะเริ่มได้รับความเสียหาย และนั่นคือวันที่ต้องให้น้ำ ไม่ใช่วันที่ใบพืชบอกเรา</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Worked example 1 · Twelve days of a vegetable crop</span><span class="th">ตัวอย่างการคำนวณที่ 1 · พืชผักสิบสองวัน</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A shallow-rooted vegetable sits on a soil with <strong>TAW = 90 mm</strong> over the root zone and a depletion fraction <strong>p = 0.45</strong>. The field starts at field capacity. Daily ET<sub>c</sub> and rainfall are as tabulated. When must it be irrigated, and how much?</span>
+            <span class="th">พืชผักรากตื้นปลูกบนดินที่มี <strong>TAW = 90 มม.</strong> ตลอดความลึกเขตราก และมีค่าสัดส่วนการพร่องน้ำ <strong>p = 0.45</strong> เริ่มต้นแปลงอยู่ที่ Field Capacity ค่า ET<sub>c</sub> รายวันและปริมาณฝนเป็นไปตามตาราง จงหาว่าต้องให้น้ำเมื่อไร และให้เท่าใด</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>RAW = p × TAW = 0.45 × 90 = <strong>40.5 mm</strong></code><span class="eq-note"><span class="en">the trigger</span><span class="th">คือจุดที่ต้องให้น้ำ</span></span></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Day</span><span class="th">วันที่</span></th>
+                <th><span class="en">ET<sub>c</sub> (mm)</span><span class="th">ET<sub>c</sub> (มม.)</span></th>
+                <th><span class="en">Rain (mm)</span><span class="th">ฝน (มม.)</span></th>
+                <th><span class="en">R<sub>e</sub> (mm)</span><span class="th">R<sub>e</sub> (มม.)</span></th>
+                <th><span class="en">Depletion D (mm)</span><span class="th">น้ำที่พร่องไป D (มม.)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="num">5.2</td><td class="num">0</td><td class="num">0</td><td class="num">5.2</td></tr>
+              <tr><td class="num">2</td><td class="num">5.5</td><td class="num">0</td><td class="num">0</td><td class="num">10.7</td></tr>
+              <tr><td class="num">3</td><td class="num">6.0</td><td class="num">0</td><td class="num">0</td><td class="num">16.7</td></tr>
+              <tr><td class="num">4</td><td class="num">5.8</td><td class="num">0</td><td class="num">0</td><td class="num">22.5</td></tr>
+              <tr><td class="num">5</td><td class="num">6.2</td><td class="num">0</td><td class="num">0</td><td class="num">28.7</td></tr>
+              <tr><td class="num">6</td><td class="num">4.0</td><td class="num">18</td><td class="num">18.0</td><td class="num">14.7</td></tr>
+              <tr><td class="num">7</td><td class="num">3.5</td><td class="num">6</td><td class="num">6.0</td><td class="num">12.2</td></tr>
+              <tr><td class="num">8</td><td class="num">5.9</td><td class="num">0</td><td class="num">0</td><td class="num">18.1</td></tr>
+              <tr><td class="num">9</td><td class="num">6.4</td><td class="num">0</td><td class="num">0</td><td class="num">24.5</td></tr>
+              <tr><td class="num">10</td><td class="num">6.1</td><td class="num">0</td><td class="num">0</td><td class="num">30.6</td></tr>
+              <tr><td class="num">11</td><td class="num">5.7</td><td class="num">0</td><td class="num">0</td><td class="num">36.3</td></tr>
+              <tr><td class="num"><strong>12</strong></td><td class="num">6.0</td><td class="num">0</td><td class="num">0</td><td class="num"><strong>42.3 ≥ 40.5</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">The trigger is crossed on <strong>day 12</strong>, and the net depth to apply is the depletion itself — <strong>42 mm</strong>, which refills the root zone to field capacity. At an application efficiency of 70% the gross depth is <span class="mono">42 / 0.70 = 60 mm</span>, and on one rai that is <span class="mono">1.6 × 60 = 96 m³</span>.</span>
+          <span class="th">ค่าถึงจุดที่ต้องให้น้ำใน <strong>วันที่ 12</strong> และความลึกน้ำสุทธิที่ต้องให้ก็คือปริมาณที่พร่องไปนั่นเอง คือ <strong>42 มม.</strong> ซึ่งจะเติมเขตรากกลับไปที่ Field Capacity พอดี ถ้าประสิทธิภาพการให้น้ำเท่ากับ 70% ความลึกน้ำรวมจะเป็น <span class="mono">42 / 0.70 = 60 มม.</span> และบนพื้นที่หนึ่งไร่คิดเป็น <span class="mono">1.6 × 60 = 96 ลบ.ม.</span></span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Three things this table teaches that no formula can</span><span class="th">สามสิ่งที่ตารางนี้สอน ซึ่งไม่มีสมการใดสอนได้</span></div>
+          <p>
+            <span class="en"><strong>1. The 18 mm storm bought five days.</strong> Depletion fell from 28.7 to 14.7 and the irrigation that would otherwise have happened around day 7 was pushed to day 12. A manager who irrigates on a fixed calendar would have applied 40 mm into a soil that had just been rained on, and lost most of it below the roots.</span>
+            <span class="th"><strong>1. ฝน 18 มม. ซื้อเวลาให้ได้ห้าวัน</strong> ปริมาณที่พร่องไปลดจาก 28.7 เหลือ 14.7 และการให้น้ำซึ่งมิฉะนั้นจะเกิดขึ้นราววันที่ 7 ก็ถูกเลื่อนไปเป็นวันที่ 12 ผู้จัดการที่ให้น้ำตามปฏิทินตายตัวจะให้น้ำ 40 มม. ลงบนดินที่เพิ่งมีฝนตก แล้วสูญเสียน้ำส่วนใหญ่ลงไปใต้เขตราก</span>
+          </p>
+          <p>
+            <span class="en"><strong>2. The 6 mm storm bought almost nothing.</strong> It covered less than two days of ET. Small rain is a rounding error in a water balance, and treating every shower as a reason to skip an irrigation is how crops get stressed.</span>
+            <span class="th"><strong>2. ฝน 6 มม. แทบไม่ได้ช่วยอะไร</strong> เพราะครอบคลุมค่า ET ไม่ถึงสองวัน ฝนเล็กน้อยเป็นเพียงค่าปัดเศษในสมดุลน้ำ และการถือว่าฝนทุกครั้งเป็นเหตุผลให้งดการให้น้ำ คือวิธีที่ทำให้พืชขาดน้ำ</span>
+          </p>
+          <p>
+            <span class="en"><strong>3. The interval is not a constant.</strong> Chapter 3 computed an irrigation frequency of so many days from a peak ET. That is a <em>design</em> number, used to size the system. The checkbook gives the <em>operating</em> number, which is different every cycle — and the gap between the two is exactly the water that fixed-schedule irrigation wastes.</span>
+            <span class="th"><strong>3. ช่วงห่างของการให้น้ำไม่ใช่ค่าคงที่</strong> บทที่ 3 คำนวณความถี่ในการให้น้ำออกมาเป็นจำนวนวันจากค่า ET สูงสุด นั่นเป็นตัวเลขสำหรับ <em>ออกแบบ</em> ใช้กำหนดขนาดระบบ ส่วนวิธีสมุดบัญชีให้ตัวเลขสำหรับ <em>ปฏิบัติงาน</em> ซึ่งไม่ซ้ำกันในแต่ละรอบ และช่องว่างระหว่างสองค่านี้คือน้ำที่การให้น้ำตามตารางตายตัวสูญเสียไปพอดี</span>
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Check the book against the soil</span><span class="th">ตรวจสมุดบัญชีกับดินจริง</span></div>
+          <p>
+            <span class="en">A water balance drifts. K<sub>c</sub> is a table value, ET<sub>o</sub> comes from a station that may be kilometres away, and effective rainfall is an estimate. Errors of 5% a day compound into a serious mistake in a month. The fix is cheap: once every two or three irrigations, go out with an auger or read a tensiometer (Chapter 2, §2.10) and compare what the soil says with what the book says. If they disagree, believe the soil and reset the balance.</span>
+            <span class="th">สมดุลน้ำจะคลาดเคลื่อนสะสม เพราะ K<sub>c</sub> เป็นค่าจากตาราง ค่า ET<sub>o</sub> มาจากสถานีที่อาจอยู่ห่างไปหลายกิโลเมตร และฝนใช้การได้ก็เป็นค่าประมาณ ความคลาดเคลื่อนวันละ 5% เมื่อสะสมครบเดือนจะกลายเป็นความผิดพลาดที่ร้ายแรง วิธีแก้มีราคาถูก คือทุก ๆ สองหรือสามรอบการให้น้ำ ให้ออกไปเจาะดินด้วยสว่านหรืออ่านค่าเทนซิโอมิเตอร์ (บทที่ 2 หัวข้อ 2.10) แล้วเทียบสิ่งที่ดินบอกกับสิ่งที่สมุดบัญชีบอก ถ้าไม่ตรงกัน ให้เชื่อดิน แล้วตั้งค่าสมดุลใหม่</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 7.3 ===================== -->
+      <section id="s-critical">
+        <h2><span class="en">7.3 Critical periods: when a shortage actually costs</span><span class="th">7.3 ช่วงวิกฤต: เมื่อใดที่การขาดน้ำสร้างความเสียหายจริง</span></h2>
+
+        <p>
+          <span class="en">A crop does not lose yield evenly. There are weeks when a missed irrigation costs almost nothing and days when it costs a quarter of the harvest. Knowing which is which is the difference between rationing water intelligently and rationing it by accident.</span>
+          <span class="th">พืชไม่ได้สูญเสียผลผลิตอย่างสม่ำเสมอ มีบางสัปดาห์ที่การขาดการให้น้ำหนึ่งครั้งแทบไม่มีผลใด ๆ และมีบางวันที่การขาดน้ำทำให้เสียผลผลิตไปหนึ่งในสี่ การรู้ว่าช่วงไหนเป็นช่วงไหน คือความต่างระหว่างการปันส่วนน้ำอย่างชาญฉลาดกับการปันส่วนโดยบังเอิญ</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The number that should change how you think</span><span class="th">ตัวเลขที่ควรเปลี่ยนวิธีคิดของเรา</span></div>
+          <p>
+            <span class="en">Maize allowed to reach wilting point for <strong>one to two days during tasselling</strong> loses about <strong>22%</strong> of its yield. The same crop wilted for <strong>six to eight days</strong> in that window loses about <strong>50%</strong>. Wilt it for a week during vegetative growth instead and the loss is a fraction of that, because the plant catches up. The calendar date of a shortage matters more than its size.</span>
+            <span class="th">ข้าวโพดที่ปล่อยให้ความชื้นดินลดถึงจุดเหี่ยวเฉาเป็นเวลา <strong>หนึ่งถึงสองวันในช่วงออกช่อดอก</strong> จะสูญเสียผลผลิตราว <strong>22 เปอร์เซ็นต์</strong> ส่วนพืชเดียวกันที่เหี่ยวนาน <strong>หกถึงแปดวัน</strong> ในช่วงเดียวกันจะสูญเสียราว <strong>50 เปอร์เซ็นต์</strong> แต่ถ้าปล่อยให้เหี่ยวหนึ่งสัปดาห์ในช่วงเจริญเติบโตทางลำต้นและใบแทน ความเสียหายจะน้อยกว่านั้นมาก เพราะต้นพืชตามทันได้ วันที่เกิดการขาดน้ำในปฏิทินจึงสำคัญกว่าขนาดของการขาดน้ำ</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Critical periods of common crops</span><span class="th">ช่วงวิกฤตของพืชที่ปลูกกันทั่วไป</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Crop</span><span class="th">พืช</span></th>
+                <th><span class="en">Critical period</span><span class="th">ช่วงวิกฤต</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Rice</span><span class="th">ข้าว</span></td><td><span class="en">Booting to heading</span><span class="th">จากตั้งท้องถึงออกรวง</span></td></tr>
+              <tr><td><span class="en">Maize</span><span class="th">ข้าวโพด</span></td><td><span class="en">Pollination, from tasselling until the grain fills; then the period just before tasselling; then grain filling</span><span class="th">ช่วงผสมเกสรจากออกช่อดอกจนถึงมีเนื้อเต็มเมล็ด รองลงมาคือช่วงก่อนออกช่อดอก และช่วงที่เมล็ดกำลังจะเต็ม</span></td></tr>
+              <tr><td><span class="en">Sorghum</span><span class="th">ข้าวฟ่าง</span></td><td><span class="en">Flowering until the grain is full; then just before flowering</span><span class="th">ช่วงออกช่อดอกจนถึงเมล็ดเต็ม รองลงมาคือช่วงก่อนออกดอก</span></td></tr>
+              <tr><td><span class="en">Cereals generally</span><span class="th">ธัญญพืชทั่วไป</span></td><td><span class="en">Booting to heading</span><span class="th">จากตั้งท้องถึงออกรวง</span></td></tr>
+              <tr><td><span class="en">Beans and pulses</span><span class="th">ถั่วต่าง ๆ</span></td><td><span class="en">Flowering and pod set; then just before flowering; then pod filling</span><span class="th">ช่วงออกดอกและติดฝัก รองลงมาคือก่อนออกดอก และช่วงฝักกำลังแก่</span></td></tr>
+              <tr><td><span class="en">Sugarcane</span><span class="th">อ้อย</span></td><td><span class="en">Tillering and stem elongation</span><span class="th">ช่วงกำลังแตกกอและลำต้นกำลังโต</span></td></tr>
+              <tr><td><span class="en">Cotton</span><span class="th">ฝ้าย</span></td><td><span class="en">Flowering to boll set; then before flowering; then boll development</span><span class="th">ช่วงออกดอกถึงติดสมอ รองลงมาคือก่อนออกดอก และหลังติดสมอถึงสมอแก่</span></td></tr>
+              <tr><td><span class="en">Cabbage</span><span class="th">กะหล่ำปลี</span></td><td><span class="en">From head formation until the head is fully grown</span><span class="th">ใบเริ่มห่อเป็นหัวและหัวกำลังโต</span></td></tr>
+              <tr><td><span class="en">Cauliflower, leafy vegetables</span><span class="th">กะหล่ำดอก ผักต่าง ๆ</span></td><td><span class="en">High soil moisture required throughout the season</span><span class="th">ต้องการความชื้นในดินสูงตลอดฤดูการปลูก</span></td></tr>
+              <tr><td><span class="en">Broccoli</span><span class="th">บร็อคโคลี่</span></td><td><span class="en">Head initiation and head growth</span><span class="th">เริ่มออกดอกและดอกกำลังโต</span></td></tr>
+              <tr><td><span class="en">Tomato</span><span class="th">มะเขือเทศ</span></td><td><span class="en">From flowering until the fruit is growing</span><span class="th">จากออกดอกจนถึงช่วงผลกำลังโต</span></td></tr>
+              <tr><td><span class="en">Potato</span><span class="th">มันฝรั่ง</span></td><td><span class="en">High moisture from tuber initiation and flowering through to harvest</span><span class="th">ต้องการความชื้นสูงหลังเริ่มลงหัว ออกดอก จนถึงเก็บเกี่ยว</span></td></tr>
+              <tr><td><span class="en">Fruit trees</span><span class="th">ไม้ผล</span></td><td><span class="en">While the fruit is sizing</span><span class="th">ผลกำลังโต</span></td></tr>
+              <tr><td><span class="en">Citrus</span><span class="th">ไม้ผลประเภทส้ม</span></td><td><span class="en">Flowering and fruit set. Lime will flower even if water is withheld before flowering; fruit drop in the dry season can be corrected by wetting thoroughly</span><span class="th">ออกดอกและติดผล มะนาวจะออกดอกแม้งดให้น้ำในช่วงก่อนออกดอก ส่วนผลร่วงในช่วงแล้งจัดแก้ได้ด้วยการให้น้ำให้ชุ่มพอ</span></td></tr>
+              <tr><td><span class="en">Tobacco</span><span class="th">ยาสูบ</span></td><td><span class="en">From about 50 cm tall until flowering</span><span class="th">ตั้งแต่ต้นสูงประมาณ 50 เซนติเมตรจนถึงออกดอก</span></td></tr>
+              <tr><td><span class="en">Castor</span><span class="th">ละหุ่ง</span></td><td><span class="en">While growing at full rate</span><span class="th">ระยะที่กำลังโตเต็มที่</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the maize and cotton entries again</span><span class="th">ลองอ่านรายการของข้าวโพดและฝ้ายอีกครั้ง</span></div>
+          <p>
+            <span class="en">Both list their critical periods <em>in order</em>, and both carry the same qualifier: the flowering stage is most critical <strong>provided the crop has not already been short of water</strong>. A plant that entered flowering already stressed responds differently from one that did not — the stages are not independent. This is why a management plan cannot be built one irrigation at a time; the decision you make in week four changes what week eight costs.</span>
+            <span class="th">ทั้งสองชนิดระบุช่วงวิกฤต <em>เรียงตามลำดับความสำคัญ</em> และทั้งคู่มีข้อความกำกับเหมือนกัน คือช่วงออกดอกจะวิกฤตที่สุด <strong>ก็ต่อเมื่อพืชนั้นไม่เคยขาดน้ำมาก่อน</strong> ต้นพืชที่เข้าสู่ช่วงออกดอกทั้งที่เครียดอยู่แล้วจะตอบสนองต่างจากต้นที่ไม่เคยเครียด กล่าวคือแต่ละระยะไม่ได้เป็นอิสระต่อกัน นี่คือเหตุผลที่แผนการจัดการสร้างขึ้นทีละการให้น้ำไม่ได้ เพราะการตัดสินใจในสัปดาห์ที่สี่จะเปลี่ยนราคาที่ต้องจ่ายในสัปดาห์ที่แปด</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 7.4 ===================== -->
+      <section id="s-yield">
+        <h2><span class="en">7.4 Yield response to water</span><span class="th">7.4 การตอบสนองของผลผลิตต่อน้ำ</span></h2>
+
+        <p>
+          <span class="en">Section 7.3 was qualitative — <em>this</em> stage matters more than <em>that</em> one. To allocate a shortage you need a number. FAO's yield-response relation provides one, and it is startlingly simple:</span>
+          <span class="th">หัวข้อ 7.3 เป็นเชิงคุณภาพ คือระยะ <em>นี้</em> สำคัญกว่าระยะ <em>นั้น</em> แต่การจัดสรรความขาดแคลนต้องใช้ตัวเลข ความสัมพันธ์การตอบสนองของผลผลิตต่อน้ำของ FAO ให้ตัวเลขนั้นมา และเรียบง่ายอย่างน่าประหลาดใจ</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>1 − <span class="frac"><span class="num">Y<sub>a</sub></span><span class="den">Y<sub>m</sub></span></span> = K<sub>y</sub> ( 1 − <span class="frac"><span class="num">ET<sub>a</sub></span><span class="den">ET<sub>m</sub></span></span> )</code><span class="eq-note"><span class="en">FAO-33 yield response</span><span class="th">การตอบสนองของผลผลิตตาม FAO-33</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Y<sub>a</sub>, Y<sub>m</sub></dt><dd><span class="en">actual and maximum yield (kg/ha or t/ha)</span><span class="th">ผลผลิตจริงและผลผลิตสูงสุด (กก./เฮกตาร์ หรือ ตัน/เฮกตาร์)</span></dd>
+          <dt>ET<sub>a</sub>, ET<sub>m</sub></dt><dd><span class="en">actual and maximum crop evapotranspiration over the season (mm) — Chapter 3</span><span class="th">การคายระเหยน้ำจริงและสูงสุดของพืชตลอดฤดู (มม.) ดูบทที่ 3</span></dd>
+          <dt>K<sub>y</sub></dt><dd><span class="en">yield response factor — how hard the crop punishes a shortage. Do not confuse it with K<sub>c</sub>.</span><span class="th">สัมประสิทธิ์การตอบสนองของผลผลิต คือพืชลงโทษการขาดน้ำหนักเพียงใด อย่าสับสนกับค่า K<sub>c</sub></span></dd>
+        </dl>
+
+        <p>
+          <span class="en">In words: <strong>a shortfall of water produces a shortfall of yield K<sub>y</sub> times as large.</strong> The whole of deficit management turns on whether K<sub>y</sub> is above or below one.</span>
+          <span class="th">พูดเป็นภาษาคน คือ <strong>การขาดน้ำไปเท่าใด จะทำให้ผลผลิตหายไปเป็น K<sub>y</sub> เท่าของส่วนที่ขาด</strong> การจัดการภาวะน้ำไม่พอทั้งหมดขึ้นอยู่กับว่าค่า K<sub>y</sub> มากกว่าหรือน้อยกว่าหนึ่ง</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="Relative yield against relative evapotranspiration for different Ky">
+            <!-- gridlines -->
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="110" y1="40" x2="600" y2="40"/>
+              <line x1="110" y1="90" x2="600" y2="90"/>
+              <line x1="110" y1="140" x2="600" y2="140"/>
+              <line x1="110" y1="190" x2="600" y2="190"/>
+            </g>
+            <!-- ET = 0.8 marker, the case worked in 7.5 -->
+            <line x1="437" y1="240" x2="437" y2="56" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- axes -->
+            <line x1="110" y1="240" x2="600" y2="240" stroke="var(--ink)" stroke-width="1.6"/>
+            <line x1="110" y1="240" x2="110" y2="40" stroke="var(--ink)" stroke-width="1.6"/>
+            <!-- Ky = 1.0 reference -->
+            <line x1="110" y1="160" x2="600" y2="40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-dasharray="5 4"/>
+            <!-- groundnut Ky = 0.70 -->
+            <line x1="110" y1="124" x2="600" y2="40" stroke="var(--ok)" stroke-width="2.6"/>
+            <!-- maize Ky = 1.25 -->
+            <line x1="110" y1="190" x2="600" y2="40" stroke="var(--bad)" stroke-width="2.6"/>
+            <!-- points at ET = 0.8 -->
+            <circle cx="437" cy="68" r="4.5" fill="var(--ok)"/>
+            <circle cx="437" cy="90" r="4.5" fill="var(--bad)"/>
+            <!-- axis tick labels -->
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="110" y="258">0.4</text>
+              <text x="355" y="258">0.7</text>
+              <text x="437" y="258">0.8</text>
+              <text x="600" y="258">1.0</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="end">
+              <text x="102" y="244">0</text>
+              <text x="102" y="144">0.5</text>
+              <text x="102" y="44">1.0</text>
+            </g>
+            <!-- legend, placed in the empty lower-right of the plot -->
+            <g stroke-width="2.6">
+              <line x1="436" y1="181" x2="462" y2="181" stroke="var(--ok)"/>
+              <line x1="436" y1="203" x2="462" y2="203" stroke="var(--ink-soft)" stroke-width="1.4" stroke-dasharray="5 4"/>
+              <line x1="436" y1="225" x2="462" y2="225" stroke="var(--bad)"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="470" y="185" class="en">groundnut &#183; Ky = 0.70</text>
+              <text x="470" y="185" class="th">ถั่วลิสง &#183; Ky = 0.70</text>
+              <text x="470" y="207" class="en">reference &#183; Ky = 1.0</text>
+              <text x="470" y="207" class="th">เส้นอ้างอิง &#183; Ky = 1.0</text>
+              <text x="470" y="229" class="en">maize &#183; Ky = 1.25</text>
+              <text x="470" y="229" class="th">ข้าวโพด &#183; Ky = 1.25</text>
+            </g>
+            <!-- axis titles -->
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+              <text x="355" y="282" class="en">relative evapotranspiration ETa / ETm</text>
+              <text x="355" y="282" class="th">อัตราส่วนการคายระเหยน้ำ ETa / ETm</text>
+            </g>
+            <text x="34" y="140" font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 34 140)" class="en">yield  Ya / Ym</text>
+            <text x="34" y="140" font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 34 140)" class="th">ผลผลิต  Ya / Ym</text>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 7.2 — K<sub>y</sub> is the slope of the line. A crop with K<sub>y</sub> above 1 loses yield faster than it loses water; one below 1 loses it slower. The dashed vertical marks the 80% supply worked through in §7.5 — at that point maize has already given up a quarter of its yield (0.75) while groundnut has given up only 14% (0.86). All three lines meet at the top right, because a crop that gets all its water yields all of its crop whatever K<sub>y</sub> it has.</span>
+            <span class="th">รูปที่ 7.2 — ค่า K<sub>y</sub> คือความชันของเส้น พืชที่มี K<sub>y</sub> มากกว่า 1 สูญเสียผลผลิตเร็วกว่าที่สูญเสียน้ำ ส่วนพืชที่ต่ำกว่า 1 สูญเสียช้ากว่า เส้นประแนวดิ่งคือการได้น้ำ 80% ที่คำนวณไว้ในหัวข้อ 7.5 ณ จุดนั้น ข้าวโพดเสียผลผลิตไปหนึ่งในสี่แล้ว (0.75) ขณะที่ถั่วลิสงเสียไปเพียง 14% (0.86) เส้นทั้งสามมาบรรจบกันที่มุมขวาบน เพราะพืชที่ได้น้ำครบย่อมให้ผลผลิตเต็ม ไม่ว่าค่า K<sub>y</sub> จะเป็นเท่าใด</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Seasonal K<sub>y</sub> values</span><span class="th">ค่า K<sub>y</sub> ตลอดฤดู</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Crop</span><span class="th">พืช</span></th>
+                <th><span class="en">K<sub>y</sub></span><span class="th">K<sub>y</sub></span></th>
+                <th><span class="en">Crop</span><span class="th">พืช</span></th>
+                <th><span class="en">K<sub>y</sub></span><span class="th">K<sub>y</sub></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Maize</span><span class="th">ข้าวโพด</span></td><td class="num">1.25</td><td><span class="en">Tomato</span><span class="th">มะเขือเทศ</span></td><td class="num">1.05</td></tr>
+              <tr><td><span class="en">Sugarcane</span><span class="th">อ้อย</span></td><td class="num">1.20</td><td><span class="en">Sunflower</span><span class="th">ทานตะวัน</span></td><td class="num">0.95</td></tr>
+              <tr><td><span class="en">Wheat</span><span class="th">ข้าวสาลี</span></td><td class="num">1.15</td><td><span class="en">Sorghum</span><span class="th">ข้าวฟ่าง</span></td><td class="num">0.90</td></tr>
+              <tr><td><span class="en">Potato</span><span class="th">มันฝรั่ง</span></td><td class="num">1.10</td><td><span class="en">Soybean</span><span class="th">ถั่วเหลือง</span></td><td class="num">0.85</td></tr>
+              <tr><td><span class="en">Rice (paddy)</span><span class="th">ข้าว (นาดำ)</span></td><td class="num">1.09</td><td><span class="en">Cotton</span><span class="th">ฝ้าย</span></td><td class="num">0.85</td></tr>
+              <tr><td><span class="en">Onion</span><span class="th">หอมหัวใหญ่</span></td><td class="num">1.10</td><td><span class="en">Safflower</span><span class="th">ดอกคำฝอย</span></td><td class="num">0.80</td></tr>
+              <tr><td><span class="en">Banana</span><span class="th">กล้วย</span></td><td class="num">1.20–1.35</td><td><span class="en">Groundnut</span><span class="th">ถั่วลิสง</span></td><td class="num">0.70</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">K<sub>y</sub> is not K<sub>c</sub> — they answer opposite questions</span><span class="th">K<sub>y</sub> ไม่ใช่ K<sub>c</sub> — สองค่านี้ตอบคนละคำถาม</span></div>
+          <p>
+            <span class="en"><strong>K<sub>c</sub></strong> (Chapter 3) tells you how much water the crop <em>wants</em>: <span class="mono">ET<sub>c</sub> = K<sub>c</sub> × ET<sub>o</sub></span>. It is a demand figure, and it varies through the season as the canopy grows. <strong>K<sub>y</sub></strong> tells you what happens if the crop does <em>not get it</em>. It is a sensitivity figure. A crop can have a high K<sub>c</sub> and a low K<sub>y</sub> — cotton is thirsty but forgiving — or the reverse. Designing uses K<sub>c</sub>; rationing uses K<sub>y</sub>.</span>
+            <span class="th"><strong>K<sub>c</sub></strong> (บทที่ 3) บอกว่าพืช <em>ต้องการ</em> น้ำเท่าใด คือ <span class="mono">ET<sub>c</sub> = K<sub>c</sub> × ET<sub>o</sub></span> เป็นตัวเลขฝั่งความต้องการ และเปลี่ยนไปตลอดฤดูตามทรงพุ่มที่โตขึ้น ส่วน <strong>K<sub>y</sub></strong> บอกว่าจะเกิดอะไรขึ้นถ้าพืช <em>ไม่ได้รับ</em> น้ำนั้น เป็นตัวเลขฝั่งความอ่อนไหว พืชชนิดหนึ่งอาจมี K<sub>c</sub> สูงแต่ K<sub>y</sub> ต่ำ อย่างฝ้ายซึ่งกินน้ำมากแต่ให้อภัย หรืออาจกลับกันก็ได้ การออกแบบใช้ K<sub>c</sub> ส่วนการปันส่วนน้ำใช้ K<sub>y</sub></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 7.5 ===================== -->
+      <section id="s-deficit">
+        <h2><span class="en">7.5 Deficit irrigation: doing less on purpose</span><span class="th">7.5 การให้น้ำแบบขาดแคลนโดยตั้งใจ</span></h2>
+
+        <p>
+          <span class="en">Every chapter so far has quietly assumed that meeting ET<sub>c</sub> in full is the goal. When water is the limiting resource rather than land, that assumption is wrong — and the arithmetic that shows why is short enough to do on the back of a delivery note.</span>
+          <span class="th">ทุกบทที่ผ่านมาสมมติไว้อย่างเงียบ ๆ ว่าการให้น้ำครบตามค่า ET<sub>c</sub> คือเป้าหมาย แต่เมื่อน้ำเป็นทรัพยากรที่จำกัดแทนที่จะเป็นที่ดิน ข้อสมมตินั้นผิด และการคำนวณที่แสดงว่าทำไมจึงผิดนั้นสั้นพอที่จะทำได้บนหลังใบส่งของ</span>
+        </p>
+
+        <h3><span class="en">Worked example 2 · The same water, two ways</span><span class="th">ตัวอย่างการคำนวณที่ 2 · น้ำก้อนเดียวกัน สองวิธีใช้</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A farmer has <strong>4,000 m³</strong> of water for the season and <strong>1 hectare</strong> of land. Full season ET<sub>m</sub> is <strong>500 mm</strong>, which is 5,000 m³/ha — so there is only 80% of a full supply. Two options:</span>
+            <span class="th">เกษตรกรมีน้ำสำหรับทั้งฤดู <strong>4,000 ลบ.ม.</strong> และมีที่ดิน <strong>1 เฮกตาร์</strong> ค่า ET<sub>m</sub> ตลอดฤดูเท่ากับ <strong>500 มม.</strong> ซึ่งคิดเป็น 5,000 ลบ.ม./เฮกตาร์ จึงมีน้ำเพียง 80% ของที่ต้องการเต็ม มีสองทางเลือก</span>
+          </p>
+          <p>
+            <span class="en"><strong>A — concentrate:</strong> irrigate <strong>0.8 ha</strong> fully and leave 0.2 ha unplanted.<br>
+            <strong>B — spread:</strong> irrigate the whole <strong>1.0 ha</strong> at 80% of full ET.</span>
+            <span class="th"><strong>ก — รวมน้ำ:</strong> ให้น้ำเต็มที่บนพื้นที่ <strong>0.8 เฮกตาร์</strong> และปล่อยอีก 0.2 เฮกตาร์ว่างไว้<br>
+            <strong>ข — กระจายน้ำ:</strong> ให้น้ำทั้ง <strong>1.0 เฮกตาร์</strong> ที่ระดับ 80% ของ ET เต็ม</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Work it for <strong>maize</strong>, K<sub>y</sub> = 1.25, Y<sub>m</sub> = 8 t/ha:</span>
+          <span class="th">ลองคำนวณสำหรับ <strong>ข้าวโพด</strong> ที่ K<sub>y</sub> = 1.25 และ Y<sub>m</sub> = 8 ตัน/เฮกตาร์</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>A: 0.8 ha × 8.0 = <strong>6.40 t</strong></code><span class="eq-note"><span class="en">full yield on less land</span><span class="th">ผลผลิตเต็มบนพื้นที่น้อยลง</span></span></div>
+          <div class="eq"><code>Y<sub>a</sub>/Y<sub>m</sub> = 1 − 1.25 (1 − 0.80) = 0.75</code></div>
+          <div class="eq result"><code>B: 1.0 ha × 8.0 × 0.75 = <strong>6.00 t</strong></code><span class="eq-note"><span class="en">reduced yield on all the land</span><span class="th">ผลผลิตลดลงบนพื้นที่ทั้งหมด</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">Now the same calculation for <strong>groundnut</strong>, K<sub>y</sub> = 0.70, Y<sub>m</sub> = 3 t/ha:</span>
+          <span class="th">ทีนี้คำนวณแบบเดียวกันสำหรับ <strong>ถั่วลิสง</strong> ที่ K<sub>y</sub> = 0.70 และ Y<sub>m</sub> = 3 ตัน/เฮกตาร์</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>A: 0.8 ha × 3.0 = <strong>2.40 t</strong></code></div>
+          <div class="eq"><code>Y<sub>a</sub>/Y<sub>m</sub> = 1 − 0.70 (1 − 0.80) = 0.86</code></div>
+          <div class="eq result"><code>B: 1.0 ha × 3.0 × 0.86 = <strong>2.58 t</strong></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The rule that falls out</span><span class="th">กฎที่ได้จากผลลัพธ์นี้</span></div>
+          <p>
+            <span class="en">For maize, concentrating wins — 6.40 t against 6.00. For groundnut, spreading wins — 2.58 t against 2.40. Same shortage, same arithmetic, opposite answers, and the only thing that changed was K<sub>y</sub>.</span>
+            <span class="th">สำหรับข้าวโพด การรวมน้ำชนะ คือ 6.40 ตัน เทียบกับ 6.00 ตัน ส่วนถั่วลิสง การกระจายน้ำชนะ คือ 2.58 ตัน เทียบกับ 2.40 ตัน ความขาดแคลนเท่ากัน วิธีคำนวณเหมือนกัน แต่คำตอบตรงกันข้าม และสิ่งเดียวที่เปลี่ยนไปคือค่า K<sub>y</sub></span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code>K<sub>y</sub> &gt; 1 → <span class="en">concentrate the water</span><span class="th">รวมน้ำไว้ในพื้นที่น้อยลง</span> &nbsp;·&nbsp; K<sub>y</sub> &lt; 1 → <span class="en">spread it</span><span class="th">กระจายน้ำให้ทั่ว</span></code></div>
+          </div>
+          <p>
+            <span class="en">The reason is geometric, not agronomic. When K<sub>y</sub> exceeds 1 the yield line in Fig. 7.2 falls faster than the water it stands on, so partial supply destroys more than it saves and the water is better spent bringing a smaller area all the way. When K<sub>y</sub> is below 1 the line falls more slowly, and a crop that is only slightly short over a large area beats a full crop over a small one.</span>
+            <span class="th">เหตุผลเป็นเรื่องเรขาคณิต ไม่ใช่เรื่องพืชไร่ เมื่อ K<sub>y</sub> มากกว่า 1 เส้นผลผลิตในรูปที่ 7.2 ลดลงเร็วกว่าน้ำที่มันยืนอยู่บน การให้น้ำไม่ครบจึงทำลายมากกว่าที่ประหยัดได้ และน้ำก้อนนั้นคุ้มกว่าถ้านำไปทำให้พื้นที่เล็กลงได้น้ำครบ แต่เมื่อ K<sub>y</sub> ต่ำกว่า 1 เส้นลดลงช้ากว่า พืชที่ขาดน้ำเพียงเล็กน้อยบนพื้นที่กว้างจึงชนะพืชที่ได้น้ำเต็มบนพื้นที่แคบ</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Three things to check before deficit irrigating</span><span class="th">สามสิ่งที่ต้องตรวจสอบก่อนตัดสินใจให้น้ำแบบขาดแคลน</span></h3>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Where the deficit falls</span><span class="th">การขาดน้ำไปตกที่ช่วงไหน</span></h4>
+            <p><span class="en">The seasonal K<sub>y</sub> assumes the shortage is spread evenly. Concentrate it in the critical period of §7.3 and the loss is far worse than the equation predicts. Deficit irrigation means <em>scheduling</em> the shortage into the tolerant stages, not just applying less.</span><span class="th">ค่า K<sub>y</sub> ตลอดฤดูตั้งอยู่บนสมมติฐานว่าการขาดน้ำกระจายสม่ำเสมอ ถ้าไปกระจุกอยู่ในช่วงวิกฤตตามหัวข้อ 7.3 ความเสียหายจะหนักกว่าที่สมการทำนายไว้มาก การให้น้ำแบบขาดแคลนจึงหมายถึงการ <em>จัดตาราง</em> ให้การขาดน้ำไปตกในระยะที่พืชทนได้ ไม่ใช่แค่ให้น้ำน้อยลงเฉย ๆ</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Whether salts can still leave</span><span class="th">เกลือยังออกจากดินได้หรือไม่</span></h4>
+            <p><span class="en">Deficit irrigation applies less water, so less of it drains below the roots — which is exactly the water that carries salt away. On saline soil or with saline water, deficit irrigation and salinity control pull against each other. §7.8 has the number.</span><span class="th">การให้น้ำแบบขาดแคลนคือการให้น้ำน้อยลง น้ำที่ระบายลงไปใต้เขตรากจึงน้อยลงด้วย ซึ่งน้ำส่วนนั้นเองคือน้ำที่พาเกลือออกไป ในดินเค็มหรือเมื่อใช้น้ำที่มีเกลือ การให้น้ำแบบขาดแคลนกับการควบคุมความเค็มจึงดึงกันคนละทาง ดูตัวเลขในหัวข้อ 7.8</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">Whether the system can even do it</span><span class="th">ระบบทำได้จริงหรือไม่</span></h4>
+            <p><span class="en">Applying 80% of a requirement demands control the delivery system may not have. A surface system with a uniformity of 70% cannot reliably apply a planned 20% deficit — the dry end of the field is already at 60% and would fall to 45%. Deficit irrigation needs good uniformity first.</span><span class="th">การให้น้ำ 80% ของความต้องการ ต้องอาศัยความสามารถในการควบคุมที่ระบบส่งน้ำอาจไม่มี ระบบผิวดินที่มีความสม่ำเสมอ 70% ไม่สามารถให้น้ำขาดตามแผน 20% ได้อย่างน่าเชื่อถือ เพราะด้านที่แห้งของแปลงได้น้ำเพียง 60% อยู่แล้ว และจะลดลงเหลือ 45% การให้น้ำแบบขาดแคลนจึงต้องมีความสม่ำเสมอที่ดีเสียก่อน</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why this is the most important section in the chapter</span><span class="th">ทำไมหัวข้อนี้จึงสำคัญที่สุดในบทนี้</span></div>
+          <p>
+            <span class="en">Everything before Chapter 7 optimised <em>yield per hectare</em>, because that is what an agronomist maximises and what a design brief specifies. Deficit irrigation optimises <strong>yield per cubic metre</strong>, because that is what a farmer with a fixed allocation actually faces, and increasingly what a country faces. The two objectives give different answers, and the moment water becomes scarcer than land — which in much of Thailand it already has — the second one is the right one.</span>
+            <span class="th">ทุกอย่างก่อนบทที่ 7 มุ่งทำให้ <em>ผลผลิตต่อพื้นที่</em> ดีที่สุด เพราะนั่นคือสิ่งที่นักพืชไร่ต้องการสูงสุดและเป็นสิ่งที่ข้อกำหนดการออกแบบระบุไว้ ส่วนการให้น้ำแบบขาดแคลนมุ่งทำให้ <strong>ผลผลิตต่อลูกบาศก์เมตรของน้ำ</strong> ดีที่สุด เพราะนั่นคือสิ่งที่เกษตรกรซึ่งได้รับน้ำจำนวนจำกัดเผชิญอยู่จริง และเป็นสิ่งที่ทั้งประเทศเผชิญมากขึ้นทุกที เป้าหมายสองอย่างนี้ให้คำตอบต่างกัน และเมื่อใดที่น้ำหายากกว่าที่ดิน ซึ่งในหลายพื้นที่ของประเทศไทยเป็นเช่นนั้นไปแล้ว เป้าหมายที่สองคือเป้าหมายที่ถูกต้อง</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 7.6 ===================== -->
+      <section id="s-delivery">
+        <h2><span class="en">7.6 Delivering water at project scale</span><span class="th">7.6 การส่งน้ำในระดับโครงการ</span></h2>
+
+        <p>
+          <span class="en">Up to now the water has simply been <em>there</em> at the turnout. In a project serving thousands of farms it has to be scheduled, and there are only three ways to do it. Each one moves the burden of decision to a different person.</span>
+          <span class="th">จนถึงตอนนี้ น้ำ <em>อยู่ตรงนั้น</em> ที่ปากคลองส่งน้ำเข้านาอยู่แล้ว แต่ในโครงการที่ให้บริการฟาร์มหลายพันแห่ง น้ำต้องมีการจัดตาราง และมีวิธีทำอยู่เพียงสามวิธี แต่ละวิธีย้ายภาระการตัดสินใจไปไว้ที่คนละคน</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 320" role="img" aria-label="Three levels at which rotation can be applied">
+            <!-- (a) rotation by main canal -->
+            <line x1="60" y1="40" x2="660" y2="40" stroke="var(--ink)" stroke-width="3"/>
+            <g stroke="var(--accent)" stroke-width="2.4">
+              <line x1="130" y1="40" x2="130" y2="92"/>
+              <line x1="130" y1="56" x2="250" y2="56"/>
+              <line x1="130" y1="78" x2="250" y2="78"/>
+            </g>
+            <g stroke="var(--rule)" stroke-width="2" stroke-dasharray="6 5">
+              <line x1="330" y1="40" x2="330" y2="92"/>
+              <line x1="330" y1="56" x2="450" y2="56"/>
+              <line x1="330" y1="78" x2="450" y2="78"/>
+              <line x1="530" y1="40" x2="530" y2="92"/>
+              <line x1="530" y1="56" x2="650" y2="56"/>
+              <line x1="530" y1="78" x2="650" y2="78"/>
+            </g>
+            <text x="30" y="70" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="var(--link)">a</text>
+            <text x="480" y="30" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" class="en">off this turn</text>
+            <text x="480" y="30" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" class="th">รอบนี้ยังไม่ส่ง</text>
+
+            <!-- (b) rotation by lateral -->
+            <line x1="60" y1="150" x2="660" y2="150" stroke="var(--ink)" stroke-width="3"/>
+            <g stroke="var(--accent)" stroke-width="2.4">
+              <line x1="130" y1="150" x2="130" y2="202"/>
+              <line x1="130" y1="166" x2="250" y2="166"/>
+              <line x1="330" y1="150" x2="330" y2="202"/>
+              <line x1="330" y1="166" x2="450" y2="166"/>
+              <line x1="530" y1="150" x2="530" y2="202"/>
+              <line x1="530" y1="166" x2="650" y2="166"/>
+            </g>
+            <g stroke="var(--rule)" stroke-width="2" stroke-dasharray="6 5">
+              <line x1="130" y1="188" x2="250" y2="188"/>
+              <line x1="330" y1="188" x2="450" y2="188"/>
+              <line x1="530" y1="188" x2="650" y2="188"/>
+            </g>
+            <text x="30" y="180" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="var(--link)">b</text>
+
+            <!-- (c) rotation by farm ditch -->
+            <line x1="60" y1="260" x2="660" y2="260" stroke="var(--ink)" stroke-width="3"/>
+            <g stroke="var(--accent)" stroke-width="2.4">
+              <line x1="130" y1="260" x2="130" y2="298"/>
+              <line x1="330" y1="260" x2="330" y2="298"/>
+              <line x1="530" y1="260" x2="530" y2="298"/>
+              <line x1="130" y1="276" x2="250" y2="276"/>
+              <line x1="330" y1="276" x2="450" y2="276"/>
+              <line x1="530" y1="276" x2="650" y2="276"/>
+            </g>
+            <g stroke="var(--rule)" stroke-width="2" stroke-dasharray="6 5">
+              <line x1="130" y1="294" x2="250" y2="294"/>
+              <line x1="330" y1="294" x2="450" y2="294"/>
+              <line x1="530" y1="294" x2="650" y2="294"/>
+            </g>
+            <text x="30" y="286" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="var(--link)">c</text>
+
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="60" y="112" class="en">a · by main canal — whole reaches take turns</text>
+              <text x="60" y="112" class="th">ก · หมุนเวียนโดยคลองสายใหญ่ — สลับกันทั้งช่วงคลอง</text>
+              <text x="60" y="222" class="en">b · by lateral — main runs always, laterals take turns</text>
+              <text x="60" y="222" class="th">ข · หมุนเวียนโดยคลองซอย — คลองสายใหญ่ส่งตลอด คลองซอยสลับกัน</text>
+              <text x="60" y="316" class="en">c · by farm ditch — main and laterals run always, ditches take turns</text>
+              <text x="60" y="316" class="th">ค · หมุนเวียนโดยคูส่งน้ำ — คลองสายใหญ่และคลองซอยส่งตลอด คูสลับกัน</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 7.3 — Rotation can be applied at three levels. Solid lines are running this turn; dashed are closed. Moving down the figure, the rotation gets finer, the delivery more responsive, and the supervision required greater — which is why the level chosen is really a statement about how much management the project can afford.</span>
+            <span class="th">รูปที่ 7.3 — การส่งน้ำแบบหมุนเวียนทำได้สามระดับ เส้นทึบคือกำลังส่งน้ำในรอบนี้ ส่วนเส้นประคือปิดอยู่ เมื่อไล่ลงมาในรูป การหมุนเวียนจะละเอียดขึ้น การส่งน้ำตอบสนองดีขึ้น และต้องการการกำกับดูแลมากขึ้น ระดับที่เลือกจึงเป็นการประกาศว่าโครงการมีกำลังจัดการได้มากเพียงใด</span>
+          </figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Method</span><span class="th">วิธี</span></th>
+                <th><span class="en">Advantages</span><span class="th">ข้อดี</span></th>
+                <th><span class="en">Disadvantages</span><span class="th">ข้อเสีย</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Continuous flow</span><span class="th">ส่งน้ำตลอดเวลา</span></strong><br><span class="mono">Continuous</span></td>
+                <td><span class="en">The delivery system is small compared with the alternatives, so it is cheap to build. It needs almost no staff, because the rate never changes. In an earth canal the banks stay stable since the water level is constant, and some weeds cannot establish in continuously flowing water.</span><span class="th">ระบบส่งน้ำมีขนาดเล็กเมื่อเทียบกับวิธีอื่น ค่าลงทุนจึงถูก แทบไม่ต้องใช้เจ้าหน้าที่ เพราะอัตราการส่งน้ำเท่ากันตลอดเวลา ถ้าเป็นคลองดิน ตลิ่งจะมั่นคงเพราะระดับน้ำไม่เปลี่ยนแปลง และวัชพืชน้ำบางชนิดขยายพันธุ์ในคลองได้ยากเพราะมีน้ำไหลตลอด</span></td>
+                <td><span class="en">The rate never matches demand: too much water early in the season, not enough at the peak — so project efficiency is low. Head-enders use water carelessly and tail-enders get none, and head-enders have no reason to help maintain the canal. Unsuited to field crops, which do not want water continuously the way paddy does, so the night flow is simply thrown away. In a drought, reallocating is hard because farmers know no other method and the system may be too small to switch. And when it rains, every farmer closes his turnout at once — the canal overtops and the banks can fail if the flow is not stopped fast enough.</span><span class="th">อัตราการส่งไม่ตรงกับความต้องการ คือช่วงต้นฤดูมีน้ำมากเกินไป แต่ช่วงที่ใช้น้ำมากกลับไม่พอ ประสิทธิภาพของโครงการจึงต่ำ ผู้ที่อยู่ต้นคลองใช้น้ำอย่างไม่ประหยัด ผู้ที่อยู่ปลายคลองไม่มีน้ำใช้ และผู้ที่อยู่ต้นน้ำก็ไม่สนใจช่วยบำรุงรักษาคลอง อีกทั้งไม่เหมาะกับพืชไร่ ซึ่งไม่ต้องการน้ำตลอดเวลาเหมือนข้าว น้ำที่ส่งในตอนกลางคืนจึงถูกปล่อยทิ้งไปเปล่า ๆ ในภาวะวิกฤติการจัดสรรน้ำใหม่ทำได้ยาก เพราะเกษตรกรไม่คุ้นกับวิธีอื่นและระบบอาจเล็กเกินกว่าจะเปลี่ยนวิธี และเมื่อฝนตกในเขตโครงการ เกษตรกรจะพากันปิดท่อส่งน้ำเข้านาพร้อมกันหมด น้ำจะล้นคันคลองและคลองอาจพังได้ถ้าหยุดส่งน้ำช้าเกินไป</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">On demand</span><span class="th">ส่งน้ำตามความต้องการของผู้ใช้น้ำ</span></strong><br><span class="mono">Demand</span></td>
+                <td><span class="en">The best method from the water user's point of view: the farmer sets the schedule for each crop and chooses a delivery rate that suits the application method, so water use is efficient and economical. It also forces detailed project-level planning, because supply has to be matched against demand through the season — so project efficiency rises too.</span><span class="th">เป็นวิธีที่ดีที่สุดในแง่ของผู้ใช้น้ำ เพราะเกษตรกรกำหนดการให้น้ำแก่พืชแต่ละชนิดได้ตามต้องการ และเลือกอัตราการให้น้ำที่เหมาะกับวิธีการให้น้ำได้ การใช้น้ำจึงมีประสิทธิภาพและประหยัด อีกทั้งยังบังคับให้ต้องวางแผนระดับโครงการอย่างละเอียด เพราะต้องเทียบปริมาณน้ำต้นทุนกับความต้องการตลอดฤดู ประสิทธิภาพของโครงการจึงสูงขึ้นด้วย</span></td>
+                <td><span class="en">Needs careful planning and a highly capable project manager, and close coordination with users. Only works where the source is ample or the supply can be predicted with confidence — otherwise the plan cannot be made at all. The delivery system must be larger than for any other method, and even so there will be spells of hot weather when demand exceeds what it can carry. And it depends on farmers who understand irrigation well; where it works, they usually pay by volume.</span><span class="th">ต้องวางแผนอย่างรอบคอบ ผู้บริหารโครงการต้องมีความสามารถสูง และต้องประสานงานกับผู้ใช้น้ำอย่างใกล้ชิด ใช้ได้เฉพาะเมื่อแหล่งน้ำมีมากพอ หรือคาดคะเนปริมาณน้ำต้นทุนได้ค่อนข้างแน่นอน มิฉะนั้นจะวางแผนไม่ได้เลย ระบบส่งน้ำต้องมีขนาดใหญ่กว่าวิธีอื่น และถึงกระนั้นก็ยังมีบางช่วงที่อากาศร้อนจัดจนความต้องการน้ำเกินกว่าที่ระบบจะส่งได้ อีกทั้งยังต้องอาศัยเกษตรกรที่มีความรู้ความเข้าใจในการใช้น้ำดี ซึ่งในประเทศที่ใช้วิธีนี้ได้ผล เกษตรกรมักต้องจ่ายค่าน้ำตามปริมาณที่ใช้</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Rotation</span><span class="th">ส่งน้ำแบบหมุนเวียน</span></strong><br><span class="mono">Rotation</span></td>
+                <td><span class="en">Can be applied at whichever of the three levels suits the users. It is planned and it tracks crop demand as that demand changes through the season, so water use is economical and efficient. It delivers far more uniformly than continuous flow, because every block has a definite schedule and land outside the zone has no claim on extra water. Farmers know when their turn comes and how long it lasts, so the quarrelling stops. And in a shortage the manager can act, because they know the cropping pattern and the farmers are already used to sharing.</span><span class="th">เลือกใช้ได้ในระดับใดระดับหนึ่งจากสามระดับ ให้เหมาะกับความต้องการของผู้ใช้น้ำ เป็นการส่งน้ำอย่างมีแผนและตรงกับความต้องการของพืชซึ่งผันแปรไปตลอดฤดู การใช้น้ำจึงประหยัดและมีประสิทธิภาพ ส่งน้ำได้ทั่วถึงกว่าแบบส่งตลอดเวลามาก เพราะแต่ละแปลงย่อยมีกำหนดการที่แน่นอน และพื้นที่นอกเขตส่งน้ำไม่มีสิทธิ์ได้น้ำเพิ่ม เกษตรกรรู้ว่าจะได้รับน้ำเมื่อไรและนานเท่าใด ปัญหาการแย่งน้ำจึงหมดไป และในกรณีขาดแคลนน้ำ ผู้จัดการแก้ปัญหาได้ง่ายเพราะทราบสภาพการเพาะปลูกในเขตโครงการดี และเกษตรกรคุ้นเคยกับการแบ่งน้ำอยู่แล้ว</span></td>
+                <td><span class="en">Needs careful planning and a capable manager, and officers must coordinate closely with users. The main weakness is that the schedule is fixed in advance, so the turn may arrive at the wrong moment — the soil may still be wet from rain, or drier than planned because the weather has been harsher than normal.</span><span class="th">ต้องวางแผนการใช้น้ำอย่างรอบคอบ ผู้บริหารโครงการต้องมีความสามารถสูง และเจ้าหน้าที่ส่งน้ำต้องประสานงานกับผู้ใช้น้ำอย่างใกล้ชิด จุดอ่อนสำคัญคือกำหนดเวลาส่งน้ำถูกวางไว้ล่วงหน้า รอบเวรจึงอาจมาถึงในช่วงที่ไม่เหมาะ เช่น ดินอาจยังเปียกอยู่เพราะมีฝนตกก่อนถึงกำหนด หรือดินแห้งเกินไปเพราะอากาศแห้งแล้งกว่าปกติ</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">The three principles of a rotation plan</span><span class="th">หลักการสามประการของการส่งน้ำแบบหมุนเวียน</span></h3>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Divide and order</span><span class="th">แบ่งและจัดลำดับ</span></h4>
+            <p><span class="en">Split the command area into blocks and put them in a sequence. The sequence is a commitment — it is what farmers plan around.</span><span class="th">แบ่งพื้นที่ที่จะส่งน้ำทั้งหมดออกเป็นแปลงย่อย แล้วจัดเรียงลำดับของแปลงที่จะส่งน้ำให้ ลำดับนี้คือคำสัญญา เพราะเป็นสิ่งที่เกษตรกรใช้วางแผน</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Compute the volume</span><span class="th">คำนวณปริมาตร</span></h4>
+            <p><span class="en">Work out the water each block needs — crop demand, block size, and the losses in conveyance and application. Chapters 3 and 4 give every term.</span><span class="th">คำนวณปริมาณน้ำที่ต้องส่งให้แต่ละแปลงย่อย โดยดูความต้องการของพืช ขนาดแปลง และการสูญเสียจากการส่งน้ำและการให้น้ำ บทที่ 3 และ 4 ให้ค่าทุกพจน์</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">Set the duration</span><span class="th">กำหนดระยะเวลา</span></h4>
+            <p><span class="en">Fix how long each block receives water. That follows from its area and the delivery rate — and it is the same arithmetic as §3.11's irrigation period.</span><span class="th">กำหนดระยะเวลาที่แต่ละแปลงย่อยจะได้รับน้ำ ซึ่งได้จากขนาดพื้นที่และอัตราการส่งน้ำ และเป็นการคำนวณชุดเดียวกับรอบเวรในหัวข้อ 3.11</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Notice which complaint each method produces</span><span class="th">สังเกตว่าแต่ละวิธีสร้างคำร้องเรียนแบบใด</span></div>
+          <p>
+            <span class="en">Under <strong>continuous flow</strong> the complaint is <em>unfairness</em> — the tail end never gets water while the head end wastes it. Under <strong>rotation</strong> the complaint is <em>timing</em> — the turn came when it was raining. Under <strong>demand</strong> the complaint is <em>capacity</em> — everyone wanted water in the same hot week. If you are told what the farmers are unhappy about, you can usually name the delivery method without being told, and the three cures are entirely different: continuous flow needs a schedule, rotation needs flexibility in the schedule, and demand needs a bigger canal.</span>
+            <span class="th">ในระบบ <strong>ส่งน้ำตลอดเวลา</strong> คำร้องเรียนคือ <em>ความไม่เป็นธรรม</em> คือปลายคลองไม่เคยได้น้ำในขณะที่ต้นคลองใช้น้ำอย่างสิ้นเปลือง ในระบบ <strong>หมุนเวียน</strong> คำร้องเรียนคือ <em>จังหวะเวลา</em> คือรอบเวรมาถึงตอนฝนกำลังตก ส่วนในระบบ <strong>ตามความต้องการ</strong> คำร้องเรียนคือ <em>สมรรถนะ</em> คือทุกคนต้องการน้ำในสัปดาห์ที่ร้อนจัดสัปดาห์เดียวกัน ถ้ามีคนบอกเราว่าเกษตรกรไม่พอใจเรื่องอะไร เรามักบอกได้ทันทีว่าเป็นวิธีส่งน้ำแบบใดโดยไม่ต้องถาม และวิธีแก้ทั้งสามต่างกันโดยสิ้นเชิง คือการส่งตลอดเวลาต้องมีตารางเวลา การหมุนเวียนต้องมีความยืดหยุ่นในตารางเวลา ส่วนการส่งตามความต้องการต้องมีคลองที่ใหญ่ขึ้น</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 7.7 ===================== -->
+      <section id="s-canal">
+        <h2><span class="en">7.7 The canal system that carries the plan</span><span class="th">7.7 ระบบคลองส่งน้ำที่รองรับแผน</span></h2>
+
+        <p>
+          <span class="en">A delivery plan is only as good as the canals that execute it. In a Thai project the delivery system is the most important part, the most expensive part, and the part that needs the most looking after — and a project cannot reach the production it promised if the delivery system is poor.</span>
+          <span class="th">แผนการส่งน้ำจะดีได้เพียงเท่าที่คลองซึ่งทำงานตามแผนนั้นดี ในโครงการชลประทานของไทย ระบบส่งน้ำนับเป็นส่วนที่สำคัญที่สุด แพงที่สุด และต้องการการดูแลรักษามากที่สุด และโครงการย่อมไม่อาจประสบผลสำเร็จในการเพิ่มผลผลิตตามที่คาดหมายไว้ ถ้ามีระบบส่งน้ำที่ไม่ดีพอ</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code><span class="en">good delivery = good design × good construction × good maintenance</span><span class="th">ระบบส่งน้ำที่ดี = ออกแบบดี × วางแนวและก่อสร้างดี × บำรุงรักษาดี</span></code></div>
+        </div>
+
+        <p>
+          <span class="en">Written as a product on purpose: any one of the three at zero makes the result zero. A beautifully designed canal that is never desilted delivers no better than a badly designed one.</span>
+          <span class="th">ที่เขียนเป็นผลคูณก็เพราะตั้งใจ ถ้าข้อใดข้อหนึ่งในสามข้อเป็นศูนย์ ผลลัพธ์จะเป็นศูนย์ คลองที่ออกแบบมาอย่างสวยงามแต่ไม่เคยขุดลอกตะกอน ย่อมส่งน้ำได้ไม่ดีไปกว่าคลองที่ออกแบบมาไม่ดี</span>
+        </p>
+
+        <h3><span class="en">Naming the canals</span><span class="th">การเรียกชื่อคลอง</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Level</span><span class="th">ลำดับชั้น</span></th>
+                <th><span class="en">Thai</span><span class="th">ภาษาไทย</span></th>
+                <th><span class="en">What it does</span><span class="th">ทำหน้าที่อะไร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="mono">Main Canal</span></td><td><span class="en">คลองส่งน้ำสายใหญ่</span><span class="th">คลองส่งน้ำสายใหญ่</span></td><td><span class="en">Takes water from the headworks into the project</span><span class="th">รับน้ำจากหัวงานเข้าสู่เขตโครงการ</span></td></tr>
+              <tr><td><span class="mono">Lateral</span></td><td><span class="en">คลองซอย</span><span class="th">คลองซอย</span></td><td><span class="en">Branches off the main. Numbered in order along the main, with ข for a right-bank branch and ซ for a left — so <span class="mono">คลองซอย 1 ข</span> is the first lateral on the right and <span class="mono">คลองซอย 5 ซ</span> the fifth on the left.</span><span class="th">แยกออกจากคลองสายใหญ่ เรียกชื่อตามลำดับก่อนหลังที่แยกออกมา โดย ข คือฝั่งขวาและ ซ คือฝั่งซ้าย ดังนั้น <span class="mono">คลองซอย 1 ข</span> คือคลองซอยสายแรกที่แยกออกทางฝั่งขวา และ <span class="mono">คลองซอย 5 ซ</span> คือสายที่ 5 ที่แยกออกทางฝั่งซ้าย</span></td></tr>
+              <tr><td><span class="mono">Sub-lateral</span></td><td><span class="en">คลองแยกซอย</span><span class="th">คลองแยกซอย</span></td><td><span class="en">Branches off a lateral, named the same way: <span class="mono">3ซ-1ข</span> is the third sub-lateral, branching left, off lateral 1ข.</span><span class="th">แยกออกจากคลองซอยอีกทีหนึ่ง เรียกชื่อในลักษณะเดียวกัน เช่น <span class="mono">3ซ-1ข</span> คือคลองแยกซอยสายที่ 3 ซึ่งแยกออกทางฝั่งซ้ายของคลองซอย 1ข</span></td></tr>
+              <tr><td><span class="mono">Farm Ditch</span></td><td><span class="en">คูส่งน้ำ</span><span class="th">คูส่งน้ำ</span></td><td><span class="en">The small open channel that takes water from a turnout to fields further away. Without it, a field near the turnout must pass water across itself to reach a field beyond — so it gets flooded and fertilised when it wanted neither.</span><span class="th">ทางน้ำเปิดขนาดเล็กที่รับน้ำจากท่อส่งน้ำเข้านาไปยังแปลงที่อยู่ไกลออกไป ถ้าไม่มีคูส่งน้ำ แปลงที่อยู่ใกล้ปากท่อจะต้องส่งน้ำผ่านแปลงตัวเองไปหาแปลงที่อยู่ไกลกว่า ทำให้ถูกน้ำท่วมและได้ปุ๋ยไปด้วยทั้งที่ไม่ต้องการทั้งสองอย่าง</span></td></tr>
+              <tr><td><span class="mono">Farm Turnout</span></td><td><span class="en">ท่อส่งน้ำเข้านา</span><span class="th">ท่อส่งน้ำเข้านา</span></td><td><span class="en">Buried along the lateral at intervals of roughly <strong>200 to 400 m</strong>; delivers either straight onto the field or into a farm ditch.</span><span class="th">ฝังอยู่ตลอดแนวคลองซอย ทุกระยะประมาณ <strong>200 ถึง 400 เมตร</strong> ส่งน้ำท่วมลงบนแปลงนาโดยตรง หรือส่งเข้าคูส่งน้ำก็ได้</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Four design criteria</span><span class="th">ข้อกำหนดในการออกแบบสี่ข้อ</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th><span class="en">Criterion</span><span class="th">ข้อกำหนด</span></th>
+                <th><span class="en">What it means in practice</span><span class="th">ความหมายในทางปฏิบัติ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">1</td>
+                <td><strong><span class="en">Big enough</span><span class="th">ขนาดโตพอ</span></strong></td>
+                <td><span class="en">Capacity follows from peak crop use, the command area, the delivery method and the losses in conveyance and application. Note that capacity <em>falls below design</em> when maintenance is poor — weeds in the canal, a section changed by bank collapse, silt on the bed.</span><span class="th">ความจุคำนวณจากอัตราการใช้น้ำสูงสุดของพืช พื้นที่รับน้ำ วิธีการส่งน้ำ และการสูญเสียจากการส่งน้ำและการให้น้ำ ข้อสังเกตคือความจุจะ <em>ลดลงจากที่ออกแบบไว้</em> เมื่อบำรุงรักษาไม่ดี เช่น มีวัชพืชในคลองมากเกินไป รูปตัดเปลี่ยนไปเพราะตลิ่งพัง หรือมีตะกอนตกจมในคลอง</span></td>
+              </tr>
+              <tr>
+                <td class="num">2</td>
+                <td><strong><span class="en">Water level high enough</span><span class="th">ระดับน้ำสูงพอ</span></strong></td>
+                <td><span class="en">At full design flow the main canal should run about <strong>1.0 to 1.50 m above ground</strong> on a wide flat plain, falling to <strong>0.50 to 1.0 m</strong> where the land slopes; laterals and farm ditches should run <strong>0.30 to 0.50 m</strong> above ground. Without that head, water cannot leave the canal and reach the field at all.</span><span class="th">เมื่อส่งน้ำเต็มที่ตามที่ออกแบบ ระดับน้ำในคลองสายใหญ่ควรอยู่สูงกว่าผิวดินประมาณ <strong>1.0 ถึง 1.50 เมตร</strong> ถ้าคลองวางอยู่บนทุ่งราบกว้างใหญ่ และลดเหลือ <strong>0.50 ถึง 1.0 เมตร</strong> ในพื้นที่ที่มีความลาดเท ส่วนคลองซอยและคูส่งน้ำควรมีระดับน้ำสูงกว่าผิวดิน <strong>0.30 ถึง 0.50 เมตร</strong> ถ้าไม่มีเฮดเท่านี้ น้ำก็ออกจากคลองไปถึงแปลงไม่ได้เลย</span></td>
+              </tr>
+              <tr>
+                <td class="num">3</td>
+                <td><strong><span class="en">No silting or scouring</span><span class="th">ไม่ตื้นเขินหรือถูกกัดเซาะ</span></strong></td>
+                <td><span class="en">Scour comes from a velocity too high for the soil the canal is cut in, or from bends that are too sharp. But the velocity must not be <em>too low</em> either, or suspended sediment settles and shoals the bed. Silt also washes in off the banks when it rains — grassing the banks prevents it.</span><span class="th">การกัดเซาะเกิดจากความเร็วของกระแสน้ำสูงเกินไปสำหรับดินที่ขุดคลองผ่าน หรือแนวคลองคดเคี้ยวมากเกินไป แต่ความเร็วก็ต้อง <em>ไม่ต่ำเกินไป</em> ด้วย มิฉะนั้นตะกอนแขวนลอยจะตกจมทำให้คลองตื้นเขิน อีกทั้งตะกอนยังมาจากดินบนคันคลองที่ถูกฝนชะลงมาได้ ซึ่งป้องกันได้ด้วยการปลูกหญ้าบนคันคลอง</span></td>
+              </tr>
+              <tr>
+                <td class="num">4</td>
+                <td><strong><span class="en">Not too leaky</span><span class="th">ไม่รั่วซึมมาก</span></strong></td>
+                <td><span class="en">Seepage depends on the soil the canal passes through, the delivery rate and the canal's shape, and it can reach <strong>50% or more</strong>. Designers route around sandy ground where they can; where they cannot, the canal is lined. Lining does four jobs at once — it cuts seepage, it stops the water table rising and creating a drainage problem, it lets the section be smaller because the velocity can be higher, and it lowers maintenance because weeds cannot root.</span><span class="th">การรั่วซึมขึ้นอยู่กับชนิดของดินที่คลองขุดผ่าน อัตราการส่งน้ำ และรูปร่างของคลอง และอาจสูญเสียได้ถึง <strong>ร้อยละ 50 หรือมากกว่า</strong> ผู้ออกแบบจะพยายามหลีกเลี่ยงแนวที่ต้องผ่านเข้าไปในดินทราย แต่ถ้าหลีกเลี่ยงไม่ได้ก็จำเป็นต้องดาดคลอง การดาดคลองทำหน้าที่สี่อย่างพร้อมกัน คือลดการรั่วซึม ป้องกันไม่ให้ระดับน้ำใต้ดินสูงขึ้นจนเกิดปัญหาการระบายน้ำ ทำให้ขนาดคลองเล็กลงได้เพราะให้น้ำไหลเร็วขึ้นได้ และลดค่าบำรุงรักษาเพราะวัชพืชขึ้นไม่ได้</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The structures that make control possible</span><span class="th">อาคารที่ทำให้ควบคุมน้ำได้</span></div>
+          <p>
+            <span class="en">A canal without control structures cannot execute any schedule at all. Every level of the system needs them: a <strong>head regulator</strong> (ประตูระบายปากคลอง) at the entrance to control how much enters, often with a measuring structure from Chapter 5 beside it; a <strong>tail regulator</strong> (ประตูระบายปลายคลอง) at the far end to spill whatever is surplus; and <strong>checks</strong> (อาคารทดน้ำ) along the way to raise the level enough for water to enter the laterals and turnouts. Where the ground falls away steeply there are <strong>drops</strong> (อาคารน้ำตก); where the canal crosses a natural watercourse there are <strong>flumes</strong> (สะพานน้ำ) or <strong>siphons</strong> (ท่อไซฟอน).</span>
+            <span class="th">คลองที่ไม่มีอาคารบังคับน้ำย่อมทำตามตารางส่งน้ำใด ๆ ไม่ได้เลย ระบบส่งน้ำทุกระดับจำเป็นต้องมีอาคารเหล่านี้ คือ <strong>ประตูระบายปากคลอง</strong> (Head Regulator) ที่ปากทางเข้าเพื่อควบคุมปริมาณน้ำที่ส่งเข้าคลอง และมักมีอาคารวัดน้ำตามบทที่ 5 อยู่ข้าง ๆ ด้วย <strong>ประตูระบายปลายคลอง</strong> (Tail Regulator) ที่ปลายคลองเพื่อระบายน้ำส่วนที่เกินความต้องการทิ้งไป และ <strong>อาคารทดน้ำ</strong> (Check) ตลอดช่วงคลอง เพื่อทดน้ำให้สูงพอที่จะไหลเข้าคลองซอยและท่อส่งน้ำเข้านาได้ ส่วนที่พื้นที่ลาดลงมาก ๆ จะมี <strong>อาคารน้ำตก</strong> (Drop) และที่คลองตัดผ่านทางน้ำธรรมชาติจะมี <strong>สะพานน้ำ</strong> (Flume) หรือ <strong>ท่อไซฟอน</strong> (Siphon)</span>
+          </p>
+          <p>
+            <span class="en">The check is the one to remember. It is the structure that converts a canal from a drain into a delivery system: without checks, the water level in a partly loaded canal drops below the turnout sills and the tail end receives nothing even though the canal is technically flowing.</span>
+            <span class="th">อาคารทดน้ำเป็นอาคารที่ควรจำไว้ให้ดี เพราะเป็นอาคารที่เปลี่ยนคลองจากทางระบายน้ำให้กลายเป็นระบบส่งน้ำ ถ้าไม่มีอาคารทดน้ำ ระดับน้ำในคลองที่ส่งน้ำไม่เต็มความจุจะลดต่ำกว่าธรณีของท่อส่งน้ำเข้านา ปลายคลองจะไม่ได้รับน้ำเลย ทั้งที่ในทางเทคนิคแล้วคลองยังมีน้ำไหลอยู่</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 7.8 ===================== -->
+      <section id="s-salinity">
+        <h2><span class="en">7.8 Salinity and the leaching requirement</span><span class="th">7.8 ความเค็มและปริมาณน้ำชะล้างเกลือ</span></h2>
+
+        <p>
+          <span class="en">Chapter 3 put a term called W<sub>l</sub> in the net requirement and moved on. Here is what it is for. Every irrigation water carries dissolved salt. The crop transpires the water and leaves the salt behind, so the root zone becomes saltier with every irrigation — and the only way salt leaves a field is dissolved in water draining below the roots.</span>
+          <span class="th">บทที่ 3 ใส่พจน์ชื่อ W<sub>l</sub> ไว้ในสมการปริมาณน้ำสุทธิแล้วผ่านไป ตรงนี้คือเหตุผลของมัน น้ำชลประทานทุกชนิดมีเกลือละลายอยู่ พืชคายน้ำออกไปแล้วทิ้งเกลือไว้ เขตรากจึงเค็มขึ้นทุกครั้งที่ให้น้ำ และทางเดียวที่เกลือจะออกจากแปลงได้ คือละลายไปกับน้ำที่ระบายลงไปใต้เขตราก</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The uncomfortable consequence</span><span class="th">ผลที่ตามมาซึ่งน่าอึดอัด</span></div>
+          <p>
+            <span class="en">Deep percolation is the loss that Chapters 4 and 6 spent pages trying to eliminate. On saline land, a <em>controlled amount</em> of it is not a loss at all — it is the mechanism that keeps the field farmable. An irrigation system with perfect efficiency on salty water would salinise its own soil within a few seasons. Efficiency is a means, never an end.</span>
+            <span class="th">การซึมลึกคือการสูญเสียที่บทที่ 4 และ 6 ใช้เนื้อที่หลายหน้าพยายามกำจัด แต่ในพื้นที่ดินเค็ม การซึมลึก <em>ในปริมาณที่ควบคุมไว้</em> ไม่ใช่การสูญเสียเลย หากเป็นกลไกที่รักษาให้แปลงนั้นยังเพาะปลูกได้ ระบบชลประทานที่มีประสิทธิภาพสมบูรณ์แบบซึ่งใช้น้ำที่มีเกลือ จะทำให้ดินของตัวเองเค็มจนใช้การไม่ได้ภายในไม่กี่ฤดู ประสิทธิภาพเป็นเพียงวิธีการ ไม่เคยเป็นเป้าหมาย</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>LR = <span class="frac"><span class="num">EC<sub>iw</sub></span><span class="den">5 EC<sub>e</sub> − EC<sub>iw</sub></span></span></code><span class="eq-note"><span class="en">leaching requirement, surface irrigation</span><span class="th">สัดส่วนน้ำชะล้างเกลือ สำหรับการให้น้ำทางผิวดิน</span></span></div>
+          <div class="eq"><code>W<sub>g</sub> = <span class="frac"><span class="num">W<sub>n</sub></span><span class="den">1 − LR</span></span></code><span class="eq-note"><span class="en">depth to apply so that the leaching fraction drains</span><span class="th">ความลึกน้ำที่ต้องให้ เพื่อให้มีน้ำส่วนชะล้างระบายลงไป</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>LR</dt><dd><span class="en">leaching requirement — the fraction of applied water that must drain past the root zone</span><span class="th">สัดส่วนของน้ำที่ให้ ซึ่งต้องระบายผ่านเขตรากลงไป</span></dd>
+          <dt>EC<sub>iw</sub></dt><dd><span class="en">electrical conductivity of the irrigation water (dS/m) — a laboratory or field-meter reading</span><span class="th">ค่าการนำไฟฟ้าของน้ำชลประทาน (dS/m) วัดในห้องปฏิบัติการหรือด้วยเครื่องวัดภาคสนาม</span></dd>
+          <dt>EC<sub>e</sub></dt><dd><span class="en">the soil salinity the crop will tolerate without yield loss (dS/m) — a crop property, from published tolerance tables</span><span class="th">ค่าความเค็มของดินที่พืชทนได้โดยไม่สูญเสียผลผลิต (dS/m) เป็นคุณสมบัติของพืช หาได้จากตารางความทนเค็มที่มีผู้จัดทำไว้</span></dd>
+        </dl>
+
+        <h3><span class="en">Worked example 3 · What leaching costs</span><span class="th">ตัวอย่างการคำนวณที่ 3 · การชะล้างเกลือมีราคาเท่าใด</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A crop needs <strong>500 mm</strong> net for the season. Compute the gross depth for three cases.</span>
+            <span class="th">พืชชนิดหนึ่งต้องการน้ำสุทธิ <strong>500 มม.</strong> ตลอดฤดู จงคำนวณความลึกน้ำรวมสำหรับสามกรณี</span>
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Case</span><span class="th">กรณี</span></th>
+                <th>EC<sub>iw</sub></th>
+                <th>EC<sub>e</sub></th>
+                <th>LR</th>
+                <th><span class="en">Gross depth</span><span class="th">ความลึกน้ำรวม</span></th>
+                <th><span class="en">Extra water</span><span class="th">น้ำที่ต้องเพิ่ม</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Good water, sensitive crop</span><span class="th">น้ำดี พืชอ่อนไหวต่อเกลือ</span></td>
+                <td class="num">1.2</td><td class="num">3.0</td><td class="num">0.087</td><td class="num">548 mm</td><td class="num">+48 mm</td>
+              </tr>
+              <tr>
+                <td><span class="en">Good water, tolerant crop</span><span class="th">น้ำดี พืชทนเค็ม</span></td>
+                <td class="num">1.2</td><td class="num">6.0</td><td class="num">0.042</td><td class="num">522 mm</td><td class="num">+22 mm</td>
+              </tr>
+              <tr>
+                <td><span class="en">Poor water, sensitive crop</span><span class="th">น้ำคุณภาพต่ำ พืชอ่อนไหวต่อเกลือ</span></td>
+                <td class="num">2.0</td><td class="num">3.0</td><td class="num">0.154</td><td class="num">591 mm</td><td class="num">+91 mm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">Read the third row against the first. The same crop, the same season, and a water supply only <em>0.8 dS/m</em> saltier costs an extra 43 mm of water every year — nearly 9% of the requirement, and 69 m³ on every rai. Water quality is not a footnote to a design; it is a line in the water budget.</span>
+          <span class="th">ลองอ่านแถวที่สามเทียบกับแถวแรก พืชชนิดเดียวกัน ฤดูเดียวกัน และแหล่งน้ำที่เค็มขึ้นเพียง <em>0.8 dS/m</em> กลับต้องใช้น้ำเพิ่มอีก 43 มม. ทุกปี คิดเป็นเกือบร้อยละ 9 ของความต้องการ และเท่ากับ 69 ลบ.ม. ต่อไร่ คุณภาพน้ำจึงไม่ใช่เชิงอรรถของการออกแบบ แต่เป็นรายการหนึ่งในงบประมาณน้ำ</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Three practical points</span><span class="th">ข้อควรรู้ในทางปฏิบัติสามข้อ</span></div>
+          <p>
+            <span class="en"><strong>Leaching needs drainage.</strong> The water carrying the salt has to go somewhere. Apply a leaching fraction to land with a high water table or an impermeable layer and the salt simply returns by capillary rise in the dry season, having made the water table worse on the way. Salinity control is a drainage problem wearing an irrigation costume.</span>
+            <span class="th"><strong>การชะล้างเกลือต้องมีการระบายน้ำ</strong> น้ำที่พาเกลือไปต้องมีที่ไป ถ้าให้น้ำส่วนชะล้างในพื้นที่ที่ระดับน้ำใต้ดินสูงหรือมีชั้นดินที่น้ำซึมผ่านไม่ได้ เกลือจะกลับขึ้นมาด้วยแรงคาปิลลารีในฤดูแล้ง พร้อมกับทำให้ระดับน้ำใต้ดินแย่ลงไปอีกระหว่างทาง การควบคุมความเค็มจึงเป็นปัญหาการระบายน้ำที่สวมเสื้อคลุมของงานชลประทาน</span>
+          </p>
+          <p>
+            <span class="en"><strong>Uniformity does the leaching, not the average depth.</strong> A field that receives 550 mm on average but 400 mm at the dry end has leached nothing at the dry end — which is the end that was already getting least water and will salinise first. Chapter 4's distribution uniformity is what decides whether a leaching fraction actually leaches.</span>
+            <span class="th"><strong>ความสม่ำเสมอเป็นตัวชะล้างเกลือ ไม่ใช่ความลึกเฉลี่ย</strong> แปลงที่ได้รับน้ำเฉลี่ย 550 มม. แต่ด้านที่แห้งได้เพียง 400 มม. เท่ากับไม่ได้ชะล้างเกลือที่ด้านนั้นเลย ซึ่งเป็นด้านที่ได้น้ำน้อยที่สุดอยู่แล้วและจะเค็มก่อนที่อื่น ความสม่ำเสมอของการแจกจ่ายน้ำในบทที่ 4 จึงเป็นตัวตัดสินว่าน้ำส่วนชะล้างจะชะล้างได้จริงหรือไม่</span>
+          </p>
+          <p>
+            <span class="en"><strong>Rain leaches for free.</strong> In most of Thailand the wet season delivers far more than any leaching fraction, so salinity is managed by the monsoon without anyone doing anything. The places where LR has to be computed are the dry-season crop on a coastal or inland-saline soil, and any scheme drawing on brackish groundwater.</span>
+            <span class="th"><strong>ฝนชะล้างเกลือให้ฟรี</strong> ในพื้นที่ส่วนใหญ่ของประเทศไทย ฤดูฝนให้น้ำมากกว่าสัดส่วนน้ำชะล้างใด ๆ อยู่มาก ความเค็มจึงถูกจัดการโดยลมมรสุมเองโดยที่ไม่มีใครต้องทำอะไร ที่ที่ต้องคำนวณค่า LR จริง ๆ คือพืชฤดูแล้งบนดินเค็มชายทะเลหรือดินเค็มภาคอีสาน และโครงการใดก็ตามที่สูบน้ำใต้ดินกร่อยขึ้นมาใช้</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 7.9 ===================== -->
+      <section id="s-productivity">
+        <h2><span class="en">7.9 Water productivity: the number that replaced efficiency</span><span class="th">7.9 ผลิตภาพของน้ำ: ตัวเลขที่เข้ามาแทนประสิทธิภาพ</span></h2>
+
+        <p>
+          <span class="en">Efficiency asks <em>how much of the water I released reached the root zone?</em> It is a plumbing question, and for sixty years it was the question irrigation engineers asked. It has a defect that §7.5 already exposed: a system can be highly efficient and still be growing the wrong crop, at the wrong time, on the wrong scale. Water productivity asks a better question:</span>
+          <span class="th">ประสิทธิภาพถามว่า <em>น้ำที่ปล่อยออกไปลงถึงเขตรากกี่ส่วน</em> ซึ่งเป็นคำถามเชิงงานประปา และเป็นคำถามที่วิศวกรชลประทานถามกันมาหกสิบปี คำถามนี้มีข้อบกพร่องที่หัวข้อ 7.5 เปิดโปงไว้แล้ว คือระบบหนึ่งอาจมีประสิทธิภาพสูงมาก แต่ยังคงปลูกพืชผิดชนิด ในเวลาที่ผิด บนขนาดพื้นที่ที่ผิด ผลิตภาพของน้ำถามคำถามที่ดีกว่านั้น</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>WP = <span class="frac"><span class="num"><span class="en">yield (kg)</span><span class="th">ผลผลิต (กก.)</span></span><span class="den"><span class="en">water (m³)</span><span class="th">น้ำ (ลบ.ม.)</span></span></span></code><span class="eq-note"><span class="en">kg per cubic metre</span><span class="th">กิโลกรัมต่อลูกบาศก์เมตร</span></span></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Crop</span><span class="th">พืช</span></th>
+                <th><span class="en">Typical WP on an ET basis (kg/m³)</span><span class="th">ผลิตภาพของน้ำโดยทั่วไป คิดบนฐาน ET (กก./ลบ.ม.)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Maize (grain)</span><span class="th">ข้าวโพด (เมล็ด)</span></td><td class="num">1.1 – 2.7</td></tr>
+              <tr><td><span class="en">Wheat (grain)</span><span class="th">ข้าวสาลี (เมล็ด)</span></td><td class="num">0.6 – 1.7</td></tr>
+              <tr><td><span class="en">Rice (paddy)</span><span class="th">ข้าว (ข้าวเปลือก)</span></td><td class="num">0.6 – 1.6</td></tr>
+              <tr><td><span class="en">Seed cotton</span><span class="th">ฝ้าย (เมล็ดพร้อมปุย)</span></td><td class="num">0.4 – 1.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Always state the denominator</span><span class="th">ต้องระบุตัวส่วนเสมอ</span></div>
+          <p>
+            <span class="en">"Water productivity" is three different numbers wearing one name, and papers quote all three without saying which. The denominator can be <strong>ET</strong> (what the crop actually transpired), <strong>irrigation applied</strong> (what came out of the turnout), or <strong>water diverted</strong> (what left the reservoir). For the same field these can differ by a factor of two or more, and a scheme can look excellent on one and poor on another. A productivity figure without its denominator is not a measurement.</span>
+            <span class="th">คำว่า "ผลิตภาพของน้ำ" คือตัวเลขสามตัวที่ต่างกันแต่ใช้ชื่อเดียวกัน และบทความวิชาการอ้างทั้งสามตัวโดยไม่บอกว่าใช้ตัวไหน ตัวส่วนอาจเป็น <strong>ค่า ET</strong> คือน้ำที่พืชคายออกไปจริง หรือ <strong>น้ำชลประทานที่ให้</strong> คือน้ำที่ออกจากปากคลองส่งน้ำเข้านา หรือ <strong>น้ำที่ผันออกมา</strong> คือน้ำที่ออกจากอ่างเก็บน้ำ สำหรับแปลงเดียวกัน ค่าทั้งสามอาจต่างกันสองเท่าหรือมากกว่า และโครงการหนึ่งอาจดูดีเยี่ยมเมื่อใช้ตัวหนึ่งแต่ดูแย่เมื่อใช้อีกตัวหนึ่ง ตัวเลขผลิตภาพที่ไม่ระบุตัวส่วนจึงไม่ใช่การวัด</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Why the two objectives disagree</span><span class="th">ทำไมเป้าหมายสองอย่างจึงขัดกัน</span></h3>
+
+        <p>
+          <span class="en">Take the maize and groundnut of §7.5 and compute productivity for each option. Water available is 4,000 m³ in both cases.</span>
+          <span class="th">ลองนำข้าวโพดและถั่วลิสงในหัวข้อ 7.5 มาคำนวณผลิตภาพของแต่ละทางเลือก โดยมีน้ำ 4,000 ลบ.ม. เท่ากันทั้งสองกรณี</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Crop</span><span class="th">พืช</span></th>
+                <th>K<sub>y</sub></th>
+                <th><span class="en">A — concentrate (0.8 ha full)</span><span class="th">ก — รวมน้ำ (0.8 เฮกตาร์ เต็ม)</span></th>
+                <th><span class="en">B — spread (1.0 ha at 80%)</span><span class="th">ข — กระจายน้ำ (1.0 เฮกตาร์ ที่ 80%)</span></th>
+                <th><span class="en">Better</span><span class="th">ดีกว่า</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Maize</span><span class="th">ข้าวโพด</span></td><td class="num">1.25</td>
+                <td class="num">6.40 t → 1.60 kg/m³</td>
+                <td class="num">6.00 t → 1.50 kg/m³</td>
+                <td><strong><span class="en">A</span><span class="th">ก</span></strong></td>
+              </tr>
+              <tr>
+                <td><span class="en">Groundnut</span><span class="th">ถั่วลิสง</span></td><td class="num">0.70</td>
+                <td class="num">2.40 t → 0.60 kg/m³</td>
+                <td class="num">2.58 t → 0.65 kg/m³</td>
+                <td><strong><span class="en">B</span><span class="th">ข</span></strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">Both rows show the same thing: with a fixed volume of water, <strong>maximum total yield and maximum water productivity are the same decision</strong>, because the denominator is the same in both options. Yield per <em>hectare</em> is what disagrees — option B gives more yield per cubic metre for groundnut while giving <em>less</em> per hectare than a fully watered field would. When water is what you are short of, per-hectare figures are the wrong scoreboard.</span>
+          <span class="th">ทั้งสองแถวแสดงสิ่งเดียวกัน คือเมื่อมีน้ำจำนวนตายตัว <strong>ผลผลิตรวมสูงสุดกับผลิตภาพของน้ำสูงสุดเป็นการตัดสินใจเดียวกัน</strong> เพราะตัวส่วนเท่ากันทั้งสองทางเลือก สิ่งที่ขัดกันคือผลผลิตต่อ <em>พื้นที่</em> เพราะทางเลือก ข. ให้ผลผลิตต่อลูกบาศก์เมตรมากกว่าสำหรับถั่วลิสง ในขณะที่ให้ผลผลิตต่อเฮกตาร์ <em>น้อยกว่า</em> แปลงที่ได้น้ำเต็ม เมื่อสิ่งที่เราขาดแคลนคือน้ำ ตัวเลขต่อพื้นที่จึงเป็นกระดานคะแนนที่ผิด</span>
+        </p>
+      </section>
+
+      <!-- ===================== 7.10 ===================== -->
+      <section id="s-audit">
+        <h2><span class="en">7.10 Auditing and improving a system that already exists</span><span class="th">7.10 การตรวจสอบและปรับปรุงระบบที่มีอยู่แล้ว</span></h2>
+
+        <p>
+          <span class="en">Most of the irrigation work anyone reading this will ever do is not designing a new scheme. It is finding out why an existing one underperforms, and fixing the cheapest thing that matters. Here is the order to work in — cheapest and most revealing first.</span>
+          <span class="th">งานชลประทานส่วนใหญ่ที่ผู้อ่านหนังสือเล่มนี้จะได้ทำจริง ไม่ใช่การออกแบบโครงการใหม่ แต่คือการหาว่าโครงการที่มีอยู่แล้วทำงานได้ไม่ดีเพราะอะไร แล้วแก้สิ่งที่ถูกที่สุดซึ่งมีผลจริง ลำดับการทำงานเป็นดังนี้ โดยเรียงจากถูกที่สุดและเปิดเผยปัญหาได้มากที่สุดก่อน</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Step</span><span class="th">ขั้น</span></th>
+                <th><span class="en">What to do</span><span class="th">ทำอะไร</span></th>
+                <th><span class="en">What it usually reveals</span><span class="th">มักพบอะไร</span></th>
+                <th><span class="en">Chapter</span><span class="th">บท</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">1</td>
+                <td><span class="en">Walk the system from the tail end upwards, not from the headworks down</span><span class="th">เดินตรวจระบบจากปลายคลองย้อนขึ้นไป ไม่ใช่จากหัวงานลงมา</span></td>
+                <td><span class="en">Whoever complains loudest is rarely worst off. The tail end tells you the truth about the whole system in one walk.</span><span class="th">คนที่ร้องเรียนดังที่สุดมักไม่ใช่คนที่เดือดร้อนที่สุด ปลายคลองบอกความจริงเกี่ยวกับทั้งระบบได้ในการเดินตรวจเพียงครั้งเดียว</span></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="num">2</td>
+                <td><span class="en">Gauge the flow at two or three points with a float and a tape</span><span class="th">วัดอัตราการไหลสองหรือสามจุดด้วยทุ่นลอยและเทปวัด</span></td>
+                <td><span class="en">Whether the canal is actually carrying what the records say. Conveyance losses above 30% between two points mean seepage, an illegal turnout, or both.</span><span class="th">คลองพาน้ำได้ตามที่บันทึกไว้จริงหรือไม่ ถ้าสูญเสียระหว่างสองจุดเกินร้อยละ 30 แสดงว่ามีการรั่วซึม มีการเปิดน้ำนอกระบบ หรือทั้งสองอย่าง</span></td>
+                <td>§5.4</td>
+              </tr>
+              <tr>
+                <td class="num">3</td>
+                <td><span class="en">Check the crest height and the head gauge of every measuring structure</span><span class="th">ตรวจความสูงสันฝายและเครื่องวัดระดับของอาคารวัดน้ำทุกตัว</span></td>
+                <td><span class="en">Silted-up weirs and drowned flumes, which have been under-reporting or over-reporting for years without anyone noticing.</span><span class="th">ฝายที่ตะกอนทับถมและรางวัดน้ำที่ถูกน้ำท้ายท่วม ซึ่งอ่านค่าต่ำหรือสูงกว่าจริงมาหลายปีโดยไม่มีใครสังเกต</span></td>
+                <td>§5.9</td>
+              </tr>
+              <tr>
+                <td class="num">4</td>
+                <td><span class="en">Run a catch-can or infiltration test on two contrasting fields</span><span class="th">ทดสอบด้วยกระป๋องรับน้ำหรือทดสอบการซึมในสองแปลงที่ต่างกัน</span></td>
+                <td><span class="en">Application uniformity, which sets the ceiling on every efficiency the scheme can claim.</span><span class="th">ความสม่ำเสมอของการให้น้ำ ซึ่งเป็นเพดานของค่าประสิทธิภาพทุกค่าที่โครงการจะอ้างได้</span></td>
+                <td>§4.9, §2.11</td>
+              </tr>
+              <tr>
+                <td class="num">5</td>
+                <td><span class="en">Ask three farmers when they last received water and for how long</span><span class="th">ถามเกษตรกรสามรายว่าได้รับน้ำครั้งล่าสุดเมื่อไรและนานเท่าใด</span></td>
+                <td><span class="en">Whether the schedule on paper is the schedule in the field. It very often is not.</span><span class="th">ตารางส่งน้ำบนกระดาษกับตารางที่เกิดขึ้นจริงในแปลงตรงกันหรือไม่ ซึ่งบ่อยครั้งมากที่ไม่ตรงกัน</span></td>
+                <td>§7.6</td>
+              </tr>
+              <tr>
+                <td class="num">6</td>
+                <td><span class="en">Only then compute a water balance for the scheme</span><span class="th">เมื่อทำครบแล้วจึงคำนวณสมดุลน้ำของทั้งโครงการ</span></td>
+                <td><span class="en">Where the water is going. Doing this first, on unverified numbers, is how projects end up lining the wrong canal.</span><span class="th">น้ำหายไปไหน การทำขั้นนี้ก่อนโดยใช้ตัวเลขที่ยังไม่ได้ตรวจสอบ คือวิธีที่ทำให้โครงการไปดาดคลองผิดสาย</span></td>
+                <td>§3.11, §4.11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The cheapest interventions, in the order they usually pay</span><span class="th">มาตรการที่ถูกที่สุด เรียงตามลำดับที่มักคุ้มค่า</span></div>
+          <p>
+            <span class="en"><strong>1. Fix the schedule.</strong> Costs nothing but agreement. Moving from continuous flow to rotation routinely lifts project efficiency by more than any structural work.</span>
+            <span class="th"><strong>1. แก้ตารางส่งน้ำ</strong> ไม่มีค่าใช้จ่ายนอกจากการตกลงกัน การเปลี่ยนจากส่งน้ำตลอดเวลามาเป็นหมุนเวียน มักยกประสิทธิภาพของโครงการขึ้นได้มากกว่างานก่อสร้างใด ๆ</span>
+          </p>
+          <p>
+            <span class="en"><strong>2. Desilt and clear the canals.</strong> Restores the design capacity and the design water level, which is to say it restores the two things the canal was built to provide. Cheap, unglamorous, and the single most neglected item in every project budget.</span>
+            <span class="th"><strong>2. ขุดลอกตะกอนและกำจัดวัชพืชในคลอง</strong> เป็นการคืนความจุและระดับน้ำตามที่ออกแบบไว้ ซึ่งก็คือคืนสองสิ่งที่คลองถูกสร้างขึ้นมาเพื่อให้ ราคาถูก ไม่หวือหวา และเป็นรายการที่ถูกละเลยมากที่สุดในงบประมาณของทุกโครงการ</span>
+          </p>
+          <p>
+            <span class="en"><strong>3. Install measurement at a sample of turnouts.</strong> Twenty structures cost less than lining a hundred metres of canal, and they tell you whether the lining is needed at all.</span>
+            <span class="th"><strong>3. ติดตั้งอาคารวัดน้ำที่ปากคลองส่งน้ำเข้านาเป็นตัวอย่างจำนวนหนึ่ง</strong> อาคารยี่สิบตัวมีราคาถูกกว่าการดาดคลองหนึ่งร้อยเมตร และบอกเราได้ว่าจำเป็นต้องดาดคลองหรือไม่ตั้งแต่แรก</span>
+          </p>
+          <p>
+            <span class="en"><strong>4. Then, and only then, build something.</strong> Lining, land levelling and new structures are all real improvements — but each of them is expensive, permanent, and useless if aimed at the wrong reach. Steps 1 to 3 are how you find the right reach.</span>
+            <span class="th"><strong>4. เมื่อทำครบสามข้อแล้ว จึงค่อยลงมือก่อสร้าง</strong> การดาดคลอง การปรับระดับที่ดิน และการสร้างอาคารใหม่ ล้วนเป็นการปรับปรุงที่ได้ผลจริง แต่แต่ละอย่างมีราคาแพง ถาวร และไร้ประโยชน์ถ้าทำผิดช่วงคลอง ขั้นที่ 1 ถึง 3 คือวิธีหาว่าช่วงคลองที่ถูกต้องอยู่ที่ไหน</span>
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">A closing thought for the whole course</span><span class="th">ข้อคิดปิดท้ายสำหรับทั้งวิชา</span></div>
+          <p>
+            <span class="en">Chapter 1 observed that Thailand built the upstream half of an irrigation system three separate times before discovering that water at the source is not water at the root. Six chapters later the observation has a technical shape: a reservoir is worth nothing without a canal, a canal nothing without a turnout, a turnout nothing without a measurement, a measurement nothing without a schedule, and a schedule nothing without someone who knows which week of the season it is. <strong>The chain is only as strong as its last hundred metres — and its last hundred metres are almost always management, not hardware.</strong></span>
+            <span class="th">บทที่ 1 ตั้งข้อสังเกตไว้ว่าประเทศไทยสร้างระบบชลประทานเฉพาะครึ่งต้นน้ำมาแล้วถึงสามครั้ง ก่อนจะค้นพบว่าน้ำที่แหล่งน้ำไม่ใช่น้ำที่ราก ผ่านมาอีกหกบท ข้อสังเกตนั้นมีรูปร่างทางเทคนิคแล้ว กล่าวคืออ่างเก็บน้ำไม่มีค่าถ้าไม่มีคลอง คลองไม่มีค่าถ้าไม่มีท่อส่งน้ำเข้านา ท่อส่งน้ำเข้านาไม่มีค่าถ้าไม่มีการวัด การวัดไม่มีค่าถ้าไม่มีตารางส่งน้ำ และตารางส่งน้ำไม่มีค่าถ้าไม่มีใครรู้ว่าตอนนี้เป็นสัปดาห์ที่เท่าไรของฤดู <strong>ลูกโซ่นี้แข็งแรงได้เพียงเท่าที่ร้อยเมตรสุดท้ายแข็งแรง และร้อยเมตรสุดท้ายนั้นแทบทุกครั้งคือการจัดการ ไม่ใช่อุปกรณ์</strong></span>
+          </p>
+        </div>
+      </section>
+
+
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">Design optimises a system; management allocates a shortage. The two use different objectives and give different answers.</span><span class="th">การออกแบบทำให้ระบบดีที่สุด ส่วนการจัดการจัดสรรความขาดแคลน สองอย่างนี้ใช้เป้าหมายต่างกันและให้คำตอบต่างกัน</span></li>
+            <li><span class="en">The soil-water balance: <span class="mono">D<sub>i</sub> = D<sub>i−1</sub> + ET<sub>c</sub> − R<sub>e</sub> − I<sub>n</sub></span>, irrigate when D reaches RAW, apply enough to return D to zero. Check the book against the soil every few cycles, and believe the soil.</span><span class="th">สมดุลน้ำในดิน คือ <span class="mono">D<sub>i</sub> = D<sub>i−1</sub> + ET<sub>c</sub> − R<sub>e</sub> − I<sub>n</sub></span> ให้น้ำเมื่อ D ถึงค่า RAW โดยให้มากพอที่จะดึง D กลับเป็นศูนย์ และทุกไม่กี่รอบให้ตรวจสมุดบัญชีกับดินจริง แล้วเชื่อดิน</span></li>
+            <li><span class="en">Critical periods: a shortage in the flowering or grain-filling window costs several times what the same shortage costs during vegetative growth. Maize wilted 1–2 days at tasselling loses 22% of yield; 6–8 days loses 50%.</span><span class="th">ช่วงวิกฤต การขาดน้ำในช่วงออกดอกหรือช่วงเมล็ดกำลังเต็ม ทำให้เสียหายหลายเท่าของการขาดน้ำเท่ากันในช่วงเจริญเติบโตทางลำต้นและใบ ข้าวโพดที่เหี่ยว 1–2 วันตอนออกช่อดอกเสียผลผลิต 22% ถ้าเหี่ยว 6–8 วันจะเสีย 50%</span></li>
+            <li><span class="en">Yield response: <span class="mono">1 − Y<sub>a</sub>/Y<sub>m</sub> = K<sub>y</sub> (1 − ET<sub>a</sub>/ET<sub>m</sub>)</span>. K<sub>y</sub> is sensitivity to shortage, not demand — do not confuse it with K<sub>c</sub>.</span><span class="th">การตอบสนองของผลผลิต คือ <span class="mono">1 − Y<sub>a</sub>/Y<sub>m</sub> = K<sub>y</sub> (1 − ET<sub>a</sub>/ET<sub>m</sub>)</span> ค่า K<sub>y</sub> คือความอ่อนไหวต่อการขาดน้ำ ไม่ใช่ความต้องการน้ำ อย่าสับสนกับ K<sub>c</sub></span></li>
+            <li><span class="en"><strong>K<sub>y</sub> &gt; 1 → concentrate the water on less land. K<sub>y</sub> &lt; 1 → spread it over more.</strong> Maize (1.25) wants concentrating; groundnut (0.70) wants spreading. Same shortage, opposite answers.</span><span class="th"><strong>K<sub>y</sub> มากกว่า 1 ให้รวมน้ำไว้ในพื้นที่น้อยลง ส่วน K<sub>y</sub> น้อยกว่า 1 ให้กระจายน้ำออกไปให้กว้างขึ้น</strong> ข้าวโพด (1.25) ควรรวมน้ำ ส่วนถั่วลิสง (0.70) ควรกระจายน้ำ ความขาดแคลนเท่ากันแต่คำตอบตรงข้าม</span></li>
+            <li><span class="en">Deficit irrigation needs three things first: the deficit scheduled into tolerant stages, a way for salt to still leave, and uniformity good enough to apply a planned deficit at all.</span><span class="th">การให้น้ำแบบขาดแคลนต้องมีสามสิ่งก่อน คือจัดให้การขาดน้ำไปตกในระยะที่พืชทนได้ มีทางให้เกลือออกจากดินได้ และมีความสม่ำเสมอดีพอที่จะให้น้ำขาดตามแผนได้จริง</span></li>
+            <li><span class="en">Three delivery methods, three complaints: continuous → unfairness; rotation → wrong timing; demand → not enough capacity. Rotation can run at main-canal, lateral or farm-ditch level, and the level chosen says how much management the project can afford.</span><span class="th">วิธีส่งน้ำสามแบบ สร้างคำร้องเรียนสามแบบ คือส่งตลอดเวลา → ไม่เป็นธรรม หมุนเวียน → จังหวะเวลาไม่ตรง ตามความต้องการ → สมรรถนะไม่พอ การหมุนเวียนทำได้ที่ระดับคลองสายใหญ่ คลองซอย หรือคูส่งน้ำ และระดับที่เลือกบอกว่าโครงการมีกำลังจัดการเพียงใด</span></li>
+            <li><span class="en">A delivery system needs good design <em>and</em> good construction <em>and</em> good maintenance — a product, not a sum. Canals must be big enough, run high enough above ground (main 1.0–1.5 m, laterals and ditches 0.30–0.50 m), neither silt nor scour, and not leak; seepage alone can take 50%.</span><span class="th">ระบบส่งน้ำต้องมีทั้งการออกแบบที่ดี <em>และ</em> การก่อสร้างที่ดี <em>และ</em> การบำรุงรักษาที่ดี เป็นผลคูณ ไม่ใช่ผลบวก คลองต้องโตพอ มีระดับน้ำสูงพอเหนือผิวดิน (สายใหญ่ 1.0–1.5 ม. คลองซอยและคูส่งน้ำ 0.30–0.50 ม.) ไม่ตื้นเขินและไม่ถูกกัดเซาะ และไม่รั่วซึมมาก เพราะการรั่วซึมอย่างเดียวอาจกินไปถึง 50%</span></li>
+            <li><span class="en">Leaching: <span class="mono">LR = EC<sub>iw</sub> / (5 EC<sub>e</sub> − EC<sub>iw</sub>)</span>, and <span class="mono">W<sub>g</sub> = W<sub>n</sub>/(1 − LR)</span>. Controlled deep percolation is not waste on saline land — it is the only way salt leaves. Leaching needs drainage and needs uniformity.</span><span class="th">การชะล้างเกลือ ใช้ <span class="mono">LR = EC<sub>iw</sub> / (5 EC<sub>e</sub> − EC<sub>iw</sub>)</span> และ <span class="mono">W<sub>g</sub> = W<sub>n</sub>/(1 − LR)</span> การซึมลึกในปริมาณที่ควบคุมไว้ไม่ใช่การสูญเสียในพื้นที่ดินเค็ม แต่เป็นทางเดียวที่เกลือจะออกไปได้ การชะล้างเกลือต้องมีทั้งการระบายน้ำและความสม่ำเสมอ</span></li>
+            <li><span class="en">Water productivity <span class="mono">kg/m³</span> replaces efficiency as the objective once water is scarcer than land — but always state the denominator: ET, water applied, or water diverted.</span><span class="th">ผลิตภาพของน้ำ <span class="mono">กก./ลบ.ม.</span> เข้ามาแทนประสิทธิภาพในฐานะเป้าหมาย เมื่อใดที่น้ำหายากกว่าที่ดิน แต่ต้องระบุตัวส่วนเสมอ ว่าเป็นค่า ET น้ำที่ให้ หรือน้ำที่ผันออกมา</span></li>
+            <li><span class="en">To improve an existing scheme, work from the tail end upwards and from cheapest to dearest: fix the schedule, desilt the canals, install measurement, and only then build. A water balance computed on unverified numbers is how projects line the wrong canal.</span><span class="th">การปรับปรุงโครงการที่มีอยู่แล้ว ให้ทำงานจากปลายคลองย้อนขึ้นไป และจากสิ่งที่ถูกที่สุดไปหาแพงที่สุด คือแก้ตารางส่งน้ำ ขุดลอกคลอง ติดตั้งอาคารวัดน้ำ แล้วจึงค่อยก่อสร้าง สมดุลน้ำที่คำนวณจากตัวเลขซึ่งยังไม่ได้ตรวจสอบ คือวิธีที่ทำให้โครงการไปดาดคลองผิดสาย</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">Continue the water balance of §7.2. The field was irrigated back to field capacity at the end of day 12. Daily ET<sub>c</sub> for days 13 to 20 is 6.2, 6.5, 6.0, 5.8, 6.3, 6.6, 6.1, 5.9 mm and there is no rain. When is the next irrigation due, and why is the interval different from the first one?</span>
+            <span class="th">จงคำนวณสมดุลน้ำในหัวข้อ 7.2 ต่อไป โดยแปลงได้รับน้ำจนกลับถึง Field Capacity เมื่อสิ้นวันที่ 12 ค่า ET<sub>c</sub> รายวันของวันที่ 13 ถึง 20 คือ 6.2, 6.5, 6.0, 5.8, 6.3, 6.6, 6.1, 5.9 มม. และไม่มีฝน จงหาว่าต้องให้น้ำครั้งต่อไปเมื่อไร และเหตุใดช่วงห่างจึงต่างจากครั้งแรก</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Depletion accumulates 6.2, 12.7, 18.7, 24.5, 30.8, 37.4, <strong>43.5</strong> — crossing RAW = 40.5 mm on <strong>day 19</strong>. The interval is <strong>7 days</strong> against 12 days for the first cycle. <strong>Why:</strong> the first cycle received 24 mm of rain, which paid for nearly four days of ET. Without rain the interval collapses to what the ET rate alone allows. Note what this means for the system: the design frequency computed in §3.11 from peak ET is close to this 7-day figure, because that is exactly what it was meant to represent — the <em>worst</em> case the system must be able to serve. Actual operation is nearly always slower than design, and the difference is rainfall.</span>
+            <span class="th">ปริมาณน้ำที่พร่องไปสะสมเป็น 6.2, 12.7, 18.7, 24.5, 30.8, 37.4, <strong>43.5</strong> ซึ่งเกินค่า RAW = 40.5 มม. ใน <strong>วันที่ 19</strong> ช่วงห่างจึงเป็น <strong>7 วัน</strong> เทียบกับ 12 วันในรอบแรก <strong>เหตุผล</strong> คือรอบแรกได้รับฝน 24 มม. ซึ่งจ่ายค่า ET ไปได้เกือบสี่วัน เมื่อไม่มีฝน ช่วงห่างจึงยุบลงเหลือเท่าที่อัตรา ET เพียงลำพังจะยอมให้ ให้สังเกตความหมายต่อระบบด้วย คือความถี่สำหรับออกแบบที่คำนวณในหัวข้อ 3.11 จากค่า ET สูงสุด จะใกล้เคียงกับ 7 วันนี้ เพราะนั่นคือสิ่งที่มันถูกออกแบบมาให้แทน กล่าวคือกรณีที่ <em>แย่ที่สุด</em> ที่ระบบต้องรองรับได้ การใช้งานจริงจึงช้ากว่าค่าออกแบบแทบทุกครั้ง และส่วนต่างนั้นคือฝน</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">A farmer has 1 ha of maize (K<sub>y</sub> = 1.25, Y<sub>m</sub> = 8 t/ha, 6,000 baht/t) and 1 ha of groundnut (K<sub>y</sub> = 0.70, Y<sub>m</sub> = 3 t/ha, 25,000 baht/t). Each needs 500 mm — 5,000 m³/ha — for full ET. Only 8,000 m³ is available, so 2,000 m³ must be cut. Should the cut fall entirely on the maize, entirely on the groundnut, or be split 20% on each?</span>
+            <span class="th">เกษตรกรมีข้าวโพด 1 เฮกตาร์ (K<sub>y</sub> = 1.25, Y<sub>m</sub> = 8 ตัน/เฮกตาร์, ราคา 6,000 บาท/ตัน) และถั่วลิสง 1 เฮกตาร์ (K<sub>y</sub> = 0.70, Y<sub>m</sub> = 3 ตัน/เฮกตาร์, ราคา 25,000 บาท/ตัน) ทั้งสองต้องการน้ำ 500 มม. หรือ 5,000 ลบ.ม./เฮกตาร์ เพื่อให้ได้ ET เต็ม แต่มีน้ำเพียง 8,000 ลบ.ม. จึงต้องตัดออก 2,000 ลบ.ม. ควรตัดจากข้าวโพดทั้งหมด ตัดจากถั่วลิสงทั้งหมด หรือแบ่งตัด 20% จากทั้งสองชนิด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>A — cut all from maize</strong> (maize at 60% of ET): <span class="mono">Y<sub>a</sub>/Y<sub>m</sub> = 1 − 1.25(0.40) = 0.50</span> → 4.00 t = 24,000 baht; groundnut full 3.00 t = 75,000. <strong>Total 99,000 baht.</strong><br>
+            <strong>B — cut all from groundnut</strong> (groundnut at 60%): <span class="mono">1 − 0.70(0.40) = 0.72</span> → 2.16 t = 54,000 baht; maize full 8.00 t = 48,000. <strong>Total 102,000 baht.</strong><br>
+            <strong>C — split 20% each:</strong> maize 0.75 × 8 = 6.00 t = 36,000; groundnut 0.86 × 3 = 2.58 t = 64,500. <strong>Total 100,500 baht.</strong><br>
+            <strong>Answer: B</strong>, cut the groundnut. The result is counter-intuitive, because groundnut is by far the more valuable crop per tonne — but that is not what decides it. What decides it is that groundnut's low K<sub>y</sub> means a 40% water cut costs it only 28% of its yield, while the same cut costs the maize 50% of its. Protect the crop that punishes you hardest, not the crop that is worth most. Note also that C sits between A and B, as splitting a decision between two options usually does — and that the spread between best and worst is only 3%, which is worth remembering before anyone spends money to chase it.</span>
+            <span class="th"><strong>ก — ตัดจากข้าวโพดทั้งหมด</strong> (ข้าวโพดได้ ET 60%) <span class="mono">Y<sub>a</sub>/Y<sub>m</sub> = 1 − 1.25(0.40) = 0.50</span> → 4.00 ตัน = 24,000 บาท ส่วนถั่วลิสงเต็ม 3.00 ตัน = 75,000 บาท <strong>รวม 99,000 บาท</strong><br>
+            <strong>ข — ตัดจากถั่วลิสงทั้งหมด</strong> (ถั่วลิสงได้ 60%) <span class="mono">1 − 0.70(0.40) = 0.72</span> → 2.16 ตัน = 54,000 บาท ส่วนข้าวโพดเต็ม 8.00 ตัน = 48,000 บาท <strong>รวม 102,000 บาท</strong><br>
+            <strong>ค — แบ่งตัด 20% ทั้งคู่</strong> ข้าวโพด 0.75 × 8 = 6.00 ตัน = 36,000 บาท ถั่วลิสง 0.86 × 3 = 2.58 ตัน = 64,500 บาท <strong>รวม 100,500 บาท</strong><br>
+            <strong>คำตอบคือ ข.</strong> ให้ตัดน้ำจากถั่วลิสง ผลลัพธ์นี้ขัดกับสัญชาตญาณ เพราะถั่วลิสงเป็นพืชที่มีมูลค่าต่อตันสูงกว่ามาก แต่นั่นไม่ใช่สิ่งที่ตัดสิน สิ่งที่ตัดสินคือค่า K<sub>y</sub> ที่ต่ำของถั่วลิสง ทำให้การตัดน้ำ 40% ทำให้เสียผลผลิตเพียง 28% ในขณะที่การตัดเท่ากันทำให้ข้าวโพดเสียผลผลิตถึง 50% จงปกป้องพืชที่ลงโทษเราหนักที่สุด ไม่ใช่พืชที่มีมูลค่าสูงที่สุด ข้อสังเกตอีกข้อคือทางเลือก ค. อยู่ระหว่าง ก. กับ ข. ซึ่งเป็นธรรมดาของการแบ่งครึ่งระหว่างสองทางเลือก และส่วนต่างระหว่างทางที่ดีที่สุดกับแย่ที่สุดมีเพียง 3% ซึ่งควรจำไว้ก่อนที่ใครจะลงทุนไล่ตามส่วนต่างนั้น</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">A dry-season crop needs 450 mm net. The irrigation water has EC<sub>iw</sub> = 1.5 dS/m and the crop tolerates EC<sub>e</sub> = 4.0 dS/m without yield loss. Find the leaching requirement and the gross depth, and state the two field conditions that must hold for the leaching to work at all.</span>
+            <span class="th">พืชฤดูแล้งชนิดหนึ่งต้องการน้ำสุทธิ 450 มม. น้ำชลประทานมีค่า EC<sub>iw</sub> = 1.5 dS/m และพืชทนความเค็มของดินได้ถึง EC<sub>e</sub> = 4.0 dS/m โดยไม่สูญเสียผลผลิต จงหาสัดส่วนน้ำชะล้างเกลือและความลึกน้ำรวม พร้อมระบุเงื่อนไขในแปลงสองข้อที่ต้องเป็นจริง การชะล้างเกลือจึงจะได้ผล</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><span class="mono">LR = 1.5 / (5 × 4.0 − 1.5) = 1.5 / 18.5 = 0.081</span>, so 8.1% of the applied water must drain past the root zone. <span class="mono">W<sub>g</sub> = 450 / (1 − 0.081) = 490 mm</span>, an extra <strong>40 mm</strong> — 64 m³ on every rai, every season. <strong>The two conditions:</strong> <em>(i) Drainage.</em> The leaching water must be able to leave. On land with a high water table or an impermeable layer, the salt simply comes back up by capillary rise in the dry season and the water table gets worse in the meantime. <em>(ii) Uniformity.</em> The leaching fraction is an average. A field averaging 490 mm but receiving 380 mm at its dry end has leached nothing there — and that end was already the driest and will salinise first. A leaching calculation on a system with poor distribution uniformity is arithmetic without a mechanism.</span>
+            <span class="th"><span class="mono">LR = 1.5 / (5 × 4.0 − 1.5) = 1.5 / 18.5 = 0.081</span> ดังนั้นน้ำที่ให้ร้อยละ 8.1 ต้องระบายผ่านเขตรากลงไป และ <span class="mono">W<sub>g</sub> = 450 / (1 − 0.081) = 490 มม.</span> คือต้องเพิ่มอีก <strong>40 มม.</strong> หรือ 64 ลบ.ม. ต่อไร่ ทุกฤดู <strong>เงื่อนไขสองข้อ</strong> <em>(1) การระบายน้ำ</em> น้ำที่ชะล้างเกลือต้องมีทางออกไปได้ ในพื้นที่ที่ระดับน้ำใต้ดินสูงหรือมีชั้นดินที่น้ำซึมผ่านไม่ได้ เกลือจะกลับขึ้นมาด้วยแรงคาปิลลารีในฤดูแล้ง และระดับน้ำใต้ดินจะแย่ลงในระหว่างนั้นด้วย <em>(2) ความสม่ำเสมอ</em> สัดส่วนน้ำชะล้างเป็นค่าเฉลี่ย แปลงที่ได้น้ำเฉลี่ย 490 มม. แต่ด้านที่แห้งได้เพียง 380 มม. เท่ากับไม่ได้ชะล้างเกลือตรงนั้นเลย และด้านนั้นเป็นด้านที่แห้งที่สุดอยู่แล้วและจะเค็มก่อนที่อื่น การคำนวณน้ำชะล้างในระบบที่มีความสม่ำเสมอของการแจกจ่ายน้ำไม่ดี จึงเป็นเลขคณิตที่ไม่มีกลไกรองรับ</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">Three project managers describe their problem. (a) "The farmers at the tail of lateral 3ซ have not had water all season, and the ones at the head leave their turnouts open at night." (b) "Everyone is angry because their turn came the week after the rain, and they did not need it." (c) "In the hot fortnight in April every farmer asked for water at once and the main canal could not carry it." Name each delivery method and give each manager one thing to do.</span>
+            <span class="th">ผู้บริหารโครงการสามคนอธิบายปัญหาของตน (ก) "เกษตรกรที่ปลายคลองซอย 3ซ ไม่ได้น้ำเลยตลอดฤดู ส่วนคนที่อยู่ต้นคลองเปิดท่อส่งน้ำเข้านาทิ้งไว้ทั้งคืน" (ข) "ทุกคนโกรธเพราะรอบเวรมาถึงในสัปดาห์ถัดจากที่ฝนตก และพวกเขาไม่ต้องการน้ำแล้ว" (ค) "ในช่วงสองสัปดาห์ที่อากาศร้อนจัดในเดือนเมษายน เกษตรกรทุกคนขอน้ำพร้อมกัน และคลองสายใหญ่ส่งไม่ไหว" จงระบุวิธีส่งน้ำของแต่ละโครงการ และเสนอสิ่งที่ผู้บริหารแต่ละคนควรทำหนึ่งอย่าง</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>(a) Continuous flow.</strong> The signature is the pairing: head-enders wasting and tail-enders starving, which happens because nobody has a defined entitlement and the rate never changes. <em>Do:</em> introduce rotation, at lateral level to begin with — it costs nothing but agreement and a schedule, and it converts an open-access resource into a set of defined turns. <strong>(b) Rotation.</strong> The complaint is about timing, which is rotation's known weakness: the schedule is fixed in advance and the weather is not. <em>Do:</em> build a rain rule into the schedule — a block that has had more than some threshold of rain in the previous days forfeits its turn and is re-inserted later, which also returns that water to the rest of the system. <strong>(c) Demand.</strong> Only a demand system produces a capacity complaint, because only under demand can everyone ask at once. <em>Do:</em> the honest answer is that the canal is undersized for true on-demand delivery. The cheap interim fix is a booking system that caps the number of simultaneous requests — arranged demand rather than free demand — while the expensive real fix is more capacity. <strong>Common thread:</strong> each complaint identifies the method, and none of the three is cured by more water at the headworks.</span>
+            <span class="th"><strong>(ก) ส่งน้ำตลอดเวลา</strong> ลักษณะเฉพาะคือการเกิดคู่กัน คือต้นคลองใช้น้ำสิ้นเปลืองและปลายคลองอดน้ำ ซึ่งเกิดขึ้นเพราะไม่มีใครมีสิทธิ์ที่กำหนดไว้ชัดเจน และอัตราการส่งไม่เคยเปลี่ยน <em>สิ่งที่ควรทำ</em> คือเริ่มใช้การหมุนเวียน โดยเริ่มที่ระดับคลองซอยก่อน ซึ่งไม่มีค่าใช้จ่ายนอกจากการตกลงกันและการทำตาราง และเปลี่ยนทรัพยากรที่ใครก็เข้าถึงได้ให้กลายเป็นรอบเวรที่กำหนดไว้ชัดเจน <strong>(ข) หมุนเวียน</strong> คำร้องเรียนเป็นเรื่องจังหวะเวลา ซึ่งเป็นจุดอ่อนที่รู้กันดีของการหมุนเวียน คือตารางถูกกำหนดไว้ล่วงหน้าแต่สภาพอากาศไม่ได้กำหนดตาม <em>สิ่งที่ควรทำ</em> คือใส่กติกาเรื่องฝนเข้าไปในตาราง คือแปลงที่ได้รับฝนเกินเกณฑ์ที่กำหนดในช่วงวันก่อนหน้าจะสละรอบเวรของตน แล้วนำไปแทรกใหม่ในภายหลัง ซึ่งยังเป็นการคืนน้ำนั้นให้ส่วนอื่นของระบบด้วย <strong>(ค) ตามความต้องการ</strong> มีเพียงระบบตามความต้องการเท่านั้นที่สร้างคำร้องเรียนเรื่องสมรรถนะ เพราะมีเพียงระบบนี้ที่ทุกคนขอน้ำพร้อมกันได้ <em>สิ่งที่ควรทำ</em> คำตอบที่ตรงไปตรงมาคือคลองมีขนาดเล็กเกินไปสำหรับการส่งน้ำตามความต้องการอย่างแท้จริง ทางแก้ชั่วคราวที่ถูกคือทำระบบจองคิวที่จำกัดจำนวนคำขอพร้อมกัน คือเป็นการส่งตามความต้องการแบบนัดหมาย ไม่ใช่แบบเสรี ส่วนทางแก้ที่แท้จริงและแพงคือเพิ่มสมรรถนะของคลอง <strong>จุดร่วม</strong> คือคำร้องเรียนแต่ละข้อบ่งชี้วิธีส่งน้ำได้ และไม่มีข้อใดในสามข้อที่แก้ได้ด้วยการมีน้ำที่หัวงานมากขึ้น</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">Decode the canal name <span class="mono">2ข-3ซ</span>. Then explain why a farm ditch exists at all, given that a turnout could simply discharge onto the nearest field.</span>
+            <span class="th">จงแปลความหมายของชื่อคลอง <span class="mono">2ข-3ซ</span> จากนั้นอธิบายว่าเหตุใดจึงต้องมีคูส่งน้ำ ทั้งที่ท่อส่งน้ำเข้านาสามารถปล่อยน้ำลงแปลงที่อยู่ใกล้ที่สุดได้เลย</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The name:</strong> read it right to left in order of branching. <span class="mono">3ซ</span> is the parent — lateral number 3, branching off the <em>left</em> bank of the main canal. <span class="mono">2ข</span> is the child — sub-lateral number 2, branching off the <em>right</em> bank of that lateral. So: the second sub-lateral, on the right, of the third lateral, on the left. <strong>The farm ditch:</strong> without one, water reaching a distant field has to cross the fields between it and the turnout. Those intermediate fields get flooded when they did not want water, and get whatever fertiliser and salt the water is carrying at the same time. It also means a farmer cannot irrigate without his neighbour's cooperation, which makes any schedule unenforceable. The ditch buys independent control for every field it serves, and that control is what makes rotation possible at all — which is why the level-3 rotation of Fig. 7.3 requires farm ditches to exist.</span>
+            <span class="th"><strong>ชื่อคลอง</strong> ให้อ่านจากขวาไปซ้ายตามลำดับการแยก <span class="mono">3ซ</span> คือคลองแม่ ได้แก่คลองซอยสายที่ 3 ซึ่งแยกออกทางฝั่ง <em>ซ้าย</em> ของคลองสายใหญ่ ส่วน <span class="mono">2ข</span> คือคลองลูก ได้แก่คลองแยกซอยสายที่ 2 ซึ่งแยกออกทางฝั่ง <em>ขวา</em> ของคลองซอยสายนั้น รวมความคือ คลองแยกซอยสายที่ 2 ฝั่งขวา ของคลองซอยสายที่ 3 ฝั่งซ้าย <strong>คูส่งน้ำ</strong> ถ้าไม่มีคูส่งน้ำ น้ำที่จะไปถึงแปลงที่อยู่ไกลต้องผ่านแปลงที่คั่นอยู่ระหว่างทาง แปลงที่คั่นอยู่เหล่านั้นจะถูกน้ำท่วมทั้งที่ไม่ต้องการน้ำ และได้รับปุ๋ยกับเกลือที่มากับน้ำไปพร้อมกันด้วย อีกทั้งยังหมายความว่าเกษตรกรให้น้ำแปลงตัวเองไม่ได้ถ้าเพื่อนบ้านไม่ร่วมมือ ซึ่งทำให้ตารางส่งน้ำใด ๆ บังคับใช้ไม่ได้ คูส่งน้ำจึงซื้ออำนาจควบคุมที่เป็นอิสระให้แปลงทุกแปลงที่มันให้บริการ และอำนาจควบคุมนั้นเองคือสิ่งที่ทำให้การหมุนเวียนเป็นไปได้ตั้งแต่แรก ด้วยเหตุนี้การหมุนเวียนระดับที่ 3 ในรูปที่ 7.3 จึงต้องมีคูส่งน้ำอยู่ก่อน</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">A project reports 42% overall efficiency and proposes to spend its entire improvement budget lining the first 8 km of the main canal. Using §7.10, write the case for spending the first 5% of that budget differently, and say what evidence would justify the lining after all.</span>
+            <span class="th">โครงการหนึ่งรายงานประสิทธิภาพรวมร้อยละ 42 และเสนอจะใช้งบประมาณปรับปรุงทั้งหมดไปดาดคลองสายใหญ่ช่วง 8 กิโลเมตรแรก โดยอาศัยหัวข้อ 7.10 จงเขียนเหตุผลสนับสนุนการใช้งบเพียงร้อยละ 5 แรกไปในทางอื่น และระบุว่าหลักฐานแบบใดจึงจะทำให้การดาดคลองนั้นสมเหตุสมผล</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The case against spending it all on lining now.</strong> The 42% is a ratio of one measured number to one estimated number (§5 exercise 7 made this point): the headworks flow is metered, but field deliveries are almost certainly estimated from gate settings. The figure therefore does not distinguish conveyance loss from delivery over-estimation, and lining addresses only the first. Worse, it does not say <em>where</em> the loss is — the first 8 km may be the soundest reach in the system. <strong>What the first 5% should buy.</strong> Walk the system from the tail end. Gauge the canal by float at three or four points, so conveyance loss is attributed to reaches rather than assumed. Check the crest and gauge of every measuring structure, because a silted weir has been misreporting for years. Install measurement at a sample of twenty turnouts. Desilt and weed-clear the canals, which restores design capacity and design water level for a fraction of the cost of lining. Ask farmers what their actual turn is. Only then recompute the balance, on numbers that have been verified. <strong>What would justify the lining.</strong> Gaugings showing a large, localised loss in a specific reach — say more than 25–30% disappearing between two stations a few kilometres apart — with the reach cut through sandy or fissured ground, no illegal turnouts found on the walk, and the loss persisting after desilting. That is a seepage diagnosis, and seepage is exactly what lining cures. Without it, the project is buying an expensive, permanent, irreversible answer to a question it has not yet asked.</span>
+            <span class="th"><strong>เหตุผลที่ไม่ควรใช้งบทั้งหมดไปดาดคลองในตอนนี้</strong> ค่า 42% เป็นอัตราส่วนของตัวเลขที่วัดได้หนึ่งค่า ต่อตัวเลขที่ประมาณเอาหนึ่งค่า (แบบฝึกหัดข้อ 7 ของบทที่ 5 ชี้ประเด็นนี้ไว้แล้ว) คืออัตราการไหลที่หัวงานมีมาตรวัด แต่ปริมาณน้ำที่ส่งถึงแปลงแทบจะแน่นอนว่าประมาณเอาจากระยะเปิดบานประตู ตัวเลขนี้จึงแยกไม่ออกระหว่างการสูญเสียในการส่งน้ำกับการประมาณปริมาณน้ำที่ส่งสูงเกินจริง และการดาดคลองแก้ได้เฉพาะอย่างแรก ที่แย่กว่านั้นคือตัวเลขนี้ไม่ได้บอกว่าการสูญเสียอยู่ <em>ที่ไหน</em> ช่วง 8 กิโลเมตรแรกอาจเป็นช่วงที่สภาพดีที่สุดในระบบก็ได้ <strong>สิ่งที่งบร้อยละ 5 แรกควรซื้อ</strong> เดินตรวจระบบจากปลายคลองย้อนขึ้นไป วัดอัตราการไหลในคลองด้วยทุ่นลอยสามหรือสี่จุด เพื่อระบุการสูญเสียให้กับช่วงคลองแทนที่จะสมมติเอา ตรวจสันฝายและเครื่องวัดระดับของอาคารวัดน้ำทุกตัว เพราะฝายที่ตะกอนทับถมอ่านค่าผิดมาหลายปีแล้ว ติดตั้งอาคารวัดน้ำที่ปากคลองส่งน้ำเข้านาเป็นตัวอย่างยี่สิบจุด ขุดลอกตะกอนและกำจัดวัชพืชในคลอง ซึ่งคืนความจุและระดับน้ำตามที่ออกแบบไว้ด้วยค่าใช้จ่ายเพียงเศษเสี้ยวของการดาดคลอง สอบถามเกษตรกรว่ารอบเวรจริงของพวกเขาเป็นอย่างไร เมื่อทำครบแล้วจึงคำนวณสมดุลน้ำใหม่ด้วยตัวเลขที่ผ่านการตรวจสอบแล้ว <strong>หลักฐานที่จะทำให้การดาดคลองสมเหตุสมผล</strong> คือผลการวัดที่แสดงการสูญเสียจำนวนมากและกระจุกอยู่ในช่วงคลองช่วงหนึ่ง เช่น หายไปเกินร้อยละ 25–30 ระหว่างสองสถานีที่ห่างกันไม่กี่กิโลเมตร โดยช่วงนั้นขุดผ่านดินทรายหรือดินที่มีรอยแตก ไม่พบการเปิดน้ำนอกระบบจากการเดินตรวจ และการสูญเสียยังคงอยู่หลังจากขุดลอกตะกอนแล้ว นั่นคือการวินิจฉัยว่าเป็นการรั่วซึม และการรั่วซึมคือสิ่งที่การดาดคลองแก้ได้พอดี ถ้าไม่มีหลักฐานนี้ โครงการกำลังซื้อคำตอบที่แพง ถาวร และย้อนกลับไม่ได้ ให้กับคำถามที่ยังไม่ได้ถาม</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">แบบทดสอบเก็บคะแนน</span></h2>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 7 · Irrigation Water Management</span>
+      <span class="th">บทที่ 7 · การจัดการน้ำชลประทาน</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'In the soil-water balance, irrigation is due when:',
+         th: 'ในสมดุลน้ำในดิน ต้องให้น้ำเมื่อใด' },
+    choices: [
+      { en: 'The calendar says the fixed interval has elapsed', th: 'เมื่อปฏิทินบอกว่าครบช่วงห่างที่กำหนดไว้ตายตัวแล้ว' },
+      { en: 'The computed depletion D reaches RAW', th: 'เมื่อปริมาณน้ำที่พร่องไป D ที่คำนวณได้ ถึงค่า RAW' },
+      { en: 'The computed depletion D reaches TAW', th: 'เมื่อปริมาณน้ำที่พร่องไป D ที่คำนวณได้ ถึงค่า TAW' },
+      { en: 'The crop shows visible signs of stress', th: 'เมื่อพืชแสดงอาการขาดน้ำให้เห็น' }
+    ],
+    answer: 1,
+    why: { en: 'RAW = p × TAW is the readily available fraction; letting D reach TAW means going to wilting point. Waiting for visible stress is too late — by then yield has already been lost. And a fixed calendar ignores rain, which in the §7.2 example bought five extra days.',
+           th: 'ค่า RAW = p × TAW คือส่วนที่พืชนำไปใช้ได้ง่าย การปล่อยให้ D ถึง TAW คือปล่อยไปจนถึงจุดเหี่ยวถาวร ส่วนการรอจนเห็นอาการก็สายเกินไป เพราะถึงตอนนั้นผลผลิตเสียหายไปแล้ว และปฏิทินตายตัวก็ไม่สนใจฝน ซึ่งในตัวอย่างหัวข้อ 7.2 ซื้อเวลาให้ได้ถึงห้าวัน' }
+  },
+  {
+    q: { en: 'K<sub>y</sub> and K<sub>c</sub> differ in that:',
+         th: 'ค่า K<sub>y</sub> กับ K<sub>c</sub> ต่างกันอย่างไร' },
+    choices: [
+      { en: 'Ky is for field crops and Kc is for orchards', th: 'Ky ใช้กับพืชไร่ ส่วน Kc ใช้กับไม้ผล' },
+      { en: 'Ky is measured and Kc is calculated', th: 'Ky ได้จากการวัด ส่วน Kc ได้จากการคำนวณ' },
+      { en: 'Ky changes through the season while Kc is constant', th: 'Ky เปลี่ยนไปตลอดฤดู ส่วน Kc คงที่' },
+      { en: 'Kc says how much water the crop wants; Ky says what happens if it does not get it', th: 'Kc บอกว่าพืชต้องการน้ำเท่าใด ส่วน Ky บอกว่าจะเกิดอะไรขึ้นถ้าพืชไม่ได้รับน้ำนั้น' }
+    ],
+    answer: 3,
+    why: { en: 'Kc is a demand figure, used in ETc = Kc × ETo to size a system. Ky is a sensitivity figure, used to allocate a shortage. Cotton has a high Kc and a low Ky — thirsty but forgiving. Design uses Kc; rationing uses Ky.',
+           th: 'Kc เป็นตัวเลขฝั่งความต้องการ ใช้ในสมการ ETc = Kc × ETo เพื่อกำหนดขนาดระบบ ส่วน Ky เป็นตัวเลขฝั่งความอ่อนไหว ใช้ในการจัดสรรความขาดแคลน ฝ้ายมี Kc สูงแต่ Ky ต่ำ คือกินน้ำมากแต่ให้อภัย การออกแบบใช้ Kc ส่วนการปันส่วนน้ำใช้ Ky' }
+  },
+  {
+    q: { en: 'A farmer has water for only 80% of full ET. For a crop with Ky = 1.25, the better use of that water is to:',
+         th: 'เกษตรกรมีน้ำเพียง 80% ของค่า ET เต็ม สำหรับพืชที่มี Ky = 1.25 ควรใช้น้ำนั้นอย่างไร' },
+    choices: [
+      { en: 'Irrigate a smaller area fully and leave the rest unplanted', th: 'ให้น้ำเต็มที่บนพื้นที่เล็กลง แล้วปล่อยส่วนที่เหลือว่างไว้' },
+      { en: 'Irrigate the whole area at 80% of full ET', th: 'ให้น้ำทั้งพื้นที่ที่ระดับ 80% ของ ET เต็ม' },
+      { en: 'Irrigate the whole area fully but for fewer weeks', th: 'ให้น้ำเต็มที่ทั้งพื้นที่ แต่ให้น้อยสัปดาห์ลง' },
+      { en: 'It makes no difference — the total water is the same', th: 'ไม่ต่างกัน เพราะปริมาณน้ำรวมเท่ากัน' }
+    ],
+    answer: 0,
+    why: { en: 'With Ky above 1 the yield falls faster than the water, so partial supply destroys more than it saves. Concentrating gives 6.40 t against 6.00 t in the §7.5 example. Below Ky = 1 the answer reverses. Option c is worse still, because withholding water for whole weeks lands the deficit somewhere, quite possibly in the critical period.',
+           th: 'เมื่อ Ky มากกว่า 1 ผลผลิตลดลงเร็วกว่าน้ำ การให้น้ำไม่ครบจึงทำลายมากกว่าที่ประหยัดได้ การรวมน้ำให้ผล 6.40 ตัน เทียบกับ 6.00 ตัน ในตัวอย่างหัวข้อ 7.5 แต่ถ้า Ky ต่ำกว่า 1 คำตอบจะกลับกัน ส่วนข้อ ค. แย่กว่านั้นอีก เพราะการงดน้ำเป็นสัปดาห์ ๆ ทำให้การขาดน้ำไปตกที่ใดที่หนึ่ง ซึ่งอาจเป็นช่วงวิกฤตพอดี' }
+  },
+  {
+    q: { en: 'On saline land, deep percolation below the root zone is:',
+         th: 'ในพื้นที่ดินเค็ม การซึมลึกลงไปใต้เขตรากคืออะไร' },
+    choices: [
+      { en: 'Always a loss, and the first thing to eliminate', th: 'เป็นการสูญเสียเสมอ และเป็นสิ่งแรกที่ต้องกำจัด' },
+      { en: 'Irrelevant, since salt moves upward not downward', th: 'ไม่เกี่ยวข้อง เพราะเกลือเคลื่อนที่ขึ้นไม่ใช่ลง' },
+      { en: 'Necessary in a controlled amount — it is the only way salt leaves the field', th: 'จำเป็นในปริมาณที่ควบคุมไว้ เพราะเป็นทางเดียวที่เกลือจะออกจากแปลงได้' },
+      { en: 'Only a concern where drip irrigation is used', th: 'เป็นข้อกังวลเฉพาะในพื้นที่ที่ใช้ระบบน้ำหยด' }
+    ],
+    answer: 2,
+    why: { en: 'The crop transpires water and leaves salt behind, so salt only leaves dissolved in drainage. A system with perfect efficiency on salty water would salinise its own soil in a few seasons. Efficiency is a means, never an end — but the leaching only works if the water can actually drain away and if distribution is uniform.',
+           th: 'พืชคายน้ำออกไปแล้วทิ้งเกลือไว้ เกลือจึงออกไปได้ทางเดียวคือละลายไปกับน้ำที่ระบายลงไป ระบบที่มีประสิทธิภาพสมบูรณ์แบบซึ่งใช้น้ำที่มีเกลือ จะทำให้ดินของตัวเองเค็มภายในไม่กี่ฤดู ประสิทธิภาพเป็นเพียงวิธีการ ไม่เคยเป็นเป้าหมาย แต่การชะล้างจะได้ผลก็ต่อเมื่อน้ำระบายออกไปได้จริงและการแจกจ่ายน้ำสม่ำเสมอ' }
+  },
+  {
+    q: { en: 'Farmers complain that the tail of the lateral never gets water while the head end leaves turnouts open at night. The delivery method is almost certainly:',
+         th: 'เกษตรกรร้องเรียนว่าปลายคลองซอยไม่เคยได้น้ำ ในขณะที่ต้นคลองเปิดท่อส่งน้ำเข้านาทิ้งไว้ทั้งคืน วิธีส่งน้ำนี้แทบจะแน่นอนว่าเป็นแบบใด' },
+    choices: [
+      { en: 'Rotation at farm-ditch level', th: 'หมุนเวียนที่ระดับคูส่งน้ำ' },
+      { en: 'Continuous flow', th: 'ส่งน้ำตลอดเวลา' },
+      { en: 'On demand', th: 'ส่งน้ำตามความต้องการของผู้ใช้น้ำ' },
+      { en: 'Rotation at main-canal level', th: 'หมุนเวียนที่ระดับคลองสายใหญ่' }
+    ],
+    answer: 1,
+    why: { en: 'Head-enders wasting while tail-enders starve is the signature complaint of continuous flow, because nobody has a defined entitlement and the rate never changes. Rotation produces timing complaints, demand produces capacity complaints. The cure here is a schedule, not more water.',
+           th: 'อาการต้นคลองใช้น้ำสิ้นเปลืองพร้อมกับปลายคลองอดน้ำ เป็นคำร้องเรียนที่เป็นเอกลักษณ์ของการส่งน้ำตลอดเวลา เพราะไม่มีใครมีสิทธิ์ที่กำหนดไว้ชัดเจนและอัตราการส่งไม่เคยเปลี่ยน ส่วนการหมุนเวียนสร้างคำร้องเรียนเรื่องจังหวะเวลา และการส่งตามความต้องการสร้างคำร้องเรียนเรื่องสมรรถนะ ทางแก้ในกรณีนี้คือตารางส่งน้ำ ไม่ใช่น้ำที่มากขึ้น' }
+  },
+  {
+    q: { en: 'The canal named 2ข-3ซ is:',
+         th: 'คลองที่มีชื่อว่า 2ข-3ซ คือคลองใด' },
+    choices: [
+      { en: 'The second sub-lateral, on the right, of the third lateral, on the left', th: 'คลองแยกซอยสายที่ 2 ฝั่งขวา ของคลองซอยสายที่ 3 ฝั่งซ้าย' },
+      { en: 'The second lateral, on the left, of the third sub-lateral, on the right', th: 'คลองซอยสายที่ 2 ฝั่งซ้าย ของคลองแยกซอยสายที่ 3 ฝั่งขวา' },
+      { en: 'The third farm ditch off the second lateral', th: 'คูส่งน้ำสายที่ 3 ที่แยกจากคลองซอยสายที่ 2' },
+      { en: 'A farm turnout 2 km from the head and 3 km from the tail', th: 'ท่อส่งน้ำเข้านาที่อยู่ห่างจากต้นคลอง 2 กม. และห่างจากปลายคลอง 3 กม.' }
+    ],
+    answer: 0,
+    why: { en: 'Read right to left, in order of branching: 3ซ is lateral 3 off the left bank of the main; 2ข is sub-lateral 2 off the right bank of that lateral. ข = ขวา (right), ซ = ซ้าย (left), and the number is the order of branching along the parent.',
+           th: 'อ่านจากขวาไปซ้ายตามลำดับการแยก คือ 3ซ เป็นคลองซอยสายที่ 3 ที่แยกออกทางฝั่งซ้ายของคลองสายใหญ่ ส่วน 2ข เป็นคลองแยกซอยสายที่ 2 ที่แยกออกทางฝั่งขวาของคลองซอยสายนั้น โดย ข = ขวา ซ = ซ้าย และตัวเลขคือลำดับที่แยกออกมาตามแนวคลองแม่' }
+  },
+  {
+    q: { en: 'A main canal running at its full design flow should carry a water level above the surrounding ground of about:',
+         th: 'คลองส่งน้ำสายใหญ่ที่ส่งน้ำเต็มตามที่ออกแบบ ควรมีระดับน้ำสูงกว่าผิวดินโดยรอบประมาณเท่าใด' },
+    choices: [
+      { en: '0.05 to 0.10 m', th: '0.05 ถึง 0.10 เมตร' },
+      { en: '0.30 to 0.50 m', th: '0.30 ถึง 0.50 เมตร' },
+      { en: 'Level with the ground', th: 'เสมอระดับผิวดิน' },
+      { en: '1.0 to 1.50 m on a wide flat plain', th: '1.0 ถึง 1.50 เมตร ในทุ่งราบกว้างใหญ่' }
+    ],
+    answer: 3,
+    why: { en: '1.0–1.50 m on a wide flat plain, falling to 0.50–1.0 m where the land slopes; laterals and farm ditches need 0.30–0.50 m. Without that head the water cannot leave the canal and reach the field at all — and poor maintenance lowers the achievable level below design.',
+           th: '1.0–1.50 เมตร ในทุ่งราบกว้างใหญ่ และลดเหลือ 0.50–1.0 เมตร ในพื้นที่ที่มีความลาดเท ส่วนคลองซอยและคูส่งน้ำต้องการ 0.30–0.50 เมตร ถ้าไม่มีเฮดเท่านี้ น้ำก็ออกจากคลองไปถึงแปลงไม่ได้เลย และการบำรุงรักษาที่ไม่ดีจะทำให้ระดับที่ทำได้จริงต่ำกว่าที่ออกแบบไว้' }
+  },
+  {
+    q: { en: 'A water productivity figure quoted as "1.4 kg/m³" is incomplete until you also know:',
+         th: 'ตัวเลขผลิตภาพของน้ำที่อ้างว่า "1.4 กก./ลบ.ม." ยังไม่สมบูรณ์จนกว่าจะรู้อะไรเพิ่ม' },
+    choices: [
+      { en: 'The crop price', th: 'ราคาผลผลิต' },
+      { en: 'The irrigation method used', th: 'วิธีการให้น้ำที่ใช้' },
+      { en: 'Which water is in the denominator — ET, water applied, or water diverted', th: 'ตัวส่วนคือน้ำก้อนไหน ระหว่างค่า ET น้ำที่ให้ หรือน้ำที่ผันออกมา' },
+      { en: 'The soil texture', th: 'เนื้อดิน' }
+    ],
+    answer: 2,
+    why: { en: 'For the same field the three denominators can differ by a factor of two or more, so a scheme can look excellent on one basis and poor on another. A productivity figure without its denominator is not a measurement.',
+           th: 'สำหรับแปลงเดียวกัน ตัวส่วนทั้งสามอาจต่างกันสองเท่าหรือมากกว่า โครงการหนึ่งจึงอาจดูดีเยี่ยมเมื่อคิดบนฐานหนึ่งแต่ดูแย่เมื่อคิดบนอีกฐานหนึ่ง ตัวเลขผลิตภาพที่ไม่ระบุตัวส่วนจึงไม่ใช่การวัด' }
+  },
+  {
+    q: { en: 'Asked to improve an underperforming scheme, the first thing to do is:',
+         th: 'เมื่อได้รับมอบหมายให้ปรับปรุงโครงการที่ทำงานได้ไม่ดี สิ่งแรกที่ควรทำคือ' },
+    choices: [
+      { en: 'Walk the system from the tail end upwards', th: 'เดินตรวจระบบจากปลายคลองย้อนขึ้นไป' },
+      { en: 'Compute a water balance for the whole scheme', th: 'คำนวณสมดุลน้ำของทั้งโครงการ' },
+      { en: 'Line the main canal to cut seepage', th: 'ดาดคลองสายใหญ่เพื่อลดการรั่วซึม' },
+      { en: 'Raise the delivery at the headworks', th: 'เพิ่มปริมาณน้ำที่ส่งจากหัวงาน' }
+    ],
+    answer: 0,
+    why: { en: 'The tail end tells you the truth about the whole system in one walk, and whoever complains loudest is rarely worst off. A water balance computed first, on unverified numbers, is how projects end up lining the wrong reach — and lining is expensive, permanent and useless if aimed at the wrong place.',
+           th: 'ปลายคลองบอกความจริงเกี่ยวกับทั้งระบบได้ในการเดินตรวจเพียงครั้งเดียว และคนที่ร้องเรียนดังที่สุดมักไม่ใช่คนที่เดือดร้อนที่สุด การคำนวณสมดุลน้ำก่อนโดยใช้ตัวเลขที่ยังไม่ได้ตรวจสอบ คือวิธีที่ทำให้โครงการไปดาดคลองผิดช่วง และการดาดคลองนั้นแพง ถาวร และไร้ประโยชน์ถ้าทำผิดที่' }
+  },
+  {
+    q: { en: 'Maize allowed to wilt for one to two days during tasselling loses roughly what share of its yield?',
+         th: 'ข้าวโพดที่ปล่อยให้เหี่ยวหนึ่งถึงสองวันในช่วงออกช่อดอก จะสูญเสียผลผลิตราวเท่าใด' },
+    choices: [
+      { en: 'Under 5%', th: 'ต่ำกว่า 5%' },
+      { en: 'About 10%', th: 'ราว 10%' },
+      { en: 'About 50%', th: 'ราว 50%' },
+      { en: 'About 22%', th: 'ราว 22%' }
+    ],
+    answer: 3,
+    why: { en: 'About 22% for one to two days, rising to about 50% for six to eight days in the same window. The same wilting during vegetative growth costs a fraction of that, because the plant catches up. The calendar date of a shortage matters more than its size.',
+           th: 'ราว 22% สำหรับหนึ่งถึงสองวัน และเพิ่มเป็นราว 50% สำหรับหกถึงแปดวันในช่วงเดียวกัน ส่วนการเหี่ยวเท่ากันในช่วงเจริญเติบโตทางลำต้นและใบ จะเสียหายเพียงเศษเสี้ยวของนั้น เพราะต้นพืชตามทันได้ วันที่เกิดการขาดน้ำในปฏิทินจึงสำคัญกว่าขนาดของการขาดน้ำ' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>

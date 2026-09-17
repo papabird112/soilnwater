@@ -15,7 +15,7 @@ const CHAPTERS = [
   { id: 'ch04', file: 'ch04.html', en: 'Irrigation Methods',                th: 'วิธีการให้น้ำชลประทาน',               ready: true  },
   { id: 'ch05', file: 'ch05.html', en: 'Measuring Water Applications',      th: 'การวัดปริมาณน้ำ',                     ready: true  },
   { id: 'ch06', file: 'ch06.html', en: 'Irrigation Hardware & System Design', th: 'อุปกรณ์ในระบบให้น้ำพืชและการออกแบบระบบให้น้ำพืช', ready: true  },
-  { id: 'ch07', file: 'ch07.html', en: 'Irrigation Water Management',       th: 'การจัดการน้ำชลประทาน',                ready: false }
+  { id: 'ch07', file: 'ch07.html', en: 'Irrigation Water Management',       th: 'การจัดการน้ำชลประทาน',                ready: true  }
 ];
 
 /* ---------- ผู้สอน: แก้ที่บรรทัดเดียวนี้ มีผลทุกหน้า ---------- */
