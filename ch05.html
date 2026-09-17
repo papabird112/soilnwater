@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 5 การวัดปริมาณน้ำ · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-chapter="ch05">
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">5 · Measuring Water Applications</span>
+          <span class="th">บทที่ 5 · การวัดปริมาณน้ำ</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 5</span><span class="th">บทที่ 5</span>
+        </span>
+        <h1>
+          <span class="en">Measuring Water Applications</span>
+          <span class="th">การวัดปริมาณน้ำ</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">Chapters 2 to 4 decided <em>when</em>, <em>how much</em> and <em>how</em>. Every one of those answers was a number — 60 mm, 9 L/s, four hours. This chapter is about the uncomfortable question that follows: <strong>do you actually know what you delivered?</strong> An irrigation that is not measured is not managed; it is only hoped for.</span>
+          <span class="th">บทที่ 2 ถึง 4 ตอบไปแล้วว่าให้น้ำ <em>เมื่อไร</em> <em>เท่าไร</em> และ <em>อย่างไร</em> คำตอบทุกข้อล้วนเป็นตัวเลข คือ 60 มม. 9 ล./วินาที และ 4 ชั่วโมง บทนี้ว่าด้วยคำถามที่ตามมาและตอบยาก คือ <strong>เรารู้จริงหรือไม่ว่าให้น้ำไปเท่าไร</strong> การให้น้ำที่ไม่ได้วัดย่อมไม่ใช่การจัดการ แต่เป็นเพียงความหวังเท่านั้น</span>
+        </p>
+      </header>
+
+      <!-- ===================== 5.1 ===================== -->
+      <section id="s-why">
+        <h2><span class="en">5.1 Why measure at all</span><span class="th">5.1 ทำไมจึงต้องวัดน้ำ</span></h2>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Sources of this chapter</span><span class="th">ที่มาของบทนี้</span></div>
+          <p>
+            <span class="en">The weir and flume material, the installation rules and the Thai worked examples follow <em>หลักการชลประทาน (Irrigation Principles)</em>, Chapter 10, by Assoc. Prof. Dr. Wiboon Bunyatharokul (รศ.ดร.วิบูลย์ บุญยธโรกุล), Department of Irrigation Engineering, Faculty of Engineering, Kasetsart University, first printed January B.E. 2526 (1983). Every discharge equation quoted here was checked by recomputing that book's own worked examples.</span>
+            <span class="th">เนื้อหาเรื่องฝายวัดน้ำและรางวัดน้ำ ข้อกำหนดในการติดตั้ง และตัวอย่างการคำนวณแบบไทย อ้างอิงจากหนังสือ <em>หลักการชลประทาน</em> บทที่ 10 โดย รองศาสตราจารย์ ดร.วิบูลย์ บุญยธโรกุล ภาควิชาวิศวกรรมชลประทาน คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ พิมพ์ครั้งแรก มกราคม พ.ศ. 2526 สมการอัตราการไหลทุกสมการในบทนี้ได้ตรวจสอบแล้วด้วยการคำนวณตัวอย่างในหนังสือเล่มนั้นซ้ำใหม่</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Water measurement is the one activity in this course that produces no water, grows no crop and pleases nobody. It is also the activity without which none of the rest can be checked. Four reasons make it unavoidable.</span>
+          <span class="th">การวัดน้ำเป็นกิจกรรมเดียวในวิชานี้ที่ไม่ได้ผลิตน้ำ ไม่ได้ปลูกพืช และไม่ถูกใจใครเลย แต่ก็เป็นกิจกรรมที่ถ้าขาดไปแล้ว งานอื่นทั้งหมดจะตรวจสอบไม่ได้ มีเหตุผลสี่ข้อที่ทำให้หลีกเลี่ยงไม่ได้</span>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">To close the account</span><span class="th">เพื่อปิดบัญชีน้ำ</span></h4>
+            <p><span class="en">Efficiency is a ratio of two volumes. Without a measurement at the inlet, E<sub>a</sub> is an opinion.</span><span class="th">ประสิทธิภาพคืออัตราส่วนของปริมาตรสองค่า ถ้าไม่มีการวัดที่ปากแปลง ค่า E<sub>a</sub> ก็เป็นเพียงความเห็น</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">To share fairly</span><span class="th">เพื่อแบ่งน้ำอย่างเป็นธรรม</span></h4>
+            <p><span class="en">A rotation schedule is a promise of a certain flow for a certain time. Nobody can keep or audit that promise without a gauge.</span><span class="th">ตารางหมุนเวียนน้ำคือคำสัญญาว่าจะได้น้ำอัตราหนึ่งเป็นเวลาหนึ่ง ถ้าไม่มีเครื่องวัด ก็ไม่มีใครรักษาหรือตรวจสอบคำสัญญานั้นได้</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">To operate the design</span><span class="th">เพื่อเดินระบบตามที่ออกแบบ</span></h4>
+            <p><span class="en">Chapter 4 sized a furrow stream at 0.9 L/s and a set time at 8 hours. Delivering 1.5 L/s instead does not merely waste water — it erodes the furrow.</span><span class="th">บทที่ 4 กำหนดอัตราน้ำเข้าร่องไว้ 0.9 ล./วินาที และเวลาให้น้ำ 8 ชั่วโมง ถ้าปล่อยจริง 1.5 ล./วินาที ไม่เพียงเปลืองน้ำ แต่จะกัดเซาะร่องด้วย</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">4</span><span class="en">To charge, if anyone ever does</span><span class="th">เพื่อเก็บค่าน้ำ ถ้าวันหนึ่งจะเก็บ</span></h4>
+            <p><span class="en">Volumetric pricing is impossible without volumetric measurement. Every water-pricing policy in the world begins with a meter.</span><span class="th">การคิดค่าน้ำตามปริมาตรเป็นไปไม่ได้ถ้าไม่มีการวัดตามปริมาตร นโยบายราคาน้ำทุกนโยบายในโลกล้วนเริ่มต้นที่มาตรวัด</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Where the measurement matters most — and why Thailand has few of them</span><span class="th">จุดที่การวัดสำคัญที่สุด และเหตุใดประเทศไทยจึงมีเครื่องวัดน้อย</span></div>
+          <p>
+            <span class="en">In principle the point that most deserves a measuring device is the <strong>farm turnout</strong> — the last structure before the water becomes the farmer's responsibility. That is where the project's obligation ends, where the volume the farmer received is defined, and where a water charge would have to be read. It is also the only point that can tell you whether the project is delivering to its whole command area or only to the head reach.</span>
+            <span class="th">ตามหลักการแล้ว จุดที่สมควรติดตั้งเครื่องมือวัดน้ำมากที่สุดคือ <strong>ท่อส่งน้ำเข้านา</strong> ซึ่งเป็นอาคารสุดท้ายก่อนที่น้ำจะกลายเป็นความรับผิดชอบของเกษตรกร จุดนี้เป็นที่สิ้นสุดพันธะของโครงการ เป็นที่นิยามว่าเกษตรกรได้รับน้ำไปเท่าใด และเป็นจุดที่ต้องอ่านค่าถ้าจะเก็บค่าน้ำ อีกทั้งยังเป็นจุดเดียวที่บอกได้ว่าโครงการส่งน้ำได้ทั่วพื้นที่รับน้ำ หรือส่งถึงเฉพาะช่วงต้นคลองเท่านั้น</span>
+          </p>
+          <p>
+            <span class="en">In practice Thai irrigation projects are a service the government provides free, so there has never been a financial reason to instrument the turnouts — and there are very few. The engineering reason remains, and it is the stronger of the two: without turnout measurement, "the tail end never gets water" stays an argument instead of becoming a number.</span>
+            <span class="th">แต่ในทางปฏิบัติ โครงการชลประทานในประเทศไทยเป็นกิจการที่รัฐให้บริการแก่เกษตรกรฟรี จึงไม่เคยมีเหตุผลทางการเงินที่จะติดตั้งเครื่องวัดที่ท่อส่งน้ำเข้านา และในความเป็นจริงก็มีอยู่น้อยมาก อย่างไรก็ตาม เหตุผลทางวิศวกรรมยังคงอยู่ และหนักแน่นกว่าเหตุผลแรก กล่าวคือ ถ้าไม่มีการวัดที่ท่อส่งน้ำเข้านา ข้อความที่ว่า "ปลายคลองไม่เคยได้น้ำ" ก็จะเป็นเพียงข้อถกเถียง ไม่มีวันกลายเป็นตัวเลข</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 5.2 ===================== -->
+      <section id="s-three">
+        <h2><span class="en">5.2 Three quantities, one field</span><span class="th">5.2 สามปริมาณ ในแปลงเดียวกัน</span></h2>
+
+        <p>
+          <span class="en">Almost every mistake in this subject comes from confusing three different things that are all loosely called "water".</span>
+          <span class="th">ความผิดพลาดแทบทุกอย่างในเรื่องนี้เกิดจากการสับสนระหว่างสามสิ่งที่ต่างกัน แต่ถูกเรียกรวม ๆ ว่า "น้ำ" เหมือนกันหมด</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Quantity</span><span class="th">ปริมาณ</span></th>
+                <th><span class="en">Symbol and unit</span><span class="th">สัญลักษณ์และหน่วย</span></th>
+                <th><span class="en">What it answers</span><span class="th">ตอบคำถามอะไร</span></th>
+                <th><span class="en">Measured by</span><span class="th">วัดด้วยอะไร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Flow rate</span><span class="th">อัตราการไหล</span></strong></td>
+                <td><span class="mono">Q</span> — <span class="en">L/s or m³/h</span><span class="th">ล./วินาที หรือ ลบ.ม./ชม.</span></td>
+                <td><span class="en">How fast is water arriving right now?</span><span class="th">ขณะนี้น้ำมาถึงเร็วแค่ไหน</span></td>
+                <td><span class="en">Weir, flume, orifice, pipe meter</span><span class="th">ฝายวัดน้ำ รางวัดน้ำ ช่องเปิด มาตรวัดในท่อ</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Volume</span><span class="th">ปริมาตร</span></strong></td>
+                <td><span class="mono">V</span> — <span class="en">m³</span><span class="th">ลบ.ม.</span></td>
+                <td><span class="en">How much arrived altogether?</span><span class="th">มาถึงทั้งหมดเท่าไร</span></td>
+                <td><span class="en">Flow rate × time, or a totalising meter</span><span class="th">อัตราการไหล × เวลา หรือมาตรวัดแบบสะสม</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Depth</span><span class="th">ความลึกน้ำ</span></strong></td>
+                <td><span class="mono">d</span> — <span class="en">mm</span><span class="th">มม.</span></td>
+                <td><span class="en">How much did each square metre of crop get?</span><span class="th">พืชแต่ละตารางเมตรได้น้ำเท่าไร</span></td>
+                <td><span class="en">Volume ÷ area — never measured directly in the field</span><span class="th">ปริมาตร ÷ พื้นที่ ไม่เคยวัดได้โดยตรงในแปลง</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">Everything in Chapters 2 and 3 is a <strong>depth</strong>. Everything a measuring structure reads is a <strong>rate</strong>. The bridge between them is time and area, and in Thailand the area is in rai:</span>
+          <span class="th">ทุกค่าในบทที่ 2 และ 3 เป็น <strong>ความลึกน้ำ</strong> ส่วนทุกค่าที่อาคารวัดน้ำอ่านได้เป็น <strong>อัตราการไหล</strong> สะพานเชื่อมระหว่างสองสิ่งนี้คือเวลาและพื้นที่ ซึ่งในประเทศไทยพื้นที่มีหน่วยเป็นไร่</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>1 <span class="en">rai</span><span class="th">ไร่</span> = 1,600 m²</code><span class="eq-note"><span class="en">memorise this one</span><span class="th">ต้องจำค่านี้ให้ได้</span></span></div>
+          <div class="eq"><code>V (m³) = A (<span class="en">rai</span><span class="th">ไร่</span>) × 1.6 × d (mm)</code><span class="eq-note"><span class="en">1 mm over 1 rai = 1.6 m³</span><span class="th">น้ำลึก 1 มม. บนพื้นที่ 1 ไร่ = 1.6 ลบ.ม.</span></span></div>
+          <div class="eq result"><code>t (h) = <span class="frac"><span class="num">V (m³) × 1000</span><span class="den">Q (L/s) × 3600</span></span></code><span class="eq-note"><span class="en">how long the gate must stay open</span><span class="th">ต้องเปิดประตูน้ำนานเท่าใด</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked example · From a depth to a gate-open time</span><span class="th">ตัวอย่างการคำนวณ · จากความลึกน้ำสู่เวลาเปิดประตูน้ำ</span></div>
+          <p>
+            <span class="en">A <strong>6 rai</strong> block needs a net depth of <strong>60 mm</strong>. Application efficiency is <strong>65%</strong>, and the turnout delivers <strong>50 L/s</strong>. How long must the turnout run?</span>
+            <span class="th">แปลงขนาด <strong>6 ไร่</strong> ต้องการน้ำสุทธิลึก <strong>60 มม.</strong> ประสิทธิภาพการให้น้ำ <strong>65%</strong> และท่อส่งน้ำเข้านาจ่ายน้ำได้ <strong>50 ล./วินาที</strong> จะต้องเปิดน้ำนานเท่าใด</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>d<sub>g</sub> = 60 / 0.65 = 92.3 mm</code><span class="eq-note"><span class="en">gross depth</span><span class="th">ความลึกน้ำรวม</span></span></div>
+          <div class="eq"><code>V = 6 × 1.6 × 92.3 = 886 m³</code><span class="eq-note"><span class="en">volume through the turnout</span><span class="th">ปริมาตรน้ำที่ต้องผ่านท่อส่งน้ำเข้านา</span></span></div>
+          <div class="eq result"><code>t = <span class="frac"><span class="num">886 × 1000</span><span class="den">50 × 3600</span></span> = 4.9 h ≈ <strong>4 h 55 min</strong></code></div>
+        </div>
+
+        <p>
+          <span class="en">Every step of that calculation is arithmetic — except the <strong>50 L/s</strong>. That single figure came from a measuring structure, and if it is wrong by 20% then the field receives 74 mm or 111 mm instead of 92, and nobody will ever know which. The whole of this chapter exists to make that one number trustworthy.</span>
+          <span class="th">ทุกขั้นตอนของการคำนวณนี้เป็นเลขคณิตล้วน ๆ ยกเว้นค่า <strong>50 ล./วินาที</strong> ตัวเลขตัวเดียวนี้มาจากอาคารวัดน้ำ และถ้ามันคลาดเคลื่อนไป 20% แปลงจะได้น้ำ 74 มม. หรือ 111 มม. แทนที่จะเป็น 92 มม. โดยไม่มีใครรู้เลยว่าเป็นค่าไหน ทั้งบทนี้มีอยู่เพื่อทำให้ตัวเลขตัวเดียวนั้นเชื่อถือได้</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">A useful rule of thumb</span><span class="th">กฎง่าย ๆ ที่ใช้ได้จริง</span></div>
+          <p>
+            <span class="en"><strong>1 L/s running for 1 hour = 3.6 m³ = 2.25 mm over one rai.</strong> So a 50 L/s turnout puts about 112 mm per hour on one rai, or 11 mm per hour on ten rai. Carry this in your head and you can sanity-check any irrigation schedule at the ditch bank without a calculator.</span>
+            <span class="th"><strong>น้ำ 1 ล./วินาที ไหลนาน 1 ชั่วโมง = 3.6 ลบ.ม. = ลึก 2.25 มม. บนพื้นที่ 1 ไร่</strong> ดังนั้นท่อส่งน้ำขนาด 50 ล./วินาที จะให้น้ำลึกราว 112 มม. ต่อชั่วโมงบนพื้นที่ 1 ไร่ หรือ 11 มม. ต่อชั่วโมงบนพื้นที่ 10 ไร่ ถ้าจำค่านี้ไว้ในหัว จะตรวจสอบความสมเหตุสมผลของแผนการให้น้ำได้ที่ริมคูโดยไม่ต้องใช้เครื่องคิดเลข</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 5.3 ===================== -->
+      <section id="s-criteria">
+        <h2><span class="en">5.3 What makes a measuring device a good one</span><span class="th">5.3 ลักษณะของเครื่องมือวัดน้ำที่ดี</span></h2>
+
+        <p>
+          <span class="en">The devices in this chapter are meant for small delivery systems and for farm use, where the flow rarely exceeds about <strong>500 L/s</strong>. In that setting the water surface in the canal is nearly level, which drives the whole specification: a device that consumes head is a device that cannot be used.</span>
+          <span class="th">เครื่องมือวัดน้ำที่กล่าวถึงในบทนี้มีไว้สำหรับระบบส่งน้ำขนาดเล็กและการใช้งานในไร่นา ซึ่งอัตราการไหลมักไม่เกินราว <strong>500 ล./วินาที</strong> ในสภาพเช่นนี้ผิวน้ำในคลองจะค่อนข้างราบ ซึ่งเป็นตัวกำหนดข้อกำหนดทั้งหมด กล่าวคือ เครื่องมือที่กินเฮดมาก ย่อมเป็นเครื่องมือที่ใช้ไม่ได้</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Requirement</span><span class="th">ข้อกำหนด</span></th>
+                <th><span class="en">Why it matters</span><span class="th">เหตุผล</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">1. Low head loss</span><span class="th">1. กินเฮดน้อย</span></strong></td>
+                <td><span class="en">Canal beds in the Central Plain are almost flat. Head spent on a measuring structure is head no longer available to move water to the tail. Floating trash and weed must also pass without lodging.</span><span class="th">ท้องคลองในภาคกลางเกือบราบ เฮดที่เสียไปกับอาคารวัดน้ำคือเฮดที่ไม่เหลือให้พาน้ำไปถึงปลายคลอง นอกจากนี้เศษวัชพืชและสิ่งที่ลอยมากับน้ำต้องผ่านไปได้โดยไม่ติดค้าง</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">2. Does a second job if possible</span><span class="th">2. ถ้าทำได้ควรทำหน้าที่อื่นด้วย</span></strong></td>
+                <td><span class="en">A structure that both measures and regulates costs one structure instead of two. The constant-head orifice (§5.7) is the standard example.</span><span class="th">อาคารที่ทั้งวัดและควบคุมระดับน้ำได้ ทำให้สร้างอาคารเดียวแทนที่จะเป็นสองอาคาร ตัวอย่างมาตรฐานคืออาคารวัดน้ำแบบ CHO (หัวข้อ 5.7)</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">3. Easy to read</span><span class="th">3. อ่านค่าง่าย</span></strong></td>
+                <td><span class="en">The scale must be fixed where it can be seen plainly and read without stooping into the water, and a rating table should convert head to discharge on the spot.</span><span class="th">แผ่นสเกลต้องติดตั้งในตำแหน่งที่มองเห็นได้ชัดเจนและอ่านได้โดยไม่ต้องก้มลงไปในน้ำ และควรมีตารางเทียบที่แปลงค่าเฮดเป็นอัตราการไหลได้ทันที</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">4. Accurate across the whole range</span><span class="th">4. แม่นยำตลอดช่วงการวัด</span></strong></td>
+                <td><span class="en">Not just at design flow. A device that is excellent at 300 L/s and useless at 20 L/s is useless, because the tail-end rotations are the small flows.</span><span class="th">ไม่ใช่แม่นยำเฉพาะที่อัตราออกแบบ เครื่องมือที่ดีเยี่ยมที่ 300 ล./วินาที แต่ใช้ไม่ได้ที่ 20 ล./วินาที ถือว่าใช้ไม่ได้ เพราะรอบเวรปลายคลองคือรอบที่อัตราการไหลน้อย</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">5. Rugged, simple and cheap</span><span class="th">5. คงทน ใช้ง่าย และราคาไม่แพง</span></strong></td>
+                <td><span class="en">It will stand outdoors for twenty years with no maintenance budget. Anything with moving parts, batteries or a manual will be abandoned.</span><span class="th">ต้องตั้งอยู่กลางแจ้งได้ยี่สิบปีโดยไม่มีงบบำรุงรักษา ถ้ามีชิ้นส่วนเคลื่อนไหว แบตเตอรี่ หรือคู่มือการใช้งาน สุดท้ายจะถูกทิ้งร้าง</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The one trade-off that organises the whole chapter</span><span class="th">การแลกได้แลกเสียข้อเดียวที่จัดระเบียบทั้งบท</span></div>
+          <p>
+            <span class="en">Every device below trades <strong>head loss</strong> against <strong>accuracy and simplicity</strong>. A sharp-crested weir is the simplest and most accurate thing you can build out of a steel plate — and it needs the most head, because the nappe must fall clear. A flume needs only a third of that head — and costs several times as much to build, because its geometry must be exact. A pipe meter needs almost no head — and has moving parts that will one day stop. Choose by asking how much head you can spare, not by asking which is most accurate.</span>
+            <span class="th">เครื่องมือทุกชนิดข้างล่างนี้ล้วนแลก <strong>การสูญเสียเฮด</strong> กับ <strong>ความแม่นยำและความเรียบง่าย</strong> ฝายสันคมเป็นสิ่งที่เรียบง่ายและแม่นยำที่สุดเท่าที่จะสร้างได้จากแผ่นเหล็กแผ่นเดียว แต่ต้องการเฮดมากที่สุด เพราะน้ำที่ข้ามสันฝายต้องตกลงมาอย่างอิสระ ส่วนรางวัดน้ำใช้เฮดเพียงหนึ่งในสามของฝาย แต่ค่าก่อสร้างสูงกว่าหลายเท่า เพราะรูปทรงต้องได้ขนาดเที่ยงตรง ขณะที่มาตรวัดในท่อแทบไม่กินเฮดเลย แต่มีชิ้นส่วนเคลื่อนไหวซึ่งวันหนึ่งจะหยุดทำงาน การเลือกจึงต้องถามว่าเรามีเฮดเหลือให้ใช้เท่าใด ไม่ใช่ถามว่าอันไหนแม่นยำที่สุด</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 5.4 ===================== -->
+      <section id="s-velocity">
+        <h2><span class="en">5.4 The velocity–area method</span><span class="th">5.4 วิธีพื้นที่-ความเร็ว</span></h2>
+
+        <p>
+          <span class="en">This is the only method that needs no structure at all, which makes it the method of last resort and also the method used to calibrate everything else. It rests on one identity:</span>
+          <span class="th">วิธีนี้เป็นวิธีเดียวที่ไม่ต้องสร้างอาคารใด ๆ เลย จึงเป็นทั้งวิธีสุดท้ายที่ใช้เมื่อไม่มีทางเลือกอื่น และเป็นวิธีที่ใช้สอบเทียบเครื่องมือชนิดอื่นทั้งหมด วิธีนี้ตั้งอยู่บนเอกลักษณ์ข้อเดียว</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = A · V</code><span class="eq-note"><span class="en">m³/s = m² × m/s</span><span class="th">ลบ.ม./วินาที = ตร.ม. × ม./วินาที</span></span></div>
+        </div>
+
+        <h3><span class="en">Step 1 · The cross-sectional area</span><span class="th">ขั้นที่ 1 · พื้นที่หน้าตัดของน้ำ</span></h3>
+
+        <p>
+          <span class="en">Stretch a tape across the channel, measure the depth at equal intervals <span class="mono">l</span>, and sum the strips. The two end strips are triangles, everything between them is a trapezium:</span>
+          <span class="th">ขึงเทปวัดขวางลำน้ำ วัดความลึกที่ระยะห่างเท่า ๆ กัน <span class="mono">l</span> แล้วรวมพื้นที่ย่อยทั้งหมด พื้นที่ย่อยสองชิ้นริมสุดเป็นรูปสามเหลี่ยม ส่วนที่อยู่ระหว่างกลางทั้งหมดเป็นรูปสี่เหลี่ยมคางหมู</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>A = <span class="frac"><span class="num">l · d<sub>1</sub></span><span class="den">2</span></span> + l·<span class="frac"><span class="num">d<sub>1</sub>+d<sub>2</sub></span><span class="den">2</span></span> + l·<span class="frac"><span class="num">d<sub>2</sub>+d<sub>3</sub></span><span class="den">2</span></span> + … + <span class="frac"><span class="num">l · d<sub>n</sub></span><span class="den">2</span></span></code></div>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 290" role="img" aria-label="Channel cross-section divided into strips">
+            <!-- banks -->
+            <path d="M40,60 L110,60 L180,120 L250,175 L320,198 L400,200 L470,182 L540,128 L610,64 L680,64"
+                  fill="none" stroke="var(--ink)" stroke-width="2"/>
+            <!-- water body -->
+            <path d="M120,70 L180,120 L250,175 L320,198 L400,200 L470,182 L540,128 L600,70 Z"
+                  fill="var(--accent-light)" opacity=".28"/>
+            <!-- water surface -->
+            <line x1="120" y1="70" x2="600" y2="70" stroke="var(--accent)" stroke-width="2"/>
+            <!-- verticals -->
+            <g stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3 3">
+              <line x1="180" y1="70" x2="180" y2="120"/>
+              <line x1="250" y1="70" x2="250" y2="175"/>
+              <line x1="320" y1="70" x2="320" y2="198"/>
+              <line x1="400" y1="70" x2="400" y2="200"/>
+              <line x1="470" y1="70" x2="470" y2="182"/>
+              <line x1="540" y1="70" x2="540" y2="128"/>
+            </g>
+            <!-- spacing marks -->
+            <g stroke="var(--accent-hot)" stroke-width="1.4">
+              <line x1="120" y1="52" x2="180" y2="52"/>
+              <line x1="180" y1="52" x2="250" y2="52"/>
+              <line x1="250" y1="52" x2="320" y2="52"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="150" y="46">l</text><text x="215" y="46">l</text><text x="285" y="46">l</text>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="var(--ink)" text-anchor="middle">
+              <text x="190" y="112">d₁</text><text x="260" y="167">d₂</text><text x="330" y="190">d₃</text>
+              <text x="410" y="192">d₄</text><text x="480" y="174">d₅</text><text x="550" y="120">d₆</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="150" y="100">A₁</text><text x="215" y="130">A₂</text><text x="285" y="160">A₃</text>
+              <text x="360" y="170">A₄</text><text x="435" y="160">A₅</text><text x="505" y="130">A₆</text>
+              <text x="570" y="100">A₇</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+              <text x="360" y="245" class="en">Area = sum of one triangle, the trapezia, and one triangle</text>
+              <text x="360" y="245" class="th">พื้นที่ = สามเหลี่ยมหนึ่งรูป บวกสี่เหลี่ยมคางหมู บวกสามเหลี่ยมอีกหนึ่งรูป</text>
+              <text x="360" y="266" font-size="10.5" fill="var(--ink-soft)" class="en">Use 6 to 10 verticals; more where the bed is irregular</text>
+              <text x="360" y="266" font-size="10.5" fill="var(--ink-soft)" class="th">ควรใช้เส้นดิ่ง 6 ถึง 10 เส้น และเพิ่มขึ้นถ้าท้องน้ำไม่สม่ำเสมอ</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 5.1 — Dividing the flow section into strips. Depth is read at each vertical; the strip areas are summed. Accuracy comes from having enough verticals, not from measuring any one of them precisely.</span>
+            <span class="th">รูปที่ 5.1 — การแบ่งพื้นที่หน้าตัดของน้ำออกเป็นส่วนย่อย วัดความลึกที่เส้นดิ่งแต่ละเส้นแล้วรวมพื้นที่ย่อยเข้าด้วยกัน ความแม่นยำเกิดจากการมีเส้นดิ่งมากพอ ไม่ใช่จากการวัดเส้นใดเส้นหนึ่งอย่างละเอียด</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Step 2 · The mean velocity — two ways</span><span class="th">ขั้นที่ 2 · ความเร็วเฉลี่ย ทำได้สองวิธี</span></h3>
+
+        <p>
+          <span class="en"><strong>With a float.</strong> Time a floating object over a measured straight reach. What you get is the <em>surface</em> velocity, which is faster than the mean because the bed and banks drag on the water. Multiply by a coefficient that depends on depth:</span>
+          <span class="th"><strong>วิธีใช้ทุ่นลอย</strong> จับเวลาที่ทุ่นลอยเคลื่อนที่ผ่านช่วงลำน้ำตรงที่วัดระยะไว้แล้ว ค่าที่ได้เป็นความเร็วที่ <em>ผิวน้ำ</em> ซึ่งเร็วกว่าความเร็วเฉลี่ย เพราะท้องน้ำและตลิ่งฉุดน้ำไว้ จึงต้องคูณด้วยสัมประสิทธิ์ซึ่งขึ้นกับความลึกของน้ำ</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Water depth (m)</span><span class="th">ความลึกของน้ำ (ม.)</span></th>
+                <th class="num">0.30</th><th class="num">0.60</th><th class="num">0.90</th><th class="num">1.20</th><th class="num">1.50</th>
+                <th class="num">1.80</th><th class="num">2.70</th><th class="num">3.60</th><th class="num">4.50</th><th class="num">6.00+</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Coefficient</span><span class="th">สัมประสิทธิ์</span></td>
+                <td class="num">0.66</td><td class="num">0.68</td><td class="num">0.70</td><td class="num">0.72</td><td class="num">0.74</td>
+                <td class="num">0.76</td><td class="num">0.77</td><td class="num">0.78</td><td class="num">0.79</td><td class="num">0.80</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en"><strong>With a current meter.</strong> A cup or propeller meter counts revolutions and the operator converts them with the manufacturer's rating. Read the velocity at <strong>0.2 and 0.8 of the depth</strong> and average the two; in shallow water a single reading at <strong>0.6 of the depth</strong> is enough. Do that on each vertical, multiply each velocity by its own strip area, and sum.</span>
+          <span class="th"><strong>วิธีใช้เครื่องวัดความเร็วกระแสน้ำ</strong> เครื่องวัดแบบถ้วยหรือใบพัดจะนับจำนวนรอบ แล้วผู้วัดแปลงเป็นความเร็วด้วยตารางเทียบของผู้ผลิต วิธีที่ใช้กันทั่วไปคืออ่านความเร็วที่ระดับ <strong>0.2 และ 0.8 ของความลึก</strong> แล้วเฉลี่ยสองค่า ส่วนน้ำตื้นอ่านค่าเดียวที่ <strong>0.6 ของความลึก</strong> ก็พอ ทำเช่นนี้ทุกเส้นดิ่ง แล้วคูณความเร็วแต่ละค่าด้วยพื้นที่ย่อยของตัวเอง จากนั้นจึงรวมกัน</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = Σ (a<sub>i</sub> · v<sub>i</sub>)</code><span class="eq-note"><span class="en">strip by strip — never area × one average velocity</span><span class="th">คิดทีละส่วนย่อย ไม่ใช่พื้นที่ทั้งหมด × ความเร็วเฉลี่ยค่าเดียว</span></span></div>
+        </div>
+
+        <h3><span class="en">Worked example · Gauging a farm ditch with a float</span><span class="th">ตัวอย่างการคำนวณ · วัดน้ำในคูส่งน้ำด้วยทุ่นลอย</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Depths are read every <strong>0.20 m</strong> across a ditch: 0.08, 0.18, 0.25, 0.28, 0.24, 0.15, 0.06 m. A float covers <strong>10.0 m</strong> in <strong>20.0 s</strong>. Find the discharge.</span>
+            <span class="th">วัดความลึกน้ำในคูทุกระยะ <strong>0.20 ม.</strong> ได้ค่า 0.08, 0.18, 0.25, 0.28, 0.24, 0.15, 0.06 ม. ทุ่นลอยเคลื่อนที่ได้ <strong>10.0 ม.</strong> ในเวลา <strong>20.0 วินาที</strong> จงหาอัตราการไหล</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>A = 0.248 m²</code><span class="eq-note"><span class="en">two end triangles + six trapezia</span><span class="th">สามเหลี่ยมปลายสองรูป + คางหมูหกรูป</span></span></div>
+          <div class="eq"><code>V<sub>s</sub> = 10.0 / 20.0 = 0.50 m/s</code><span class="eq-note"><span class="en">surface velocity</span><span class="th">ความเร็วที่ผิวน้ำ</span></span></div>
+          <div class="eq"><code>V = 0.66 × 0.50 = 0.33 m/s</code><span class="eq-note"><span class="en">mean depth ≈ 0.18 m, so use the 0.30 m coefficient</span><span class="th">ความลึกเฉลี่ยราว 0.18 ม. จึงใช้สัมประสิทธิ์ของแถว 0.30 ม.</span></span></div>
+          <div class="eq result"><code>Q = 0.248 × 0.33 = 0.082 m³/s = <strong>82 L/s</strong></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">How much should you trust that 82?</span><span class="th">ควรเชื่อค่า 82 นี้มากแค่ไหน</span></div>
+          <p>
+            <span class="en">Not very much — call it ±15%, so somewhere between 70 and 94 L/s. The coefficient table is generic, the float wanders, and the section is never quite the same twice. That is adequate for "is the turnout roughly delivering what it should?", and quite inadequate for "how efficient was that irrigation?". Use the float method to <em>find</em> problems, and a permanent structure to <em>measure</em> them.</span>
+            <span class="th">ไม่ควรเชื่อมากนัก ให้ถือว่าคลาดเคลื่อนราว ±15% นั่นคืออยู่ระหว่าง 70 ถึง 94 ล./วินาที เพราะตารางสัมประสิทธิ์เป็นค่ากลาง ๆ ทุ่นลอยก็เคลื่อนที่เบี่ยงเบนไปมา และหน้าตัดลำน้ำก็ไม่เคยเหมือนเดิมสองครั้ง ค่าระดับนี้เพียงพอสำหรับคำถามว่า "ท่อส่งน้ำจ่ายน้ำได้ใกล้เคียงที่ควรหรือไม่" แต่ไม่เพียงพอเลยสำหรับคำถามว่า "การให้น้ำครั้งนั้นมีประสิทธิภาพเท่าใด" จึงควรใช้วิธีทุ่นลอยเพื่อ <em>ค้นหา</em> ปัญหา และใช้อาคารถาวรเพื่อ <em>วัด</em> ปัญหานั้น</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 5.5 ===================== -->
+      <section id="s-weirs">
+        <h2><span class="en">5.5 Sharp-crested weirs</span><span class="th">5.5 ฝายวัดน้ำ</span></h2>
+
+        <p>
+          <span class="en">A weir is a wall built across the channel with a notch of standard shape cut in it. Water flows over the notch, and the depth of water above the crest — the <strong>head, H</strong> — has a fixed and known relationship to the discharge. You measure a length with a ruler and read a flow rate off a table. Nothing else in hydraulics is this cheap.</span>
+          <span class="th">ฝายวัดน้ำคืออาคารที่สร้างขวางทางน้ำ โดยเจาะช่องเปิดที่มีรูปร่างตามมาตรฐานไว้ น้ำจะไหลข้ามช่องเปิดนั้น และความลึกของน้ำเหนือสันฝาย ซึ่งเรียกว่า <strong>เฮด (H)</strong> มีความสัมพันธ์ที่แน่นอนตายตัวกับอัตราการไหล เราจึงเพียงวัดความยาวด้วยไม้บรรทัดแล้วเปิดตารางอ่านอัตราการไหลได้ ไม่มีอะไรในวิชาชลศาสตร์ที่ถูกเท่านี้อีกแล้ว</span>
+        </p>
+
+        <h3><span class="en">The crest, and why it must be sharp</span><span class="th">สันฝาย และเหตุผลที่ต้องคม</span></h3>
+
+        <p>
+          <span class="en">The standard weir is <strong>sharp-crested</strong>: a smooth steel plate whose crest is only <strong>1 to 2 mm</strong> thick, with the downstream edge chamfered at <strong>45°</strong> or less (<strong>30°</strong> or less for a V-notch). The reason is simple — the sheet of water leaving the crest, called the <strong>nappe</strong>, must spring clear and touch the plate on one line only. If the crest is thick, the nappe clings to it, the discharge changes, and the rating table becomes fiction.</span>
+          <span class="th">ฝายมาตรฐานเป็นแบบ <strong>สันคม (Sharp Crested)</strong> คือทำจากแผ่นเหล็กเรียบที่ปาดสันให้เหลือความหนาเพียง <strong>1 ถึง 2 มม.</strong> โดยลบมุมด้านท้ายน้ำเป็นมุม <strong>45°</strong> หรือน้อยกว่า (ไม่เกิน <strong>30°</strong> สำหรับฝายสามเหลี่ยม) เหตุผลนั้นง่ายมาก แผ่นน้ำที่ไหลข้ามสันฝาย ซึ่งเรียกว่า <strong>แนปป์ (Nappe)</strong> ต้องกระโดดพ้นออกไปและสัมผัสแผ่นฝายเพียงเส้นเดียวเท่านั้น ถ้าสันฝายหนา แนปป์จะลู่ติดไปกับสันฝาย อัตราการไหลจะเปลี่ยนไป และตารางเทียบก็จะกลายเป็นเรื่องแต่ง</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 320" role="img" aria-label="Weir installation showing head measurement point">
+            <!-- ground -->
+            <rect x="40" y="250" width="640" height="46" fill="var(--rule)" opacity=".55"/>
+            <line x1="40" y1="250" x2="680" y2="250" stroke="var(--ink)" stroke-width="1.6"/>
+            <!-- weir plate -->
+            <rect x="452" y="150" width="8" height="100" fill="var(--ink)"/>
+            <!-- upstream water -->
+            <rect x="60" y="118" width="392" height="132" fill="var(--accent-light)" opacity=".28"/>
+            <line x1="60" y1="118" x2="452" y2="118" stroke="var(--accent)" stroke-width="2"/>
+            <!-- nappe -->
+            <path d="M460,150 C500,152 528,178 546,232" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M460,150 C506,154 540,186 560,250 L460,250 Z" fill="var(--accent-light)" opacity=".22"/>
+            <!-- downstream pool -->
+            <rect x="546" y="230" width="134" height="20" fill="var(--accent-light)" opacity=".28"/>
+            <!-- gauge post -->
+            <rect x="266" y="92" width="7" height="140" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+            <!-- crest level line -->
+            <line x1="120" y1="150" x2="452" y2="150" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="4 3"/>
+            <!-- H dimension -->
+            <g stroke="var(--accent-hot)" stroke-width="1.4">
+              <line x1="210" y1="118" x2="210" y2="150"/>
+              <line x1="204" y1="118" x2="216" y2="118"/>
+              <line x1="204" y1="150" x2="216" y2="150"/>
+              <line x1="180" y1="150" x2="180" y2="250"/>
+              <line x1="174" y1="150" x2="186" y2="150"/>
+              <line x1="174" y1="250" x2="186" y2="250"/>
+              <line x1="272" y1="78" x2="456" y2="78"/>
+              <line x1="272" y1="72" x2="272" y2="84"/>
+              <line x1="456" y1="72" x2="456" y2="84"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)">
+              <text x="222" y="139">H</text>
+              <text x="140" y="205">≥ 2H</text>
+              <text x="348" y="72" text-anchor="middle">4H</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <text x="270" y="60" text-anchor="middle" class="en">read the head here</text>
+              <text x="270" y="60" text-anchor="middle" class="th">อ่านค่าเฮดที่จุดนี้</text>
+              <text x="470" y="140" class="en">sharp crest</text>
+              <text x="470" y="140" class="th">สันฝายคม</text>
+              <text x="596" y="200" text-anchor="middle" class="en">nappe must spring clear</text>
+              <text x="596" y="200" text-anchor="middle" class="th">แนปป์ต้องตกอย่างอิสระ</text>
+              <text x="596" y="216" text-anchor="middle" font-size="10" class="en">air must reach underneath</text>
+              <text x="596" y="216" text-anchor="middle" font-size="10" class="th">ต้องมีอากาศเข้าใต้แนปป์</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)" text-anchor="middle">
+              <text x="360" y="288" class="en">Head is read 4H upstream — not at the plate, where the surface is already drawing down</text>
+              <text x="360" y="288" class="th">วัดเฮดที่ระยะ 4H เหนือน้ำ ไม่ใช่ที่ตัวฝาย เพราะตรงนั้นผิวน้ำลดลงไปแล้ว</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 5.2 — A sharp-crested weir set up correctly. Three distances decide whether the rating table applies: the head is read 4H upstream of the plate, the crest stands at least 2H (and at least 30 cm) above the channel bed, and air must be able to reach the underside of the nappe.</span>
+            <span class="th">รูปที่ 5.2 — ฝายสันคมที่ติดตั้งอย่างถูกต้อง ระยะสามค่าเป็นตัวตัดสินว่าตารางเทียบจะใช้ได้หรือไม่ คือ วัดเฮดที่ระยะ 4H เหนือแผ่นฝาย สันฝายอยู่สูงจากท้องน้ำไม่น้อยกว่า 2H และไม่น้อยกว่า 30 ซม. และต้องมีอากาศเข้าถึงใต้แนปป์ได้</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">The rules that make the rating table true</span><span class="th">ข้อกำหนดที่ทำให้ตารางเทียบเป็นจริง</span></h3>
+
+        <p>
+          <span class="en">A weir does not measure discharge. It measures a head, and a table converts that head using coefficients obtained from laboratory tests on a weir installed in one particular way. Install it differently and the table does not apply. These are the conditions, and none of them is optional.</span>
+          <span class="th">ฝายวัดน้ำไม่ได้วัดอัตราการไหล แต่วัดค่าเฮด แล้วใช้ตารางแปลงค่าเฮดนั้นด้วยสัมประสิทธิ์ที่ได้จากการทดลองในห้องปฏิบัติการ กับฝายที่ติดตั้งในลักษณะหนึ่งโดยเฉพาะ ถ้าติดตั้งต่างไปจากนั้น ตารางก็ใช้ไม่ได้ เงื่อนไขมีดังนี้ และไม่มีข้อใดที่ยกเว้นได้</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th><span class="en">Rule</span><span class="th">ข้อกำหนด</span></th>
+                <th><span class="en">What goes wrong if you ignore it</span><span class="th">จะเกิดอะไรขึ้นถ้าไม่ทำตาม</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td>
+                <td><span class="en">The upstream face of the plate is smooth, vertical, and square to the centreline of the channel.</span><span class="th">ผนังด้านเหนือน้ำของฝายต้องเรียบ อยู่ในแนวดิ่ง และตั้งฉากกับแนวศูนย์กลางของทางน้ำ</span></td>
+                <td><span class="en">A leaning or skewed plate changes the approach pattern and the coefficient with it.</span><span class="th">แผ่นฝายที่เอียงหรือบิดจะเปลี่ยนรูปแบบการไหลเข้า และเปลี่ยนค่าสัมประสิทธิ์ตามไปด้วย</span></td></tr>
+              <tr><td class="num">2</td>
+                <td><span class="en">The crest plate is flush with the upstream face; the crest itself is straight and smooth.</span><span class="th">แผ่นโลหะสันฝายต้องเรียบเป็นผืนเดียวกับผนังด้านหน้า และตัวสันฝายต้องตรงและเรียบ</span></td>
+                <td><span class="en">A step or burr trips the nappe and adds an unknown loss.</span><span class="th">ขั้นหรือเสี้ยนโลหะจะทำให้แนปป์สะดุด และเพิ่มการสูญเสียที่ไม่รู้ค่า</span></td></tr>
+              <tr><td class="num">3</td>
+                <td><span class="en">The crest is level; on a rectangular notch the side plates are vertical and square to it. Thickness 1–2 mm.</span><span class="th">สันฝายต้องได้ระดับ ถ้าเป็นฝายสี่เหลี่ยมผืนผ้า แผ่นด้านข้างต้องดิ่งและตั้งฉากกับสันฝาย ความหนา 1–2 มม.</span></td>
+                <td><span class="en">A crest 10 mm out of level across 1 m changes H by 10 mm — around 5% of the flow.</span><span class="th">สันฝายที่เอียง 10 มม. ในระยะ 1 ม. ทำให้ค่า H เปลี่ยนไป 10 มม. ซึ่งเท่ากับราว 5% ของอัตราการไหล</span></td></tr>
+              <tr><td class="num">4</td>
+                <td><span class="en">Downstream chamfer ≤ 45° (≤ 30° for a V-notch). Do not make the edge razor-sharp.</span><span class="th">ลบมุมด้านท้ายน้ำไม่เกิน 45° (ไม่เกิน 30° สำหรับฝายสามเหลี่ยม) และไม่ควรทำให้คมเหมือนมีดโกน</span></td>
+                <td><span class="en">Too blunt and the nappe clings; too sharp and the edge dents, and a dented crest is a permanently wrong crest.</span><span class="th">ถ้าทู่เกินไปแนปป์จะลู่ติด ถ้าคมเกินไปสันฝายจะบุบ และสันฝายที่บุบแล้วคือสันฝายที่ผิดถาวร</span></td></tr>
+              <tr><td class="num">5</td>
+                <td><span class="en">Crest height above the bed ≥ <strong>2H</strong> and ≥ <strong>30 cm</strong>. (A V-notch may go below 30 cm but never below 2H.)</span><span class="th">ความสูงของสันฝายเหนือท้องน้ำต้องไม่น้อยกว่า <strong>2H</strong> และไม่น้อยกว่า <strong>30 ซม.</strong> (ฝายสามเหลี่ยมยอมให้ต่ำกว่า 30 ซม. ได้ แต่ห้ามต่ำกว่า 2H)</span></td>
+                <td><span class="en">Silt raises the bed over the years. When the crest drops below 2H the weir reads <em>low</em>, and it does so silently.</span><span class="th">ตะกอนจะทับถมยกท้องน้ำสูงขึ้นเรื่อย ๆ ตามปี เมื่อสันฝายเหลือต่ำกว่า 2H ฝายจะอ่าน <em>ต่ำกว่าความจริง</em> และอ่านผิดโดยไม่มีสัญญาณเตือนใด ๆ</span></td></tr>
+              <tr><td class="num">6</td>
+                <td><span class="en">Air must reach under the nappe, so that the flow is free and ventilated.</span><span class="th">ต้องมีอากาศเข้าถึงใต้แนปป์ได้ เพื่อให้การไหลเป็นแบบอิสระและมีอากาศถ่ายเท</span></td>
+                <td><span class="en">Without air the space beneath goes partly to vacuum, the nappe is sucked down, and the weir over-reads.</span><span class="th">ถ้าไม่มีอากาศ ช่องใต้แนปป์จะกลายเป็นสุญญากาศบางส่วน แนปป์จะถูกดูดลง และฝายจะอ่านค่าสูงกว่าความจริง</span></td></tr>
+              <tr><td class="num">7</td>
+                <td><span class="en">Read H at least <strong>4H</strong> upstream of the crest.</span><span class="th">อ่านค่า H ที่ระยะไม่น้อยกว่า <strong>4H</strong> เหนือสันฝาย</span></td>
+                <td><span class="en">Close to the plate the surface is already drawing down. Reading there under-reads badly.</span><span class="th">บริเวณใกล้แผ่นฝาย ผิวน้ำลดต่ำลงแล้ว การอ่านตรงนั้นจะได้ค่าต่ำกว่าความจริงมาก</span></td></tr>
+              <tr><td class="num">8</td>
+                <td><span class="en">The approach channel section ≥ <strong>8×</strong> the area of flow over the crest, held for 15–20 H upstream.</span><span class="th">พื้นที่หน้าตัดของทางน้ำหน้าฝายต้องไม่น้อยกว่า <strong>8 เท่า</strong> ของพื้นที่น้ำที่ไหลข้ามสันฝาย และต้องเป็นเช่นนั้นตลอดระยะ 15–20 เท่าของเฮด</span></td>
+                <td><span class="en">A cramped approach means the water arrives with velocity of its own, which adds to the head the weir "sees".</span><span class="th">ทางน้ำหน้าฝายที่คับแคบทำให้น้ำวิ่งเข้ามาด้วยความเร็วของตัวเอง ซึ่งจะไปเพิ่มค่าเฮดที่ฝาย "มองเห็น"</span></td></tr>
+              <tr><td class="num">9</td>
+                <td><span class="en">If rule 8 cannot be met, add the velocity of approach to the calculation.</span><span class="th">ถ้าทำตามข้อ 8 ไม่ได้ ต้องนำความเร็วของกระแสน้ำหน้าฝายมาคิดในการคำนวณด้วย</span></td>
+                <td><span class="en">See the velocity-head correction below.</span><span class="th">ดูการปรับแก้ด้วยเฮดความเร็วข้างล่างนี้</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">The four standard shapes</span><span class="th">รูปร่างมาตรฐานสี่แบบ</span></h3>
+
+        <figure>
+          <svg viewBox="0 0 720 210" role="img" aria-label="Four standard weir notch shapes">
+            <g fill="none" stroke="var(--ink)" stroke-width="2">
+              <!-- suppressed rectangular -->
+              <path d="M30,40 L30,150 L170,150 L170,40"/>
+              <line x1="30" y1="60" x2="170" y2="60" stroke="var(--accent)" stroke-width="2"/>
+              <!-- contracted rectangular -->
+              <path d="M210,40 L210,150 L350,150 L350,40"/>
+              <path d="M238,40 L238,60 L322,60 L322,40" stroke="var(--accent)"/>
+              <!-- Cipoletti -->
+              <path d="M390,40 L390,150 L530,150 L530,40"/>
+              <path d="M412,40 L427,60 L493,60 L508,40" stroke="var(--accent)"/>
+              <!-- V-notch -->
+              <path d="M570,40 L570,150 L710,150 L710,40"/>
+              <path d="M604,40 L640,88 L676,40" stroke="var(--accent)"/>
+            </g>
+            <g fill="var(--accent-light)" opacity=".3">
+              <rect x="30" y="60" width="140" height="90"/>
+              <rect x="238" y="60" width="84" height="90"/>
+              <path d="M427,60 L493,60 L493,150 L427,150 Z"/>
+              <path d="M604,40 L640,88 L676,40 Z"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="var(--ink)" text-anchor="middle">
+              <text x="100" y="176" class="en">Suppressed rectangular</text>
+              <text x="100" y="176" class="th">สี่เหลี่ยมผืนผ้าไม่บีบข้าง</text>
+              <text x="280" y="176" class="en">Contracted rectangular</text>
+              <text x="280" y="176" class="th">สี่เหลี่ยมผืนผ้าบีบข้าง</text>
+              <text x="460" y="176" class="en">Cipoletti (trapezoidal)</text>
+              <text x="460" y="176" class="th">สี่เหลี่ยมคางหมู</text>
+              <text x="640" y="176" class="en">90° V-notch</text>
+              <text x="640" y="176" class="th">สามเหลี่ยม 90°</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="100" y="196" class="en">crest spans the full width</text>
+              <text x="100" y="196" class="th">สันฝายเต็มความกว้างทางน้ำ</text>
+              <text x="280" y="196" class="en">walls on both sides</text>
+              <text x="280" y="196" class="th">มีกำแพงยื่นทั้งสองข้าง</text>
+              <text x="460" y="196" class="en">sides slope 4 up : 1 out</text>
+              <text x="460" y="196" class="th">ด้านข้างลาด ตั้ง 4 : ราบ 1</text>
+              <text x="640" y="196" class="en">best for small flows</text>
+              <text x="640" y="196" class="th">ดีที่สุดสำหรับอัตราการไหลน้อย</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 5.3 — The four standard notches. The Cipoletti's 4:1 side slope is not decoration: the widening triangles add back exactly the flow that end contraction takes away, so its rating is as simple as the suppressed weir's while still being contracted.</span>
+            <span class="th">รูปที่ 5.3 — ช่องเปิดมาตรฐานสี่แบบ ความลาดด้านข้าง 4:1 ของฝายสี่เหลี่ยมคางหมูไม่ใช่การตกแต่ง แต่พื้นที่สามเหลี่ยมที่ผายออกนั้นชดเชยอัตราการไหลที่หายไปจากการบีบข้างได้พอดี สมการของฝายชนิดนี้จึงเรียบง่ายเท่าฝายไม่บีบข้าง ทั้งที่ตัวมันเองเป็นฝายบีบข้าง</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">The discharge equations</span><span class="th">สมการอัตราการไหล</span></h3>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Units — read this before using any equation below</span><span class="th">หน่วย — ต้องอ่านก่อนใช้สมการใด ๆ ข้างล่างนี้</span></div>
+          <p>
+            <span class="en">In every equation in this section, <strong>Q is in litres per second</strong> and <strong>L and H are in centimetres</strong>. This is the convention of Thai irrigation practice and it is not the SI convention. Substituting metres will give an answer wrong by a factor of thousands, and it is the single most common error students make here.</span>
+            <span class="th">ในทุกสมการของหัวข้อนี้ <strong>Q มีหน่วยเป็นลิตรต่อวินาที</strong> ส่วน <strong>L และ H มีหน่วยเป็นเซนติเมตร</strong> นี่คือธรรมเนียมของงานชลประทานไทย ซึ่งไม่ใช่ธรรมเนียมของระบบ SI การแทนค่าเป็นเมตรจะให้คำตอบที่ผิดไปหลายพันเท่า และเป็นความผิดพลาดที่นักศึกษาทำกันมากที่สุดในเรื่องนี้</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>Q = 0.01838 · L · H<sup>3/2</sup></code><span class="eq-note"><span class="en">suppressed rectangular</span><span class="th">สี่เหลี่ยมผืนผ้าไม่บีบข้าง</span></span></div>
+          <div class="eq"><code>Q = 0.01838 · (L − 0.2H) · H<sup>3/2</sup></code><span class="eq-note"><span class="en">contracted rectangular</span><span class="th">สี่เหลี่ยมผืนผ้าบีบข้าง</span></span></div>
+          <div class="eq"><code>Q = 0.01859 · L · H<sup>3/2</sup></code><span class="eq-note"><span class="en">Cipoletti</span><span class="th">สี่เหลี่ยมคางหมู</span></span></div>
+          <div class="eq result"><code>Q = 0.0138 · H<sup>5/2</sup></code><span class="eq-note"><span class="en">90° V-notch — no L at all</span><span class="th">สามเหลี่ยม 90° ไม่มีตัวแปร L เลย</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>Q</dt><dd><span class="en">discharge over the weir (L/s)</span><span class="th">อัตราการไหลผ่านฝาย (ล./วินาที)</span></dd>
+          <dt>L</dt><dd><span class="en">length of the crest (cm)</span><span class="th">ความยาวของสันฝาย (ซม.)</span></dd>
+          <dt>H</dt><dd><span class="en">head — depth of water above the crest, read 4H upstream (cm)</span><span class="th">เฮด คือความลึกของน้ำเหนือสันฝาย วัดที่ระยะ 4H เหนือน้ำ (ซม.)</span></dd>
+        </dl>
+
+        <p>
+          <span class="en">Where the approach velocity exceeds <strong>0.30 m/s</strong>, the water already carries kinetic energy towards the crest and the weir passes more than the head alone suggests. Add the <strong>velocity head</strong>:</span>
+          <span class="th">ถ้าความเร็วของกระแสน้ำหน้าฝายมากกว่า <strong>0.30 ม./วินาที</strong> น้ำจะมีพลังงานจลน์พุ่งเข้าหาสันฝายอยู่แล้ว ฝายจึงระบายน้ำได้มากกว่าที่ค่าเฮดเพียงลำพังบ่งชี้ ต้องบวก <strong>เฮดความเร็ว</strong> เข้าไปด้วย</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>h = <span class="frac"><span class="num">V²</span><span class="den">2g</span></span></code><span class="eq-note"><span class="en">h in cm, V in cm/s, g = 981 cm/s²</span><span class="th">h เป็น ซม. V เป็น ซม./วินาที g = 981 ซม./วินาที²</span></span></div>
+          <div class="eq"><code>Q = 0.01838 (L − 0.2H) [ (H + h)<sup>3/2</sup> − h<sup>3/2</sup> ]</code><span class="eq-note"><span class="en">contracted rectangular, corrected</span><span class="th">สี่เหลี่ยมผืนผ้าบีบข้าง แบบปรับแก้แล้ว</span></span></div>
+          <div class="eq result"><code>Q = 0.01859 · L · (H + 1.5h)<sup>3/2</sup></code><span class="eq-note"><span class="en">Cipoletti, corrected</span><span class="th">สี่เหลี่ยมคางหมู แบบปรับแก้แล้ว</span></span></div>
+        </div>
+
+        <h3><span class="en">Rating table · discharge in L/s for a 1.00 m crest</span><span class="th">ตารางเทียบ · อัตราการไหล (ล./วินาที) เมื่อสันฝายยาว 1.00 ม.</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Head H (cm)</span><span class="th">เฮด H (ซม.)</span></th>
+                <th><span class="en">Suppressed</span><span class="th">ไม่บีบข้าง</span></th>
+                <th><span class="en">Contracted</span><span class="th">บีบข้าง</span></th>
+                <th><span class="en">Cipoletti</span><span class="th">คางหมู</span></th>
+                <th><span class="en">90° V-notch</span><span class="th">สามเหลี่ยม 90°</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">5</td><td class="num">20.5</td><td class="num">20.3</td><td class="num">20.8</td><td class="num">0.8</td></tr>
+              <tr><td class="num">10</td><td class="num">58.1</td><td class="num">57.0</td><td class="num">58.8</td><td class="num">4.4</td></tr>
+              <tr><td class="num">15</td><td class="num">106.8</td><td class="num">103.6</td><td class="num">108.0</td><td class="num">12.0</td></tr>
+              <tr><td class="num">20</td><td class="num">164.4</td><td class="num">157.8</td><td class="num">166.3</td><td class="num">24.7</td></tr>
+              <tr><td class="num">25</td><td class="num">229.8</td><td class="num">218.3</td><td class="num">232.4</td><td class="num">43.1</td></tr>
+              <tr><td class="num">30</td><td class="num">302.0</td><td class="num">283.9</td><td class="num">305.5</td><td class="num">68.0</td></tr>
+              <tr><td class="num">35</td><td class="num">380.6</td><td class="num">353.9</td><td class="num">384.9</td><td class="num">100.0</td></tr>
+              <tr><td class="num">40</td><td class="num">465.0</td><td class="num">427.8</td><td class="num">470.3</td><td class="num">139.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">Read across any row and the three rectangular-family weirs differ by only a few percent; read down the last column and the V-notch is in a different world. That is the whole reason for having four shapes, and §5.9 returns to it.</span>
+          <span class="th">ถ้าอ่านตามแนวนอนแถวใดก็ตาม จะเห็นว่าฝายตระกูลสี่เหลี่ยมทั้งสามแบบต่างกันเพียงไม่กี่เปอร์เซ็นต์ แต่ถ้าอ่านตามแนวตั้งในคอลัมน์สุดท้าย จะเห็นว่าฝายสามเหลี่ยมอยู่คนละโลกกันเลย นี่คือเหตุผลทั้งหมดของการมีรูปร่างสี่แบบ และหัวข้อ 5.9 จะกลับมาพูดถึงเรื่องนี้อีกครั้ง</span>
+        </p>
+
+        <h3><span class="en">Worked example 1 · A contracted rectangular weir</span><span class="th">ตัวอย่างการคำนวณที่ 1 · ฝายสี่เหลี่ยมผืนผ้าแบบบีบข้าง</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Crest length <strong>1.50 m</strong>, head <strong>35 cm</strong>, approach velocity below 0.30 m/s. Find Q.</span>
+            <span class="th">สันฝายยาว <strong>1.50 ม.</strong> เฮด <strong>35 ซม.</strong> ความเร็วกระแสน้ำหน้าฝายต่ำกว่า 0.30 ม./วินาที จงหาค่า Q</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>L = 150 cm, H = 35 cm</code><span class="eq-note"><span class="en">convert to centimetres first</span><span class="th">แปลงเป็นเซนติเมตรก่อน</span></span></div>
+          <div class="eq"><code>L − 0.2H = 150 − 7 = 143 cm</code></div>
+          <div class="eq result"><code>Q = 0.01838 × 143 × 35<sup>1.5</sup> = <strong>544 L/s</strong></code></div>
+        </div>
+
+        <h3><span class="en">Worked example 2 · The same weir with a fast approach</span><span class="th">ตัวอย่างการคำนวณที่ 2 · ฝายเดิมแต่กระแสน้ำหน้าฝายเร็ว</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Crest length <strong>1.20 m</strong>, head <strong>42 cm</strong>, approach velocity <strong>0.55 m/s</strong>.</span>
+            <span class="th">สันฝายยาว <strong>1.20 ม.</strong> เฮด <strong>42 ซม.</strong> ความเร็วกระแสน้ำหน้าฝาย <strong>0.55 ม./วินาที</strong></span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>h = 55² / (2 × 981) = 1.54 cm</code><span class="eq-note"><span class="en">V converted to cm/s</span><span class="th">แปลง V เป็น ซม./วินาที</span></span></div>
+          <div class="eq"><code>L − 0.2H = 120 − 8.4 = 111.6 cm</code></div>
+          <div class="eq result"><code>Q = 0.01838 × 111.6 × [43.54<sup>1.5</sup> − 1.54<sup>1.5</sup>] = <strong>585 L/s</strong></code></div>
+        </div>
+
+        <p>
+          <span class="en">Ignoring the approach velocity here would have given 558 L/s — a 4.6% under-reading. Small, but it is a <em>bias</em>, not scatter: it is wrong in the same direction every single time you read that weir.</span>
+          <span class="th">ถ้าไม่คิดความเร็วกระแสน้ำหน้าฝายในกรณีนี้ จะได้ 558 ล./วินาที คืออ่านต่ำกว่าความจริง 4.6% ดูเหมือนน้อย แต่นี่เป็นความ <em>เอนเอียงอย่างเป็นระบบ</em> ไม่ใช่ความกระจัดกระจาย กล่าวคือ ผิดไปในทิศทางเดียวกันทุกครั้งที่อ่านค่าจากฝายนั้น</span>
+        </p>
+
+        <h3><span class="en">Worked example 3 · A 90° V-notch on a small ditch</span><span class="th">ตัวอย่างการคำนวณที่ 3 · ฝายสามเหลี่ยม 90° ในคูขนาดเล็ก</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">The measured head is <strong>17.5 cm</strong>. Find Q.</span>
+            <span class="th">วัดเฮดได้ <strong>17.5 ซม.</strong> จงหาค่า Q</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = 0.0138 × 17.5<sup>2.5</sup> = <strong>17.7 L/s</strong></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Weirs: what they are good at, and what they are not</span><span class="th">ฝายวัดน้ำ: เก่งเรื่องอะไร และไม่เก่งเรื่องอะไร</span></div>
+          <p>
+            <span class="en"><strong>Good:</strong> accurate, with a shape for every range; simple to design, build, install and operate; can be permanent concrete or a portable plate; floating trash passes over; rugged with no special parts.</span>
+            <span class="th"><strong>ข้อดี:</strong> วัดได้ละเอียดถูกต้อง มีรูปแบบให้เลือกใช้ทุกช่วงอัตราการไหล ออกแบบ สร้าง ติดตั้งและใช้งานง่าย ทำเป็นอาคารถาวรหรือแบบเคลื่อนย้ายได้ก็ได้ เศษวัสดุที่ลอยมากับน้ำผ่านไปได้ และแข็งแรงทนทานโดยไม่ต้องมีชิ้นส่วนพิเศษ</span>
+          </p>
+          <p>
+            <span class="en"><strong>Not good:</strong> the flow must fall free, so a weir demands a lot of head and cannot be used in a very flat system at all; sediment settles in the pool above the crest and slowly raises the bed until rule 5 fails; the bed and banks downstream need erosion protection; and water can leak <em>under</em> the structure, which never shows up in the reading.</span>
+            <span class="th"><strong>ข้อเสีย:</strong> น้ำต้องไหลตกลงมาอย่างอิสระ ฝายจึงต้องการเฮดมาก และใช้ในระบบที่ราบมาก ๆ ไม่ได้เลย ตะกอนจะตกทับถมในบ่อน้ำเหนือสันฝายและค่อย ๆ ยกท้องน้ำสูงขึ้นจนผิดข้อกำหนดข้อ 5 อีกทั้งท้องน้ำและตลิ่งด้านท้ายฝายต้องมีการป้องกันการกัดเซาะ และน้ำอาจไหลลอด <em>ใต้</em> ตัวอาคารได้ ซึ่งจะไม่ปรากฏในค่าที่อ่านได้เลย</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 5.6 ===================== -->
+      <section id="s-flumes">
+        <h2><span class="en">5.6 Flumes</span><span class="th">5.6 รางวัดน้ำ</span></h2>
+
+        <p>
+          <span class="en">A weir works by making the water fall. A flume works by making it <em>hurry</em>. Squeeze the channel from the sides, or lift its floor, or both, and the water must speed up to get through. Squeeze it enough and the flow passes through <strong>critical velocity</strong> in the narrowest section — and at critical flow the depth and the discharge are locked to one another. Measure the depth upstream and you know the discharge, with no falling nappe and therefore almost no head lost.</span>
+          <span class="th">ฝายวัดน้ำทำงานโดยทำให้น้ำตก ส่วนรางวัดน้ำทำงานโดยทำให้น้ำ <em>เร่งความเร็ว</em> วิธีคือบีบทางน้ำจากด้านข้าง หรือยกพื้นราง หรือทำทั้งสองอย่าง น้ำจึงต้องเร่งความเร็วขึ้นเพื่อผ่านไปให้ได้ ถ้าบีบมากพอ การไหลจะผ่านจุด <strong>ความเร็ววิกฤต (Critical Velocity)</strong> ที่หน้าตัดแคบที่สุด และเมื่อการไหลอยู่ที่สภาวะวิกฤต ความลึกกับอัตราการไหลจะผูกติดกันแน่นอน เราจึงวัดความลึกด้านเหนือน้ำแล้วรู้อัตราการไหลได้ทันที โดยไม่มีแนปป์ตกลงมา จึงแทบไม่สูญเสียเฮดเลย</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = K · H<sup>n</sup></code><span class="eq-note"><span class="en">the general flume equation — K and n come from the flume's geometry</span><span class="th">สมการทั่วไปของรางวัดน้ำ ค่า K และ n ได้จากรูปทรงของราง</span></span></div>
+        </div>
+
+        <h3><span class="en">The Parshall flume</span><span class="th">รางวัดน้ำแบบพาร์แชล</span></h3>
+
+        <p>
+          <span class="en">Designed by Ralph L. Parshall for open channels, and still the most widely used measuring flume in the world. It has three parts in series:</span>
+          <span class="th">ออกแบบโดย Mr. Ralph L. Parshall สำหรับใช้ในทางน้ำเปิด และยังคงเป็นรางวัดน้ำที่ใช้แพร่หลายที่สุดในโลกจนถึงทุกวันนี้ ประกอบด้วยสามส่วนเรียงต่อกัน</span>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Converging section</span><span class="th">ทางผายเข้า</span></h4>
+            <p><span class="en">Walls narrow from the full channel width; the floor is level but raised above the channel bed. H<sub>a</sub> is read here.</span><span class="th">ผนังบีบแคบเข้ามาจากความกว้างเต็มของทางน้ำ พื้นอยู่ในแนวราบแต่ยกสูงกว่าท้องน้ำ วัดค่า H<sub>a</sub> ที่ส่วนนี้</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Throat</span><span class="th">ส่วนคอ</span></h4>
+            <p><span class="en">The narrowest part; walls parallel, floor sloping steeply down. Its width <strong>W</strong> is the name of the flume.</span><span class="th">ส่วนที่แคบที่สุด ผนังขนานกัน พื้นลาดลงชัน ความกว้างของส่วนนี้ <strong>W</strong> คือค่าที่ใช้เรียกขนาดของราง</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">Diverging section</span><span class="th">ทางผายออก</span></h4>
+            <p><span class="en">Opens back to full width, floor rising. H<sub>b</sub> is read here, and it is what tells you whether the flume is drowned.</span><span class="th">ผายออกกลับสู่ความกว้างเดิม พื้นลาดขึ้น วัดค่า H<sub>b</sub> ที่ส่วนนี้ ซึ่งเป็นตัวบอกว่ารางถูกน้ำท้ายท่วมหรือไม่</span></p>
+          </div>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="Parshall flume plan and flow condition">
+            <!-- plan view -->
+            <g fill="none" stroke="var(--ink)" stroke-width="2">
+              <path d="M70,40 L200,40 L290,82 L430,82 L520,40 L650,40"/>
+              <path d="M70,150 L200,150 L290,108 L430,108 L520,150 L650,150"/>
+            </g>
+            <path d="M70,40 L200,40 L290,82 L430,82 L520,40 L650,40 L650,150 L520,150 L430,108 L290,108 L200,150 L70,150 Z"
+                  fill="var(--accent-light)" opacity=".22"/>
+            <!-- throat markers -->
+            <g stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="4 3">
+              <line x1="290" y1="82" x2="290" y2="108"/>
+              <line x1="430" y1="82" x2="430" y2="108"/>
+            </g>
+            <!-- W dimension -->
+            <g stroke="var(--accent-hot)" stroke-width="1.4">
+              <line x1="360" y1="82" x2="360" y2="108"/>
+              <line x1="354" y1="82" x2="366" y2="82"/>
+              <line x1="354" y1="108" x2="366" y2="108"/>
+            </g>
+            <text x="376" y="100" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)">W</text>
+            <!-- stilling wells -->
+            <circle cx="250" cy="62" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+            <circle cx="470" cy="62" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+            <g font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)" text-anchor="middle">
+              <text x="250" y="36">Ha</text>
+              <text x="470" y="36">Hb</text>
+            </g>
+            <!-- flow arrow -->
+            <line x1="90" y1="95" x2="150" y2="95" stroke="var(--accent-hot)" stroke-width="2"/>
+            <path d="M150,90 L162,95 L150,100 z" fill="var(--accent-hot)"/>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="135" y="170" class="en">converging</text>
+              <text x="135" y="170" class="th">ทางผายเข้า</text>
+              <text x="360" y="170" class="en">throat</text>
+              <text x="360" y="170" class="th">ส่วนคอ</text>
+              <text x="585" y="170" class="en">diverging</text>
+              <text x="585" y="170" class="th">ทางผายออก</text>
+            </g>
+            <!-- submergence bar -->
+            <rect x="70" y="205" width="580" height="26" fill="var(--rule)" opacity=".45" stroke="var(--rule)"/>
+            <rect x="70" y="205" width="406" height="26" fill="var(--accent)" opacity=".25"/>
+            <line x1="476" y1="199" x2="476" y2="237" stroke="var(--accent-hot)" stroke-width="2"/>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)" text-anchor="middle">
+              <text x="273" y="222" class="en">FREE FLOW — read Ha only</text>
+              <text x="273" y="222" class="th">ไหลแบบอิสระ — อ่านเฉพาะ Ha</text>
+              <text x="563" y="222" class="en">SUBMERGED — correction needed</text>
+              <text x="563" y="222" class="th">ไหลใต้ผิวน้ำ — ต้องปรับแก้</text>
+              <text x="360" y="262" font-size="11.5" class="en">The boundary is the ratio Hb / Ha, and it differs with flume size</text>
+              <text x="360" y="262" font-size="11.5" class="th">เส้นแบ่งคืออัตราส่วน Hb / Ha ซึ่งต่างกันไปตามขนาดของราง</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 5.4 — Parshall flume in plan, and the single decision it forces on the operator. While the tailwater stays low enough, one reading is all you need. Once H<sub>b</sub>/H<sub>a</sub> crosses the limit, the downstream channel is controlling the flow and a second reading and a correction become unavoidable.</span>
+            <span class="th">รูปที่ 5.4 — รางวัดน้ำแบบพาร์แชลในรูปแปลน และการตัดสินใจข้อเดียวที่รางบังคับให้ผู้ใช้ต้องทำ ตราบใดที่น้ำท้ายรางยังต่ำพอ อ่านค่าเดียวก็เพียงพอ แต่เมื่ออัตราส่วน H<sub>b</sub>/H<sub>a</sub> เกินขีดจำกัด ทางน้ำด้านท้ายจะกลายเป็นตัวควบคุมการไหล และต้องอ่านค่าที่สองพร้อมปรับแก้อย่างเลี่ยงไม่ได้</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Free flow, and the submergence limit</span><span class="th">การไหลแบบอิสระ และขีดจำกัดการจม</span></h3>
+
+        <p>
+          <span class="en">When the flume runs <strong>free</strong>, the discharge depends on the throat width and on H<sub>a</sub> alone — H<sub>b</sub> is irrelevant. That is the condition every installation aims for, because it needs one gauge and one equation. Flow is free as long as:</span>
+          <span class="th">เมื่อรางทำงานแบบ <strong>ไหลอิสระ</strong> อัตราการไหลจะขึ้นกับความกว้างของส่วนคอและค่า H<sub>a</sub> เท่านั้น ส่วนค่า H<sub>b</sub> ไม่มีผล นี่คือสภาวะที่ทุกการติดตั้งต้องการ เพราะใช้เครื่องวัดเพียงตัวเดียวและสมการเดียว การไหลจะเป็นแบบอิสระตราบที่</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Throat width W</span><span class="th">ขนาดของรางวัดน้ำ (ความกว้างคอ W)</span></th>
+                <th><span class="en">Free flow while H<sub>b</sub>/H<sub>a</sub> ≤</span><span class="th">ไหลอิสระเมื่อ H<sub>b</sub>/H<sub>a</sub> ไม่เกิน</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">1 to 3 inches</span><span class="th">1 ถึง 3 นิ้ว</span></td><td class="num">0.50</td></tr>
+              <tr><td><span class="en">6 and 9 inches</span><span class="th">6 และ 9 นิ้ว</span></td><td class="num">0.60</td></tr>
+              <tr><td><span class="en">1 to 8 feet</span><span class="th">1 ถึง 8 ฟุต</span></td><td class="num">0.70</td></tr>
+              <tr><td><span class="en">10 to 50 feet</span><span class="th">10 ถึง 50 ฟุต</span></td><td class="num">0.80</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Units change here — watch carefully</span><span class="th">หน่วยเปลี่ยนตรงนี้ — ต้องระวังให้ดี</span></div>
+          <p>
+            <span class="en">The Parshall equations below give <strong>Q in cubic metres per second</strong> with <strong>H<sub>a</sub> in metres</strong>. This is the opposite convention to the weir equations of §5.5, which used L/s and centimetres. There is no principle behind the difference; it is simply how the two sets of tables were published. Check your units on every single calculation.</span>
+            <span class="th">สมการของพาร์แชลข้างล่างนี้ให้ค่า <strong>Q เป็นลูกบาศก์เมตรต่อวินาที</strong> โดย <strong>H<sub>a</sub> เป็นเมตร</strong> ซึ่งตรงข้ามกับธรรมเนียมของสมการฝายวัดน้ำในหัวข้อ 5.5 ที่ใช้ ล./วินาที และเซนติเมตร ความต่างนี้ไม่มีหลักการอะไรรองรับ เป็นเพียงวิธีที่ตารางทั้งสองชุดถูกตีพิมพ์ออกมาเท่านั้น จึงต้องตรวจสอบหน่วยทุกครั้งที่คำนวณ</span>
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Throat width</span><span class="th">ความกว้างคอ</span></th>
+                <th><span class="en">Free-flow equation (Q m³/s, H<sub>a</sub> m)</span><span class="th">สมการไหลอิสระ (Q ลบ.ม./วินาที, H<sub>a</sub> ม.)</span></th>
+                <th><span class="en">Range (L/s)</span><span class="th">ช่วงอัตราการไหล (ล./วินาที)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">3 in</span><span class="th">3 นิ้ว</span></td><td><span class="mono">Q = 0.1771 H<sub>a</sub><sup>1.55</sup></span></td><td class="num">0.77 – 32</td></tr>
+              <tr><td><span class="en">6 in</span><span class="th">6 นิ้ว</span></td><td><span class="mono">Q = 0.3812 H<sub>a</sub><sup>1.58</sup></span></td><td class="num">1.5 – 111</td></tr>
+              <tr><td><span class="en">9 in</span><span class="th">9 นิ้ว</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">2.5 – 251</td></tr>
+              <tr><td><span class="en">1 ft</span><span class="th">1 ฟุต</span></td><td><span class="mono">Q = 0.6909 H<sub>a</sub><sup>1.522</sup></span></td><td class="num">3.3 – 457</td></tr>
+              <tr><td><span class="en">1 ft 6 in</span><span class="th">1 ฟุต 6 นิ้ว</span></td><td><span class="mono">Q = 1.056 H<sub>a</sub><sup>1.538</sup></span></td><td class="num">4.8 – 695</td></tr>
+              <tr><td><span class="en">2 ft</span><span class="th">2 ฟุต</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">12 – 937</td></tr>
+              <tr><td><span class="en">3 ft</span><span class="th">3 ฟุต</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">18 – 1,427</td></tr>
+              <tr><td><span class="en">4 ft</span><span class="th">4 ฟุต</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">36 – 1,923</td></tr>
+              <tr><td><span class="en">6 ft</span><span class="th">6 ฟุต</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">74 – 2,929</td></tr>
+              <tr><td><span class="en">8 ft</span><span class="th">8 ฟุต</span></td><td><span class="en">from the standard table</span><span class="th">ดูจากตารางมาตรฐาน</span></td><td class="num">97 – 3,949</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why a 3-inch flume is not a 7.5 cm flume</span><span class="th">ทำไมรางขนาด 3 นิ้ว จึงไม่ใช่รางขนาด 7.5 ซม.</span></div>
+          <p>
+            <span class="en">All 22 standard Parshall sizes were developed by experiment, not by scaling one design up and down. Their dimensions are <em>not</em> hydraulically similar to one another, so each size carries its own K and n, obtained from its own laboratory rating. You cannot convert a flume to round metric dimensions: for the 1, 2 and 3-inch sizes the throat width must be held to <strong>1/64 inch — about 0.4 mm</strong>. Rebuild a 3-inch flume as 7.5 cm and the published coefficients no longer describe it.</span>
+            <span class="th">รางวัดน้ำแบบพาร์แชลมาตรฐานทั้ง 22 ขนาด ได้มาจากการทดลอง ไม่ใช่จากการย่อขยายแบบเดียวกัน มิติของแต่ละขนาดจึง <em>ไม่</em> เป็นสัดส่วนทางชลศาสตร์ซึ่งกันและกัน แต่ละขนาดจึงมีค่า K และ n ของตัวเอง ซึ่งได้จากการสอบเทียบในห้องปฏิบัติการของขนาดนั้นโดยเฉพาะ เราจึงเปลี่ยนมิติของรางให้เป็นเลขกลม ๆ ในระบบเมตริกไม่ได้ สำหรับขนาด 1, 2 และ 3 นิ้ว ความกว้างของส่วนคอต้องคลาดเคลื่อนไม่เกิน <strong>1/64 นิ้ว หรือราว 0.4 มม.</strong> ถ้าสร้างรางขนาด 3 นิ้วใหม่เป็น 7.5 ซม. ค่าสัมประสิทธิ์ที่ตีพิมพ์ไว้ก็จะไม่ตรงกับรางนั้นอีกต่อไป</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Worked example 4 · Choosing and reading a Parshall flume</span><span class="th">ตัวอย่างการคำนวณที่ 4 · การเลือกและอ่านค่ารางวัดน้ำแบบพาร์แชล</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A canal carries between <strong>5 and 300 L/s</strong>. (a) Which Parshall sizes will serve? (b) What is the discharge at H<sub>a</sub> = 0.50 m?</span>
+            <span class="th">คลองสายหนึ่งมีอัตราการไหลระหว่าง <strong>5 ถึง 300 ล./วินาที</strong> (ก) รางวัดน้ำแบบพาร์แชลขนาดใดใช้ได้บ้าง (ข) ถ้า H<sub>a</sub> = 0.50 ม. อัตราการไหลเป็นเท่าใด</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en"><strong>(a)</strong> The maximum of 300 L/s rules out anything smaller than <strong>1 ft</strong> (the 9-inch tops out at 251). The minimum of 5 L/s rules out anything larger than <strong>1 ft 6 in</strong> (the 2-foot cannot read below 12). Both conditions are satisfied by the <strong>1 ft</strong> and the <strong>1 ft 6 in</strong> flumes only.</span>
+          <span class="th"><strong>(ก)</strong> อัตราสูงสุด 300 ล./วินาที ตัดขนาดที่เล็กกว่า <strong>1 ฟุต</strong> ออกทั้งหมด (ขนาด 9 นิ้ว รับได้สูงสุดเพียง 251) ส่วนอัตราต่ำสุด 5 ล./วินาที ตัดขนาดที่ใหญ่กว่า <strong>1 ฟุต 6 นิ้ว</strong> ออก (ขนาด 2 ฟุต อ่านค่าต่ำกว่า 12 ไม่ได้) เงื่อนไขทั้งสองข้อจึงเหลือเพียงรางขนาด <strong>1 ฟุต</strong> และ <strong>1 ฟุต 6 นิ้ว</strong> เท่านั้น</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>Q = 0.6909 × 0.50<sup>1.522</sup> = 0.2406 m³/s = <strong>241 L/s</strong></code><span class="eq-note"><span class="en">1 ft flume</span><span class="th">รางขนาด 1 ฟุต</span></span></div>
+          <div class="eq result"><code>Q = 1.056 × 0.50<sup>1.538</sup> = 0.3636 m³/s = <strong>364 L/s</strong></code><span class="eq-note"><span class="en">1 ft 6 in flume</span><span class="th">รางขนาด 1 ฟุต 6 นิ้ว</span></span></div>
+        </div>
+
+        <h3><span class="en">Worked example 5 · When the flume drowns</span><span class="th">ตัวอย่างการคำนวณที่ 5 · เมื่อรางถูกน้ำท้ายท่วม</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A <strong>6-inch</strong> Parshall flume reads H<sub>a</sub> = 0.40 m. Find Q when (a) H<sub>b</sub> = 0.20 m and (b) H<sub>b</sub> = 0.30 m.</span>
+            <span class="th">รางวัดน้ำแบบพาร์แชลขนาด <strong>6 นิ้ว</strong> อ่านค่า H<sub>a</sub> = 0.40 ม. จงหาค่า Q เมื่อ (ก) H<sub>b</sub> = 0.20 ม. และ (ข) H<sub>b</sub> = 0.30 ม.</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>(a) H<sub>b</sub>/H<sub>a</sub> = 0.20/0.40 = 0.50 ≤ 0.60</code><span class="eq-note"><span class="en">free flow</span><span class="th">ไหลแบบอิสระ</span></span></div>
+          <div class="eq result"><code>Q = 0.3812 × 0.40<sup>1.58</sup> = 0.0896 m³/s = <strong>89.6 L/s</strong></code></div>
+          <div class="eq"><code>(b) H<sub>b</sub>/H<sub>a</sub> = 0.30/0.40 = 0.75 &gt; 0.60</code><span class="eq-note"><span class="en">submerged — a correction must be subtracted</span><span class="th">ไหลใต้ผิวน้ำ ต้องหักค่าปรับแก้ออก</span></span></div>
+          <div class="eq"><code>Q<sub>E</sub> = 11 L/s</code><span class="eq-note"><span class="en">from the submergence chart for this size</span><span class="th">จากกราฟปรับแก้การจมของรางขนาดนี้</span></span></div>
+          <div class="eq result"><code>Q<sub>s</sub> = 89.6 − 11 = <strong>78.6 L/s</strong></code></div>
+        </div>
+
+        <p>
+          <span class="en">Read that pair again. The upstream gauge said exactly the same thing in both cases — <strong>0.40 m</strong> — and the actual flow differed by 12%. A Parshall flume read without checking H<sub>b</sub> is not a measurement; it is a guess with a decimal point. This is the most common field error in the whole chapter.</span>
+          <span class="th">ให้อ่านคำตอบทั้งคู่อีกครั้ง เครื่องวัดด้านเหนือน้ำบอกค่าเท่ากันเป๊ะทั้งสองกรณี คือ <strong>0.40 ม.</strong> แต่อัตราการไหลจริงต่างกันถึง 12% การอ่านค่ารางพาร์แชลโดยไม่ตรวจสอบ H<sub>b</sub> จึงไม่ใช่การวัด แต่เป็นการเดาที่มีจุดทศนิยม นี่คือความผิดพลาดในสนามที่พบบ่อยที่สุดของทั้งบทนี้</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Installing a flume so that it stays free</span><span class="th">การติดตั้งรางให้การไหลเป็นแบบอิสระเสมอ</span></div>
+          <p>
+            <span class="en">Because free flow is so much easier to work with, the crest elevation is chosen to guarantee it. The procedure is:</span>
+            <span class="th">เนื่องจากการไหลแบบอิสระใช้งานง่ายกว่ามาก การกำหนดระดับพื้นรางจึงต้องเลือกให้เป็นแบบอิสระไว้ก่อน ขั้นตอนมีดังนี้</span>
+          </p>
+          <p>
+            <span class="en"><strong>1.</strong> Establish Q<sub>max</sub>, the highest flow that will ever be measured. <strong>2.</strong> Find the water level in the canal at Q<sub>max</sub>, and how much freeboard the bank allows. <strong>3.</strong> Select a flume size that spans the range, and compute H<sub>a</sub> at Q<sub>max</sub> under free flow. <strong>4.</strong> Set the floor of the flume high enough that the downstream water level cannot reach the submergence limit — and check that the resulting upstream level still fits inside the freeboard. If it does not, you must either accept submerged operation and its second gauge, or find more head.</span>
+            <span class="th"><strong>1.</strong> กำหนดค่า Q<sub>max</sub> คืออัตราการไหลสูงสุดที่จะต้องวัด <strong>2.</strong> หาระดับน้ำในคลองที่อัตรา Q<sub>max</sub> และดูว่าตลิ่งมีระยะเผื่อพ้นน้ำเท่าใด <strong>3.</strong> เลือกขนาดรางที่ครอบคลุมช่วงอัตราการไหล แล้วคำนวณค่า H<sub>a</sub> ที่ Q<sub>max</sub> เมื่อไหลแบบอิสระ <strong>4.</strong> กำหนดระดับพื้นรางให้สูงพอที่ระดับน้ำด้านท้ายจะไม่มีทางถึงขีดจำกัดการจม แล้วตรวจสอบว่าระดับน้ำด้านเหนือที่เกิดขึ้นยังอยู่ในระยะเผื่อพ้นน้ำหรือไม่ ถ้าไม่พอ ก็ต้องเลือกระหว่างยอมรับการทำงานแบบจมพร้อมเครื่องวัดตัวที่สอง หรือไปหาเฮดมาเพิ่ม</span>
+          </p>
+        </div>
+
+        <h3><span class="en">The cutthroat flume</span><span class="th">รางวัดน้ำแบบไม่มีคอ</span></h3>
+
+        <p>
+          <span class="en">A Parshall flume has a level converging floor, a falling throat floor and a rising diverging floor — three levels that must all be poured accurately. The <strong>cutthroat</strong> flume removes the throat entirely: the converging walls meet the diverging walls at a single line, and <strong>the whole floor is flat</strong>. That makes it far cheaper to build and far easier to retrofit into an existing lined canal, which is why it is common in farm-scale work.</span>
+          <span class="th">รางวัดน้ำแบบพาร์แชลมีพื้นทางผายเข้าที่ราบ พื้นส่วนคอที่ลาดลง และพื้นทางผายออกที่ลาดขึ้น รวมสามระดับซึ่งต้องเทคอนกรีตให้ได้ระดับอย่างแม่นยำทั้งหมด ส่วนรางแบบ <strong>ไม่มีคอ (Cutthroat)</strong> ตัดส่วนคอออกไปทั้งหมด คือให้ผนังทางผายเข้ามาบรรจบกับผนังทางผายออกที่เส้นเดียว และ <strong>พื้นรางราบเรียบตลอด</strong> จึงก่อสร้างได้ถูกกว่ามาก และติดตั้งเพิ่มในคลองดาดคอนกรีตเดิมได้ง่ายกว่ามาก ด้วยเหตุนี้จึงพบได้ทั่วไปในงานระดับไร่นา</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = C · H<sub>a</sub><sup>n₁</sup></code><span class="eq-note"><span class="en">free flow, valid while H<sub>a</sub>/L ≤ 0.4</span><span class="th">ไหลอิสระ ใช้ได้เมื่อ H<sub>a</sub>/L ไม่เกิน 0.4</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">As with the Parshall, H<sub>a</sub> is read in the converging section and H<sub>b</sub> in the diverging section, and the same three flow conditions exist: free, transition, and submerged. Stilling wells are set at L/9 from each end of the flume.</span>
+          <span class="th">เช่นเดียวกับรางพาร์แชล ค่า H<sub>a</sub> อ่านที่ทางผายเข้า และ H<sub>b</sub> อ่านที่ทางผายออก และมีสภาวะการไหลสามแบบเหมือนกัน คือ ไหลอิสระ ช่วงเปลี่ยนผ่าน และไหลใต้ผิวน้ำ ส่วนบ่อน้ำนิ่งติดตั้งที่ระยะ L/9 จากปลายทั้งสองข้างของราง</span>
+        </p>
+      </section>
+
+      <!-- ===================== 5.7 ===================== -->
+      <section id="s-orifice">
+        <h2><span class="en">5.7 Orifices and the constant-head orifice</span><span class="th">5.7 ช่องเปิดและอาคารวัดน้ำแบบ CHO</span></h2>
+
+        <p>
+          <span class="en">An orifice is a hole with water on both sides. The flow through it depends on the <em>difference</em> in water level across it — not on the depth of either side separately:</span>
+          <span class="th">ช่องเปิด (Orifice) คือรูที่มีน้ำอยู่ทั้งสองด้าน อัตราการไหลผ่านรูขึ้นอยู่กับ <em>ผลต่าง</em> ของระดับน้ำสองด้าน ไม่ได้ขึ้นกับความลึกของด้านใดด้านหนึ่งโดยลำพัง</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = C<sub>d</sub> · A · √(2g · Δh)</code><span class="eq-note"><span class="en">submerged orifice; Q m³/s, A m², Δh m, g = 9.81 m/s²</span><span class="th">ช่องเปิดแบบจมน้ำ Q ลบ.ม./วินาที A ตร.ม. Δh ม. g = 9.81 ม./วินาที²</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>C<sub>d</sub></dt><dd><span class="en">discharge coefficient, about <strong>0.61–0.65</strong> for a sharp-edged rectangular opening</span><span class="th">สัมประสิทธิ์การไหล มีค่าราว <strong>0.61–0.65</strong> สำหรับช่องเปิดสี่เหลี่ยมขอบคม</span></dd>
+          <dt>A</dt><dd><span class="en">area of the opening (m²) — width × gate opening</span><span class="th">พื้นที่ช่องเปิด (ตร.ม.) คือความกว้าง × ระยะเปิดบาน</span></dd>
+          <dt>Δh</dt><dd><span class="en">difference between the upstream and downstream water surfaces (m)</span><span class="th">ผลต่างของระดับผิวน้ำด้านเหนือและด้านท้าย (ม.)</span></dd>
+        </dl>
+
+        <h3><span class="en">The trick: hold Δh constant</span><span class="th">เคล็ดลับ: ตรึงค่า Δh ให้คงที่</span></h3>
+
+        <p>
+          <span class="en">On its own, an orifice is awkward: to know Q you must read two water levels accurately, and their difference is often only a few centimetres — the very situation in which reading error is worst. The <strong>constant-head orifice (CHO)</strong> removes the problem by turning it around. The structure has <em>two</em> gates in series: an upstream orifice gate that sets the area A, and a downstream check gate that the operator adjusts until the difference across the orifice equals a fixed standard value, usually <strong>6 cm</strong>. With Δh fixed, the equation collapses to a constant times the opening:</span>
+          <span class="th">ถ้าใช้ช่องเปิดตามลำพัง จะไม่สะดวก เพราะต้องอ่านระดับน้ำสองค่าให้แม่นยำเพื่อจะรู้ค่า Q และผลต่างของสองค่านั้นมักเหลือเพียงไม่กี่เซนติเมตร ซึ่งเป็นสภาพที่ความคลาดเคลื่อนจากการอ่านรุนแรงที่สุดพอดี <strong>อาคารวัดน้ำที่มีระดับต่างคงที่ (Constant Head Orifice หรือ CHO)</strong> แก้ปัญหานี้ด้วยการกลับด้านความคิด อาคารชนิดนี้มีบานประตู <em>สองบาน</em> เรียงกัน คือบานช่องเปิดด้านเหนือน้ำซึ่งกำหนดพื้นที่ A และบานควบคุมด้านท้ายซึ่งผู้ควบคุมปรับจนกระทั่งผลต่างระดับน้ำคร่อมช่องเปิดเท่ากับค่ามาตรฐานที่กำหนดไว้ตายตัว ซึ่งโดยทั่วไปคือ <strong>6 ซม.</strong> เมื่อตรึง Δh ไว้แล้ว สมการจะยุบลงเหลือค่าคงที่คูณด้วยระยะเปิดบาน</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>Q = 0.65 × A × √(2 × 9.81 × 0.06)</code><span class="eq-note"><span class="en">Δh held at 6 cm</span><span class="th">ตรึงค่า Δh ไว้ที่ 6 ซม.</span></span></div>
+          <div class="eq result"><code>Q ≈ 0.705 · A</code><span class="eq-note"><span class="en">m³/s per m² of opening — read A off the gate scale</span><span class="th">ลบ.ม./วินาที ต่อพื้นที่ช่องเปิด 1 ตร.ม. อ่านค่า A จากสเกลที่บานประตู</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked example 6 · Setting a CHO turnout</span><span class="th">ตัวอย่างการคำนวณที่ 6 · การตั้งค่าอาคาร CHO ที่ปากคลองส่งน้ำ</span></div>
+          <p>
+            <span class="en">A CHO turnout has an orifice <strong>30 cm</strong> wide. The gate is opened <strong>15 cm</strong> and the check gate is adjusted until Δh reads <strong>6 cm</strong>. What is the delivery?</span>
+            <span class="th">อาคาร CHO ที่ปากคลองแห่งหนึ่งมีช่องเปิดกว้าง <strong>30 ซม.</strong> เปิดบานประตูสูง <strong>15 ซม.</strong> แล้วปรับบานควบคุมด้านท้ายจนอ่านค่า Δh ได้ <strong>6 ซม.</strong> จะส่งน้ำได้เท่าใด</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>A = 0.30 × 0.15 = 0.045 m²</code></div>
+          <div class="eq result"><code>Q = 0.705 × 0.045 = 0.0317 m³/s = <strong>31.7 L/s</strong></code></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Gate opening (cm)</span><span class="th">ระยะเปิดบาน (ซม.)</span></th>
+                <th class="num">5</th><th class="num">10</th><th class="num">15</th><th class="num">20</th><th class="num">25</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Delivery (L/s), 30 cm wide orifice, Δh = 6 cm</span><span class="th">อัตราส่งน้ำ (ล./วินาที) ช่องเปิดกว้าง 30 ซม. Δh = 6 ซม.</span></td>
+                <td class="num">10.6</td><td class="num">21.2</td><td class="num">31.7</td><td class="num">42.3</td><td class="num">52.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">The relationship is exactly linear, because the only variable left is the area. That is the CHO's real gift: the ditch rider does not calculate, does not interpolate, and does not read a rating curve. They set the gate to the mark, adjust the check until the two staff gauges differ by 6 cm, and walk away having delivered a known flow. It is, as §5.3 asked for, a structure that both <em>measures</em> and <em>regulates</em>.</span>
+          <span class="th">ความสัมพันธ์เป็นเส้นตรงพอดี เพราะตัวแปรที่เหลืออยู่มีเพียงพื้นที่ช่องเปิดเท่านั้น นี่คือข้อดีที่แท้จริงของ CHO กล่าวคือ เจ้าหน้าที่ส่งน้ำไม่ต้องคำนวณ ไม่ต้องเทียบบัญญัติไตรยางศ์ และไม่ต้องอ่านกราฟ เพียงตั้งบานประตูให้ตรงขีด ปรับบานควบคุมจนเครื่องวัดระดับทั้งสองต่างกัน 6 ซม. แล้วเดินจากไปโดยที่ได้ส่งน้ำในอัตราที่รู้ค่าแล้ว นี่คืออาคารที่ทั้ง <em>วัด</em> และ <em>ควบคุม</em> ได้ ตามที่หัวข้อ 5.3 ต้องการพอดี</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The catch</span><span class="th">ข้อควรระวัง</span></div>
+          <p>
+            <span class="en">The CHO needs enough head to spend 6 cm across the orifice <em>plus</em> the loss at the check gate. In the flattest reaches of a Thai delivery system that head does not exist, and the structure is then operated with whatever Δh it can get — at which point the operator is back to reading two gauges and using the full equation, and the whole advantage is gone. Before specifying a CHO, check the head budget for the reach, not just for the structure.</span>
+            <span class="th">อาคาร CHO ต้องการเฮดมากพอที่จะเสียไป 6 ซม. ที่ช่องเปิด <em>บวกกับ</em> การสูญเสียที่บานควบคุมด้านท้ายอีก ในช่วงคลองที่ราบที่สุดของระบบส่งน้ำในประเทศไทย เฮดเท่านั้นไม่มีอยู่จริง อาคารจึงถูกใช้งานด้วยค่า Δh เท่าที่จะหาได้ ซึ่ง ณ จุดนั้นผู้ควบคุมก็ต้องกลับไปอ่านเครื่องวัดสองตัวและใช้สมการเต็มรูปอยู่ดี ข้อได้เปรียบทั้งหมดจึงหายไป ก่อนจะกำหนดให้ใช้ CHO ต้องตรวจสอบงบประมาณเฮดของช่วงคลองนั้นทั้งช่วง ไม่ใช่ดูเฉพาะที่ตัวอาคาร</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 5.8 ===================== -->
+      <section id="s-pipe">
+        <h2><span class="en">5.8 Measuring flow in pipes</span><span class="th">5.8 การวัดน้ำในท่อ</span></h2>
+
+        <p>
+          <span class="en">Sprinkler and micro systems (Chapter 4) deliver through closed pipe, where there is no water surface to read. Everything in §5.4 to §5.7 becomes useless and a different family of instruments takes over.</span>
+          <span class="th">ระบบฉีดฝอยและระบบจุลภาค (บทที่ 4) ส่งน้ำผ่านท่อปิด ซึ่งไม่มีผิวน้ำให้อ่านค่า ทุกอย่างในหัวข้อ 5.4 ถึง 5.7 จึงใช้ไม่ได้ และต้องใช้เครื่องมืออีกตระกูลหนึ่งแทน</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Instrument</span><span class="th">เครื่องมือ</span></th>
+                <th><span class="en">How it works</span><span class="th">หลักการทำงาน</span></th>
+                <th><span class="en">Head loss</span><span class="th">การสูญเสียเฮด</span></th>
+                <th><span class="en">Where it belongs</span><span class="th">เหมาะกับงานแบบใด</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Propeller meter</span><span class="th">มาตรวัดแบบใบพัด</span></strong></td>
+                <td><span class="en">A propeller in the flow turns a counter; revolutions totalise volume directly.</span><span class="th">ใบพัดในทางน้ำหมุนขับชุดนับ จำนวนรอบสะสมเป็นปริมาตรโดยตรง</span></td>
+                <td><span class="en">Low</span><span class="th">ต่ำ</span></td>
+                <td><span class="en">The workhorse for pump outlets and pressurised turnouts. Reads volume, which is what you actually want. Bearings wear and weed fouls it.</span><span class="th">เป็นตัวหลักสำหรับปากทางออกของเครื่องสูบน้ำและท่อส่งน้ำที่มีแรงดัน อ่านค่าเป็นปริมาตรซึ่งเป็นสิ่งที่เราต้องการจริง ๆ แต่ลูกปืนสึกหรอและวัชพืชพันได้</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Venturi / orifice plate</span><span class="th">เวนจูรี / แผ่นออริฟิซ</span></strong></td>
+                <td><span class="en">A constriction raises velocity and drops pressure; the pressure difference gives the flow.</span><span class="th">คอคอดทำให้ความเร็วเพิ่มและความดันลด ผลต่างความดันบอกอัตราการไหล</span></td>
+                <td><span class="en">Venturi low, orifice plate high</span><span class="th">เวนจูรีต่ำ แผ่นออริฟิซสูง</span></td>
+                <td><span class="en">No moving parts at all, so it lasts. Needs a manometer or pressure gauges and a calculation for every reading.</span><span class="th">ไม่มีชิ้นส่วนเคลื่อนไหวเลย จึงทนทาน แต่ต้องมีมาโนมิเตอร์หรือเกจวัดความดัน และต้องคำนวณทุกครั้งที่อ่านค่า</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Magnetic meter</span><span class="th">มาตรวัดแบบแม่เหล็ก</span></strong></td>
+                <td><span class="en">Moving water in a magnetic field induces a voltage proportional to velocity.</span><span class="th">น้ำที่เคลื่อนที่ในสนามแม่เหล็กเหนี่ยวนำแรงดันไฟฟ้าที่แปรผันตรงกับความเร็ว</span></td>
+                <td><span class="en">None</span><span class="th">ไม่มีเลย</span></td>
+                <td><span class="en">Accurate, unobstructed, handles dirty water. Needs power and costs the most.</span><span class="th">แม่นยำ ไม่กีดขวางการไหล ใช้กับน้ำสกปรกได้ แต่ต้องมีไฟฟ้าและราคาสูงที่สุด</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Ultrasonic (clamp-on)</span><span class="th">อัลตราโซนิก (แบบรัดท่อ)</span></strong></td>
+                <td><span class="en">Times sound pulses sent with and against the flow; the difference gives velocity.</span><span class="th">จับเวลาคลื่นเสียงที่ส่งตามทิศและทวนทิศการไหล ผลต่างบอกความเร็ว</span></td>
+                <td><span class="en">None</span><span class="th">ไม่มีเลย</span></td>
+                <td><span class="en">Straps onto an existing pipe without cutting it, so it is the auditing instrument — ideal for checking whether an installed meter still tells the truth.</span><span class="th">รัดติดกับท่อเดิมได้โดยไม่ต้องตัดท่อ จึงเป็นเครื่องมือสำหรับตรวจสอบ เหมาะที่สุดสำหรับตรวจว่ามาตรวัดที่ติดตั้งอยู่ยังบอกความจริงหรือไม่</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Trajectory method</span><span class="th">วิธีวัดวิถีน้ำพุ่ง</span></strong></td>
+                <td><span class="en">Measure how far the jet from an open pipe end falls over a measured horizontal distance.</span><span class="th">วัดว่าลำน้ำที่พุ่งออกจากปลายท่อเปิดตกลงมาเท่าใดในระยะแนวราบที่กำหนด</span></td>
+                <td><span class="en">n/a</span><span class="th">ไม่เกี่ยวข้อง</span></td>
+                <td><span class="en">Costs nothing and needs only a ruler. Rough — ±10% at best — but it will tell you today whether a pump is delivering what its curve claims.</span><span class="th">ไม่มีค่าใช้จ่ายและใช้เพียงไม้บรรทัด ค่าที่ได้หยาบ คือดีที่สุดราว ±10% แต่บอกได้ทันทีในวันนี้ว่าเครื่องสูบน้ำจ่ายน้ำได้ตามกราฟของมันหรือไม่</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>Q = C<sub>d</sub> · A<sub>2</sub> · √( <span class="frac"><span class="num">2g · Δh</span><span class="den">1 − β<sup>4</sup></span></span> )</code><span class="eq-note"><span class="en">venturi or orifice plate; β = d/D</span><span class="th">เวนจูรีหรือแผ่นออริฟิซ โดย β = d/D</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>A<sub>2</sub></dt><dd><span class="en">area of the throat (m²)</span><span class="th">พื้นที่หน้าตัดของคอคอด (ตร.ม.)</span></dd>
+          <dt>β</dt><dd><span class="en">ratio of throat diameter d to pipe diameter D — typically 0.4 to 0.7</span><span class="th">อัตราส่วนของเส้นผ่านศูนย์กลางคอคอด d ต่อเส้นผ่านศูนย์กลางท่อ D โดยทั่วไป 0.4 ถึง 0.7</span></dd>
+          <dt>Δh</dt><dd><span class="en">pressure difference expressed as a head of water (m)</span><span class="th">ผลต่างความดันที่แปลงเป็นความสูงของน้ำ (ม.)</span></dd>
+          <dt>C<sub>d</sub></dt><dd><span class="en">about 0.98 for a well-made venturi, 0.6–0.65 for an orifice plate</span><span class="th">ราว 0.98 สำหรับเวนจูรีที่ทำมาดี และ 0.6–0.65 สำหรับแผ่นออริฟิซ</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Straight pipe before and after — the rule everyone breaks</span><span class="th">ระยะท่อตรงก่อนและหลัง — ข้อกำหนดที่ทุกคนละเมิด</span></div>
+          <p>
+            <span class="en">Every pipe meter assumes the velocity profile is fully developed and symmetrical. A bend, a valve or a pump immediately upstream leaves the flow swirling, and a swirling flow reads wrong by 5–20% depending on where the sensor happens to sit. The standard requirement is <strong>10 pipe diameters of straight pipe upstream and 5 downstream</strong>. A meter bolted directly onto a pump discharge elbow — which is where meters usually end up, because that is where the flange is — is reading a number that no calibration can rescue.</span>
+            <span class="th">มาตรวัดในท่อทุกชนิดตั้งอยู่บนสมมติฐานว่ารูปแบบความเร็วในท่อพัฒนาเต็มที่และสมมาตรแล้ว ข้องอ วาล์ว หรือเครื่องสูบน้ำที่อยู่ติดกันด้านเหนือน้ำจะทำให้น้ำไหลหมุนวน และการไหลที่หมุนวนจะทำให้อ่านค่าผิดไป 5–20% ขึ้นกับว่าหัววัดบังเอิญอยู่ตรงไหน ข้อกำหนดมาตรฐานคือต้องมี <strong>ท่อตรงยาว 10 เท่าของเส้นผ่านศูนย์กลางท่อด้านเหนือน้ำ และ 5 เท่าด้านท้ายน้ำ</strong> มาตรวัดที่ขันยึดติดกับข้องอทางออกของเครื่องสูบน้ำโดยตรง ซึ่งเป็นตำแหน่งที่มาตรวัดมักไปอยู่เพราะมีหน้าแปลนอยู่ตรงนั้นพอดี จะอ่านได้ค่าที่ไม่มีการสอบเทียบใดช่วยแก้ไขได้เลย</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 5.9 ===================== -->
+      <section id="s-errors">
+        <h2><span class="en">5.9 Where the error comes from</span><span class="th">5.9 ความคลาดเคลื่อนมาจากไหน</span></h2>
+
+        <p>
+          <span class="en">Every device in this chapter converts a <em>length</em> into a <em>flow</em> by raising it to a power. That has a consequence worth stating as a rule, because it decides which device you should choose:</span>
+          <span class="th">เครื่องมือทุกชนิดในบทนี้แปลงค่า <em>ความยาว</em> ให้เป็น <em>อัตราการไหล</em> ด้วยการยกกำลัง ซึ่งมีผลตามมาที่ควรระบุไว้เป็นกฎ เพราะเป็นตัวตัดสินว่าควรเลือกใช้เครื่องมือชนิดใด</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code><span class="frac"><span class="num">ΔQ</span><span class="den">Q</span></span> = n · <span class="frac"><span class="num">ΔH</span><span class="den">H</span></span></code><span class="eq-note"><span class="en">n = 1.5 for rectangular weirs, 2.5 for a V-notch</span><span class="th">n = 1.5 สำหรับฝายสี่เหลี่ยม และ 2.5 สำหรับฝายสามเหลี่ยม</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">A percentage error in the head becomes one-and-a-half times that error in a rectangular weir's discharge, and <strong>two-and-a-half times</strong> in a V-notch. Working the numbers for a 1 cm reading error:</span>
+          <span class="th">ความคลาดเคลื่อนเป็นร้อยละของค่าเฮด จะกลายเป็นความคลาดเคลื่อนหนึ่งเท่าครึ่งในอัตราการไหลของฝายสี่เหลี่ยม และ <strong>สองเท่าครึ่ง</strong> ในฝายสามเหลี่ยม ถ้าคิดเป็นตัวเลขสำหรับความคลาดเคลื่อนในการอ่าน 1 ซม. จะได้ดังนี้</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Device and head</span><span class="th">เครื่องมือและค่าเฮด</span></th>
+                <th><span class="en">True Q (L/s)</span><span class="th">Q จริง (ล./วินาที)</span></th>
+                <th><span class="en">Q read 1 cm high</span><span class="th">Q เมื่ออ่านสูงไป 1 ซม.</span></th>
+                <th><span class="en">Error</span><span class="th">ความคลาดเคลื่อน</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Rectangular, L = 1 m, H = 10 cm</span><span class="th">สี่เหลี่ยม L = 1 ม. H = 10 ซม.</span></td><td class="num">58.1</td><td class="num">67.1</td><td class="num">+15.4%</td></tr>
+              <tr><td><span class="en">Rectangular, L = 1 m, H = 30 cm</span><span class="th">สี่เหลี่ยม L = 1 ม. H = 30 ซม.</span></td><td class="num">302.0</td><td class="num">317.2</td><td class="num">+5.0%</td></tr>
+              <tr><td><span class="en">90° V-notch, H = 10 cm</span><span class="th">สามเหลี่ยม 90° H = 10 ซม.</span></td><td class="num">4.4</td><td class="num">5.5</td><td class="num">+26.9%</td></tr>
+              <tr><td><span class="en">90° V-notch, H = 30 cm</span><span class="th">สามเหลี่ยม 90° H = 30 ซม.</span></td><td class="num">68.0</td><td class="num">73.8</td><td class="num">+8.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The rule this gives you</span><span class="th">กฎที่ได้จากตารางนี้</span></div>
+          <p>
+            <span class="en"><strong>Always size the device so that it runs near the top of its head range, never near the bottom.</strong> The same weir that is hopeless at H = 5 cm is respectable at H = 30 cm. If a canal's flow varies from 20 to 400 L/s, one weir cannot serve both ends well — and that, not accuracy in the abstract, is why the V-notch exists. Its steep exponent is a <em>liability</em> at high flow and an <em>asset</em> at low flow, because at 5 L/s it still produces a head of several centimetres that a person can actually read, while a 1 m rectangular weir would be showing 2 cm.</span>
+            <span class="th"><strong>ต้องเลือกขนาดเครื่องมือให้ทำงานใกล้ปลายบนของช่วงเฮดเสมอ ไม่ใช่ใกล้ปลายล่าง</strong> ฝายตัวเดียวกันที่ใช้การไม่ได้เลยที่ H = 5 ซม. จะใช้ได้ดีพอควรที่ H = 30 ซม. ถ้าคลองสายหนึ่งมีอัตราการไหลตั้งแต่ 20 ถึง 400 ล./วินาที ฝายตัวเดียวย่อมรับใช้ทั้งสองปลายได้ไม่ดี และนี่คือเหตุผลที่ฝายสามเหลี่ยมมีอยู่ ไม่ใช่เพราะความแม่นยำในเชิงนามธรรม เลขชี้กำลังที่สูงชันของมันเป็น <em>ภาระ</em> เมื่ออัตราการไหลมาก แต่เป็น <em>ข้อได้เปรียบ</em> เมื่ออัตราการไหลน้อย เพราะที่ 5 ล./วินาที มันยังให้ค่าเฮดหลายเซนติเมตรที่คนอ่านได้จริง ในขณะที่ฝายสี่เหลี่ยมยาว 1 ม. จะแสดงค่าเพียง 2 ซม.</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Six things that go wrong in the field</span><span class="th">หกสิ่งที่ผิดพลาดในสนาม</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">What happens</span><span class="th">สิ่งที่เกิดขึ้น</span></th>
+                <th><span class="en">Direction of the error</span><span class="th">ทิศทางของความคลาดเคลื่อน</span></th>
+                <th><span class="en">How to catch it</span><span class="th">วิธีตรวจจับ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Silt builds up above the crest until the crest height falls below 2H</span><span class="th">ตะกอนทับถมเหนือสันฝายจนความสูงสันฝายเหลือต่ำกว่า 2H</span></td>
+                <td><span class="en">Reads <strong>low</strong>, and gets worse every season</span><span class="th">อ่าน <strong>ต่ำ</strong> กว่าจริง และแย่ลงทุกฤดู</span></td>
+                <td><span class="en">Measure crest-to-bed once a year and write it on the structure</span><span class="th">วัดระยะจากสันฝายถึงท้องน้ำปีละครั้ง แล้วเขียนค่าไว้บนตัวอาคาร</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Head read at the plate instead of 4H upstream</span><span class="th">อ่านค่าเฮดที่ตัวฝาย แทนที่จะอ่านที่ระยะ 4H เหนือน้ำ</span></td>
+                <td><span class="en">Reads <strong>low</strong></span><span class="th">อ่าน <strong>ต่ำ</strong> กว่าจริง</span></td>
+                <td><span class="en">Fix a permanent staff gauge at the right station so nobody has the choice</span><span class="th">ติดตั้งเครื่องวัดระดับถาวรไว้ที่ตำแหน่งที่ถูกต้อง เพื่อไม่ให้ใครมีทางเลือกอื่น</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Nappe not ventilated; it clings to the plate</span><span class="th">แนปป์ไม่มีอากาศเข้าถึง จึงลู่ติดกับแผ่นฝาย</span></td>
+                <td><span class="en">Reads <strong>high</strong></span><span class="th">อ่าน <strong>สูง</strong> กว่าจริง</span></td>
+                <td><span class="en">Look underneath. If you cannot see daylight along the crest, fit a vent pipe</span><span class="th">ก้มดูใต้แนปป์ ถ้ามองไม่เห็นแสงลอดตลอดแนวสันฝาย ให้ติดตั้งท่อระบายอากาศ</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Parshall flume read without checking H<sub>b</sub></span><span class="th">อ่านค่ารางพาร์แชลโดยไม่ตรวจสอบ H<sub>b</sub></span></td>
+                <td><span class="en">Reads <strong>high</strong> whenever the tailwater is up</span><span class="th">อ่าน <strong>สูง</strong> กว่าจริงทุกครั้งที่น้ำท้ายรางสูงขึ้น</span></td>
+                <td><span class="en">Mark the limiting H<sub>b</sub> level in paint on the downstream wall</span><span class="th">ทาสีทำเครื่องหมายระดับ H<sub>b</sub> ที่เป็นขีดจำกัดไว้บนผนังด้านท้ายราง</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Water leaks under or around the structure</span><span class="th">น้ำรั่วลอดใต้หรืออ้อมตัวอาคาร</span></td>
+                <td><span class="en">Reads <strong>low</strong> — the escaped water was never measured</span><span class="th">อ่าน <strong>ต่ำ</strong> กว่าจริง เพราะน้ำที่รั่วไปไม่เคยถูกวัด</span></td>
+                <td><span class="en">Compare the structure against a float gauging downstream of it</span><span class="th">เทียบค่าจากตัวอาคารกับการวัดด้วยทุ่นลอยที่ด้านท้ายอาคาร</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Pipe meter mounted straight onto a bend or pump</span><span class="th">ติดตั้งมาตรวัดในท่อชิดกับข้องอหรือเครื่องสูบน้ำ</span></td>
+                <td><span class="en">Either direction, 5–20%</span><span class="th">ผิดได้ทั้งสองทิศทาง 5–20%</span></td>
+                <td><span class="en">Check with a clamp-on ultrasonic meter on a straight run</span><span class="th">ตรวจสอบด้วยมาตรวัดอัลตราโซนิกแบบรัดท่อ ที่ช่วงท่อตรง</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Notice the pattern</span><span class="th">สังเกตรูปแบบ</span></div>
+          <p>
+            <span class="en">Four of those six errors are <strong>biases</strong>: they push the reading the same way every time. Bias cannot be averaged out by reading more often, which is exactly what makes it dangerous — a structure that has been under-reading by 12% for six years has produced six years of consistent, confident, wrong numbers, and the water balance built on them will have blamed the losses on the farmers. Random scatter is a nuisance; bias is a false conclusion.</span>
+            <span class="th">ในหกข้อนั้น มีสี่ข้อที่เป็น <strong>ความเอนเอียงอย่างเป็นระบบ</strong> คือผลักค่าที่อ่านได้ไปทางเดียวกันทุกครั้ง ความเอนเอียงแบบนี้เฉลี่ยทิ้งไม่ได้ด้วยการอ่านบ่อยขึ้น ซึ่งเป็นเหตุผลที่ทำให้มันอันตราย อาคารที่อ่านค่าต่ำกว่าจริง 12% มาหกปี ได้ผลิตตัวเลขที่สม่ำเสมอ น่าเชื่อถือ และผิด มาตลอดหกปี และสมดุลน้ำที่สร้างบนตัวเลขเหล่านั้นก็จะไปโทษว่าการสูญเสียเกิดจากเกษตรกร ความกระจัดกระจายแบบสุ่มเป็นเพียงความรำคาญ แต่ความเอนเอียงคือข้อสรุปที่ผิด</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Calibration: check the structure against something else</span><span class="th">การสอบเทียบ: ตรวจอาคารด้วยวิธีอื่น</span></h3>
+
+        <p>
+          <span class="en">A rating table is a claim about a structure, and claims are checked, not trusted. The cheapest useful check costs an afternoon: pick a steady flow, read the structure, then gauge the same flow by the velocity–area method (§5.4) at a straight reach downstream. If the two agree within 10%, the structure is doing its job. If they disagree by 25%, one of the six faults above is present, and the table tells you which direction to look.</span>
+          <span class="th">ตารางเทียบคือข้อกล่าวอ้างเกี่ยวกับตัวอาคาร และข้อกล่าวอ้างย่อมต้องตรวจสอบ ไม่ใช่เชื่อไปเลย การตรวจสอบที่ถูกที่สุดและใช้ได้จริงใช้เวลาเพียงบ่ายเดียว คือเลือกช่วงที่อัตราการไหลคงที่ อ่านค่าจากอาคาร แล้ววัดอัตราการไหลเดียวกันด้วยวิธีพื้นที่-ความเร็ว (หัวข้อ 5.4) ที่ช่วงลำน้ำตรงด้านท้าย ถ้าสองค่าต่างกันไม่เกิน 10% แสดงว่าอาคารทำงานได้ตามหน้าที่ แต่ถ้าต่างกันถึง 25% แสดงว่ามีข้อบกพร่องข้อใดข้อหนึ่งในหกข้อข้างบน และตารางนั้นจะบอกได้ว่าควรมองหาไปในทิศทางใด</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">A closing thought on what "accurate enough" means</span><span class="th">ข้อคิดปิดท้ายว่า "แม่นยำพอ" หมายถึงอะไร</span></div>
+          <p>
+            <span class="en">Chapter 3 computed ET<sub>o</sub> to two decimal places and Chapter 4 sized emitters to the nearest 0.1 L/h. None of that precision survives contact with a measuring structure that is ±10% on a good day. This is not an argument for giving up on the arithmetic — it is an argument for knowing which number in the chain is the weak one. In almost every irrigation calculation you will ever do, <strong>the weakest number is the flow rate</strong>, and improving it costs less than improving anything else.</span>
+            <span class="th">บทที่ 3 คำนวณค่า ET<sub>o</sub> ถึงทศนิยมสองตำแหน่ง และบทที่ 4 เลือกขนาดหัวน้ำหยดละเอียดถึง 0.1 ล./ชม. แต่ความละเอียดทั้งหมดนั้นไม่เหลือรอดเมื่อมาเจอกับอาคารวัดน้ำที่คลาดเคลื่อน ±10% ในวันที่ดี เรื่องนี้ไม่ใช่ข้อโต้แย้งให้เลิกคำนวณอย่างละเอียด แต่เป็นข้อโต้แย้งให้รู้ว่าตัวเลขตัวไหนในห่วงโซ่เป็นจุดอ่อน ในการคำนวณงานชลประทานแทบทุกครั้งที่เราจะทำไปตลอดชีวิต <strong>ตัวเลขที่อ่อนที่สุดคืออัตราการไหล</strong> และการทำให้มันดีขึ้นมีต้นทุนต่ำกว่าการปรับปรุงสิ่งอื่นใด</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">Three quantities, never to be confused: flow rate Q (L/s), volume V (m³), depth d (mm). Structures read rates; crops need depths; time and area are the bridge. <span class="mono">1 rai = 1,600 m²</span>, so 1 mm over 1 rai = 1.6 m³, and 1 L/s for 1 hour = 2.25 mm over one rai.</span><span class="th">สามปริมาณที่ห้ามสับสน คือ อัตราการไหล Q (ล./วินาที) ปริมาตร V (ลบ.ม.) และความลึกน้ำ d (มม.) อาคารวัดน้ำอ่านค่าเป็นอัตรา พืชต้องการความลึก ส่วนเวลาและพื้นที่คือสะพานเชื่อม โดย <span class="mono">1 ไร่ = 1,600 ตร.ม.</span> ดังนั้นน้ำลึก 1 มม. บน 1 ไร่ = 1.6 ลบ.ม. และ 1 ล./วินาที นาน 1 ชม. = ลึก 2.25 มม. บน 1 ไร่</span></li>
+            <li><span class="en">A good farm measuring device loses little head, is easy to read, is accurate across its whole range, is rugged and cheap, and ideally regulates as well as measures.</span><span class="th">เครื่องมือวัดน้ำในไร่นาที่ดีต้องกินเฮดน้อย อ่านค่าง่าย แม่นยำตลอดช่วงการวัด แข็งแรงทนทาน ราคาไม่แพง และถ้าเป็นไปได้ควรควบคุมน้ำได้ด้วย ไม่ใช่วัดอย่างเดียว</span></li>
+            <li><span class="en">The velocity–area method (Q = ΣA<sub>i</sub>v<sub>i</sub>) needs no structure and is the way everything else gets calibrated — but ±15% with a float.</span><span class="th">วิธีพื้นที่-ความเร็ว (Q = ΣA<sub>i</sub>v<sub>i</sub>) ไม่ต้องสร้างอาคาร และเป็นวิธีที่ใช้สอบเทียบเครื่องมืออื่นทั้งหมด แต่คลาดเคลื่อนราว ±15% เมื่อใช้ทุ่นลอย</span></li>
+            <li><span class="en">Sharp-crested weirs: crest 1–2 mm thick chamfered at ≤45°, head read 4H upstream, crest ≥2H and ≥30 cm above the bed, nappe ventilated, approach section ≥8× the flow area. <span class="mono">Q = 0.01838 L H<sup>1.5</sup></span> (suppressed), <span class="mono">0.01838 (L−0.2H) H<sup>1.5</sup></span> (contracted), <span class="mono">0.01859 L H<sup>1.5</sup></span> (Cipoletti), <span class="mono">0.0138 H<sup>2.5</sup></span> (90° V-notch), with Q in L/s and L, H in cm.</span><span class="th">ฝายสันคม สันหนา 1–2 มม. ลบมุมไม่เกิน 45° อ่านเฮดที่ระยะ 4H เหนือน้ำ สันฝายสูงจากท้องน้ำไม่น้อยกว่า 2H และไม่น้อยกว่า 30 ซม. แนปป์ต้องมีอากาศเข้าถึง และพื้นที่หน้าตัดหน้าฝายไม่น้อยกว่า 8 เท่าของพื้นที่น้ำไหลข้าม โดย <span class="mono">Q = 0.01838 L H<sup>1.5</sup></span> (ไม่บีบข้าง) <span class="mono">0.01838 (L−0.2H) H<sup>1.5</sup></span> (บีบข้าง) <span class="mono">0.01859 L H<sup>1.5</sup></span> (คางหมู) และ <span class="mono">0.0138 H<sup>2.5</sup></span> (สามเหลี่ยม 90°) เมื่อ Q เป็น ล./วินาที และ L, H เป็น ซม.</span></li>
+            <li><span class="en">If the approach velocity exceeds 0.30 m/s, add the velocity head h = V²/2g.</span><span class="th">ถ้าความเร็วกระแสน้ำหน้าฝายเกิน 0.30 ม./วินาที ต้องบวกเฮดความเร็ว h = V²/2g เข้าไปด้วย</span></li>
+            <li><span class="en">Flumes force critical flow instead of a free fall, so they cost about a third of the head. <span class="mono">Q = K H<sub>a</sub><sup>n</sup></span>. A Parshall reads H<sub>a</sub> alone while H<sub>b</sub>/H<sub>a</sub> stays under the limit for its size (0.50 / 0.60 / 0.70 / 0.80); past that it is submerged and needs a correction. Its 22 sizes are not scale models of one another.</span><span class="th">รางวัดน้ำบังคับให้เกิดการไหลวิกฤตแทนการตกอิสระ จึงกินเฮดราวหนึ่งในสาม โดย <span class="mono">Q = K H<sub>a</sub><sup>n</sup></span> รางพาร์แชลอ่านค่า H<sub>a</sub> อย่างเดียวได้ตราบที่ H<sub>b</sub>/H<sub>a</sub> ยังต่ำกว่าขีดจำกัดของขนาดนั้น (0.50 / 0.60 / 0.70 / 0.80) ถ้าเกินไปจะเป็นการไหลใต้ผิวน้ำและต้องปรับแก้ ทั้ง 22 ขนาดไม่ได้เป็นแบบย่อขยายของกันและกัน</span></li>
+            <li><span class="en">A constant-head orifice holds Δh at a standard 6 cm, so discharge becomes proportional to the gate opening alone — measuring and regulating in one structure, at the price of the head it consumes.</span><span class="th">อาคาร CHO ตรึงค่า Δh ไว้ที่ค่ามาตรฐาน 6 ซม. อัตราการไหลจึงแปรผันตรงกับระยะเปิดบานเพียงอย่างเดียว เป็นการวัดและควบคุมในอาคารเดียว โดยแลกกับเฮดที่ต้องเสียไป</span></li>
+            <li><span class="en">In pipes: propeller, venturi, magnetic, ultrasonic, and the ruler-and-eye trajectory method. All of them need 10 diameters of straight pipe upstream and 5 downstream.</span><span class="th">ในท่อ ใช้มาตรวัดแบบใบพัด เวนจูรี แม่เหล็ก อัลตราโซนิก และวิธีวัดวิถีน้ำพุ่งด้วยไม้บรรทัดและสายตา ทุกชนิดต้องมีท่อตรง 10 เท่าของเส้นผ่านศูนย์กลางด้านเหนือน้ำ และ 5 เท่าด้านท้ายน้ำ</span></li>
+            <li><span class="en"><span class="mono">ΔQ/Q = n · ΔH/H</span>. Size every device to run near the top of its head range, and remember that the dangerous errors are the biases, not the scatter.</span><span class="th"><span class="mono">ΔQ/Q = n · ΔH/H</span> ต้องเลือกขนาดเครื่องมือทุกชนิดให้ทำงานใกล้ปลายบนของช่วงเฮด และจำไว้ว่าความคลาดเคลื่อนที่อันตรายคือความเอนเอียงอย่างเป็นระบบ ไม่ใช่ความกระจัดกระจาย</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">A 10 rai block is to receive a net depth of 75 mm at an application efficiency of 60%. The turnout is a Cipoletti weir with a 1.00 m crest reading a head of 20 cm. How long must the turnout run?</span>
+            <span class="th">แปลงขนาด 10 ไร่ ต้องการน้ำสุทธิลึก 75 มม. ที่ประสิทธิภาพการให้น้ำ 60% ปากคลองส่งน้ำเป็นฝายสี่เหลี่ยมคางหมูสันยาว 1.00 ม. อ่านค่าเฮดได้ 20 ซม. จะต้องเปิดน้ำนานเท่าใด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Gross depth <span class="mono">d<sub>g</sub> = 75 / 0.60 = 125 mm</span>. Volume <span class="mono">V = 10 × 1.6 × 125 = 2,000 m³</span>. Discharge <span class="mono">Q = 0.01859 × 100 × 20<sup>1.5</sup> = 0.01859 × 100 × 89.44 = 166 L/s</span>. Time <span class="mono">t = 2,000 × 1000 / (166 × 3600) = 3.35 h ≈ 3 h 21 min</span>. Two checks worth making: the weir is running at H = 20 cm, comfortably inside its useful range, so a ±1 cm reading error costs only about 7.5%; and the crest must stand at least 40 cm above the bed for the rating to hold.</span>
+            <span class="th">ความลึกน้ำรวม <span class="mono">d<sub>g</sub> = 75 / 0.60 = 125 มม.</span> ปริมาตร <span class="mono">V = 10 × 1.6 × 125 = 2,000 ลบ.ม.</span> อัตราการไหล <span class="mono">Q = 0.01859 × 100 × 20<sup>1.5</sup> = 0.01859 × 100 × 89.44 = 166 ล./วินาที</span> เวลา <span class="mono">t = 2,000 × 1000 / (166 × 3600) = 3.35 ชม. ประมาณ 3 ชม. 21 นาที</span> มีสองข้อที่ควรตรวจสอบ คือ ฝายทำงานที่ H = 20 ซม. ซึ่งอยู่ในช่วงที่ใช้งานได้ดี ความคลาดเคลื่อนในการอ่าน ±1 ซม. จึงมีผลเพียงราว 7.5% และสันฝายต้องสูงจากท้องน้ำไม่น้อยกว่า 40 ซม. ตารางเทียบจึงจะใช้ได้</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">Explain why a weir must be read 4H upstream of the crest, and state which way the error goes if it is read at the plate. Then explain why the crest must stand at least 2H above the channel bed, and which way <em>that</em> error goes when silt accumulates.</span>
+            <span class="th">จงอธิบายว่าเหตุใดจึงต้องอ่านค่าเฮดของฝายที่ระยะ 4H เหนือสันฝาย และระบุว่าถ้าอ่านที่ตัวฝายความคลาดเคลื่อนจะไปในทิศทางใด จากนั้นจงอธิบายว่าเหตุใดสันฝายจึงต้องสูงจากท้องน้ำไม่น้อยกว่า 2H และเมื่อมีตะกอนทับถม ความคลาดเคลื่อน <em>ข้อนั้น</em> จะไปในทิศทางใด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The 4H rule.</strong> As water approaches the crest it accelerates, and by conservation of energy an accelerating surface must drop. Close to the plate the water surface is already drawn down below the true upstream level, so a gauge there reads a head smaller than the one the rating table was built on — the weir <strong>under-reads</strong>. At 4H upstream the drawdown has not yet begun. <strong>The 2H rule.</strong> The coefficients assume the water approaches the crest with negligible velocity of its own, which requires a deep, slow pool below the crest. As silt raises the bed, the pool shallows, the approach velocity rises, and the weir passes more water than the head alone would indicate — so it <strong>under-reads</strong> as well. Both errors push in the same direction, both are biases rather than scatter, and both get worse with time rather than better, which is why a weir that has never been checked is usually claiming to deliver less than it really does.</span>
+            <span class="th"><strong>กฎระยะ 4H</strong> เมื่อน้ำไหลเข้าใกล้สันฝาย น้ำจะเร่งความเร็วขึ้น และตามหลักการอนุรักษ์พลังงาน ผิวน้ำที่กำลังเร่งย่อมต้องลดระดับลง บริเวณใกล้แผ่นฝาย ผิวน้ำจึงลดต่ำกว่าระดับจริงด้านเหนือน้ำไปแล้ว เครื่องวัดที่ตั้งตรงนั้นจึงอ่านค่าเฮดได้น้อยกว่าค่าที่ใช้สร้างตารางเทียบ ฝายจึง <strong>อ่านต่ำกว่าความจริง</strong> ส่วนที่ระยะ 4H เหนือน้ำ ผิวน้ำยังไม่เริ่มลดระดับ <strong>กฎระยะ 2H</strong> ค่าสัมประสิทธิ์ตั้งอยู่บนสมมติฐานว่าน้ำไหลเข้าหาสันฝายโดยแทบไม่มีความเร็วของตัวเอง ซึ่งต้องอาศัยบ่อน้ำที่ลึกและน้ำไหลช้าอยู่ใต้สันฝาย เมื่อตะกอนยกท้องน้ำสูงขึ้น บ่อน้ำจะตื้นลง ความเร็วกระแสน้ำหน้าฝายจะสูงขึ้น และฝายจะระบายน้ำได้มากกว่าที่ค่าเฮดเพียงลำพังบ่งชี้ จึง <strong>อ่านต่ำกว่าความจริง</strong> เช่นเดียวกัน ความคลาดเคลื่อนทั้งสองผลักไปในทิศทางเดียวกัน ทั้งคู่เป็นความเอนเอียงอย่างเป็นระบบไม่ใช่ความกระจัดกระจาย และทั้งคู่แย่ลงตามเวลาแทนที่จะดีขึ้น นี่คือเหตุผลที่ฝายซึ่งไม่เคยได้รับการตรวจสอบเลย มักรายงานว่าส่งน้ำได้น้อยกว่าที่ส่งจริง</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">A canal must be gauged over a range of 8 to 250 L/s. Compare a 1.0 m Cipoletti weir with a 90° V-notch weir for this duty, using the head each would show at both ends of the range, and recommend one. Assume a head of 5 cm is the smallest that can be read usefully.</span>
+            <span class="th">คลองสายหนึ่งต้องวัดอัตราการไหลในช่วง 8 ถึง 250 ล./วินาที จงเปรียบเทียบฝายสี่เหลี่ยมคางหมูสันยาว 1.0 ม. กับฝายสามเหลี่ยม 90° สำหรับงานนี้ โดยพิจารณาค่าเฮดที่แต่ละแบบจะแสดงที่ปลายทั้งสองของช่วง แล้วเสนอแนะว่าควรใช้แบบใด กำหนดให้เฮดต่ำสุดที่อ่านได้อย่างมีประโยชน์คือ 5 ซม.</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>Cipoletti, 1.0 m crest.</strong> At 250 L/s, <span class="mono">H = (250 / 1.859)<sup>2/3</sup> ≈ 26 cm</span> — comfortable. At 8 L/s, <span class="mono">H ≈ 2.6 cm</span> — below the 5 cm floor, and at that head a 1 cm error is 58% of the flow. Unusable at the bottom of the range. <strong>90° V-notch.</strong> At 8 L/s, <span class="mono">H = (8 / 0.0138)<sup>0.4</sup> ≈ 12.7 cm</span> — easy to read, and a 1 cm error costs about 20%. At 250 L/s, <span class="mono">H ≈ 50 cm</span>, which means the crest must stand about 1.0 m above the bed and the approach section must be correspondingly deep — expensive, and often impossible in a shallow canal. <strong>Recommendation:</strong> neither single weir serves the whole range well, which is the honest answer. If one must be chosen, the V-notch, because its failure at the top is a construction cost while the Cipoletti's failure at the bottom is unmeasurable flow. The better answer is a <strong>compound weir</strong> — a V-notch cut into the crest of a rectangular one — or a Parshall flume, which covers 12 to 937 L/s in the 2-foot size on far less head than either weir.</span>
+            <span class="th"><strong>ฝายคางหมูสันยาว 1.0 ม.</strong> ที่ 250 ล./วินาที <span class="mono">H = (250 / 1.859)<sup>2/3</sup> ประมาณ 26 ซม.</span> ซึ่งใช้งานได้สบาย แต่ที่ 8 ล./วินาที <span class="mono">H ประมาณ 2.6 ซม.</span> ซึ่งต่ำกว่าขีด 5 ซม. และที่เฮดเท่านั้น ความคลาดเคลื่อน 1 ซม. คิดเป็น 58% ของอัตราการไหล จึงใช้ไม่ได้ที่ปลายล่างของช่วง <strong>ฝายสามเหลี่ยม 90°</strong> ที่ 8 ล./วินาที <span class="mono">H = (8 / 0.0138)<sup>0.4</sup> ประมาณ 12.7 ซม.</span> อ่านได้ง่าย และความคลาดเคลื่อน 1 ซม. มีผลราว 20% แต่ที่ 250 ล./วินาที <span class="mono">H ประมาณ 50 ซม.</span> หมายความว่าสันฝายต้องสูงจากท้องน้ำราว 1.0 ม. และพื้นที่หน้าฝายต้องลึกตามไปด้วย ซึ่งแพงและมักเป็นไปไม่ได้ในคลองตื้น <strong>ข้อเสนอแนะ</strong> ฝายเดี่ยวทั้งสองแบบไม่มีแบบใดรับใช้ช่วงทั้งหมดได้ดี ซึ่งเป็นคำตอบที่ตรงไปตรงมาที่สุด ถ้าจำเป็นต้องเลือกหนึ่งแบบ ควรเลือกฝายสามเหลี่ยม เพราะความล้มเหลวที่ปลายบนเป็นเพียงค่าก่อสร้าง ในขณะที่ความล้มเหลวของฝายคางหมูที่ปลายล่างคือการวัดไม่ได้เลย แต่คำตอบที่ดีกว่าคือใช้ <strong>ฝายผสม</strong> คือเจาะช่องสามเหลี่ยมลงในสันของฝายสี่เหลี่ยม หรือใช้รางวัดน้ำแบบพาร์แชล ซึ่งขนาด 2 ฟุตครอบคลุม 12 ถึง 937 ล./วินาที โดยใช้เฮดน้อยกว่าฝายทั้งสองแบบมาก</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">A 6-inch Parshall flume in a farm ditch has read H<sub>a</sub> = 0.35 m every morning for a month, and the operator has logged 73 L/s each day. This week the drain downstream silted up and H<sub>b</sub> has risen to 0.28 m. What is the flow now, and what did the operator's log actually record?</span>
+            <span class="th">รางวัดน้ำแบบพาร์แชลขนาด 6 นิ้ว ในคูส่งน้ำแห่งหนึ่ง อ่านค่า H<sub>a</sub> = 0.35 ม. ทุกเช้ามาตลอดหนึ่งเดือน และผู้ควบคุมบันทึกไว้ว่า 73 ล./วินาที ทุกวัน สัปดาห์นี้ทางระบายน้ำด้านท้ายมีตะกอนทับถม ทำให้ H<sub>b</sub> สูงขึ้นเป็น 0.28 ม. ขณะนี้อัตราการไหลเป็นเท่าใด และบันทึกของผู้ควบคุมได้บันทึกอะไรไว้จริง ๆ</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Free-flow discharge at H<sub>a</sub> = 0.35 m is <span class="mono">Q = 0.3812 × 0.35<sup>1.58</sup> = 0.0731 m³/s = 73 L/s</span>, which is what the operator has been logging. The submergence ratio is now <span class="mono">H<sub>b</sub>/H<sub>a</sub> = 0.28 / 0.35 = 0.80</span>, well past the 0.60 limit for a 6-inch flume, so the flume is drowned and the true discharge is lower than 73 L/s by the correction read from the submergence chart. The exact value needs the chart, but the important part of the answer is the second question: <strong>the log did not record the flow at all.</strong> It recorded H<sub>a</sub>, converted by an equation that stopped applying the day the drain silted up. Every entry since then is too high, by a growing amount, and nothing in the log itself shows it. The fix is procedural, not computational — mark the limiting H<sub>b</sub> on the downstream wall in paint, and require the operator to log <em>both</em> readings rather than the converted flow.</span>
+            <span class="th">อัตราการไหลแบบอิสระที่ H<sub>a</sub> = 0.35 ม. คือ <span class="mono">Q = 0.3812 × 0.35<sup>1.58</sup> = 0.0731 ลบ.ม./วินาที = 73 ล./วินาที</span> ซึ่งตรงกับที่ผู้ควบคุมบันทึกไว้ แต่ขณะนี้อัตราส่วนการจมคือ <span class="mono">H<sub>b</sub>/H<sub>a</sub> = 0.28 / 0.35 = 0.80</span> ซึ่งเกินขีดจำกัด 0.60 ของรางขนาด 6 นิ้วไปมาก รางจึงถูกน้ำท้ายท่วม และอัตราการไหลจริงต่ำกว่า 73 ล./วินาที อยู่เท่ากับค่าปรับแก้ที่อ่านจากกราฟการจม ค่าที่แน่นอนต้องใช้กราฟ แต่ส่วนสำคัญของคำตอบอยู่ที่คำถามข้อที่สอง กล่าวคือ <strong>บันทึกนั้นไม่ได้บันทึกอัตราการไหลเลย</strong> แต่บันทึกค่า H<sub>a</sub> ที่แปลงด้วยสมการซึ่งเลิกใช้ได้ตั้งแต่วันที่ทางระบายน้ำมีตะกอนทับถม ทุกรายการตั้งแต่วันนั้นสูงเกินจริง และสูงเกินมากขึ้นเรื่อย ๆ โดยไม่มีอะไรในบันทึกเองที่แสดงให้เห็น การแก้ไขเป็นเรื่องของขั้นตอนปฏิบัติ ไม่ใช่การคำนวณ คือทาสีทำเครื่องหมายระดับ H<sub>b</sub> ที่เป็นขีดจำกัดไว้บนผนังด้านท้าย และกำหนดให้ผู้ควบคุมบันทึกค่าที่อ่านได้ <em>ทั้งสองค่า</em> แทนที่จะบันทึกอัตราการไหลที่แปลงแล้ว</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">A CHO turnout has an orifice 40 cm wide and is operated at the standard Δh of 6 cm. The block it serves is 8 rai and needs a gross depth of 90 mm, to be delivered within an 8-hour working day. What gate opening should the ditch rider set?</span>
+            <span class="th">อาคาร CHO ที่ปากคลองแห่งหนึ่งมีช่องเปิดกว้าง 40 ซม. และใช้งานที่ค่า Δh มาตรฐาน 6 ซม. แปลงที่รับน้ำมีขนาด 8 ไร่ ต้องการน้ำลึกรวม 90 มม. และต้องส่งให้เสร็จภายในเวลาทำงาน 8 ชั่วโมง เจ้าหน้าที่ส่งน้ำควรตั้งระยะเปิดบานเท่าใด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Volume <span class="mono">V = 8 × 1.6 × 90 = 1,152 m³</span>. Required rate <span class="mono">Q = 1,152 / (8 × 3600) = 0.0400 m³/s = 40 L/s</span>. From <span class="mono">Q = 0.705 A</span>, the area needed is <span class="mono">A = 0.0400 / 0.705 = 0.0567 m²</span>. With a width of 0.40 m the opening is <span class="mono">0.0567 / 0.40 = 0.142 m ≈ 14 cm</span>. The ditch rider sets the orifice gate to 14 cm, then adjusts the downstream check gate until the two staff gauges differ by 6 cm — and from that point the delivery is known without any further reading. Note what the CHO has done to the problem: the operator never touches the discharge equation, because the only variable left is a length they can set with a crank.</span>
+            <span class="th">ปริมาตร <span class="mono">V = 8 × 1.6 × 90 = 1,152 ลบ.ม.</span> อัตราที่ต้องการ <span class="mono">Q = 1,152 / (8 × 3600) = 0.0400 ลบ.ม./วินาที = 40 ล./วินาที</span> จาก <span class="mono">Q = 0.705 A</span> จะได้พื้นที่ที่ต้องการ <span class="mono">A = 0.0400 / 0.705 = 0.0567 ตร.ม.</span> เมื่อช่องเปิดกว้าง 0.40 ม. ระยะเปิดบานคือ <span class="mono">0.0567 / 0.40 = 0.142 ม. ประมาณ 14 ซม.</span> เจ้าหน้าที่ส่งน้ำจึงตั้งบานช่องเปิดไว้ที่ 14 ซม. แล้วปรับบานควบคุมด้านท้ายจนเครื่องวัดระดับทั้งสองต่างกัน 6 ซม. จากจุดนั้นเป็นต้นไปก็รู้อัตราส่งน้ำแล้วโดยไม่ต้องอ่านค่าอะไรอีก ให้สังเกตว่า CHO ทำอะไรกับโจทย์นี้ คือผู้ควบคุมไม่ต้องแตะสมการอัตราการไหลเลย เพราะตัวแปรที่เหลืออยู่มีเพียงความยาวค่าเดียวที่เขาตั้งได้ด้วยการหมุนพวงมาลัย</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">A ditch is gauged by float. Depths at 0.25 m intervals are 0.10, 0.22, 0.30, 0.32, 0.26, 0.14 m, and a float travels 12 m in 30 s. Find the discharge, then state how much of the answer you would be prepared to defend.</span>
+            <span class="th">วัดน้ำในคูด้วยทุ่นลอย วัดความลึกทุกระยะ 0.25 ม. ได้ 0.10, 0.22, 0.30, 0.32, 0.26, 0.14 ม. และทุ่นลอยเคลื่อนที่ได้ 12 ม. ใน 30 วินาที จงหาอัตราการไหล แล้วระบุว่าจะยืนยันคำตอบได้มากน้อยเพียงใด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Area: two end triangles plus five trapezia, all of width 0.25 m. <span class="mono">A = 0.125(0.10) + 0.125(0.10+0.22) + 0.125(0.22+0.30) + 0.125(0.30+0.32) + 0.125(0.32+0.26) + 0.125(0.26+0.14) + 0.125(0.14) = 0.335 m²</span>. Surface velocity <span class="mono">V<sub>s</sub> = 12 / 30 = 0.40 m/s</span>; mean depth is about 0.22 m, so take the coefficient for 0.30 m, <span class="mono">0.66</span>, giving <span class="mono">V = 0.264 m/s</span>. Hence <span class="mono">Q = 0.335 × 0.264 = 0.088 m³/s ≈ 88 L/s</span>. <strong>What to defend:</strong> the order of magnitude and roughly the first two digits. Call it 88 ± 13 L/s. The coefficient is a generic table value, the float does not travel along the thread of maximum velocity, the section changes along the reach, and 30 s of timing carries its own error. Quote it as "about 88 L/s" and never as 88.4.</span>
+            <span class="th">พื้นที่ ประกอบด้วยสามเหลี่ยมปลายสองรูป บวกสี่เหลี่ยมคางหมูห้ารูป ทุกรูปกว้าง 0.25 ม. <span class="mono">A = 0.125(0.10) + 0.125(0.10+0.22) + 0.125(0.22+0.30) + 0.125(0.30+0.32) + 0.125(0.32+0.26) + 0.125(0.26+0.14) + 0.125(0.14) = 0.335 ตร.ม.</span> ความเร็วที่ผิวน้ำ <span class="mono">V<sub>s</sub> = 12 / 30 = 0.40 ม./วินาที</span> ความลึกเฉลี่ยราว 0.22 ม. จึงใช้สัมประสิทธิ์ของแถว 0.30 ม. คือ <span class="mono">0.66</span> ได้ <span class="mono">V = 0.264 ม./วินาที</span> ดังนั้น <span class="mono">Q = 0.335 × 0.264 = 0.088 ลบ.ม./วินาที ประมาณ 88 ล./วินาที</span> <strong>สิ่งที่ยืนยันได้</strong> คืออันดับของขนาดและตัวเลขสองหลักแรกอย่างคร่าว ๆ ให้ถือว่าเป็น 88 ± 13 ล./วินาที เพราะสัมประสิทธิ์เป็นค่ากลางจากตาราง ทุ่นลอยไม่ได้เคลื่อนที่ไปตามแนวที่ความเร็วสูงสุด หน้าตัดลำน้ำเปลี่ยนไปตลอดช่วง และการจับเวลา 30 วินาทีก็มีความคลาดเคลื่อนของตัวเอง จึงควรรายงานว่า "ประมาณ 88 ล./วินาที" ไม่ใช่ 88.4</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">7.</span>
+            <span class="en">An irrigation project reports an overall efficiency of 42%, measured as (volume delivered to fields) ÷ (volume released at the headworks). The headworks flow is measured by a well-maintained Parshall flume; the field deliveries are estimated from gate settings using a design table, because the turnouts have no measuring devices. Discuss what that 42% is actually evidence of.</span>
+            <span class="th">โครงการชลประทานแห่งหนึ่งรายงานประสิทธิภาพรวม 42% โดยคำนวณจาก (ปริมาตรน้ำที่ส่งถึงแปลง) ÷ (ปริมาตรน้ำที่ปล่อยจากหัวงาน) อัตราการไหลที่หัวงานวัดด้วยรางพาร์แชลที่บำรุงรักษาอย่างดี ส่วนปริมาณน้ำที่ส่งถึงแปลงประมาณเอาจากระยะเปิดบานประตูโดยใช้ตารางออกแบบ เพราะปากคลองส่งน้ำเข้านาไม่มีเครื่องมือวัด จงอภิปรายว่าค่า 42% นั้นเป็นหลักฐานของอะไรกันแน่</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">It is evidence of a gap between one measurement and one estimate — not of a loss. The numerator and the denominator are not the same kind of quantity. The denominator is measured by an instrument whose error is small and, more importantly, <em>known</em>. The numerator is computed from gate openings using a table that assumes a head difference nobody verified; real turnouts run at whatever Δh the canal happens to offer that day, so the table over-states or under-states every single delivery, and there is no reason to expect the errors to cancel. <strong>Three quite different situations produce the same 42%:</strong> (i) genuine conveyance loss — seepage and operational spill; (ii) an unbiased delivery estimate combined with genuine loss of some smaller amount; (iii) no unusual loss at all, with the turnout table systematically under-stating deliveries by a third. Nothing in the reported figure distinguishes them. Before spending money on canal lining on the strength of that 42%, install measurement at a sample of turnouts and repeat the balance — the cost of twenty measuring structures is trivial beside the cost of lining the wrong reach. This is §5.1's argument in its most expensive form.</span>
+            <span class="th">ค่านั้นเป็นหลักฐานของช่องว่างระหว่างการวัดหนึ่งค่ากับการประมาณหนึ่งค่า ไม่ใช่หลักฐานของการสูญเสีย ตัวเศษกับตัวส่วนไม่ใช่ปริมาณชนิดเดียวกัน ตัวส่วนวัดด้วยเครื่องมือที่มีความคลาดเคลื่อนน้อย และที่สำคัญกว่านั้นคือ <em>รู้ค่า</em> ความคลาดเคลื่อน ส่วนตัวเศษคำนวณจากระยะเปิดบานโดยใช้ตารางที่สมมติค่าผลต่างระดับน้ำซึ่งไม่มีใครตรวจสอบ ปากคลองจริงทำงานด้วยค่า Δh เท่าที่คลองจะมีให้ในวันนั้น ตารางจึงให้ค่าสูงเกินหรือต่ำเกินในทุกครั้งที่ส่งน้ำ และไม่มีเหตุผลใดที่จะคาดว่าความคลาดเคลื่อนเหล่านั้นจะหักล้างกันเอง <strong>มีสามสถานการณ์ที่ต่างกันโดยสิ้นเชิงแต่ให้ค่า 42% เท่ากัน</strong> คือ (1) มีการสูญเสียในการส่งน้ำจริง ทั้งการรั่วซึมและการระบายทิ้งจากการปฏิบัติงาน (2) การประมาณปริมาณน้ำที่ส่งไม่มีความเอนเอียง ประกอบกับมีการสูญเสียจริงในจำนวนที่น้อยกว่านั้น (3) ไม่มีการสูญเสียผิดปกติเลย แต่ตารางของปากคลองให้ค่าต่ำกว่าจริงอย่างเป็นระบบถึงหนึ่งในสาม ไม่มีอะไรในตัวเลขที่รายงานมาที่จะแยกแยะสามกรณีนี้ออกจากกันได้ ก่อนจะใช้เงินดาดคอนกรีตคลองโดยอาศัยค่า 42% นั้น ควรติดตั้งเครื่องมือวัดที่ปากคลองตัวอย่างจำนวนหนึ่งแล้วทำสมดุลน้ำใหม่ ค่าก่อสร้างอาคารวัดน้ำยี่สิบตัวนั้นน้อยมากเมื่อเทียบกับค่าดาดคลองผิดช่วง นี่คือข้อโต้แย้งของหัวข้อ 5.1 ในรูปแบบที่แพงที่สุด</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">แบบทดสอบเก็บคะแนน</span></h2>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 5 · Measuring Water Applications</span>
+      <span class="th">บทที่ 5 · การวัดปริมาณน้ำ</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'A weir, a flume and an orifice all give you, directly:',
+         th: 'ฝายวัดน้ำ รางวัดน้ำ และช่องเปิด ล้วนให้ค่าใดแก่เราโดยตรง' },
+    choices: [
+      { en: 'The flow rate at the moment you read it', th: 'อัตราการไหล ณ ขณะที่อ่านค่า' },
+      { en: 'The volume delivered since the gate was opened', th: 'ปริมาตรน้ำที่ส่งไปแล้วตั้งแต่เปิดประตูน้ำ' },
+      { en: 'The depth of water applied to the field', th: 'ความลึกของน้ำที่ให้แก่แปลง' },
+      { en: 'The application efficiency of the irrigation', th: 'ประสิทธิภาพการให้น้ำของการชลประทานครั้งนั้น' }
+    ],
+    answer: 0,
+    why: { en: 'Structures read rates. Volume needs the rate multiplied by time, and depth needs the volume divided by area. Confusing the three is the commonest error in the subject.',
+           th: 'อาคารวัดน้ำอ่านค่าเป็นอัตราการไหล ส่วนปริมาตรต้องนำอัตราคูณเวลา และความลึกน้ำต้องนำปริมาตรหารพื้นที่ การสับสนสามค่านี้เป็นความผิดพลาดที่พบบ่อยที่สุดในเรื่องนี้' }
+  },
+  {
+    q: { en: 'One millimetre of water applied over one rai is:',
+         th: 'น้ำลึก 1 มิลลิเมตร บนพื้นที่ 1 ไร่ เท่ากับเท่าใด' },
+    choices: [
+      { en: '0.16 m³', th: '0.16 ลบ.ม.' },
+      { en: '16 m³', th: '16 ลบ.ม.' },
+      { en: '1.6 m³', th: '1.6 ลบ.ม.' },
+      { en: '160 m³', th: '160 ลบ.ม.' }
+    ],
+    answer: 2,
+    why: { en: '1 rai = 1,600 m²; 1 mm = 0.001 m; 1,600 × 0.001 = 1.6 m³. Worth memorising, because it converts every depth in Chapters 2 and 3 into a volume a gate can deliver.',
+           th: '1 ไร่ = 1,600 ตร.ม. และ 1 มม. = 0.001 ม. ดังนั้น 1,600 × 0.001 = 1.6 ลบ.ม. ควรจำค่านี้ไว้ เพราะใช้แปลงความลึกน้ำทุกค่าในบทที่ 2 และ 3 ให้เป็นปริมาตรที่ประตูน้ำส่งได้' }
+  },
+  {
+    q: { en: 'The head on a sharp-crested weir must be read about 4H upstream of the plate because:',
+         th: 'เหตุใดจึงต้องอ่านค่าเฮดของฝายสันคมที่ระยะราว 4H เหนือแผ่นฝาย' },
+    choices: [
+      { en: 'A gauge any closer would be damaged by the falling nappe', th: 'ถ้าติดตั้งเครื่องวัดใกล้กว่านั้นจะเสียหายจากแนปป์ที่ตกลงมา' },
+      { en: 'Closer to the crest the water surface has already drawn down, so the weir would under-read', th: 'บริเวณใกล้สันฝาย ผิวน้ำลดระดับลงไปแล้ว ฝายจึงจะอ่านค่าต่ำกว่าความจริง' },
+      { en: 'The coefficients were derived for a gauge mounted on the plate itself', th: 'ค่าสัมประสิทธิ์ได้มาจากการติดตั้งเครื่องวัดไว้ที่ตัวแผ่นฝายเอง' },
+      { en: 'Turbulence downstream makes any nearer reading unstable', th: 'ความปั่นป่วนด้านท้ายน้ำทำให้การอ่านค่าใกล้กว่านั้นไม่นิ่ง' }
+    ],
+    answer: 1,
+    why: { en: 'Water accelerates as it approaches the crest, and an accelerating surface must fall. At 4H the drawdown has not started. Reading at the plate is a bias — wrong in the same direction every time.',
+           th: 'น้ำเร่งความเร็วขึ้นเมื่อเข้าใกล้สันฝาย และผิวน้ำที่กำลังเร่งย่อมต้องลดระดับลง ที่ระยะ 4H ผิวน้ำยังไม่เริ่มลด การอ่านที่ตัวฝายจึงเป็นความเอนเอียงอย่างเป็นระบบ คือผิดไปในทิศทางเดียวกันทุกครั้ง' }
+  },
+  {
+    q: { en: 'The crest of a weir must stand at least 2H above the channel bed. As silt gradually raises the bed, the weir:',
+         th: 'สันฝายต้องสูงจากท้องน้ำไม่น้อยกว่า 2H เมื่อตะกอนค่อย ๆ ทับถมยกท้องน้ำสูงขึ้น ฝายจะ' },
+    choices: [
+      { en: 'Continues to read correctly as long as the nappe stays ventilated', th: 'ยังอ่านค่าได้ถูกต้องตราบที่แนปป์ยังมีอากาศเข้าถึง' },
+      { en: 'Reads correctly, but consumes more head', th: 'อ่านค่าได้ถูกต้อง แต่กินเฮดมากขึ้น' },
+      { en: 'Begins to over-read, because the pool above the crest is shallower', th: 'เริ่มอ่านค่าสูงกว่าความจริง เพราะบ่อน้ำเหนือสันฝายตื้นลง' },
+      { en: 'Begins to under-read, because the approach velocity rises', th: 'เริ่มอ่านค่าต่ำกว่าความจริง เพราะความเร็วของกระแสน้ำหน้าฝายสูงขึ้น' }
+    ],
+    answer: 3,
+    why: { en: 'The coefficients assume the water arrives with negligible velocity of its own. A shallower pool means a faster approach, so the weir passes more water than the head alone indicates — it under-reads, silently, and a little worse every year.',
+           th: 'ค่าสัมประสิทธิ์ตั้งอยู่บนสมมติฐานว่าน้ำไหลเข้ามาโดยแทบไม่มีความเร็วของตัวเอง บ่อน้ำที่ตื้นลงทำให้น้ำวิ่งเข้าเร็วขึ้น ฝายจึงระบายน้ำได้มากกว่าที่ค่าเฮดเพียงลำพังบ่งชี้ กล่าวคืออ่านต่ำกว่าความจริง โดยไม่มีสัญญาณเตือน และแย่ลงทีละน้อยทุกปี' }
+  },
+  {
+    q: { en: 'A ditch must be gauged at flows as low as 5 L/s. The best choice is:',
+         th: 'คูส่งน้ำแห่งหนึ่งต้องวัดอัตราการไหลที่ต่ำถึง 5 ลิตรต่อวินาที ควรเลือกใช้อะไร' },
+    choices: [
+      { en: 'A 90° V-notch weir', th: 'ฝายสามเหลี่ยม 90°' },
+      { en: 'A 2 m suppressed rectangular weir', th: 'ฝายสี่เหลี่ยมผืนผ้าไม่บีบข้าง สันยาว 2 ม.' },
+      { en: 'An 8-foot Parshall flume', th: 'รางวัดน้ำแบบพาร์แชลขนาด 8 ฟุต' },
+      { en: 'A Cipoletti weir with a 2 m crest', th: 'ฝายสี่เหลี่ยมคางหมู สันยาว 2 ม.' }
+    ],
+    answer: 0,
+    why: { en: 'At 5 L/s the V-notch shows a head of about 11 cm, which anyone can read. A 2 m rectangular or Cipoletti crest would show barely 1 cm, and the 8-foot Parshall cannot read below about 97 L/s at all.',
+           th: 'ที่ 5 ล./วินาที ฝายสามเหลี่ยมให้ค่าเฮดราว 11 ซม. ซึ่งใครก็อ่านได้ ส่วนฝายสี่เหลี่ยมหรือคางหมูสันยาว 2 ม. จะให้ค่าเฮดเพียงราว 1 ซม. และรางพาร์แชลขนาด 8 ฟุต อ่านค่าต่ำกว่าราว 97 ล./วินาที ไม่ได้เลย' }
+  },
+  {
+    q: { en: 'A 6-inch Parshall flume reads Ha = 0.40 m and Hb = 0.30 m. The correct conclusion is:',
+         th: 'รางวัดน้ำแบบพาร์แชลขนาด 6 นิ้ว อ่านค่า Ha = 0.40 ม. และ Hb = 0.30 ม. ข้อสรุปที่ถูกต้องคือ' },
+    choices: [
+      { en: 'Flow is free, so Q = 0.3812 × 0.40^1.58', th: 'การไหลเป็นแบบอิสระ จึงใช้ Q = 0.3812 × 0.40^1.58' },
+      { en: 'The flume is too small for this flow and must be replaced', th: 'รางมีขนาดเล็กเกินไปสำหรับอัตราการไหลนี้ ต้องเปลี่ยนใหม่' },
+      { en: 'The flume is submerged, so the free-flow value must be reduced by a correction', th: 'รางถูกน้ำท้ายท่วม จึงต้องนำค่าที่คำนวณแบบไหลอิสระมาหักค่าปรับแก้ออก' },
+      { en: 'Hb plays no part in a Parshall flume calculation', th: 'ค่า Hb ไม่มีส่วนเกี่ยวข้องกับการคำนวณของรางพาร์แชลเลย' }
+    ],
+    answer: 2,
+    why: { en: 'Hb/Ha = 0.75, well past the 0.60 limit for a 6-inch flume, so the downstream channel is controlling the flow. Free-flow gives 89.6 L/s; the true value here is about 78.6 L/s. Reading Ha alone without checking Hb is the commonest field error in this chapter.',
+           th: 'Hb/Ha = 0.75 ซึ่งเกินขีดจำกัด 0.60 ของรางขนาด 6 นิ้วไปมาก ทางน้ำด้านท้ายจึงกลายเป็นตัวควบคุมการไหล การคำนวณแบบไหลอิสระให้ค่า 89.6 ล./วินาที แต่ค่าจริงในกรณีนี้อยู่ราว 78.6 ล./วินาที การอ่านเฉพาะ Ha โดยไม่ตรวจ Hb เป็นความผิดพลาดในสนามที่พบบ่อยที่สุดของบทนี้' }
+  },
+  {
+    q: { en: 'In a constant-head orifice the operator adjusts the downstream check gate until Δh reaches a fixed standard value. The purpose is:',
+         th: 'ในอาคารวัดน้ำแบบ CHO ผู้ควบคุมปรับบานควบคุมด้านท้ายจนค่า Δh ได้เท่ากับค่ามาตรฐานที่กำหนด เพื่ออะไร' },
+    choices: [
+      { en: 'To prevent erosion of the channel downstream of the structure', th: 'เพื่อป้องกันการกัดเซาะทางน้ำด้านท้ายอาคาร' },
+      { en: 'To hold the upstream canal level steady for the other turnouts', th: 'เพื่อรักษาระดับน้ำในคลองด้านเหนือให้คงที่สำหรับปากคลองอื่น ๆ' },
+      { en: 'To make certain the orifice never runs submerged', th: 'เพื่อให้แน่ใจว่าช่องเปิดจะไม่ทำงานแบบจมน้ำ' },
+      { en: 'To make discharge depend on the gate opening alone, so no calculation is needed', th: 'เพื่อให้อัตราการไหลขึ้นกับระยะเปิดบานเพียงอย่างเดียว จะได้ไม่ต้องคำนวณ' }
+    ],
+    answer: 3,
+    why: { en: 'With Δh fixed, Q = Cd·A·√(2gΔh) collapses to a constant times the opening — about 0.705 A at Δh = 6 cm. The ditch rider sets a length and walks away having delivered a known flow. The orifice is submerged throughout; that is the normal condition, not a fault.',
+           th: 'เมื่อตรึงค่า Δh ไว้ สมการ Q = Cd·A·√(2gΔh) จะยุบเหลือค่าคงที่คูณระยะเปิดบาน คือราว 0.705 A ที่ Δh = 6 ซม. เจ้าหน้าที่ส่งน้ำเพียงตั้งค่าความยาวแล้วเดินจากไปโดยได้ส่งน้ำในอัตราที่รู้ค่าแล้ว ทั้งนี้ช่องเปิดจมน้ำอยู่ตลอดเวลา ซึ่งเป็นสภาวะปกติ ไม่ใช่ข้อบกพร่อง' }
+  },
+  {
+    q: { en: 'A 1 cm error in reading the head causes a bigger percentage error in discharge on a V-notch than on a rectangular weir because:',
+         th: 'ความคลาดเคลื่อนในการอ่านเฮด 1 ซม. ทำให้อัตราการไหลผิดพลาดเป็นร้อยละมากกว่าในฝายสามเหลี่ยมเมื่อเทียบกับฝายสี่เหลี่ยม เพราะเหตุใด' },
+    choices: [
+      { en: 'The V-notch is contracted on both sides', th: 'ฝายสามเหลี่ยมเป็นแบบบีบข้างทั้งสองด้าน' },
+      { en: 'Discharge varies as H^2.5 for a V-notch but only H^1.5 for a rectangular weir', th: 'อัตราการไหลแปรตาม H^2.5 ในฝายสามเหลี่ยม แต่แปรตาม H^1.5 เท่านั้นในฝายสี่เหลี่ยม' },
+      { en: 'The V-notch has no horizontal crest that can be levelled', th: 'ฝายสามเหลี่ยมไม่มีสันในแนวราบที่จะปรับระดับได้' },
+      { en: 'The discharge coefficient of a V-notch is less accurately known', th: 'ค่าสัมประสิทธิ์การไหลของฝายสามเหลี่ยมรู้ค่าได้แม่นยำน้อยกว่า' }
+    ],
+    answer: 1,
+    why: { en: 'ΔQ/Q = n·ΔH/H. With n = 2.5 instead of 1.5, the same relative reading error is amplified by 2.5 rather than 1.5. That steep exponent is a liability at high flow and an asset at low flow, where it produces a head large enough to read.',
+           th: 'ΔQ/Q = n·ΔH/H เมื่อ n = 2.5 แทนที่จะเป็น 1.5 ความคลาดเคลื่อนสัมพัทธ์ในการอ่านค่าเดียวกันจะถูกขยาย 2.5 เท่าแทนที่จะเป็น 1.5 เท่า เลขชี้กำลังที่สูงชันนี้เป็นภาระเมื่ออัตราการไหลมาก แต่เป็นข้อได้เปรียบเมื่ออัตราการไหลน้อย เพราะทำให้เกิดค่าเฮดที่ใหญ่พอจะอ่านได้' }
+  },
+  {
+    q: { en: 'A propeller meter is bolted directly onto the discharge elbow of a pump. The reading:',
+         th: 'มาตรวัดแบบใบพัดถูกขันยึดติดกับข้องอทางออกของเครื่องสูบน้ำโดยตรง ค่าที่อ่านได้จะเป็นอย่างไร' },
+    choices: [
+      { en: 'Is accurate, because the meter was calibrated by its manufacturer', th: 'แม่นยำ เพราะผู้ผลิตสอบเทียบมาตรวัดมาแล้ว' },
+      { en: 'Will be low by a predictable amount that can be corrected', th: 'จะต่ำกว่าจริงเป็นจำนวนที่คาดเดาได้และแก้ไขได้' },
+      { en: 'May be wrong by 5–20%, because the velocity profile is not developed', th: 'อาจผิดไป 5–20% เพราะรูปแบบความเร็วในท่อยังไม่พัฒนาเต็มที่' },
+      { en: 'Is accurate provided the pipe is running full', th: 'แม่นยำ ถ้าน้ำเต็มท่อ' }
+    ],
+    answer: 2,
+    why: { en: 'Every pipe meter assumes a fully developed, symmetrical velocity profile, which needs about 10 pipe diameters of straight pipe upstream and 5 downstream. A bend leaves the flow swirling, and the error can go either way — so it cannot simply be corrected.',
+           th: 'มาตรวัดในท่อทุกชนิดตั้งอยู่บนสมมติฐานว่ารูปแบบความเร็วพัฒนาเต็มที่และสมมาตร ซึ่งต้องมีท่อตรงราว 10 เท่าของเส้นผ่านศูนย์กลางด้านเหนือน้ำ และ 5 เท่าด้านท้ายน้ำ ข้องอทำให้น้ำไหลหมุนวน และความคลาดเคลื่อนอาจไปได้ทั้งสองทิศทาง จึงแก้ไขด้วยการปรับค่าเฉย ๆ ไม่ได้' }
+  },
+  {
+    q: { en: 'Among the common field faults, the biases matter more than the random scatter because:',
+         th: 'ในบรรดาข้อบกพร่องที่พบในสนาม ความเอนเอียงอย่างเป็นระบบสำคัญกว่าความกระจัดกระจายแบบสุ่ม เพราะเหตุใด' },
+    choices: [
+      { en: 'Biases are always larger in magnitude than scatter', th: 'ความเอนเอียงมีขนาดใหญ่กว่าความกระจัดกระจายเสมอ' },
+      { en: 'Scatter cannot be measured at all', th: 'ความกระจัดกระจายวัดค่าไม่ได้เลย' },
+      { en: 'Biases affect weirs only, while flumes suffer scatter', th: 'ความเอนเอียงเกิดกับฝายวัดน้ำเท่านั้น ส่วนรางวัดน้ำมีแต่ความกระจัดกระจาย' },
+      { en: 'Reading more often averages scatter away, but never removes a bias', th: 'การอ่านค่าบ่อยขึ้นเฉลี่ยความกระจัดกระจายทิ้งได้ แต่ไม่มีทางกำจัดความเอนเอียงได้' }
+    ],
+    answer: 3,
+    why: { en: 'A structure under-reading by 12% for six years produces six years of consistent, confident, wrong numbers — and a water balance built on them will blame the losses on somebody. Scatter is a nuisance; bias is a false conclusion.',
+           th: 'อาคารที่อ่านค่าต่ำกว่าจริง 12% มาหกปี ได้ผลิตตัวเลขที่สม่ำเสมอ น่าเชื่อถือ และผิด มาตลอดหกปี และสมดุลน้ำที่สร้างบนตัวเลขเหล่านั้นก็จะไปโทษว่าการสูญเสียเป็นความผิดของใครบางคน ความกระจัดกระจายเป็นเพียงความรำคาญ แต่ความเอนเอียงคือข้อสรุปที่ผิด' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>

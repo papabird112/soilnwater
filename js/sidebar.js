@@ -13,7 +13,7 @@ const CHAPTERS = [
   { id: 'ch02', file: 'ch02.html', en: 'Soil Water',                        th: 'น้ำในดิน',                             ready: true  },
   { id: 'ch03', file: 'ch03.html', en: 'Plant Water Use & Crop Water Req.', th: 'การใช้น้ำของพืชและความต้องการน้ำ',    ready: true  },
   { id: 'ch04', file: 'ch04.html', en: 'Irrigation Methods',                th: 'วิธีการให้น้ำชลประทาน',               ready: true  },
-  { id: 'ch05', file: 'ch05.html', en: 'Measuring Water Applications',      th: 'การวัดปริมาณน้ำ',                     ready: false },
+  { id: 'ch05', file: 'ch05.html', en: 'Measuring Water Applications',      th: 'การวัดปริมาณน้ำ',                     ready: true  },
   { id: 'ch06', file: 'ch06.html', en: 'Planning Farm Irrigation Systems',  th: 'การวางแผนระบบชลประทานในไร่นา',       ready: false },
   { id: 'ch07', file: 'ch07.html', en: 'Irrigation Water Management',       th: 'การจัดการน้ำชลประทาน',                ready: false }
 ];
