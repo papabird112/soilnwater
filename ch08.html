@@ -353,9 +353,9 @@
         <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
         <dl class="where">
           <dt>A</dt><dd><span class="en">average annual soil loss (t/ha/yr) — the long-run mean, not any particular year</span><span class="th">การสูญเสียดินเฉลี่ยรายปี (ตัน/เฮกตาร์/ปี) เป็นค่าเฉลี่ยระยะยาว ไม่ใช่ค่าของปีใดปีหนึ่ง</span></dd>
-          <dt>R</dt><dd><span class="en"><strong>rainfall erosivity</strong> — how hard the rain hits, MJ·mm·ha⁻¹·h⁻¹·yr⁻¹. Climate. You cannot change it.</span><span class="th"><strong>ปัจจัยการกัดเซาะของฝน</strong> คือฝนตกกระแทกรุนแรงเพียงใด หน่วย MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ เป็นเรื่องของภูมิอากาศ เปลี่ยนไม่ได้</span></dd>
-          <dt>K</dt><dd><span class="en"><strong>soil erodibility</strong> — how easily this soil comes apart, t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹. Nearly fixed.</span><span class="th"><strong>ความง่ายต่อการถูกกัดเซาะของดิน</strong> คือดินชนิดนี้แตกตัวง่ายเพียงใด หน่วย t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹ แทบเปลี่ยนไม่ได้</span></dd>
-          <dt>LS</dt><dd><span class="en"><strong>slope length and steepness</strong> — dimensionless, 1.00 on the standard plot. Changeable, at a cost.</span><span class="th"><strong>ความยาวและความชันของลาด</strong> ไม่มีหน่วย มีค่า 1.00 บนแปลงมาตรฐาน เปลี่ยนได้ แต่มีค่าใช้จ่าย</span></dd>
+          <dt>R</dt><dd><span class="en"><strong>rainfall erosivity</strong> — how hard the rain hits. In the LDD system used throughout this chapter, t/ha/yr; in the SI system, MJ·mm·ha⁻¹·h⁻¹·yr⁻¹. Climate. You cannot change it.</span><span class="th"><strong>ปัจจัยการกัดเซาะของฝน</strong> คือฝนตกกระแทกรุนแรงเพียงใด ในระบบของกรมพัฒนาที่ดินที่ใช้ตลอดทั้งบทนี้ มีหน่วยเป็น ตัน/เฮกแตร์/ปี ส่วนในระบบ SI มีหน่วย MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ เป็นเรื่องของภูมิอากาศ เปลี่ยนไม่ได้</span></dd>
+          <dt>K</dt><dd><span class="en"><strong>soil erodibility</strong> — how easily this soil comes apart. Its numerical scale follows whichever R scale you are using — see §8.4. Nearly fixed.</span><span class="th"><strong>ความง่ายต่อการถูกกัดเซาะของดิน</strong> คือดินชนิดนี้แตกตัวง่ายเพียงใด มาตราของตัวเลขขึ้นอยู่กับว่าใช้มาตรา R แบบใด ดูหัวข้อ 8.4 แทบเปลี่ยนไม่ได้</span></dd>
+          <dt>LS</dt><dd><span class="en"><strong>slope length and steepness</strong> — dimensionless, 1.00 on the standard plot. Changeable, at a cost. Thai practice splits this into <span class="mono">L × S</span> and writes the equation with six factors; §8.6 explains why that is the more useful arrangement.</span><span class="th"><strong>ความยาวและความชันของลาด</strong> ไม่มีหน่วย มีค่า 1.00 บนแปลงมาตรฐาน เปลี่ยนได้ แต่มีค่าใช้จ่าย แนวปฏิบัติของไทยแยกค่านี้ออกเป็น <span class="mono">L × S</span> และเขียนสมการด้วยหกปัจจัย หัวข้อ 8.6 อธิบายว่าทำไมการจัดแบบนั้นจึงใช้ประโยชน์ได้มากกว่า</span></dd>
           <dt>C</dt><dd><span class="en"><strong>cover and management</strong> — dimensionless, 1.00 on bare tilled fallow. <strong>Free to change, and the strongest lever you have.</strong></span><span class="th"><strong>พืชคลุมดินและการจัดการ</strong> ไม่มีหน่วย มีค่า 1.00 บนดินเปลือยที่ไถทิ้งไว้ <strong>เปลี่ยนได้โดยแทบไม่มีค่าใช้จ่าย และเป็นคานงัดที่แรงที่สุดที่เรามี</strong></span></dd>
           <dt>P</dt><dd><span class="en"><strong>support practice</strong> — dimensionless, 1.00 for tillage up and down the slope. Changeable.</span><span class="th"><strong>วิธีปฏิบัติเพื่อการอนุรักษ์</strong> ไม่มีหน่วย มีค่า 1.00 เมื่อไถขึ้นลงตามความลาด เปลี่ยนได้</span></dd>
         </dl>
@@ -366,7 +366,7 @@
               <text x="70" y="90">A</text><text x="126" y="90">=</text>
               <text x="186" y="90">R</text><text x="240" y="90">×</text>
               <text x="296" y="90">K</text><text x="350" y="90">×</text>
-              <text x="412" y="90">LS</text><text x="474" y="90">×</text>
+              <text x="412" y="90">L·S</text><text x="474" y="90">×</text>
               <text x="530" y="90">C</text><text x="584" y="90">×</text>
               <text x="640" y="90">P</text>
             </g>
@@ -395,11 +395,11 @@
             <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
               <text x="360" y="214" class="en">Typical range of each factor, bare fallow to best practice:</text>
               <text x="360" y="214" class="th">ช่วงของแต่ละปัจจัย จากดินเปลือยถึงการจัดการที่ดีที่สุด</text>
-              <text x="360" y="236" font-family="JetBrains Mono, monospace" fill="var(--ink)">LS 0.1–15 · C 1.0–0.001 · P 1.0–0.1</text>
+              <text x="360" y="236" font-family="JetBrains Mono, monospace" fill="var(--ink)">L·S 0.2–10 · C 1.0–0.001 · P 1.0–0.1</text>
             </g>
           </svg>
           <figcaption>
-            <span class="en">Fig. 8.2 — Five multipliers, but only three of them are decisions. R and K are handed to you by the climate and the soil survey. LS, C and P are what a conservation plan actually consists of — and note the range on C: it spans three orders of magnitude, more than the other two combined.</span>
+            <span class="en">Fig. 8.2 — Five multipliers, but only three of them are decisions. R and K are handed to you by the climate and the soil survey. L·S, C and P are what a conservation plan actually consists of — and note the range on C: it spans three orders of magnitude, more than the other two combined.</span>
             <span class="th">รูปที่ 8.2 — ตัวคูณห้าตัว แต่มีเพียงสามตัวที่เป็นการตัดสินใจ ค่า R และ K ถูกยื่นให้เราโดยภูมิอากาศและการสำรวจดิน ส่วน LS, C และ P คือสิ่งที่แผนอนุรักษ์ดินและน้ำประกอบขึ้นจริง ๆ และให้สังเกตช่วงของค่า C ซึ่งกว้างถึงสามอันดับของขนาด มากกว่าอีกสองตัวรวมกัน</span>
           </figcaption>
         </figure>
@@ -454,52 +454,140 @@
           </p>
         </div>
 
-        <h3><span class="en">Getting R in Thailand</span><span class="th">การหาค่า R ในประเทศไทย</span></h3>
+        <h3><span class="en">Getting R in Thailand — the LDD equation</span><span class="th">การหาค่า R ในประเทศไทย — สมการของกรมพัฒนาที่ดิน</span></h3>
 
         <p>
-          <span class="en">Computing EI<sub>30</sub> properly requires a <strong>recording</strong> rain gauge — a daily total is useless, because it contains no information about intensity. Few stations have long records at that resolution, so in practice R is obtained one of three ways, in descending order of confidence:</span>
-          <span class="th">การคำนวณค่า EI<sub>30</sub> อย่างถูกต้องต้องใช้เครื่องวัดน้ำฝน <strong>แบบบันทึก</strong> เพราะค่าฝนรายวันใช้ไม่ได้เลย เนื่องจากไม่มีข้อมูลเรื่องความหนักเบาอยู่ในนั้น สถานีที่มีข้อมูลละเอียดระดับนั้นย้อนหลังยาวนานมีอยู่น้อย ในทางปฏิบัติจึงหาค่า R ได้สามทาง เรียงจากน่าเชื่อถือมากไปน้อย</span>
+          <span class="en">Computing EI<sub>30</sub> properly requires a <strong>recording</strong> rain gauge — a daily total is useless, because it carries no information about intensity. Thailand has few stations with long records at that resolution, so Thai practice does not compute R storm by storm. Instead it uses a regression fitted to rainfall records from across the whole country, which needs nothing but the <strong>mean annual rainfall</strong>.</span>
+          <span class="th">การคำนวณค่า EI<sub>30</sub> อย่างถูกต้องต้องใช้เครื่องวัดน้ำฝน <strong>แบบบันทึก</strong> เพราะค่าฝนรายวันใช้ไม่ได้เลย เนื่องจากไม่มีข้อมูลเรื่องความหนักเบาอยู่ในนั้น ประเทศไทยมีสถานีที่เก็บข้อมูลละเอียดระดับนั้นย้อนหลังยาวนานอยู่น้อย แนวปฏิบัติของไทยจึงไม่ได้คำนวณค่า R ทีละครั้งที่ฝนตก แต่ใช้สมการถดถอยที่สอบเทียบไว้กับข้อมูลน้ำฝนทุกแห่งทั่วประเทศ ซึ่งต้องการเพียง <strong>ปริมาณน้ำฝนเฉลี่ยรายปี</strong> เท่านั้น</span>
         </p>
+
+        <div class="formula">
+          <div class="eq result"><code>R = 0.4669 X − 12.1415</code><span class="eq-note"><span class="en">มนู ศรีขจร and others, 2527 &nbsp;(r = 0.9482)</span><span class="th">มนู ศรีขจร และคณะ, 2527 &nbsp;(r = 0.9482)</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>R</dt><dd><span class="en">rainfall erosivity factor, in <strong>metric tonnes per hectare per year</strong> — the Land Development Department's unit, <em>not</em> the SI EI<sub>30</sub> unit. See the warning below.</span><span class="th">ปัจจัยการชะล้างพังทลายของฝน หน่วยเป็น <strong>เมตริกตัน/เฮกแตร์/ปี</strong> ซึ่งเป็นหน่วยของกรมพัฒนาที่ดิน <em>ไม่ใช่</em> หน่วย EI<sub>30</sub> ในระบบ SI ดูคำเตือนข้างล่าง</span></dd>
+          <dt>X</dt><dd><span class="en">mean annual rainfall at the site (mm/yr) — a long-run average, not one year's total</span><span class="th">ปริมาณน้ำฝนเฉลี่ยรายปีของพื้นที่ (มม./ปี) เป็นค่าเฉลี่ยระยะยาว ไม่ใช่ยอดรวมของปีใดปีหนึ่ง</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Two R scales exist, and they are ten times apart</span><span class="th">ค่า R มีอยู่สองมาตรา และต่างกันสิบเท่า</span></div>
+          <p>
+            <span class="en">This is the most expensive mistake available in this chapter, so it gets its own box. <strong>There are two complete, self-consistent unit systems for USLE, and Thailand uses the one the international literature mostly does not.</strong></span>
+            <span class="th">นี่คือความผิดพลาดที่แพงที่สุดในบทนี้ จึงขอแยกกล่องไว้ต่างหาก <strong>ระบบหน่วยของ USLE มีอยู่สองระบบที่สมบูรณ์และสอดคล้องในตัวเอง และประเทศไทยใช้ระบบที่วารสารนานาชาติส่วนใหญ่ไม่ได้ใช้</strong></span>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><span class="en">LDD system (use this)</span><span class="th">ระบบของกรมพัฒนาที่ดิน (ใช้ระบบนี้)</span></th>
+                  <th><span class="en">SI system (international papers)</span><span class="th">ระบบ SI (บทความนานาชาติ)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>R</strong></td>
+                  <td><span class="en">400 – 1,100, in t/ha/yr</span><span class="th">400 – 1,100 หน่วย ตัน/เฮกแตร์/ปี</span></td>
+                  <td><span class="en">a few thousand to over ten thousand, in MJ·mm·ha⁻¹·h⁻¹·yr⁻¹</span><span class="th">ไม่กี่พันถึงเกินหนึ่งหมื่น หน่วย MJ·mm·ha⁻¹·h⁻¹·yr⁻¹</span></td>
+                </tr>
+                <tr>
+                  <td><strong>K</strong></td>
+                  <td><span class="en">0.04 – 0.57</span><span class="th">0.04 – 0.57</span></td>
+                  <td><span class="en">0.005 – 0.06, in t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹</span><span class="th">0.005 – 0.06 หน่วย t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹</span></td>
+                </tr>
+                <tr>
+                  <td><strong>R × K</strong></td>
+                  <td class="num"><span class="en">≈ 170 <span class="mono">(698 × 0.24)</span></span><span class="th">≈ 170 <span class="mono">(698 × 0.24)</span></span></td>
+                  <td class="num"><span class="en">≈ 120 <span class="mono">(6,000 × 0.020)</span></span><span class="th">≈ 120 <span class="mono">(6,000 × 0.020)</span></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="en">Read the last row. Each system is calibrated so that the <em>product</em> R × K lands in the same place, and therefore so does A — which is the whole point. The individual factors differ by roughly a factor of ten in <strong>opposite</strong> directions, so the errors do not cancel when you mix them, they compound:</span>
+            <span class="th">ให้อ่านแถวสุดท้าย ทั้งสองระบบถูกสอบเทียบให้ <em>ผลคูณ</em> R × K ออกมาอยู่ในระดับเดียวกัน ค่า A จึงออกมาใกล้เคียงกันด้วย ซึ่งเป็นประเด็นทั้งหมด แต่ค่าของแต่ละปัจจัยต่างกันราวสิบเท่าใน <strong>ทิศทางตรงข้ามกัน</strong> เมื่อนำมาปนกันความผิดพลาดจึงไม่หักล้าง แต่ทบกัน</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code><span class="en">SI R × LDD K</span><span class="th">R ของ SI × K ของ พด.</span> = 6,000 × 0.24 = 1,440</code><span class="eq-note"><span class="en">about 9 times too high</span><span class="th">สูงเกินไปราว 9 เท่า</span></span></div>
+            <div class="eq"><code><span class="en">LDD R × SI K</span><span class="th">R ของ พด. × K ของ SI</span> = 698 × 0.020 = 14</code><span class="eq-note"><span class="en">about 9 times too low</span><span class="th">ต่ำเกินไปราว 9 เท่า</span></span></div>
+          </div>
+          <p>
+            <span class="en">The rule is simple and has no exceptions: <strong>take every factor from the same system.</strong> This chapter uses the LDD system throughout, because that is what Thai soil maps, Thai K tables and Thai C tables are published in. When you read a foreign paper, check its R before you borrow anything from it.</span>
+            <span class="th">กฎง่ายและไม่มีข้อยกเว้น คือ <strong>ต้องเอาทุกปัจจัยมาจากระบบเดียวกัน</strong> บทนี้ใช้ระบบของกรมพัฒนาที่ดินตลอดทั้งบท เพราะแผนที่ดินของไทย ตาราง K ของไทย และตาราง C ของไทย ล้วนเผยแพร่ในระบบนี้ เมื่ออ่านบทความต่างประเทศ ให้ดูค่า R ของเขาก่อนที่จะหยิบอะไรมาใช้</span>
+          </p>
+        </div>
+
+        <h3><span class="en">R for Thai rainfall, tabulated</span><span class="th">ค่า R ตามปริมาณน้ำฝนของไทย</span></h3>
 
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th><span class="en">Method</span><span class="th">วิธี</span></th>
-                <th><span class="en">What it needs</span><span class="th">ต้องใช้อะไร</span></th>
-                <th><span class="en">When to use it</span><span class="th">ใช้เมื่อไร</span></th>
+                <th><span class="en">Annual rainfall (mm)</span><span class="th">น้ำฝนรายปี (มม.)</span></th>
+                <th><span class="en">R</span><span class="th">ค่า R</span></th>
+                <th><span class="en">Annual rainfall (mm)</span><span class="th">น้ำฝนรายปี (มม.)</span></th>
+                <th><span class="en">R</span><span class="th">ค่า R</span></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong><span class="en">1 · Published isoerodent map</span><span class="th">1 · แผนที่เส้นชั้นค่า R</span></strong></td>
-                <td><span class="en">The site's location. The Land Development Department publishes R contours for Thailand, built from long-record recording stations.</span><span class="th">แค่ตำแหน่งของพื้นที่ กรมพัฒนาที่ดินจัดทำแผนที่เส้นชั้นค่า R ของประเทศไทยไว้ โดยสร้างจากสถานีวัดน้ำฝนแบบบันทึกที่มีข้อมูลยาวนาน</span></td>
-                <td><strong><span class="en">Always, if one covers your site.</span><span class="th">ใช้เสมอ ถ้ามีแผนที่ครอบคลุมพื้นที่</span></strong> <span class="en">This is the correct answer for coursework and for design.</span><span class="th">นี่คือคำตอบที่ถูกต้องทั้งสำหรับงานในชั้นเรียนและงานออกแบบ</span></td>
-              </tr>
-              <tr>
-                <td><strong><span class="en">2 · Direct computation</span><span class="th">2 · คำนวณโดยตรง</span></strong></td>
-                <td><span class="en">Twenty years or more of recording-gauge charts from a nearby station.</span><span class="th">ข้อมูลจากแผ่นกราฟของเครื่องวัดแบบบันทึกที่สถานีใกล้เคียง ย้อนหลัง 20 ปีขึ้นไป</span></td>
-                <td><span class="en">Research, or a large scheme that justifies the work.</span><span class="th">งานวิจัย หรือโครงการขนาดใหญ่ที่คุ้มกับการลงแรง</span></td>
-              </tr>
-              <tr>
-                <td><strong><span class="en">3 · Regression on annual rainfall</span><span class="th">3 · สมการถดถอยกับปริมาณฝนรายปี</span></strong></td>
-                <td><span class="en">Only the annual rainfall total, plugged into a locally fitted <span class="mono">R = a·P<sup>b</sup></span> relation.</span><span class="th">ใช้เพียงปริมาณฝนรวมรายปี แทนลงในความสัมพันธ์ <span class="mono">R = a·P<sup>b</sup></span> ที่สอบเทียบไว้กับท้องถิ่นนั้น</span></td>
-                <td><span class="en">Last resort, and only with a relation fitted for that region — never one borrowed from another country.</span><span class="th">เป็นทางเลือกสุดท้าย และต้องใช้สมการที่สอบเทียบไว้สำหรับภูมิภาคนั้นเท่านั้น ห้ามยืมของประเทศอื่นมาใช้</span></td>
-              </tr>
+              <tr><td class="num">900</td><td class="num">408</td><td class="num">1,600</td><td class="num">735</td></tr>
+              <tr><td class="num">950</td><td class="num">431</td><td class="num">1,650</td><td class="num">758</td></tr>
+              <tr><td class="num">1,000</td><td class="num">455</td><td class="num">1,700</td><td class="num">782</td></tr>
+              <tr><td class="num">1,050</td><td class="num">478</td><td class="num">1,750</td><td class="num">805</td></tr>
+              <tr><td class="num">1,100</td><td class="num">501</td><td class="num">1,800</td><td class="num">828</td></tr>
+              <tr><td class="num">1,150</td><td class="num">525</td><td class="num">1,850</td><td class="num">912</td></tr>
+              <tr><td class="num">1,200</td><td class="num">548</td><td class="num">1,900</td><td class="num">937</td></tr>
+              <tr><td class="num">1,250</td><td class="num">571</td><td class="num">1,950</td><td class="num">962</td></tr>
+              <tr><td class="num">1,300</td><td class="num">595</td><td class="num">2,000</td><td class="num">987</td></tr>
+              <tr><td class="num">1,350</td><td class="num">618</td><td class="num">2,050</td><td class="num">1,012</td></tr>
+              <tr><td class="num">1,400</td><td class="num">642</td><td class="num">2,100</td><td class="num">1,037</td></tr>
+              <tr><td class="num">1,450</td><td class="num">665</td><td class="num">2,150</td><td class="num">1,061</td></tr>
+              <tr><td class="num">1,500</td><td class="num">688</td><td class="num">2,200</td><td class="num">1,086</td></tr>
+              <tr><td class="num">1,550</td><td class="num">712</td><td></td><td></td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="box">
-          <div class="box-title"><span class="en">What to expect, and what not to assume</span><span class="th">ควรคาดหวังค่าเท่าใด และไม่ควรสมมติอะไร</span></div>
+          <div class="box-title"><span class="en">A discontinuity in the published table — read this before you use the high-rainfall rows</span><span class="th">ความไม่ต่อเนื่องในตารางที่เผยแพร่ — อ่านก่อนใช้แถวที่ฝนมาก</span></div>
           <p>
-            <span class="en">Thailand is a high-erosivity country: the monsoon delivers most of its rain in intense convective storms, which is the worst possible combination for the EI<sub>30</sub> index. Published Thai R values span a wide range — roughly <strong>a few thousand to well over ten thousand</strong> MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ — rising with annual rainfall and with the share of it that falls in heavy storms. The southern peninsula and the eastern seaboard sit at the top of that range; the drier interior of the Northeast at the bottom.</span>
-            <span class="th">ประเทศไทยเป็นประเทศที่ฝนมีอำนาจกัดเซาะสูง เพราะลมมรสุมนำฝนส่วนใหญ่มาในรูปพายุฝนฟ้าคะนองที่ตกหนัก ซึ่งเป็นการผสมที่เลวร้ายที่สุดสำหรับดัชนี EI<sub>30</sub> ค่า R ของไทยที่มีผู้เผยแพร่ไว้กระจายในช่วงกว้าง คือราว <strong>ไม่กี่พันไปจนถึงเกินหนึ่งหมื่น</strong> MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ โดยเพิ่มขึ้นตามปริมาณฝนรายปีและตามสัดส่วนของฝนที่ตกหนัก ภาคใต้และชายฝั่งตะวันออกอยู่ปลายบนของช่วงนี้ ส่วนพื้นที่ตอนในของภาคอีสานที่แห้งกว่าอยู่ปลายล่าง</span>
+            <span class="en">Check the table against the equation and something shows up. From 900 mm to 1,800 mm every row agrees with <span class="mono">R = 0.4669X − 12.1415</span> to within one unit, and every 50 mm step adds 23 to 24. Then the 1,850 mm row jumps by <strong>84</strong> instead of 23, and from there on the table sits 60 to 71 units — about <strong>7 to 8 percent</strong> — above what the equation gives.</span>
+            <span class="th">ลองเทียบตารางกับสมการแล้วจะเห็นบางอย่าง ตั้งแต่ 900 มม. ถึง 1,800 มม. ทุกแถวตรงกับ <span class="mono">R = 0.4669X − 12.1415</span> คลาดไม่เกินหนึ่งหน่วย และทุกช่วง 50 มม. เพิ่มขึ้น 23 ถึง 24 แต่แถว 1,850 มม. กระโดดขึ้น <strong>84</strong> แทนที่จะเป็น 23 และจากนั้นเป็นต้นไปตารางสูงกว่าค่าที่ได้จากสมการอยู่ 60 ถึง 71 หน่วย หรือราว <strong>7 ถึง 8 เปอร์เซ็นต์</strong></span>
           </p>
           <p>
-            <span class="en">Those are the shape of the answer, not the answer. <strong>Do not carry a number from this page into a design.</strong> Look up the site on the LDD map. The worked examples below state their R explicitly as an assumption for exactly this reason.</span>
-            <span class="th">นั่นเป็นเพียงเค้าโครงของคำตอบ ไม่ใช่ตัวคำตอบ <strong>อย่านำตัวเลขจากหน้านี้ไปใช้ในการออกแบบ</strong> ให้เปิดหาพื้นที่นั้นจากแผนที่ของกรมพัฒนาที่ดิน ตัวอย่างการคำนวณข้างล่างจึงระบุค่า R ไว้อย่างชัดเจนว่าเป็นค่าสมมติ ด้วยเหตุผลข้อนี้พอดี</span>
+            <span class="en">Nothing in the source explains the break, and both numbers are published side by side. For a site drier than 1,800 mm it does not matter — table and equation agree. For a wetter site, and much of the South and the eastern seaboard is wetter, <strong>say in your report which one you used.</strong> The equation is the safer default: it is the relation that carries the correlation coefficient, and it is what the department's own worked example uses. Treat the table's upper rows as a reminder that a printed table is a secondary source, and the equation behind it is the primary one.</span>
+            <span class="th">ไม่มีสิ่งใดในเอกสารต้นฉบับอธิบายรอยต่อนี้ และตัวเลขทั้งสองชุดถูกตีพิมพ์ไว้เคียงกัน สำหรับพื้นที่ที่ฝนน้อยกว่า 1,800 มม. เรื่องนี้ไม่มีผล เพราะตารางกับสมการตรงกัน แต่สำหรับพื้นที่ที่ฝนมากกว่านั้น ซึ่งภาคใต้และชายฝั่งตะวันออกส่วนใหญ่เข้าข่าย <strong>ให้ระบุในรายงานว่าใช้ค่าจากทางไหน</strong> สมการเป็นค่าตั้งต้นที่ปลอดภัยกว่า เพราะเป็นความสัมพันธ์ที่มีค่าสัมประสิทธิ์สหสัมพันธ์กำกับ และเป็นสิ่งที่ตัวอย่างการคำนวณของกรมเองใช้ ให้ถือว่าแถวบน ๆ ของตารางเป็นเครื่องเตือนใจว่า ตารางที่พิมพ์ออกมาเป็นแหล่งข้อมูลทุติยภูมิ ส่วนสมการที่อยู่เบื้องหลังคือแหล่งปฐมภูมิ</span>
           </p>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Three routes to R, in descending order of confidence</span><span class="th">สามทางในการหาค่า R เรียงจากน่าเชื่อถือมากไปน้อย</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th><span class="en">Route</span><span class="th">ทาง</span></th>
+                  <th><span class="en">What it needs, and when to use it</span><span class="th">ต้องใช้อะไร และใช้เมื่อไร</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong><span class="en">1 · LDD isoerodent map</span><span class="th">1 · แผนที่เส้นชั้นค่า R ของ พด.</span></strong></td>
+                  <td><span class="en">Only the site's location. <strong>Use this whenever a map covers your site</strong> — it already accounts for local storm character, which annual rainfall alone cannot.</span><span class="th">ใช้เพียงตำแหน่งของพื้นที่ <strong>ให้ใช้ทางนี้เสมอเมื่อมีแผนที่ครอบคลุมพื้นที่</strong> เพราะแผนที่คิดลักษณะพายุฝนของท้องถิ่นไว้แล้ว ซึ่งปริมาณฝนรายปีอย่างเดียวทำไม่ได้</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span class="en">2 · The equation above</span><span class="th">2 · สมการข้างบน</span></strong></td>
+                  <td><span class="en">Mean annual rainfall from the nearest long-record station. <strong>The normal method for coursework and for most farm-scale planning</strong>, and the one every example in this chapter uses.</span><span class="th">ใช้ปริมาณฝนเฉลี่ยรายปีจากสถานีที่มีข้อมูลยาวนานที่ใกล้ที่สุด <strong>เป็นวิธีปกติสำหรับงานในชั้นเรียนและการวางแผนระดับไร่นาส่วนใหญ่</strong> และเป็นวิธีที่ตัวอย่างทุกข้อในบทนี้ใช้</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span class="en">3 · Direct EI<sub>30</sub> computation</span><span class="th">3 · คำนวณ EI<sub>30</sub> โดยตรง</span></strong></td>
+                  <td><span class="en">Twenty years or more of recording-gauge charts. Research, or a scheme large enough to justify the work — and note that this returns R on the <em>SI</em> scale, so the K values must come from the SI system too.</span><span class="th">ใช้แผ่นกราฟของเครื่องวัดแบบบันทึกย้อนหลัง 20 ปีขึ้นไป เหมาะกับงานวิจัยหรือโครงการที่ใหญ่พอจะคุ้มกับการลงแรง และให้สังเกตว่าวิธีนี้ให้ค่า R ในมาตรา <em>SI</em> ดังนั้นค่า K ก็ต้องมาจากระบบ SI ด้วย</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -548,102 +636,294 @@
           </table>
         </div>
 
-        <h3><span class="en">Indicative K by texture</span><span class="th">ค่า K โดยประมาณตามเนื้อดิน</span></h3>
+        <h3><span class="en">K for Thai soils — the LDD table</span><span class="th">ค่า K ของดินในประเทศไทย — ตารางของกรมพัฒนาที่ดิน</span></h3>
+
+        <p>
+          <span class="en">The Land Development Department has measured and published K for every topsoil texture in every region, and separately for <strong>upland</strong> (ดินดอน) and <strong>lowland paddy</strong> (ดินนา) positions, because the same texture behaves differently once it has been puddled and compacted year after year. These are the values to use. A dash means the combination does not occur in Thailand in any mapped extent.</span>
+          <span class="th">กรมพัฒนาที่ดินได้วัดและเผยแพร่ค่า K ไว้สำหรับเนื้อดินบนทุกชนิดในทุกภาค และแยกระหว่างพื้นที่ <strong>ดินดอน</strong> กับ <strong>ดินนาในที่ลุ่ม</strong> เพราะเนื้อดินชนิดเดียวกันมีพฤติกรรมต่างกันเมื่อถูกทำเทือกและอัดแน่นซ้ำ ๆ ทุกปี ค่าเหล่านี้คือค่าที่ควรใช้ ส่วนเครื่องหมายขีดหมายความว่าไม่พบการผสมนั้นในประเทศไทยในขอบเขตที่ทำแผนที่ไว้</span>
+        </p>
 
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th><span class="en">Texture</span><span class="th">เนื้อดิน</span></th>
-                <th><span class="en">K, metric<br>t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹</span><span class="th">K หน่วยเมตริก<br>t·ha·h·ha⁻¹·MJ⁻¹·mm⁻¹</span></th>
-                <th><span class="en">Comment</span><span class="th">ข้อสังเกต</span></th>
+                <th rowspan="2"><span class="en">Topsoil texture</span><span class="th">เนื้อดินบน</span></th>
+                <th colspan="5"><span class="en">K — upland (ดินดอน)</span><span class="th">ค่า K — บริเวณที่สูง (ดินดอน)</span></th>
+              </tr>
+              <tr>
+                <th class="num">NE</th><th class="num">N</th><th class="num">C</th><th class="num">E</th><th class="num">S</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><span class="en">Sand</span><span class="th">ดินทราย</span></td><td class="num">0.005–0.010</td><td><span class="en">Water soaks straight in; little runoff to transport anything</span><span class="th">น้ำซึมลงไปตรง ๆ แทบไม่มีน้ำไหลบ่าให้พาอะไรไป</span></td></tr>
-              <tr><td><span class="en">Loamy sand</span><span class="th">ดินทรายปนร่วน</span></td><td class="num">0.005–0.015</td><td><span class="en">Still very permeable</span><span class="th">ยังซึมน้ำได้ดีมาก</span></td></tr>
-              <tr><td><span class="en">Sandy loam</span><span class="th">ดินร่วนปนทราย</span></td><td class="num">0.015–0.025</td><td><span class="en">The value used in the worked example below</span><span class="th">เป็นค่าที่ใช้ในตัวอย่างการคำนวณข้างล่าง</span></td></tr>
-              <tr><td><span class="en">Loam</span><span class="th">ดินร่วน</span></td><td class="num">0.030–0.040</td><td><span class="en">Moderate on every count</span><span class="th">ปานกลางในทุกด้าน</span></td></tr>
-              <tr><td><strong><span class="en">Silt loam</span><span class="th">ดินร่วนปนทรายแป้ง</span></strong></td><td class="num"><strong>0.040–0.055</strong></td><td><strong><span class="en">The most erodible class — high silt, low clay</span><span class="th">ชั้นที่ถูกกัดเซาะง่ายที่สุด คือทรายแป้งสูง ดินเหนียวต่ำ</span></strong></td></tr>
-              <tr><td><span class="en">Clay loam</span><span class="th">ดินร่วนเหนียว</span></td><td class="num">0.025–0.035</td><td><span class="en">Clay starts protecting it</span><span class="th">ดินเหนียวเริ่มช่วยปกป้อง</span></td></tr>
-              <tr><td><span class="en">Clay</span><span class="th">ดินเหนียว</span></td><td class="num">0.015–0.030</td><td><span class="en">Strong aggregates, but low infiltration raises runoff — the two effects partly cancel</span><span class="th">เม็ดดินแข็งแรง แต่ซึมน้ำได้น้อยทำให้น้ำไหลบ่ามาก ผลสองอย่างหักล้างกันบางส่วน</span></td></tr>
+              <tr><td><span class="en">Sand</span><span class="th">ทราย</span></td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">0.05</td><td class="num">0.04</td></tr>
+              <tr><td><span class="en">Loamy sand</span><span class="th">ทรายปนร่วน</span></td><td class="num">0.04</td><td class="num">0.05</td><td class="num">0.08</td><td class="num">0.07</td><td class="num">0.04</td></tr>
+              <tr><td><span class="en">Sandy loam</span><span class="th">ร่วนปนทราย</span></td><td class="num"><strong>0.24</strong></td><td class="num">0.27</td><td class="num">0.34</td><td class="num">0.19</td><td class="num">0.20</td></tr>
+              <tr><td><span class="en">Loam</span><span class="th">ร่วน</span></td><td class="num">0.29</td><td class="num">0.33</td><td class="num">0.33</td><td class="num">0.30</td><td class="num">0.33</td></tr>
+              <tr><td><strong><span class="en">Silt loam</span><span class="th">ร่วนปนทรายแป้ง</span></strong></td><td class="num">0.37</td><td class="num">0.49</td><td class="num"><strong>0.56</strong></td><td class="num">0.21</td><td class="num">0.40</td></tr>
+              <tr><td><span class="en">Silt</span><span class="th">ทรายแป้ง</span></td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td></tr>
+              <tr><td><span class="en">Sandy clay loam</span><span class="th">ร่วนเหนียวปนทราย</span></td><td class="num">0.24</td><td class="num">0.21</td><td class="num">0.20</td><td class="num">0.25</td><td class="num">0.19</td></tr>
+              <tr><td><span class="en">Clay loam</span><span class="th">ร่วนเหนียว</span></td><td class="num">0.25</td><td class="num">0.24</td><td class="num">0.28</td><td class="num">0.30</td><td class="num">0.29</td></tr>
+              <tr><td><span class="en">Silty clay loam</span><span class="th">ร่วนเหนียวปนทรายแป้ง</span></td><td class="num">0.46</td><td class="num">0.35</td><td class="num">0.38</td><td class="num">0.37</td><td class="num">0.31</td></tr>
+              <tr><td><span class="en">Sandy clay</span><span class="th">เหนียวปนทราย</span></td><td class="num">–</td><td class="num">–</td><td class="num">0.15</td><td class="num">–</td><td class="num">–</td></tr>
+              <tr><td><span class="en">Silty clay</span><span class="th">เหนียวปนทรายแป้ง</span></td><td class="num">0.23</td><td class="num">0.21</td><td class="num">0.26</td><td class="num">0.19</td><td class="num">0.22</td></tr>
+              <tr><td><strong><span class="en">Clay</span><span class="th">เหนียว</span></strong></td><td class="num">0.13</td><td class="num">0.15</td><td class="num">0.14</td><td class="num">0.12</td><td class="num"><strong>0.11</strong></td></tr>
             </tbody>
           </table>
         </div>
 
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Topsoil texture</span><span class="th">เนื้อดินบน</span></th>
+                <th colspan="5"><span class="en">K — lowland paddy (ดินนา)</span><span class="th">ค่า K — บริเวณที่ลุ่มต่ำ (ดินนา)</span></th>
+              </tr>
+              <tr>
+                <th class="num">NE</th><th class="num">N</th><th class="num">C</th><th class="num">E</th><th class="num">S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Sand</span><span class="th">ทราย</span></td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">0.05</td><td class="num">0.04</td></tr>
+              <tr><td><span class="en">Loamy sand</span><span class="th">ทรายปนร่วน</span></td><td class="num">0.05</td><td class="num">0.06</td><td class="num">0.07</td><td class="num">0.08</td><td class="num">0.04</td></tr>
+              <tr><td><span class="en">Sandy loam</span><span class="th">ร่วนปนทราย</span></td><td class="num">0.26</td><td class="num">0.30</td><td class="num">0.26</td><td class="num">0.34</td><td class="num">0.30</td></tr>
+              <tr><td><span class="en">Loam</span><span class="th">ร่วน</span></td><td class="num">0.35</td><td class="num">0.35</td><td class="num">0.43</td><td class="num">0.33</td><td class="num">0.34</td></tr>
+              <tr><td><strong><span class="en">Silt loam</span><span class="th">ร่วนปนทรายแป้ง</span></strong></td><td class="num">0.34</td><td class="num">0.34</td><td class="num">0.47</td><td class="num">0.44</td><td class="num">0.36</td></tr>
+              <tr><td><strong><span class="en">Silt</span><span class="th">ทรายแป้ง</span></strong></td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num"><strong>0.57</strong></td></tr>
+              <tr><td><span class="en">Sandy clay loam</span><span class="th">ร่วนเหนียวปนทราย</span></td><td class="num">0.20</td><td class="num">0.22</td><td class="num">0.21</td><td class="num">0.23</td><td class="num">0.21</td></tr>
+              <tr><td><span class="en">Clay loam</span><span class="th">ร่วนเหนียว</span></td><td class="num">0.36</td><td class="num">0.27</td><td class="num">0.29</td><td class="num">0.25</td><td class="num">0.31</td></tr>
+              <tr><td><span class="en">Silty clay loam</span><span class="th">ร่วนเหนียวปนทรายแป้ง</span></td><td class="num">0.43</td><td class="num">0.42</td><td class="num">0.29</td><td class="num">0.38</td><td class="num">0.21</td></tr>
+              <tr><td><span class="en">Sandy clay</span><span class="th">เหนียวปนทราย</span></td><td class="num">–</td><td class="num">0.17</td><td class="num">0.17</td><td class="num">0.18</td><td class="num">0.18</td></tr>
+              <tr><td><span class="en">Silty clay</span><span class="th">เหนียวปนทรายแป้ง</span></td><td class="num">0.27</td><td class="num">0.27</td><td class="num">0.23</td><td class="num">0.29</td><td class="num">0.29</td></tr>
+              <tr><td><strong><span class="en">Clay</span><span class="th">เหนียว</span></strong></td><td class="num">0.15</td><td class="num">0.18</td><td class="num">0.18</td><td class="num">0.14</td><td class="num">0.14</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>
+          <span class="en">Source: Land Development Department (2545). NE = Northeast, N = North, C = Central, E = East, S = South.</span>
+          <span class="th">ที่มา: กรมพัฒนาที่ดิน (2545) โดย NE = ภาคตะวันออกเฉียงเหนือ, N = ภาคเหนือ, C = ภาคกลาง, E = ภาคตะวันออก, S = ภาคใต้</span></em>
+        </p>
+
         <div class="box">
-          <div class="box-title"><span class="en">Two cautions on K</span><span class="th">สองข้อควรระวังเรื่อง K</span></div>
+          <div class="box-title"><span class="en">Three things to read out of those two tables</span><span class="th">สามสิ่งที่ควรอ่านออกจากตารางสองตารางนั้น</span></div>
           <p>
-            <span class="en"><strong>Units.</strong> Much of the older literature quotes K in US customary units, where the numbers are roughly <em>seven and a half times larger</em> — a silt loam is 0.38 US and about 0.050 metric. Multiply US values by <strong>0.1317</strong> to convert. Getting this wrong inflates a soil loss estimate by a factor of 7.6, and it is the most common unit error in the subject.</span>
-            <span class="th"><strong>เรื่องหน่วย</strong> เอกสารเก่าจำนวนมากรายงานค่า K ในหน่วยอังกฤษ ซึ่งตัวเลขจะใหญ่กว่าราว <em>เจ็ดเท่าครึ่ง</em> เช่น ดินร่วนปนทรายแป้งมีค่า 0.38 ในหน่วยอังกฤษ และราว 0.050 ในหน่วยเมตริก การแปลงทำได้โดยคูณค่าหน่วยอังกฤษด้วย <strong>0.1317</strong> ถ้าทำผิดข้อนี้ ค่าประมาณการสูญเสียดินจะพองขึ้น 7.6 เท่า และเป็นความผิดพลาดเรื่องหน่วยที่พบบ่อยที่สุดในเรื่องนี้</span>
+            <span class="en"><strong>1. The theory holds.</strong> Follow the column down and the four properties above are all visible at once. Sand and loamy sand sit at 0.04–0.08 — water goes straight in. Clay sits at 0.11–0.18 — strong aggregates. The silt-rich textures are at the top: silt loam reaches <strong>0.56</strong> in the Central region and silt itself reaches <strong>0.57</strong> in the South, the highest value in the whole country. Silt really is the worst particle size, and the Thai data says so as clearly as the American data did.</span>
+            <span class="th"><strong>1. ทฤษฎีใช้ได้จริง</strong> ลองไล่สายตาลงตามคอลัมน์ จะเห็นคุณสมบัติทั้งสี่ข้อข้างบนพร้อมกันทีเดียว ดินทรายและทรายปนร่วนอยู่ที่ 0.04–0.08 เพราะน้ำซึมลงไปตรง ๆ ดินเหนียวอยู่ที่ 0.11–0.18 เพราะเม็ดดินแข็งแรง ส่วนดินที่มีทรายแป้งมากอยู่บนสุด คือดินร่วนปนทรายแป้งขึ้นถึง <strong>0.56</strong> ในภาคกลาง และดินทรายแป้งเองขึ้นถึง <strong>0.57</strong> ในภาคใต้ ซึ่งเป็นค่าสูงที่สุดของทั้งประเทศ ทรายแป้งเป็นขนาดอนุภาคที่เลวร้ายที่สุดจริง ๆ และข้อมูลของไทยก็บอกเรื่องนี้ชัดเจนเท่ากับข้อมูลของอเมริกา</span>
           </p>
           <p>
-            <span class="en"><strong>Range within a class.</strong> Notice that every row above is a range, not a value, and the ranges overlap. Texture alone does not fix K — two silt loams differing only in organic matter can differ by 40%. The table is for sanity-checking a measured or mapped value, not for replacing one.</span>
-            <span class="th"><strong>ช่วงของค่าภายในชั้นเดียวกัน</strong> ให้สังเกตว่าทุกแถวข้างบนเป็นช่วง ไม่ใช่ค่าเดียว และช่วงเหล่านั้นซ้อนทับกัน เนื้อดินอย่างเดียวจึงไม่ได้กำหนดค่า K ดินร่วนปนทรายแป้งสองแปลงที่ต่างกันแค่ปริมาณอินทรียวัตถุอาจมีค่าต่างกันถึง 40% ตารางนี้มีไว้ตรวจสอบความสมเหตุสมผลของค่าที่วัดหรือค่าจากแผนที่ ไม่ได้มีไว้ใช้แทนค่าเหล่านั้น</span>
+            <span class="en"><strong>2. A texture name is not a K value.</strong> Read the silt loam row across the upland table: 0.37 in the Northeast, 0.49 in the North, <strong>0.56</strong> in the Central region, but only <strong>0.21</strong> in the East. Same two words on the map, and a factor of <strong>2.7</strong> between the ends. Whatever else varies between those regions — parent material, organic matter, structure — it matters as much as the texture does. This is exactly why the table has region columns, and why you look up the actual soil series rather than eyeballing a texture in the field.</span>
+            <span class="th"><strong>2. ชื่อเนื้อดินไม่ใช่ค่า K</strong> ลองอ่านแถวดินร่วนปนทรายแป้งตามแนวนอนในตารางดินดอน จะได้ 0.37 ในภาคอีสาน 0.49 ในภาคเหนือ <strong>0.56</strong> ในภาคกลาง แต่เพียง <strong>0.21</strong> ในภาคตะวันออก ชื่อเดียวกันบนแผนที่ แต่ปลายทั้งสองต่างกันถึง <strong>2.7 เท่า</strong> สิ่งอื่นที่ต่างกันระหว่างภาคเหล่านั้น ไม่ว่าจะเป็นวัตถุต้นกำเนิดดิน อินทรียวัตถุ หรือโครงสร้างดิน ล้วนมีผลมากพอ ๆ กับเนื้อดิน นี่คือเหตุผลที่ตารางต้องมีคอลัมน์แยกตามภาค และเป็นเหตุผลที่ต้องเปิดหาชุดดินจริง แทนที่จะกะเอาจากเนื้อดินที่คลำได้ในแปลง</span>
+          </p>
+          <p>
+            <span class="en"><strong>3. Paddy soils are not automatically safer.</strong> Compare the two loam rows: every region's paddy loam has a <em>higher</em> K than its upland loam. Years of puddling destroy the aggregates that would otherwise hold the soil together. The reason paddy fields lose little soil is not that the soil resists erosion — it is that the field is flat and bunded, which shows up in LS and in P, not in K.</span>
+            <span class="th"><strong>3. ดินนาไม่ได้ปลอดภัยกว่าโดยอัตโนมัติ</strong> ลองเทียบแถวดินร่วนทั้งสองตาราง จะเห็นว่าดินร่วนในนาของทุกภาคมีค่า K <em>สูงกว่า</em> ดินร่วนในที่ดอน การทำเทือกปีแล้วปีเล่าทำลายเม็ดดินที่จะยึดดินไว้ด้วยกัน เหตุผลที่นาข้าวสูญเสียดินน้อยจึงไม่ใช่เพราะดินต้านการกร่อนได้ดี แต่เพราะแปลงนาราบและมีคันนาล้อม ซึ่งไปปรากฏในค่า LS และค่า P ไม่ใช่ในค่า K</span>
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The unit trap, again</span><span class="th">กับดักเรื่องหน่วย อีกครั้ง</span></div>
+          <p>
+            <span class="en">The K values above run from 0.04 to 0.57. If you have read an international paper you may have seen K values of 0.005 to 0.06 for the same soils, and concluded that one of the two must be wrong. Neither is. They are the two scales set out in §8.4, and the K values in this table belong with the R values from the LDD equation — 400 to 1,100, not thousands. <strong>Pairing this table's K with an SI R inflates the answer by about nine times</strong>, which is the single most common error in Thai USLE coursework, and it is invisible unless you check the magnitude of the answer against the tolerance in §8.9.</span>
+            <span class="th">ค่า K ข้างบนอยู่ในช่วง 0.04 ถึง 0.57 ถ้าเคยอ่านบทความต่างประเทศ อาจเคยเห็นค่า K ระหว่าง 0.005 ถึง 0.06 สำหรับดินชนิดเดียวกัน แล้วสรุปว่าต้องมีฝ่ายหนึ่งผิด ความจริงคือไม่มีฝ่ายใดผิด ทั้งสองเป็นมาตราสองมาตราที่อธิบายไว้ในหัวข้อ 8.4 และค่า K ในตารางนี้ต้องใช้คู่กับค่า R จากสมการของกรมพัฒนาที่ดิน คือ 400 ถึง 1,100 ไม่ใช่หลักพัน <strong>การจับค่า K จากตารางนี้ไปคูณกับค่า R ในระบบ SI จะทำให้คำตอบพองขึ้นราวเก้าเท่า</strong> ซึ่งเป็นความผิดพลาดที่พบบ่อยที่สุดในงาน USLE ของนักศึกษาไทย และมองไม่เห็นเลยถ้าไม่ตรวจขนาดของคำตอบเทียบกับค่าที่ยอมรับได้ในหัวข้อ 8.9</span>
           </p>
         </div>
       </section>
 
       <!-- ===================== 8.6 ===================== -->
       <section id="s-ls">
-        <h2><span class="en">8.6 LS — slope length and steepness</span><span class="th">8.6 ปัจจัย LS — ความยาวและความชันของลาด</span></h2>
+        <h2><span class="en">8.6 L and S — slope length and steepness</span><span class="th">8.6 ปัจจัย L และ S — ความยาวและความชันของลาด</span></h2>
 
         <p>
-          <span class="en">Water running downhill gains both depth and velocity, so it both detaches more and carries more. LS captures the whole of that in one dimensionless number, referenced to the standard plot.</span>
-          <span class="th">น้ำที่ไหลลงจากที่สูงจะได้ทั้งความลึกและความเร็วเพิ่มขึ้น จึงทั้งทำให้ดินแตกตัวมากขึ้นและพาดินไปได้มากขึ้น ปัจจัย LS รวบรวมทั้งหมดนั้นไว้ในตัวเลขไร้หน่วยตัวเดียว โดยเทียบกับแปลงมาตรฐาน</span>
+          <span class="en">Water running downhill gains both depth and velocity, so it both detaches more and carries more. The international form of USLE bundles that into a single <span class="mono">LS</span>. <strong>Thai practice keeps the two apart</strong>, and writes the equation with six factors:</span>
+          <span class="th">น้ำที่ไหลลงจากที่สูงจะได้ทั้งความลึกและความเร็วเพิ่มขึ้น จึงทั้งทำให้ดินแตกตัวมากขึ้นและพาดินไปได้มากขึ้น สมการ USLE รูปสากลรวมสองอย่างนี้ไว้ในค่า <span class="mono">LS</span> ตัวเดียว แต่ <strong>แนวปฏิบัติของไทยแยกทั้งสองออกจากกัน</strong> และเขียนสมการด้วยหกปัจจัย</span>
         </p>
 
         <div class="formula">
-          <div class="eq result"><code>LS = ( <span class="frac"><span class="num">λ</span><span class="den">22.13</span></span> )<sup>m</sup> × ( 65.41 sin²θ + 4.56 sinθ + 0.065 )</code><span class="eq-note"><span class="en">Wischmeier &amp; Smith, metric form</span><span class="th">รูปเมตริกของวิสช์ไมเออร์และสมิธ</span></span></div>
+          <div class="eq result"><code>A = R · K · L · S · C · P</code><span class="eq-note"><span class="en">the LDD form — same equation, L and S written separately</span><span class="th">รูปของกรมพัฒนาที่ดิน สมการเดียวกัน เพียงแต่เขียน L และ S แยกกัน</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">There is no contradiction: <span class="mono">LS = L × S</span>, and both are dimensionless ratios referenced to the standard plot of 22.13 m at 9%. Separating them is the more useful arrangement, because a conservation plan changes <strong>L</strong> and almost never changes <strong>S</strong> — you can shorten a slope, but you cannot flatten a hill. Keeping them apart makes the one lever you actually have easy to see and easy to solve for, which §8.9 does directly.</span>
+          <span class="th">ไม่มีความขัดแย้งกัน เพราะ <span class="mono">LS = L × S</span> และทั้งสองเป็นอัตราส่วนไร้หน่วยที่อ้างอิงกับแปลงมาตรฐานยาว 22.13 ม. ความชัน 9% การแยกกันเป็นการจัดที่ใช้ประโยชน์ได้มากกว่า เพราะแผนอนุรักษ์เปลี่ยนค่า <strong>L</strong> ได้ แต่แทบไม่เคยเปลี่ยนค่า <strong>S</strong> เลย เราย่นความยาวลาดได้ แต่เราปรับเนินเขาให้ราบไม่ได้ การแยกไว้ทำให้เห็นคานงัดที่เรามีอยู่จริงได้ชัด และแก้สมการหาค่ามันได้ง่าย ซึ่งหัวข้อ 8.9 ทำอย่างนั้นโดยตรง</span>
+        </p>
+
+        <h3><span class="en">L — the slope-length factor</span><span class="th">ปัจจัย L — ความยาวลาด</span></h3>
+
+        <div class="formula">
+          <div class="eq result"><code>L = ( <span class="frac"><span class="num">λ</span><span class="den">22.13</span></span> )<sup>m</sup></code></div>
         </div>
 
         <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
         <dl class="where">
-          <dt>λ</dt><dd><span class="en">slope length (m) — from where runoff <em>begins</em> to where it either enters a channel or the gradient flattens enough to deposit</span><span class="th">ความยาวลาด (ม.) วัดจากจุดที่น้ำไหลบ่า <em>เริ่มต้น</em> ไปจนถึงจุดที่น้ำไหลลงทางน้ำ หรือความลาดลดลงจนตะกอนเริ่มตกทับถม</span></dd>
-          <dt>θ</dt><dd><span class="en">slope angle; for a slope of s percent, <span class="mono">θ = arctan(s/100)</span></span><span class="th">มุมลาดเอียง สำหรับความชัน s เปอร์เซ็นต์ จะได้ <span class="mono">θ = arctan(s/100)</span></span></dd>
-          <dt>m</dt><dd><span class="en">slope-length exponent: <strong>0.5</strong> for s ≥ 5%, <strong>0.4</strong> for 3.5–5%, <strong>0.3</strong> for 1–3.5%, <strong>0.2</strong> for s &lt; 1%</span><span class="th">เลขชี้กำลังของความยาวลาด คือ <strong>0.5</strong> เมื่อ s ≥ 5%, <strong>0.4</strong> เมื่อ 3.5–5%, <strong>0.3</strong> เมื่อ 1–3.5% และ <strong>0.2</strong> เมื่อ s &lt; 1%</span></dd>
+          <dt>λ</dt><dd><span class="en">slope length (m) — from where runoff <em>begins</em> to where it either enters a channel or the gradient flattens enough to deposit. The LDD advises that <strong>λ should not be taken above 120 m</strong>; beyond that the plot data the equation was fitted to runs out, and deposition usually begins in any case.</span><span class="th">ความยาวลาด (ม.) วัดจากจุดที่น้ำไหลบ่า <em>เริ่มต้น</em> ไปจนถึงจุดที่น้ำไหลลงทางน้ำ หรือความลาดลดลงจนตะกอนเริ่มตกทับถม กรมพัฒนาที่ดินแนะนำว่า <strong>ไม่ควรใช้ค่า λ เกิน 120 เมตร</strong> เพราะเกินจากนั้นข้อมูลแปลงทดลองที่ใช้สอบเทียบสมการหมดลง และตามปกติตะกอนก็เริ่มตกทับถมไปแล้ว</span></dd>
+          <dt>m</dt><dd><span class="en">slope-length exponent, set by the steepness — see the table below. Note the <strong>five</strong> bands, and in particular <strong>m = 0.7 above 21%</strong>, which the older three-band tables do not have.</span><span class="th">เลขชี้กำลังของความยาวลาด กำหนดโดยความชัน ดูตารางข้างล่าง ให้สังเกตว่ามี <strong>ห้าช่วง</strong> และโดยเฉพาะ <strong>m = 0.7 เมื่อชันเกิน 21%</strong> ซึ่งตารางแบบสามช่วงรุ่นเก่าไม่มี</span></dd>
+        </dl>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">λ (m)</span><span class="th">λ (ม.)</span></th>
+                <th colspan="5"><span class="en">L, by slope band (the exponent m is shown under each)</span><span class="th">ค่า L แยกตามช่วงความชัน (เลขชี้กำลัง m แสดงไว้ใต้แต่ละช่วง)</span></th>
+              </tr>
+              <tr>
+                <th class="num">0–1.0%<br><span class="mono">m = 0.2</span></th>
+                <th class="num">1.1–3.0%<br><span class="mono">m = 0.3</span></th>
+                <th class="num">3.1–5.0%<br><span class="mono">m = 0.4</span></th>
+                <th class="num">5.1–21.0%<br><span class="mono">m = 0.5</span></th>
+                <th class="num">&gt; 21.0%<br><span class="mono">m = 0.7</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">22</td><td class="num">0.999</td><td class="num">0.998</td><td class="num">0.998</td><td class="num">0.997</td><td class="num">0.996</td></tr>
+              <tr><td class="num">30</td><td class="num">1.063</td><td class="num">1.096</td><td class="num"><strong>1.129</strong></td><td class="num">1.164</td><td class="num">1.237</td></tr>
+              <tr><td class="num">40</td><td class="num">1.126</td><td class="num">1.194</td><td class="num">1.267</td><td class="num">1.344</td><td class="num">1.513</td></tr>
+              <tr><td class="num">50</td><td class="num">1.177</td><td class="num">1.277</td><td class="num">1.385</td><td class="num">1.503</td><td class="num">1.769</td></tr>
+              <tr><td class="num">60</td><td class="num">1.221</td><td class="num">1.349</td><td class="num">1.490</td><td class="num">1.647</td><td class="num">2.010</td></tr>
+              <tr><td class="num">70</td><td class="num">1.259</td><td class="num">1.413</td><td class="num">1.585</td><td class="num">1.779</td><td class="num">2.239</td></tr>
+              <tr><td class="num">80</td><td class="num">1.293</td><td class="num">1.470</td><td class="num">1.672</td><td class="num">1.901</td><td class="num">2.459</td></tr>
+              <tr><td class="num">90</td><td class="num">1.324</td><td class="num">1.523</td><td class="num">1.753</td><td class="num">2.017</td><td class="num">2.670</td></tr>
+              <tr><td class="num">100</td><td class="num">1.352</td><td class="num">1.572</td><td class="num">1.828</td><td class="num">2.126</td><td class="num">2.874</td></tr>
+              <tr><td class="num">110</td><td class="num">1.378</td><td class="num">1.618</td><td class="num">1.899</td><td class="num">2.229</td><td class="num">3.072</td></tr>
+              <tr><td class="num">120</td><td class="num">1.402</td><td class="num">1.661</td><td class="num">1.966</td><td class="num">2.329</td><td class="num">3.265</td></tr>
+              <tr><td class="num">150</td><td class="num">1.466</td><td class="num">1.776</td><td class="num">2.150</td><td class="num">2.603</td><td class="num">3.817</td></tr>
+              <tr><td class="num">200</td><td class="num">1.553</td><td class="num">1.936</td><td class="num">2.412</td><td class="num">3.006</td><td class="num">4.669</td></tr>
+              <tr><td class="num">300</td><td class="num">1.684</td><td class="num">2.186</td><td class="num">2.837</td><td class="num">3.682</td><td class="num">6.202</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>
+          <span class="en">Sources for m: 0.2, 0.3 and 0.4 from Wischmeier and Smith (1978); 0.5 from McCool and others, USDA (1997); 0.7 from Toxopeus, ITC (1997). The last two rows are printed for completeness but lie beyond the 120 m advice above.</span>
+          <span class="th">ที่มาของค่า m: ค่า 0.2, 0.3 และ 0.4 จาก Wischmeier and Smith (1978) ค่า 0.5 จาก McCool และคณะ, USDA (1997) ค่า 0.7 จาก Toxopeus, ITC (1997) สองแถวสุดท้ายพิมพ์ไว้ให้ครบ แต่อยู่เกินคำแนะนำ 120 ม. ข้างบน</span></em>
+        </p>
+
+        <h3><span class="en">S — the slope-gradient factor</span><span class="th">ปัจจัย S — ความลาดเท</span></h3>
+
+        <p>
+          <span class="en">S is the ratio of soil loss at a given steepness to soil loss at the standard 9%. It takes <strong>two different equations</strong>, and the join is at 9%:</span>
+          <span class="th">ค่า S คืออัตราส่วนของการสูญเสียดินที่ความชันระดับหนึ่ง ต่อการสูญเสียดินที่ความชันมาตรฐาน 9% และใช้ <strong>สมการสองสมการที่ต่างกัน</strong> โดยมีรอยต่ออยู่ที่ 9%</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>S = 0.065 + 0.045 a + 0.0065 a²</code><span class="eq-note"><span class="en">for a = 0 to 9% &nbsp;· Wischmeier &amp; Smith, 1978</span><span class="th">สำหรับ a = 0 ถึง 9% &nbsp;· Wischmeier &amp; Smith, 1978</span></span></div>
+          <div class="eq result"><code>S = 6.4 ( sin θ )<sup>0.75</sup> ( cos θ ) , &nbsp; θ = arctan(a/100)</code><span class="eq-note"><span class="en">for a greater than 9% &nbsp;· Meijerink, from Huizing, 1992</span><span class="th">สำหรับ a มากกว่า 9% &nbsp;· Meijerink จาก Huizing, 1992</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>a</dt><dd><span class="en">land slope in <strong>percent</strong>, not degrees — a 9% slope is only 5.14°, and putting degrees into the first equation is a silent way to get a badly wrong answer</span><span class="th">ความลาดชันของพื้นที่เป็น <strong>เปอร์เซ็นต์</strong> ไม่ใช่องศา ความชัน 9% คิดเป็นเพียง 5.14 องศา การใส่ค่าองศาลงในสมการแรกจะให้คำตอบที่ผิดมากโดยไม่มีอะไรเตือน</span></dd>
         </dl>
 
         <div class="box">
           <div class="box-title"><span class="en">Check it on the standard plot</span><span class="th">ตรวจสอบกับแปลงมาตรฐาน</span></div>
           <p>
-            <span class="en">Put λ = 22.13 m and s = 9% into the equation. The length ratio is 1, so the first bracket is 1. For s = 9%, <span class="mono">θ = 5.143°</span> and <span class="mono">sinθ = 0.08964</span>, giving <span class="mono">65.41(0.008035) + 4.56(0.08964) + 0.065 = 0.5256 + 0.4088 + 0.065 = 0.999</span>. <strong>LS = 1.00.</strong> If your implementation does not return 1.00 there, it is wrong — and this is the single most useful test in the chapter.</span>
-            <span class="th">ลองแทน λ = 22.13 ม. และ s = 9% ลงในสมการ อัตราส่วนความยาวเท่ากับ 1 วงเล็บแรกจึงเป็น 1 ส่วนที่ s = 9% จะได้ <span class="mono">θ = 5.143°</span> และ <span class="mono">sinθ = 0.08964</span> ทำให้ได้ <span class="mono">65.41(0.008035) + 4.56(0.08964) + 0.065 = 0.5256 + 0.4088 + 0.065 = 0.999</span> นั่นคือ <strong>LS = 1.00</strong> ถ้าโปรแกรมที่เราเขียนไม่ให้ค่า 1.00 ตรงจุดนี้ แสดงว่าเขียนผิด และนี่คือการทดสอบที่มีประโยชน์ที่สุดข้อเดียวของบทนี้</span>
+            <span class="en">Put λ = 22.13 m and a = 9% into both equations. The length ratio is 1, so <span class="mono">L = 1.000</span> whatever m is. And <span class="mono">S = 0.065 + 0.045(9) + 0.0065(81) = 0.065 + 0.405 + 0.527 = 0.997</span>, which the published table rounds to <strong>1.0001</strong>. So <strong>L × S = 1.00</strong>, exactly as the definition requires. If your spreadsheet does not return 1.00 there, it is wrong, and this is the single most useful test in the chapter — it catches a degrees-for-percent slip, a wrong exponent, and a mis-typed constant all at once.</span>
+            <span class="th">ลองแทน λ = 22.13 ม. และ a = 9% ลงในสมการทั้งสอง อัตราส่วนความยาวเท่ากับ 1 ดังนั้น <span class="mono">L = 1.000</span> ไม่ว่า m จะเป็นเท่าใด และ <span class="mono">S = 0.065 + 0.045(9) + 0.0065(81) = 0.065 + 0.405 + 0.527 = 0.997</span> ซึ่งตารางที่เผยแพร่ปัดเป็น <strong>1.0001</strong> ดังนั้น <strong>L × S = 1.00</strong> ตรงตามที่นิยามกำหนดพอดี ถ้าตารางคำนวณของเราไม่ได้ค่า 1.00 ตรงนั้น แปลว่าผิด และนี่คือการตรวจสอบที่มีประโยชน์ที่สุดในบทนี้ เพราะจับได้ทั้งการใส่องศาแทนเปอร์เซ็นต์ การใช้เลขชี้กำลังผิด และการพิมพ์ค่าคงที่ผิด ในคราวเดียว</span>
           </p>
         </div>
 
-        <h3><span class="en">LS for common combinations</span><span class="th">ค่า LS สำหรับกรณีที่พบบ่อย</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Slope (%)</span><span class="th">ความลาดชัน (%)</span></th>
+                <th><span class="en">S</span><span class="th">ค่า S</span></th>
+                <th><span class="en">Slope (%)</span><span class="th">ความลาดชัน (%)</span></th>
+                <th><span class="en">S</span><span class="th">ค่า S</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="num">0.1169</td><td class="num">16</td><td class="num">1.5720</td></tr>
+              <tr><td class="num">2</td><td class="num">0.1818</td><td class="num">17</td><td class="num">1.6395</td></tr>
+              <tr><td class="num">3</td><td class="num">0.2597</td><td class="num">18</td><td class="num">1.7052</td></tr>
+              <tr><td class="num">4</td><td class="num"><strong>0.3506</strong></td><td class="num">19</td><td class="num">1.7692</td></tr>
+              <tr><td class="num">5</td><td class="num">0.4545</td><td class="num">20</td><td class="num">1.8315</td></tr>
+              <tr><td class="num">6</td><td class="num">0.5714</td><td class="num">21</td><td class="num">1.8921</td></tr>
+              <tr><td class="num">7</td><td class="num">0.7013</td><td class="num">22</td><td class="num">1.9510</td></tr>
+              <tr><td class="num">8</td><td class="num">0.8442</td><td class="num">23</td><td class="num">2.0084</td></tr>
+              <tr><td class="num"><strong>9</strong></td><td class="num"><strong>1.0001</strong></td><td class="num">24</td><td class="num">2.0643</td></tr>
+              <tr><td class="num">10</td><td class="num">1.1237</td><td class="num">25</td><td class="num">2.1186</td></tr>
+              <tr><td class="num">11</td><td class="num">1.2041</td><td class="num">27</td><td class="num">2.2228</td></tr>
+              <tr><td class="num">12</td><td class="num">1.2821</td><td class="num">29</td><td class="num">2.3212</td></tr>
+              <tr><td class="num">13</td><td class="num">1.3577</td><td class="num">31</td><td class="num">2.4141</td></tr>
+              <tr><td class="num">14</td><td class="num">1.4312</td><td class="num">33</td><td class="num">2.5016</td></tr>
+              <tr><td class="num">15</td><td class="num">1.5026</td><td class="num">35</td><td class="num">2.5838</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why there are two S equations, and what happens if you use only the first</span><span class="th">ทำไมต้องมีสมการ S สองสมการ และจะเกิดอะไรขึ้นถ้าใช้แต่สมการแรก</span></div>
+          <p>
+            <span class="en">The polynomial is a curve fitted to plot data that mostly ran between 3% and 18%. It is a quadratic, so past the fitted range it climbs like a parabola, and real erosion does not. Above roughly 9% the runoff stops behaving like a deepening sheet and starts concentrating into rills, and beyond that the slope simply runs out of soil to give up. The second equation flattens out because that is what the measurements do.</span>
+            <span class="th">สมการโพลิโนเมียลเป็นเส้นโค้งที่สอบเทียบกับข้อมูลแปลงทดลองซึ่งส่วนใหญ่อยู่ระหว่าง 3% ถึง 18% เมื่อเป็นสมการกำลังสอง พอเลยช่วงที่สอบเทียบไว้มันก็ไต่ขึ้นแบบพาราโบลา แต่การกร่อนจริงไม่เป็นเช่นนั้น เมื่อเกินราว 9% น้ำไหลบ่าเลิกทำตัวเป็นแผ่นน้ำที่ลึกขึ้นเรื่อย ๆ และเริ่มรวมตัวเป็นร่อง และเลยจากนั้นไปลาดเขาก็เหลือดินให้เสียน้อยลงเอง สมการที่สองจึงแบนราบลง เพราะนั่นคือสิ่งที่ผลการวัดบอก</span>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th><span class="en">Slope</span><span class="th">ความลาดชัน</span></th>
+                  <th><span class="en">Correct S (second equation)</span><span class="th">ค่า S ที่ถูกต้อง (สมการที่สอง)</span></th>
+                  <th><span class="en">If the polynomial is extrapolated</span><span class="th">ถ้าเอาโพลิโนเมียลไปใช้ต่อ</span></th>
+                  <th><span class="en">Overstatement</span><span class="th">สูงเกินไป</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="num">10%</td><td class="num">1.13</td><td class="num">1.17</td><td class="num">1.0 ×</td></tr>
+                <tr><td class="num">15%</td><td class="num">1.51</td><td class="num">2.20</td><td class="num">1.5 ×</td></tr>
+                <tr><td class="num">20%</td><td class="num">1.85</td><td class="num">3.57</td><td class="num">1.9 ×</td></tr>
+                <tr><td class="num">25%</td><td class="num">2.15</td><td class="num">5.25</td><td class="num">2.4 ×</td></tr>
+                <tr><td class="num">30%</td><td class="num">2.41</td><td class="num">7.27</td><td class="num">3.0 ×</td></tr>
+                <tr><td class="num">35%</td><td class="num">2.63</td><td class="num">9.60</td><td class="num"><strong>3.6 ×</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="en">At 10% the two agree and it does not matter. At 35% — ordinary hill-country slope in the North — using the wrong branch nearly quadruples the answer. That is the difference between a plan and a panic, and the only thing standing between them is remembering that the polynomial stops at 9%.</span>
+            <span class="th">ที่ความชัน 10% ทั้งสองให้ค่าเท่ากันและไม่มีผล แต่ที่ 35% ซึ่งเป็นความชันธรรมดาของพื้นที่ภูเขาในภาคเหนือ การใช้สมการผิดสาขาทำให้คำตอบสูงขึ้นเกือบสี่เท่า นั่นคือความต่างระหว่างแผนงานกับความตื่นตระหนก และสิ่งเดียวที่กั้นอยู่ระหว่างสองอย่างนั้น คือการจำให้ได้ว่าโพลิโนเมียลหยุดที่ 9%</span>
+          </p>
+        </div>
+
+        <h3><span class="en">L × S for common combinations</span><span class="th">ค่า L × S สำหรับกรณีที่พบบ่อย</span></h3>
 
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
                 <th rowspan="2"><span class="en">Slope length λ (m)</span><span class="th">ความยาวลาด λ (ม.)</span></th>
-                <th colspan="6"><span class="en">Slope steepness s</span><span class="th">ความชัน s</span></th>
+                <th colspan="6"><span class="en">Slope steepness</span><span class="th">ความลาดชัน</span></th>
               </tr>
               <tr>
-                <th class="num">2%</th><th class="num">5%</th><th class="num">8%</th><th class="num">12%</th><th class="num">20%</th><th class="num">30%</th>
+                <th class="num">2%</th><th class="num">5%</th><th class="num">8%</th><th class="num">12%</th><th class="num">20%</th><th class="num">25%</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td class="num">20</td><td class="num">0.18</td><td class="num">0.43</td><td class="num">0.80</td><td class="num">1.46</td><td class="num">3.30</td><td class="num">6.44</td></tr>
-              <tr><td class="num">50</td><td class="num">0.23</td><td class="num">0.69</td><td class="num">1.27</td><td class="num">2.31</td><td class="num">5.22</td><td class="num">10.19</td></tr>
-              <tr><td class="num">100</td><td class="num">0.29</td><td class="num">0.97</td><td class="num">1.80</td><td class="num">3.27</td><td class="num">7.39</td><td class="num">14.40</td></tr>
-              <tr><td class="num">200</td><td class="num">0.35</td><td class="num">1.37</td><td class="num">2.54</td><td class="num">4.62</td><td class="num">10.45</td><td class="num">20.37</td></tr>
-              <tr><td class="num">400</td><td class="num">0.43</td><td class="num">1.94</td><td class="num">3.59</td><td class="num">6.53</td><td class="num">14.77</td><td class="num">28.81</td></tr>
+              <tr><td class="num">20</td><td class="num">0.18</td><td class="num">0.44</td><td class="num">0.80</td><td class="num">1.22</td><td class="num">1.74</td><td class="num">1.97</td></tr>
+              <tr><td class="num">30</td><td class="num">0.20</td><td class="num">0.51</td><td class="num">0.98</td><td class="num">1.49</td><td class="num">2.13</td><td class="num">2.62</td></tr>
+              <tr><td class="num">50</td><td class="num">0.23</td><td class="num">0.63</td><td class="num">1.27</td><td class="num">1.93</td><td class="num">2.75</td><td class="num">3.75</td></tr>
+              <tr><td class="num">80</td><td class="num">0.27</td><td class="num">0.76</td><td class="num">1.61</td><td class="num">2.44</td><td class="num">3.48</td><td class="num">5.21</td></tr>
+              <tr><td class="num">100</td><td class="num">0.29</td><td class="num">0.83</td><td class="num">1.79</td><td class="num">2.73</td><td class="num">3.89</td><td class="num">6.09</td></tr>
+              <tr><td class="num">120</td><td class="num">0.30</td><td class="num">0.89</td><td class="num">1.97</td><td class="num">2.99</td><td class="num">4.26</td><td class="num">6.92</td></tr>
+              <tr><td class="num">150</td><td class="num">0.32</td><td class="num">0.98</td><td class="num">2.20</td><td class="num">3.34</td><td class="num">4.77</td><td class="num">8.09</td></tr>
+              <tr><td class="num">200</td><td class="num">0.35</td><td class="num">1.10</td><td class="num">2.54</td><td class="num">3.85</td><td class="num">5.51</td><td class="num">9.89</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="box">
-          <div class="box-title"><span class="en">Read the table in both directions</span><span class="th">อ่านตารางนี้ทั้งสองทิศทาง</span></div>
+          <div class="box-title"><span class="en">Read the table in both directions</span><span class="th">อ่านตารางทั้งสองทิศทาง</span></div>
           <p>
-            <span class="en"><strong>Across a row:</strong> steepness dominates. Going from 2% to 30% at a fixed 100 m multiplies LS by <strong>fifty</strong>. Slope steepness is the single most brutal term in the whole equation — and it is the one term you genuinely cannot change.</span>
-            <span class="th"><strong>อ่านตามแนวนอน</strong> ความชันเป็นตัวครอบงำ การเปลี่ยนจาก 2% ไปเป็น 30% ที่ความยาวคงที่ 100 ม. ทำให้ค่า LS เพิ่มขึ้น <strong>ห้าสิบเท่า</strong> ความชันจึงเป็นพจน์ที่โหดร้ายที่สุดในสมการทั้งหมด และเป็นพจน์เดียวที่เราเปลี่ยนไม่ได้จริง ๆ</span>
+            <span class="en"><strong>Across a row:</strong> steepness dominates. Going from 2% to 25% at a fixed 100 m multiplies L × S by <strong>twenty-one</strong>. Slope steepness is the most brutal term in the whole equation — and it is the one term you genuinely cannot change.</span>
+            <span class="th"><strong>อ่านตามแนวนอน</strong> ความชันเป็นตัวครอบงำ การเปลี่ยนจาก 2% ไปเป็น 25% ที่ความยาวคงที่ 100 ม. ทำให้ค่า L × S เพิ่มขึ้น <strong>ยี่สิบเอ็ดเท่า</strong> ความชันจึงเป็นพจน์ที่โหดร้ายที่สุดในสมการทั้งหมด และเป็นพจน์เดียวที่เราเปลี่ยนไม่ได้จริง ๆ</span>
           </p>
           <p>
-            <span class="en"><strong>Down a column:</strong> length matters, but less than you would guess. Going from 20 m to 400 m — twenty times longer — raises LS by only about <strong>4.5 times</strong> at 8%, because the exponent is 0.5 and <span class="mono">√20 ≈ 4.5</span>. This is why terracing works but is not magic: halving a slope length divides LS by <span class="mono">√2 = 1.41</span>, not by 2. To halve LS you must cut the slope length to a <em>quarter</em>.</span>
-            <span class="th"><strong>อ่านตามแนวตั้ง</strong> ความยาวมีผล แต่น้อยกว่าที่คิด การเปลี่ยนจาก 20 ม. ไปเป็น 400 ม. คือยาวขึ้นยี่สิบเท่า ทำให้ LS เพิ่มเพียงราว <strong>4.5 เท่า</strong> ที่ความชัน 8% เพราะเลขชี้กำลังเท่ากับ 0.5 และ <span class="mono">√20 ≈ 4.5</span> นี่คือเหตุผลที่การทำขั้นบันไดดินได้ผลแต่ไม่ใช่เวทมนตร์ การลดความยาวลาดลงครึ่งหนึ่งหาร LS ด้วย <span class="mono">√2 = 1.41</span> ไม่ใช่หารด้วย 2 ถ้าต้องการให้ LS ลดลงครึ่งหนึ่ง ต้องตัดความยาวลาดให้เหลือ <em>หนึ่งในสี่</em></span>
+            <span class="en"><strong>Down a column:</strong> length matters, but less than you would guess. On a 5.1–21% slope the exponent is 0.5, so halving the slope length divides L by <span class="mono">√2 = 1.41</span>, not by 2 — to halve L you must cut λ to a <em>quarter</em>. Terracing works, but it is not magic, and the arithmetic is worth knowing before you promise a farmer a result.</span>
+            <span class="th"><strong>อ่านตามแนวตั้ง</strong> ความยาวมีผล แต่น้อยกว่าที่คิด บนลาด 5.1–21% เลขชี้กำลังเท่ากับ 0.5 การลดความยาวลาดลงครึ่งหนึ่งจึงหารค่า L ด้วย <span class="mono">√2 = 1.41</span> ไม่ใช่หารด้วย 2 ถ้าต้องการให้ L ลดลงครึ่งหนึ่ง ต้องตัด λ ให้เหลือ <em>หนึ่งในสี่</em> การทำขั้นบันไดดินได้ผล แต่ไม่ใช่เวทมนตร์ และควรรู้เลขคณิตข้อนี้ก่อนจะรับปากเกษตรกรว่าจะได้ผลเท่าใด</span>
+          </p>
+          <p>
+            <span class="en"><strong>One encouraging exception.</strong> Above 21% the exponent rises to 0.7, so halving λ there divides L by <span class="mono">2<sup>0.7</sup> = 1.62</span>. Shortening the slope buys <em>more</em> on steep land than on gentle land — which is fortunate, because steep land is where you need it and where terracing is the only measure left.</span>
+            <span class="th"><strong>มีข้อยกเว้นหนึ่งข้อที่ให้กำลังใจ</strong> เมื่อชันเกิน 21% เลขชี้กำลังเพิ่มเป็น 0.7 การลดค่า λ ลงครึ่งหนึ่งตรงนั้นจึงหาร L ด้วย <span class="mono">2<sup>0.7</sup> = 1.62</span> การย่นความยาวลาดให้ผลตอบแทน <em>มากกว่า</em> บนที่ชันเมื่อเทียบกับที่ลาดน้อย ซึ่งนับว่าโชคดี เพราะที่ชันคือที่ที่เราต้องการมันที่สุด และเป็นที่ที่การทำขั้นบันไดดินเป็นมาตรการเดียวที่เหลืออยู่</span>
           </p>
         </div>
 
@@ -666,28 +946,103 @@
           <span class="th">ค่า C คืออัตราส่วนของการสูญเสียดินจากพื้นที่ที่มีสิ่งปกคลุมและการจัดการแบบหนึ่ง เทียบกับการสูญเสียดินจากพื้นที่เดียวกันที่ปล่อยเป็นดินเปลือยไถทิ้งไว้ เป็นปัจจัยที่เกษตรกรเปลี่ยนได้ในฤดูนี้เลยโดยไม่ต้องลงทุน และมีช่วงกว้างถึงสามอันดับของขนาด ถ้าจะจำตัวเลขจากบทนี้ได้เพียงเรื่องเดียว ให้จำเรื่องนี้</span>
         </p>
 
+        <h3><span class="en">C by crop — the Thai values</span><span class="th">ค่า C รายพืช — ค่าของไทย</span></h3>
+
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th><span class="en">Cover and management</span><span class="th">สิ่งปกคลุมและการจัดการ</span></th>
+                <th><span class="en">Crop or cover</span><span class="th">ชนิดพืชหรือสิ่งปกคลุม</span></th>
                 <th><span class="en">C</span><span class="th">ค่า C</span></th>
-                <th><span class="en">Relative soil loss</span><span class="th">การสูญเสียดินโดยเปรียบเทียบ</span></th>
+                <th><span class="en">Crop or cover</span><span class="th">ชนิดพืชหรือสิ่งปกคลุม</span></th>
+                <th><span class="en">C</span><span class="th">ค่า C</span></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><strong><span class="en">Bare tilled fallow — the reference</span><span class="th">ดินเปลือยไถทิ้งไว้ — ค่าอ้างอิง</span></strong></td><td class="num"><strong>1.00</strong></td><td><span class="en">1,000×</span><span class="th">1,000 เท่า</span></td></tr>
-              <tr><td><span class="en">Cassava, conventional tillage</span><span class="th">มันสำปะหลัง ไถพรวนตามปกติ</span></td><td class="num">0.30–0.60</td><td><span class="en">300–600×</span><span class="th">300–600 เท่า</span></td></tr>
-              <tr><td><span class="en">Maize or other row crop, conventional</span><span class="th">ข้าวโพดหรือพืชแถวอื่น ไถพรวนตามปกติ</span></td><td class="num">0.20–0.50</td><td><span class="en">200–500×</span><span class="th">200–500 เท่า</span></td></tr>
-              <tr><td><span class="en">Row crop with residue left on the surface</span><span class="th">พืชแถวที่ทิ้งเศษซากพืชคลุมผิวดิน</span></td><td class="num">0.08–0.20</td><td><span class="en">80–200×</span><span class="th">80–200 เท่า</span></td></tr>
-              <tr><td><span class="en">Row crop, minimum or no tillage with mulch</span><span class="th">พืชแถว ไถน้อยหรือไม่ไถ พร้อมวัสดุคลุมดิน</span></td><td class="num">0.02–0.10</td><td><span class="en">20–100×</span><span class="th">20–100 เท่า</span></td></tr>
-              <tr><td><span class="en">Sugarcane, established</span><span class="th">อ้อย เมื่อตั้งตัวแล้ว</span></td><td class="num">0.10–0.30</td><td><span class="en">100–300×</span><span class="th">100–300 เท่า</span></td></tr>
-              <tr><td><span class="en">Orchard with bare cultivated floor</span><span class="th">สวนไม้ผล พื้นสวนไถพรวนเปลือย</span></td><td class="num">0.30–0.60</td><td><span class="en">300–600×</span><span class="th">300–600 เท่า</span></td></tr>
-              <tr><td><strong><span class="en">Orchard with a grass or legume floor</span><span class="th">สวนไม้ผล พื้นสวนปลูกหญ้าหรือพืชตระกูลถั่วคลุม</span></strong></td><td class="num"><strong>0.01–0.10</strong></td><td><span class="en">10–100×</span><span class="th">10–100 เท่า</span></td></tr>
-              <tr><td><span class="en">Dense pasture or hay, well managed</span><span class="th">ทุ่งหญ้าหนาแน่นหรือหญ้าเลี้ยงสัตว์ จัดการดี</span></td><td class="num">0.004–0.01</td><td><span class="en">4–10×</span><span class="th">4–10 เท่า</span></td></tr>
-              <tr><td><span class="en">Forest with litter layer intact</span><span class="th">ป่าไม้ที่มีชั้นเศษซากพืชสมบูรณ์</span></td><td class="num">0.001–0.009</td><td><span class="en">1–9×</span><span class="th">1–9 เท่า</span></td></tr>
+              <tr><td><strong><span class="en">Bare tilled fallow — the reference</span><span class="th">ดินเปลือยไถทิ้งไว้ — ค่าอ้างอิง</span></strong></td><td class="num"><strong>1.00</strong></td><td><span class="en">Cotton and tobacco</span><span class="th">ฝ้ายและยาสูบ</span></td><td class="num">0.5–0.7</td></tr>
+              <tr><td><span class="en">Sorghum</span><span class="th">ข้าวฟ่าง</span></td><td class="num">0.65</td><td><span class="en">Soybean</span><span class="th">ถั่วเหลือง</span></td><td class="num">0.42</td></tr>
+              <tr><td><strong><span class="en">Cassava</span><span class="th">มันสำปะหลัง</span></strong></td><td class="num"><strong>0.6</strong></td><td><span class="en">Groundnut</span><span class="th">ถั่วลิสง</span></td><td class="num">0.40</td></tr>
+              <tr><td><span class="en">Kenaf and jute</span><span class="th">ปอ</span></td><td class="num">0.6</td><td><span class="en">Mung bean</span><span class="th">ถั่วเขียว</span></td><td class="num">0.38</td></tr>
+              <tr><td><span class="en">Maize</span><span class="th">ข้าวโพด</span></td><td class="num">0.50</td><td><span class="en">Paddy rice</span><span class="th">นาข้าว</span></td><td class="num">0.28</td></tr>
+              <tr><td><span class="en">Sugarcane</span><span class="th">อ้อย</span></td><td class="num">0.40</td><td><span class="en">Land left bare but untilled</span><span class="th">พื้นที่ทิ้งไว้ไม่ไถพรวน</span></td><td class="num">0.50</td></tr>
+              <tr><td><span class="en">Coconut</span><span class="th">มะพร้าว</span></td><td class="num">0.40</td><td><strong><span class="en">Fruit orchard (rambutan, durian), rubber</span><span class="th">สวนผลไม้ (เงาะ ทุเรียน) สวนยาง</span></strong></td><td class="num"><strong>0.01</strong></td></tr>
+              <tr><td><span class="en">Pineapple (with and without weeds)</span><span class="th">สับปะรด (มีและไม่มีวัชพืช)</span></td><td class="num">0.10–0.38</td><td><span class="en">Mixed deciduous forest</span><span class="th">ป่าผสมไม้ผลัดใบ</span></td><td class="num">0.048</td></tr>
+              <tr><td><span class="en">Oil palm or coffee with a cover crop</span><span class="th">ปาล์มน้ำมัน กาแฟ ที่มีพืชคลุม</span></td><td class="num">0.1–0.3</td><td><span class="en">Hill evergreen forest</span><span class="th">ป่าดิบเขา</span></td><td class="num">0.003</td></tr>
+              <tr><td><span class="en">Year-round grass or pasture (legume grasses)</span><span class="th">ปลูกหญ้าตลอดปีหรือทุ่งหญ้า (หญ้าตระกูลถั่ว)</span></td><td class="num">0.010</td><td><strong><span class="en">Tropical rain forest, undisturbed</span><span class="th">ป่าดิบชื้นเขตร้อนที่อุดมสมบูรณ์</span></strong></td><td class="num"><strong>0.001</strong></td></tr>
             </tbody>
           </table>
+        </div>
+
+        <p><em>
+          <span class="en">Source: Land Development Department (2545).</span>
+          <span class="th">ที่มา: กรมพัฒนาที่ดิน (2545)</span></em>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Four numbers to take away from that table</span><span class="th">สี่ตัวเลขที่ควรจำจากตารางนั้น</span></div>
+          <p>
+            <span class="en"><strong>1. Cassava at 0.6 is the highest of any common Thai field crop</strong>, and it is grown on hundreds of thousands of rai of sloping upland. The plant is widely spaced, the canopy closes late, the soil is bare through the first storms of the season, and harvest disturbs the whole profile. Cassava is not an unusual crop agronomically — it is simply the worst combination of timing and spacing that Thai agriculture routinely puts on a slope. Sorghum at 0.65 is nominally higher, but it occupies far less land.</span>
+            <span class="th"><strong>1. มันสำปะหลังที่ค่า 0.6 สูงที่สุดในบรรดาพืชไร่ที่พบบ่อยของไทย</strong> และปลูกกันอยู่บนที่ดอนลาดเทหลายแสนไร่ ต้นมันปลูกห่าง ทรงพุ่มปิดช้า ดินเปลือยตลอดช่วงฝนแรกของฤดู และการเก็บเกี่ยวรบกวนดินทั้งหน้าตัด มันสำปะหลังไม่ใช่พืชที่แปลกในทางพืชศาสตร์ แต่เป็นการผสมระหว่างจังหวะเวลากับระยะปลูกที่แย่ที่สุดเท่าที่การเกษตรไทยเอาขึ้นไปไว้บนที่ลาดเป็นปกติ ส่วนข้าวฟ่างที่ 0.65 สูงกว่าในทางตัวเลข แต่ครองพื้นที่น้อยกว่ามาก</span>
+          </p>
+          <p>
+            <span class="en"><strong>2. Rubber and fruit orchards at 0.01 are sixty times better than a market-garden.</strong> Both are perennial, both have canopies — the difference is that an orchard floor is left to a permanent ground cover while a vegetable plot is tilled and weeded bare. Converting sloping land from annual crops to well-managed tree crops is the single largest C reduction available in Thailand, and it is a land-use decision, not a technique.</span>
+            <span class="th"><strong>2. สวนยางและสวนผลไม้ที่ค่า 0.01 ดีกว่าพืชสวนผักถึงหกสิบเท่า</strong> ทั้งคู่เป็นไม้ยืนต้นและมีทรงพุ่มเหมือนกัน สิ่งที่ต่างคือพื้นสวนผลไม้ถูกปล่อยให้มีพืชคลุมดินถาวร ส่วนแปลงผักถูกไถและถอนวัชพืชจนเตียน การเปลี่ยนที่ลาดเทจากพืชล้มลุกไปเป็นไม้ยืนต้นที่จัดการดี คือการลดค่า C ที่ได้ผลมากที่สุดเท่าที่มีในประเทศไทย และเป็นการตัดสินใจเรื่องการใช้ที่ดิน ไม่ใช่เรื่องเทคนิค</span>
+          </p>
+          <p>
+            <span class="en"><strong>3. Bare but untilled land is C = 0.50, half of bare tilled fallow.</strong> Nothing is growing in either case. The whole difference is the tillage: a surface that has not been broken keeps its crust, its old root channels and whatever residue is lying on it. This is the entire argument for minimum tillage compressed into two numbers.</span>
+            <span class="th"><strong>3. พื้นที่ที่เปลือยแต่ไม่ได้ไถพรวน มีค่า C = 0.50 คือครึ่งหนึ่งของดินเปลือยที่ไถทิ้งไว้</strong> ทั้งสองกรณีไม่มีอะไรขึ้นอยู่เลย ความต่างทั้งหมดอยู่ที่การไถพรวน ผิวดินที่ไม่ถูกทำลายยังคงมีแผ่นแข็งที่ผิว มีช่องรากเก่า และมีเศษซากพืชที่ตกค้างอยู่ นี่คือเหตุผลทั้งหมดของการไถพรวนน้อยที่สุด บีบอัดลงเหลือตัวเลขสองตัว</span>
+          </p>
+          <p>
+            <span class="en"><strong>4. The span is a thousand to one.</strong> From bare tilled fallow at 1.00 to undisturbed rain forest at 0.001. No other factor in the equation moves that far, and every point along that line is a decision someone makes. If you remember one thing from this chapter, remember that C is where the leverage is.</span>
+            <span class="th"><strong>4. ช่วงของค่ากว้างหนึ่งพันต่อหนึ่ง</strong> จากดินเปลือยไถทิ้งไว้ที่ 1.00 ไปจนถึงป่าดิบชื้นที่ไม่ถูกรบกวนที่ 0.001 ไม่มีปัจจัยอื่นใดในสมการที่ขยับได้ไกลขนาดนั้น และทุกจุดบนเส้นนั้นคือการตัดสินใจของใครสักคน ถ้าจะจำอะไรจากบทนี้ได้อย่างเดียว ให้จำว่าค่า C คือจุดที่มีคานงัดอยู่</span>
+          </p>
+        </div>
+
+        <h3><span class="en">C and P by land use</span><span class="th">ค่า C และ P ตามประเภทการใช้ที่ดิน</span></h3>
+
+        <p>
+          <span class="en">For catchment-scale work the department publishes values indexed by land-use class rather than by crop, together with the P value that class normally carries. Most classes take the same C nationwide; the ones that do not are noted.</span>
+          <span class="th">สำหรับงานระดับลุ่มน้ำ กรมเผยแพร่ค่าที่จัดตามประเภทการใช้ที่ดินแทนที่จะจัดตามชนิดพืช พร้อมกับค่า P ที่ประเภทนั้นมีตามปกติ ประเภทส่วนใหญ่ใช้ค่า C เดียวกันทั้งประเทศ ส่วนประเภทที่ไม่เป็นเช่นนั้นมีหมายเหตุกำกับไว้</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Land use</span><span class="th">ประเภทการใช้ที่ดิน</span></th>
+                <th><span class="en">C</span><span class="th">ค่า C</span></th>
+                <th><span class="en">P</span><span class="th">ค่า P</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">Paddy</span><span class="th">นาข้าว</span></strong></td><td class="num">0.280</td><td class="num"><strong>0.1</strong></td></tr>
+              <tr><td><strong><span class="en">Field crops</span><span class="th">พืชไร่</span></strong></td><td class="num"><strong>0.525</strong> <span class="en">(NE) · 0.485 (C, W, E) · 0.474 (N) · 0.322 (S)</span><span class="th">(อีสาน) · 0.485 (กลาง ตะวันตก ตะวันออก) · 0.474 (เหนือ) · 0.322 (ใต้)</span></td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Perennial trees</span><span class="th">ไม้ยืนต้น</span></td><td class="num">0.150 <span class="en">(0.160 in the South)</span><span class="th">(0.160 ในภาคใต้)</span></td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Fruit trees</span><span class="th">ไม้ผล</span></td><td class="num">0.300</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Market garden and horticulture</span><span class="th">พืชสวน</span></td><td class="num">0.600</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Shifting cultivation</span><span class="th">ไร่หมุนเวียน</span></td><td class="num">0.250</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Pasture</span><span class="th">ทุ่งหญ้า</span></td><td class="num">0.100</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Integrated farming</span><span class="th">เกษตรผสมผสาน</span></td><td class="num">0.225</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Evergreen forest</span><span class="th">ป่าไม่ผลัดใบ</span></td><td class="num">0.003 <span class="en">(0.001 in the East and South)</span><span class="th">(0.001 ในภาคตะวันออกและภาคใต้)</span></td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Deciduous forest</span><span class="th">ป่าผลัดใบ</span></td><td class="num">0.048</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Forest plantation</span><span class="th">สวนป่า</span></td><td class="num">0.088</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Agroforestry</span><span class="th">วนเกษตร</span></td><td class="num">0.088</td><td class="num">1.0</td></tr>
+              <tr><td><span class="en">Natural grassland</span><span class="th">ทุ่งหญ้าธรรมชาติ</span></td><td class="num">0.015</td><td class="num">1.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>
+          <span class="en">Source: Land Development Department (2545). The published table prints 0.008 for agroforestry in the North where every other region reads 0.088; it is taken here as a typographical slip.</span>
+          <span class="th">ที่มา: กรมพัฒนาที่ดิน (2545) ตารางที่เผยแพร่พิมพ์ค่าวนเกษตรในภาคเหนือไว้ที่ 0.008 ขณะที่ทุกภาคอื่นเป็น 0.088 ในที่นี้ถือว่าเป็นการพิมพ์ตกหล่น</span></em>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why paddy is the only land use with P = 0.1</span><span class="th">ทำไมนาข้าวจึงเป็นการใช้ที่ดินเดียวที่มีค่า P = 0.1</span></div>
+          <p>
+            <span class="en">Every other class in the table carries P = 1.00, meaning no support practice is assumed. Paddy alone is given 0.1, and the reason is the bund. A bunded, levelled bay holds its water rather than shedding it, so there is no runoff to transport anything — the field is, in effect, permanently terraced. Note where the credit is booked: not in C, which at 0.280 is unremarkable, and not in K, which §8.5 showed is often <em>higher</em> in paddy soils than in upland ones. The protection comes entirely from what the bund does to the flow. That is precisely what the P factor is for, and paddy is the clearest example of it anywhere in Thai agriculture.</span>
+            <span class="th">ทุกประเภทอื่นในตารางมีค่า P = 1.00 ซึ่งหมายความว่าไม่ได้สมมติว่ามีมาตรการอนุรักษ์ใด ๆ มีเพียงนาข้าวที่ได้ค่า 0.1 และเหตุผลคือคันนา แปลงนาที่มีคันล้อมและปรับระดับแล้วจะเก็บน้ำไว้แทนที่จะปล่อยให้ไหลออก จึงไม่มีน้ำไหลบ่าที่จะพาอะไรไป แปลงนาจึงเท่ากับเป็นขั้นบันไดดินถาวรโดยปริยาย ให้สังเกตว่าเครดิตนี้ถูกบันทึกไว้ตรงไหน ไม่ใช่ที่ค่า C ซึ่งอยู่ที่ 0.280 ไม่มีอะไรพิเศษ และไม่ใช่ที่ค่า K ซึ่งหัวข้อ 8.5 แสดงให้เห็นว่าดินนามักมีค่า <em>สูงกว่า</em> ดินดอนด้วยซ้ำ การปกป้องมาจากสิ่งที่คันนาทำกับการไหลของน้ำล้วน ๆ นั่นคือหน้าที่ของปัจจัย P พอดี และนาข้าวเป็นตัวอย่างที่ชัดที่สุดของมันในภาคเกษตรไทย</span>
+          </p>
         </div>
 
         <div class="box">
@@ -740,25 +1095,69 @@
           <table>
             <thead>
               <tr>
-                <th rowspan="2"><span class="en">Land slope</span><span class="th">ความลาดของพื้นที่</span></th>
+                <th rowspan="2"><span class="en">Land slope</span><span class="th">ความลาดชัน</span></th>
                 <th colspan="3"><span class="en">P value</span><span class="th">ค่า P</span></th>
               </tr>
               <tr>
-                <th><span class="en">Contour farming</span><span class="th">ไถตามแนวระดับ</span></th>
-                <th><span class="en">Contour strip cropping</span><span class="th">ปลูกพืชสลับเป็นแถบตามแนวระดับ</span></th>
-                <th><span class="en">Contour + terraces</span><span class="th">แนวระดับ + ขั้นบันไดดิน</span></th>
+                <th><span class="en">Contour tillage<br><span class="mono">contouring</span></span><span class="th">ปลูกพืชตามแนวระดับ<br><span class="mono">contouring</span></span></th>
+                <th><span class="en">Strip cropping with grass<br><span class="mono">strip cropping</span></span><span class="th">ปลูกพืชสลับเป็นแถบกับหญ้า<br><span class="mono">strip cropping</span></span></th>
+                <th><span class="en">Bunds and terraces<br><span class="mono">terracing</span></span><span class="th">สร้างคันดิน<br><span class="mono">terracing</span></span></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td class="num">1–2%</td><td class="num">0.60</td><td class="num">0.30</td><td class="num">0.12</td></tr>
-              <tr><td class="num">3–8%</td><td class="num">0.50</td><td class="num">0.25</td><td class="num">0.10</td></tr>
-              <tr><td class="num">9–12%</td><td class="num">0.60</td><td class="num">0.30</td><td class="num">0.12</td></tr>
-              <tr><td class="num">13–16%</td><td class="num">0.70</td><td class="num">0.35</td><td class="num">0.14</td></tr>
-              <tr><td class="num">17–20%</td><td class="num">0.80</td><td class="num">0.40</td><td class="num">0.16</td></tr>
-              <tr><td class="num">21–25%</td><td class="num">0.90</td><td class="num">0.45</td><td class="num">0.18</td></tr>
-              <tr><td class="num">&gt; 25%</td><td class="num">1.00</td><td class="num">0.50</td><td class="num">0.20</td></tr>
+              <tr><td class="num">1–2%</td><td class="num">0.6</td><td class="num">0.30 <span class="en">(40 m strips)</span><span class="th">(แถบกว้าง 40 ม.)</span></td><td class="num">0.12</td></tr>
+              <tr><td class="num">3–5%</td><td class="num"><strong>0.5</strong></td><td class="num"><strong>0.25</strong> <span class="en">(30 m strips)</span><span class="th">(แถบกว้าง 30 ม.)</span></td><td class="num">0.10</td></tr>
+              <tr><td class="num">6–8%</td><td class="num"><strong>0.5</strong></td><td class="num"><strong>0.25</strong> <span class="en">(30 m strips)</span><span class="th">(แถบกว้าง 30 ม.)</span></td><td class="num">0.10</td></tr>
+              <tr><td class="num">9–12%</td><td class="num">0.6</td><td class="num">0.30 <span class="en">(24 m strips)</span><span class="th">(แถบกว้าง 24 ม.)</span></td><td class="num">0.12</td></tr>
+              <tr><td class="num">13–16%</td><td class="num">0.7</td><td class="num">0.35 <span class="en">(24 m strips)</span><span class="th">(แถบกว้าง 24 ม.)</span></td><td class="num">0.14</td></tr>
+              <tr><td class="num">17–20%</td><td class="num">0.8</td><td class="num">0.40 <span class="en">(18 m strips)</span><span class="th">(แถบกว้าง 18 ม.)</span></td><td class="num">0.16</td></tr>
+              <tr><td class="num">21–25%</td><td class="num">0.9</td><td class="num">0.45 <span class="en">(15 m strips)</span><span class="th">(แถบกว้าง 15 ม.)</span></td><td class="num">0.18</td></tr>
+              <tr><td class="num"><span class="en">&gt; 25% <em>(beyond the LDD table)</em></span><span class="th">&gt; 25% <em>(เกินตาราง พด.)</em></span></td><td class="num">1.0</td><td class="num">0.50</td><td class="num">0.20</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <p><em>
+          <span class="en">Source: Land Development Department, from conservation trial plots. The last row is not in the published table — it is the international extension, and the LDD's own answer for land that steep is in §8.10: do not farm it.</span>
+          <span class="th">ที่มา: กรมพัฒนาที่ดิน จากแปลงทดลองตามวิธีการอนุรักษ์ดินและน้ำ แถวสุดท้ายไม่มีอยู่ในตารางที่เผยแพร่ แต่เป็นส่วนขยายตามแนวปฏิบัติสากล ส่วนคำตอบของกรมเองสำหรับที่ชันขนาดนั้นอยู่ในหัวข้อ 8.10 คืออย่าใช้ทำการเกษตร</span></em>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Contour ridging: multiply the contouring value by 0.5</span><span class="th">การยกร่องตามแนวระดับ ให้คูณค่าของการไถตามแนวระดับด้วย 0.5</span></div>
+          <p>
+            <span class="en">The table has three columns, but Thai practice has a fourth measure that falls between the first two. <strong>Contour ridging</strong> (การยกร่องตามแนวระดับ) builds a proper ridge-and-furrow across the slope rather than merely running the plough along the contour, and the LDD credits it at <span class="mono">contour tillage × 0.5</span>. On a 3–8% slope that is <span class="mono">0.5 × 0.5 = 0.25</span> — the same as strip cropping, and reached without giving up any of the field to grass strips. For a farmer who is already ridging for a root crop, it costs nothing but the direction the ridges run.</span>
+            <span class="th">ตารางมีสามคอลัมน์ แต่แนวปฏิบัติของไทยมีมาตรการที่สี่ซึ่งอยู่ระหว่างสองคอลัมน์แรก คือ <strong>การยกร่องตามแนวระดับ</strong> ซึ่งทำสันร่องและร่องขวางความลาดจริง ๆ ไม่ใช่เพียงแค่ลากไถไปตามแนวระดับ กรมพัฒนาที่ดินให้ค่าไว้ที่ <span class="mono">ไถตามแนวระดับ × 0.5</span> บนลาด 3–8% จะได้ <span class="mono">0.5 × 0.5 = 0.25</span> ซึ่งเท่ากับการปลูกพืชสลับแถบ และได้มาโดยไม่ต้องยกพื้นที่ส่วนใดของแปลงให้แถบหญ้า สำหรับเกษตรกรที่ยกร่องปลูกพืชหัวอยู่แล้ว มาตรการนี้ไม่มีต้นทุนอะไรเลยนอกจากทิศทางที่ร่องวิ่งไป</span>
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Contour tillage has a maximum slope length — past it, the credit is void</span><span class="th">การไถตามแนวระดับมีความยาวลาดสูงสุด เกินจากนั้นเครดิตเป็นโมฆะ</span></div>
+          <p>
+            <span class="en">A P value is not unconditional. Contour ridges hold water only until the furrow behind them fills; once the slope is long enough that the arriving runoff exceeds what the furrows can impound, the ridges overtop, break at the weakest point, and the concentrated flow does more damage than no ridges at all. Wischmeier and Smith set out the limits, and the LDD adopts them:</span>
+            <span class="th">ค่า P ไม่ได้ใช้ได้โดยไม่มีเงื่อนไข สันดินตามแนวระดับกักน้ำได้เพียงจนกว่าร่องด้านหลังจะเต็ม เมื่อลาดยาวพอจนน้ำไหลบ่าที่ไหลมาถึงมากเกินกว่าที่ร่องจะกักไว้ได้ สันดินจะถูกน้ำล้นข้าม แตกที่จุดอ่อนที่สุด แล้วน้ำที่รวมตัวกันจะสร้างความเสียหายมากกว่าการไม่มีสันดินเสียอีก Wischmeier และ Smith กำหนดขีดจำกัดไว้ และกรมพัฒนาที่ดินก็นำมาใช้</span>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th><span class="en">Slope</span><span class="th">ความลาดชัน</span></th>
+                  <th><span class="en">Maximum slope length (m)</span><span class="th">ความยาวลาดสูงสุด (ม.)</span></th>
+                  <th><span class="en">P</span><span class="th">ค่า P</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="num">1–8%</td><td class="num">122 <span class="en">down to</span><span class="th">ลดลงถึง</span> 61</td><td class="num">0.5</td></tr>
+                <tr><td class="num">9–12%</td><td class="num">36</td><td class="num">0.6</td></tr>
+                <tr><td class="num">13–16%</td><td class="num">24</td><td class="num">0.7</td></tr>
+                <tr><td class="num">17–20%</td><td class="num">18</td><td class="num">0.8</td></tr>
+                <tr><td class="num">21–25%</td><td class="num">15</td><td class="num">0.9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="en">Read the middle column downwards and the message is stark. On a 20% slope, contour tillage earns its P = 0.8 only for the first <strong>18 metres</strong>. A 60 m slope at 20% cannot be protected by contouring at all, whatever the first table says — it needs a bund every 18 m, at which point you are terracing and should use that column instead. <strong>Always check λ against this table before you claim a contouring P.</strong> Note too how neatly it agrees with §8.6: the limit falls as the slope steepens for the same reason the exponent m rises.</span>
+            <span class="th">ลองอ่านคอลัมน์กลางจากบนลงล่าง สารที่ได้ชัดเจนและแข็ง บนลาด 20% การไถตามแนวระดับได้ค่า P = 0.8 เฉพาะ <strong>18 เมตรแรก</strong> เท่านั้น ลาดยาว 60 ม. ที่ความชัน 20% ป้องกันด้วยการไถตามแนวระดับไม่ได้เลย ไม่ว่าตารางแรกจะเขียนไว้อย่างไร เพราะต้องมีคันดินทุก 18 ม. ซึ่งถึงตรงนั้นก็คือการทำคันดินแล้ว และควรใช้คอลัมน์นั้นแทน <strong>ให้ตรวจค่า λ กับตารางนี้เสมอก่อนจะอ้างค่า P ของการไถตามแนวระดับ</strong> และให้สังเกตด้วยว่ามันสอดคล้องกับหัวข้อ 8.6 อย่างเรียบร้อย คือขีดจำกัดลดลงเมื่อลาดชันขึ้น ด้วยเหตุผลเดียวกับที่เลขชี้กำลัง m เพิ่มขึ้น</span>
+          </p>
         </div>
 
         <div class="box">
@@ -788,18 +1187,17 @@
 
         <div class="box">
           <p>
-            <span class="en">An upland field grows <strong>maize under conventional tillage</strong>, cultivated up and down the slope. The slope is <strong>8%</strong> and runoff accumulates over <strong>100 m</strong> before reaching a natural drain. The soil is a <strong>sandy loam</strong>, K = 0.020. Take the site's rainfall erosivity as <strong>R = 6,000</strong> MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ <em>(assumed here; in practice read it off the LDD map — see §8.4)</em>. Estimate the annual soil loss and design a plan to bring it below the tolerance limit.</span>
-            <span class="th">แปลงในที่ดอนแห่งหนึ่งปลูก <strong>ข้าวโพดโดยไถพรวนตามปกติ</strong> และไถขึ้นลงตามความลาด พื้นที่มีความชัน <strong>8%</strong> และน้ำไหลบ่าสะสมตัวตลอดระยะ <strong>100 ม.</strong> ก่อนจะลงทางน้ำธรรมชาติ ดินเป็น <strong>ดินร่วนปนทราย</strong> ค่า K = 0.020 กำหนดให้ค่าการกัดเซาะของฝนในพื้นที่นี้เท่ากับ <strong>R = 6,000</strong> MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ <em>(สมมติไว้ในที่นี้ ในทางปฏิบัติต้องเปิดจากแผนที่กรมพัฒนาที่ดิน ดูหัวข้อ 8.4)</em> จงประมาณการสูญเสียดินรายปี และวางแผนเพื่อลดให้ต่ำกว่าขีดจำกัดที่ยอมรับได้</span>
+            <span class="en">A farmer near <strong>Khon Kaen</strong> grows <strong>kenaf</strong> on upland ground, cultivated up and down the slope. The mean annual rainfall is <strong>1,522 mm</strong>. The topsoil is a <strong>sandy loam</strong>. Runoff accumulates over <strong>30 m</strong> of a <strong>4%</strong> slope before reaching a natural drain. Estimate the annual soil loss, and design a conservation plan that brings it inside the tolerance limit.</span>
+            <span class="th">เกษตรกรรายหนึ่งใกล้ <strong>จังหวัดขอนแก่น</strong> ปลูก <strong>ปอแก้ว</strong> บนที่ดอน โดยไถพรวนขึ้นลงตามความลาดเอียง ปริมาณน้ำฝนเฉลี่ยรายปี <strong>1,522 มม.</strong> เนื้อดินบนเป็น <strong>ดินร่วนปนทราย</strong> น้ำไหลบ่าสะสมตัวตลอดระยะ <strong>30 ม.</strong> บนความลาดชัน <strong>4%</strong> ก่อนจะลงทางน้ำธรรมชาติ จงประมาณการสูญเสียดินรายปี และวางแผนอนุรักษ์ดินและน้ำให้ลดลงมาอยู่ในเกณฑ์ที่ยอมรับได้</span>
           </p>
         </div>
 
-        <h3><span class="en">Step 1 · Assemble the five factors</span><span class="th">ขั้นที่ 1 · รวบรวมปัจจัยทั้งห้า</span></h3>
+        <h3><span class="en">Step 1 · Assemble the six factors</span><span class="th">ขั้นที่ 1 · รวบรวมปัจจัยทั้งหก</span></h3>
 
         <div class="formula">
-          <div class="eq"><code>θ = arctan(0.08) = 4.574° ; sinθ = 0.07975</code></div>
-          <div class="eq"><code>m = 0.5 <span class="en">since s ≥ 5%</span><span class="th">เนื่องจาก s ≥ 5%</span></code></div>
-          <div class="eq"><code>LS = (100/22.13)<sup>0.5</sup> × [65.41(0.07975)² + 4.56(0.07975) + 0.065]</code></div>
-          <div class="eq result"><code>LS = 2.126 × 0.8447 = <strong>1.796</strong></code></div>
+          <div class="eq"><code>R = 0.4669 (1,522) − 12.1415 = <strong>698.5</strong></code><span class="eq-note"><span class="en">§8.4, t/ha/yr</span><span class="th">หัวข้อ 8.4 หน่วย ตัน/เฮกแตร์/ปี</span></span></div>
+          <div class="eq"><code>m = 0.4 <span class="en">since s is in the 3.1–5.0% band</span><span class="th">เพราะ s อยู่ในช่วง 3.1–5.0%</span> ; &nbsp; L = (30 / 22.13)<sup>0.4</sup> = <strong>1.129</strong></code></div>
+          <div class="eq"><code>S = 0.065 + 0.045(4) + 0.0065(4)² = <strong>0.3506</strong></code><span class="eq-note"><span class="en">s ≤ 9%, so the polynomial branch</span><span class="th">s ≤ 9% จึงใช้สมการสาขาโพลิโนเมียล</span></span></div>
         </div>
 
         <div class="table-wrap">
@@ -808,21 +1206,39 @@
               <tr>
                 <th><span class="en">Factor</span><span class="th">ปัจจัย</span></th>
                 <th><span class="en">Value</span><span class="th">ค่า</span></th>
-                <th><span class="en">Source</span><span class="th">ที่มา</span></th>
+                <th><span class="en">Where it comes from</span><span class="th">ได้มาจากไหน</span></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>R</td><td class="num">6,000</td><td><span class="en">Assumed — must come from the LDD isoerodent map</span><span class="th">สมมติ ต้องได้จากแผนที่เส้นชั้นค่า R ของกรมพัฒนาที่ดิน</span></td></tr>
-              <tr><td>K</td><td class="num">0.020</td><td><span class="en">Sandy loam, §8.5</span><span class="th">ดินร่วนปนทราย จากหัวข้อ 8.5</span></td></tr>
-              <tr><td>LS</td><td class="num">1.796</td><td><span class="en">Computed above; matches the 100 m / 8% cell of the §8.6 table</span><span class="th">คำนวณข้างบน ตรงกับช่อง 100 ม. / 8% ในตารางหัวข้อ 8.6</span></td></tr>
-              <tr><td>C</td><td class="num">0.35</td><td><span class="en">Maize, conventional tillage, §8.7</span><span class="th">ข้าวโพด ไถพรวนตามปกติ จากหัวข้อ 8.7</span></td></tr>
-              <tr><td>P</td><td class="num">1.00</td><td><span class="en">Up-and-down cultivation, §8.8</span><span class="th">ไถขึ้นลงตามความลาด จากหัวข้อ 8.8</span></td></tr>
+              <tr><td><strong>R</strong></td><td class="num">698.5</td><td><span class="en">LDD equation, from 1,522 mm of annual rainfall — §8.4</span><span class="th">สมการของกรมพัฒนาที่ดิน จากน้ำฝนรายปี 1,522 มม. — หัวข้อ 8.4</span></td></tr>
+              <tr><td><strong>K</strong></td><td class="num">0.24</td><td><span class="en">Sandy loam, upland, Northeast — §8.5</span><span class="th">ดินร่วนปนทราย ดินดอน ภาคตะวันออกเฉียงเหนือ — หัวข้อ 8.5</span></td></tr>
+              <tr><td><strong>L</strong></td><td class="num">1.129</td><td><span class="en">λ = 30 m at 4% — §8.6</span><span class="th">λ = 30 ม. ที่ความชัน 4% — หัวข้อ 8.6</span></td></tr>
+              <tr><td><strong>S</strong></td><td class="num">0.3506</td><td><span class="en">4% slope — §8.6</span><span class="th">ความชัน 4% — หัวข้อ 8.6</span></td></tr>
+              <tr><td><strong>C</strong></td><td class="num">0.525</td><td><span class="en">Field crops, Northeast — §8.7</span><span class="th">พืชไร่ ภาคตะวันออกเฉียงเหนือ — หัวข้อ 8.7</span></td></tr>
+              <tr><td><strong>P</strong></td><td class="num">1.00</td><td><span class="en">Up-and-down cultivation, no support practice — §8.8</span><span class="th">ไถพรวนขึ้นลงตามความลาด ไม่มีมาตรการอนุรักษ์ — หัวข้อ 8.8</span></td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="formula">
-          <div class="eq result"><code>A = 6,000 × 0.020 × 1.796 × 0.35 × 1.00 = <strong>75.4 t/ha/yr</strong></code></div>
+          <div class="eq"><code>A = 698.5 × 0.24 × 1.129 × 0.3506 × 0.525 × 1.00</code></div>
+          <div class="eq result"><code>A = <strong>34.84</strong> <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span> = <strong>5.57</strong> <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> = <strong>2.68</strong> <span class="en">mm/yr</span><span class="th">มม./ปี</span></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Converting mass to depth</span><span class="th">การแปลงมวลเป็นความลึก</span></div>
+          <p>
+            <span class="en">A tonne per hectare is hard to picture; a millimetre of topsoil is not. The LDD uses a national average bulk density of <strong>1.30 g/cm³</strong>, which makes the conversion a single division:</span>
+            <span class="th">ค่าหนึ่งตันต่อเฮกแตร์นึกภาพยาก แต่หน้าดินหนาหนึ่งมิลลิเมตรนึกภาพออก กรมพัฒนาที่ดินใช้ค่าความหนาแน่นรวมเฉลี่ยของประเทศที่ <strong>1.30 ก./ซม.³</strong> ซึ่งทำให้การแปลงหน่วยเหลือเพียงการหารครั้งเดียว</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code><span class="en">depth (mm)</span><span class="th">ความลึก (มม.)</span> = <span class="frac"><span class="num"><span class="en">t/ha</span><span class="th">ตัน/เฮกแตร์</span></span><span class="den"><span class="en">density</span><span class="th">ความหนาแน่น</span> × 10</span></span> = <span class="frac"><span class="num"><span class="en">t/ha</span><span class="th">ตัน/เฮกแตร์</span></span><span class="den">13</span></span></code></div>
+            <div class="eq result"><code>34.84 / 13 = 2.68 <span class="en">mm/yr</span><span class="th">มม./ปี</span></code></div>
+          </div>
+          <p>
+            <span class="en">The A and E horizons of a Thai soil average about <strong>24 cm</strong> deep. At 2.68 mm a year, this field spends its entire topsoil in <strong>ninety years</strong> — one working lifetime and a bit, with nothing dramatic ever happening in any single season.</span>
+            <span class="th">ชั้น A และ E ของดินในประเทศไทยมีความลึกเฉลี่ยราว <strong>24 ซม.</strong> ที่อัตรา 2.68 มม. ต่อปี แปลงนี้จะใช้หน้าดินทั้งหมดหมดไปใน <strong>เก้าสิบปี</strong> คือหนึ่งชั่วอายุการทำงานกับอีกนิดหน่อย โดยไม่มีอะไรน่าตื่นเต้นเกิดขึ้นเลยในฤดูกาลใดฤดูกาลหนึ่ง</span>
+          </p>
         </div>
 
         <h3><span class="en">Step 2 · Compare against tolerance</span><span class="th">ขั้นที่ 2 · เทียบกับขีดจำกัดที่ยอมรับได้</span></h3>
@@ -834,11 +1250,15 @@
             <span class="th"><strong>ค่าการสูญเสียดินที่ยอมรับได้ (T)</strong> คือการสูญเสียรายปีสูงสุดที่ที่ดินยังให้ผลผลิตต่อไปได้อย่างไม่มีกำหนด กรมพัฒนาที่ดินกำหนดค่าเดียวไว้สำหรับทั้งประเทศ คือ</span>
           </p>
           <div class="formula">
-            <div class="eq result"><code>T = 2 <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> = 12.5 <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกตาร์/ปี</span> = 0.96 <span class="en">mm/yr</span><span class="th">มม./ปี</span></code></div>
+            <div class="eq result"><code>T = 2 <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> = 12.5 <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span> = 0.96 <span class="en">mm/yr</span><span class="th">มม./ปี</span></code></div>
           </div>
           <p>
             <span class="en">The department's own justification is worth quoting: at this rate, the productive capacity of the soil for agriculture <strong>will not change over a period of 25 years</strong>. Losses above it damage soil quality and crop yield in the long run. Note that this is a single figure for the whole country, unlike the American practice of varying T with soil depth — it is simpler to apply and more conservative on deep soils.</span>
             <span class="th">เหตุผลที่กรมให้ไว้ควรแก่การอ้างถึง คือที่อัตรานี้ สมรรถนะของดินสำหรับการเกษตร <strong>จะไม่เปลี่ยนแปลงตลอดระยะเวลา 25 ปี</strong> ส่วนการสูญเสียที่สูงกว่านี้จะมีผลเสียหายต่อคุณภาพดินและผลผลิตพืชในระยะยาว ให้สังเกตว่านี่เป็นค่าเดียวสำหรับทั้งประเทศ ต่างจากแนวปฏิบัติของอเมริกาที่ให้ค่า T เปลี่ยนไปตามความลึกของดิน ค่าเดียวนี้ใช้ง่ายกว่าและเผื่อความปลอดภัยมากกว่าสำหรับดินที่ลึก</span>
+          </p>
+          <p>
+            <span class="en"><strong>One practical note.</strong> 2 t/rai converts to 12.5 t/ha exactly, but LDD documents generally round this to <strong>12 t/ha</strong> when working in hectares, and that is the figure used in the design steps below so the results match the department's own published example. The 4% difference never changes a decision; mixing the two inside one calculation looks careless, so pick one and say which.</span>
+            <span class="th"><strong>ข้อสังเกตในทางปฏิบัติ</strong> ค่า 2 ตัน/ไร่ แปลงเป็น 12.5 ตัน/เฮกแตร์ พอดี แต่เอกสารของกรมพัฒนาที่ดินมักปัดเป็น <strong>12 ตัน/เฮกแตร์</strong> เมื่อทำงานในหน่วยเฮกแตร์ และนั่นคือค่าที่ใช้ในขั้นตอนการออกแบบข้างล่าง เพื่อให้ผลลัพธ์ตรงกับตัวอย่างที่กรมเผยแพร่ไว้ ความต่าง 4% นี้ไม่เคยเปลี่ยนการตัดสินใจ แต่การใช้ปนกันภายในการคำนวณชุดเดียวดูไม่รอบคอบ จึงควรเลือกค่าใดค่าหนึ่งและระบุให้ชัด</span>
           </p>
         </div>
 
@@ -851,39 +1271,109 @@
                 <th><span class="en">Class</span><span class="th">ชั้นความรุนแรง</span></th>
                 <th><span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span></th>
                 <th><span class="en">mm/yr</span><span class="th">มม./ปี</span></th>
-                <th><span class="en">t/ha/yr</span><span class="th">ตัน/เฮกตาร์/ปี</span></th>
+                <th><span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span></th>
+                <th><span class="en">What it means for the farm</span><span class="th">หมายความว่าอย่างไรกับแปลง</span></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><strong><span class="en">1 · very slight</span><span class="th">ชั้น 1 · น้อยมาก</span></strong></td><td class="num">0–2</td><td class="num">0–0.96</td><td class="num">0–12.5</td></tr>
-              <tr><td><span class="en">2 · slight</span><span class="th">ชั้น 2 · น้อย</span></td><td class="num">2–5</td><td class="num">0.96–2.4</td><td class="num">12.5–31</td></tr>
-              <tr><td><span class="en">3 · moderate</span><span class="th">ชั้น 3 · ปานกลาง</span></td><td class="num">5–15</td><td class="num">2.4–7.2</td><td class="num">31–94</td></tr>
-              <tr><td><span class="en">4 · severe</span><span class="th">ชั้น 4 · รุนแรง</span></td><td class="num">15–20</td><td class="num">7.2–9.6</td><td class="num">94–125</td></tr>
-              <tr><td><span class="en">5 · very severe</span><span class="th">ชั้น 5 · รุนแรงมาก</span></td><td class="num">&gt; 20</td><td class="num">&gt; 9.6</td><td class="num">&gt; 125</td></tr>
+              <tr><td><strong><span class="en">1 · very slight</span><span class="th">ชั้น 1 · น้อยมาก</span></strong></td><td class="num">0–2</td><td class="num">0–0.96</td><td class="num">0–12.5</td><td><span class="en">Sustainable. This is the target.</span><span class="th">ยั่งยืน นี่คือเป้าหมาย</span></td></tr>
+              <tr><td><span class="en">2 · slight</span><span class="th">ชั้น 2 · น้อย</span></td><td class="num">2–5</td><td class="num">0.96–2.4</td><td class="num">12.5–31</td><td><span class="en">Yield begins to fall.</span><span class="th">ผลผลิตเริ่มลดลง</span></td></tr>
+              <tr><td><span class="en">3 · moderate</span><span class="th">ชั้น 3 · ปานกลาง</span></td><td class="num">5–15</td><td class="num">2.4–7.2</td><td class="num">31–94</td><td><span class="en">Management costs rise, but land capability is unchanged.</span><span class="th">ต้นทุนการจัดการสูงขึ้น แต่สมรรถนะของที่ดินยังไม่เปลี่ยน</span></td></tr>
+              <tr><td><span class="en">4 · severe</span><span class="th">ชั้น 4 · รุนแรง</span></td><td class="num">15–20</td><td class="num">7.2–9.6</td><td class="num">94–125</td><td><span class="en">Land capability itself degrades — the field that grew maize now only grows grass.</span><span class="th">สมรรถนะของที่ดินเสื่อมลงจริง แปลงที่เคยปลูกข้าวโพดได้เหลือเพียงปลูกหญ้า</span></td></tr>
+              <tr><td><span class="en">5 · very severe</span><span class="th">ชั้น 5 · รุนแรงมาก</span></td><td class="num">&gt; 20</td><td class="num">&gt; 9.6</td><td class="num">&gt; 125</td><td><span class="en">Beyond agricultural recovery on any normal timescale.</span><span class="th">เกินกว่าจะฟื้นฟูเพื่อการเกษตรได้ในกรอบเวลาปกติ</span></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p>
-          <span class="en">Class 1 is precisely the tolerable range: its upper bound <em>is</em> T. Everything from class 2 upwards is, by the department's own definition, unsustainable — which is why the national statistic in §8.1 counts a third of the country as being in trouble.</span>
-          <span class="th">ชั้นที่ 1 คือช่วงที่ยอมรับได้พอดี เพราะขอบบนของชั้นนี้ <em>คือ</em> ค่า T ส่วนตั้งแต่ชั้นที่ 2 ขึ้นไป ตามนิยามของกรมเองถือว่าไม่ยั่งยืน ซึ่งเป็นเหตุผลที่สถิติระดับประเทศในหัวข้อ 8.1 นับว่าหนึ่งในสามของประเทศกำลังมีปัญหา</span>
-        </p>
-
         <div class="formula">
-          <div class="eq"><code>A = 75.4 <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกตาร์/ปี</span> = 12.1 <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> = 5.8 <span class="en">mm/yr</span><span class="th">มม./ปี</span></code><span class="eq-note"><span class="en">LDD class 3 — moderate</span><span class="th">ชั้น 3 ของกรมพัฒนาที่ดิน คือปานกลาง</span></span></div>
-          <div class="eq result"><code><span class="frac"><span class="num">A</span><span class="den">T</span></span> = <span class="frac"><span class="num">75.4</span><span class="den">12.5</span></span> = <strong>6.0</strong></code><span class="eq-note"><span class="en">six times the sustainable rate</span><span class="th">หกเท่าของอัตราที่ยั่งยืน</span></span></div>
+          <div class="eq"><code>A = 5.57 <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> → <strong><span class="en">LDD class 3, moderate</span><span class="th">ชั้น 3 ของกรมพัฒนาที่ดิน คือปานกลาง</span></strong></code></div>
+          <div class="eq result"><code><span class="frac"><span class="num">A</span><span class="den">T</span></span> = <span class="frac"><span class="num">34.84</span><span class="den">12</span></span> = <strong>2.9</strong></code><span class="eq-note"><span class="en">nearly three times the sustainable rate</span><span class="th">เกือบสามเท่าของอัตราที่ยั่งยืน</span></span></div>
         </div>
 
-        <h3><span class="en">Step 3 · Design down to T</span><span class="th">ขั้นที่ 3 · ออกแบบให้ลดลงถึงค่า T</span></h3>
+        <h3><span class="en">Step 3 · The obvious first move, and why it is not enough</span><span class="th">ขั้นที่ 3 · สิ่งแรกที่นึกออก และเหตุผลที่มันยังไม่พอ</span></h3>
 
         <p>
-          <span class="en">R and K are fixed. LS is fixed unless you terrace. So the design problem reduces to one line:</span>
-          <span class="th">ค่า R และ K ตรึงอยู่กับที่ ส่วน LS ก็ตรึงเว้นแต่จะทำขั้นบันไดดิน โจทย์การออกแบบจึงยุบลงเหลือบรรทัดเดียว</span>
+          <span class="en">The cheapest measure available is to stop ploughing up and down and start ploughing along the contour. At 4% that takes P from 1.00 to <strong>0.50</strong>, and nothing else changes:</span>
+          <span class="th">มาตรการที่ถูกที่สุดที่มีอยู่คือเลิกไถขึ้นลงตามความลาด แล้วหันมาไถตามแนวระดับ ที่ความชัน 4% การทำเช่นนี้เปลี่ยนค่า P จาก 1.00 เป็น <strong>0.50</strong> โดยไม่มีอะไรอื่นเปลี่ยน</span>
         </p>
 
         <div class="formula">
-          <div class="eq"><code>C × P ≤ <span class="frac"><span class="num">T</span><span class="den">R · K · LS</span></span> = <span class="frac"><span class="num">12.5</span><span class="den">215.5</span></span></code></div>
-          <div class="eq result"><code>C × P ≤ <strong>0.058</strong></code><span class="eq-note"><span class="en">the whole conservation plan, in one number</span><span class="th">แผนอนุรักษ์ทั้งหมด สรุปเป็นตัวเลขเดียว</span></span></div>
+          <div class="eq result"><code>A = 698.5 × 0.24 × 1.129 × 0.3506 × 0.525 × 0.50 = <strong>17.42</strong> <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span> = <strong>2.79</strong> <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span></code></div>
+        </div>
+
+        <p>
+          <span class="en">Halving the loss for the price of turning the plough is an excellent bargain, and it moves the field from class 3 to class 2. But 2.79 t/rai is still above 2, so the field is still losing soil faster than it can afford. <strong>The obvious measure was worth doing and is not sufficient</strong> — which is the normal situation, and the reason the next step exists.</span>
+          <span class="th">การลดการสูญเสียลงครึ่งหนึ่งโดยจ่ายเพียงแค่หันทิศทางไถ เป็นข้อตกลงที่ดีเยี่ยม และย้ายแปลงจากชั้น 3 ไปชั้น 2 แต่ค่า 2.79 ตัน/ไร่ ยังสูงกว่า 2 อยู่ แปลงจึงยังสูญเสียดินเร็วกว่าที่รับไหว <strong>มาตรการที่นึกออกง่าย ๆ คุ้มค่าที่จะทำ แต่ยังไม่พอ</strong> ซึ่งเป็นสถานการณ์ปกติ และเป็นเหตุผลที่ต้องมีขั้นต่อไป</span>
+        </p>
+
+        <h3><span class="en">Step 4 · Solve for the factor you want</span><span class="th">ขั้นที่ 4 · แก้สมการหาค่าปัจจัยที่ต้องการ</span></h3>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why you can solve for any one factor directly</span><span class="th">ทำไมจึงแก้หาปัจจัยใดปัจจัยหนึ่งได้โดยตรง</span></div>
+          <p>
+            <span class="en">USLE is a pure product, so A is <strong>linear in every factor</strong>. Hold five of them and A is simply proportional to the sixth. That turns "what do I need?" into one line of arithmetic — no trial and error, no iteration:</span>
+            <span class="th">สมการ USLE เป็นผลคูณล้วน ๆ ค่า A จึงเป็น <strong>เชิงเส้นกับทุกปัจจัย</strong> ถ้าตรึงห้าปัจจัยไว้ ค่า A ก็แปรผันตรงกับปัจจัยที่หก การทำเช่นนี้เปลี่ยนคำถามว่า "ต้องการเท่าไร" ให้เหลือการคำนวณบรรทัดเดียว โดยไม่ต้องลองผิดลองถูกและไม่ต้องทำซ้ำ</span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code>X<sub>2</sub> = <span class="frac"><span class="num">A<sub>2</sub></span><span class="den">A<sub>1</sub></span></span> × X<sub>1</sub></code><span class="eq-note"><span class="en">X is any one factor; A<sub>2</sub> is the target, A<sub>1</sub> the current value</span><span class="th">X คือปัจจัยใดก็ได้หนึ่งตัว โดย A<sub>2</sub> คือค่าเป้าหมาย และ A<sub>1</sub> คือค่าปัจจุบัน</span></span></div>
+          </div>
+          <p>
+            <span class="en">Set A<sub>2</sub> = T and the formula tells you exactly what that factor has to become. Below it is applied twice — once to P, once to L — and those are the department's two standard design routes.</span>
+            <span class="th">กำหนดให้ A<sub>2</sub> = T แล้วสูตรจะบอกได้ทันทีว่าปัจจัยนั้นต้องกลายเป็นเท่าใด ข้างล่างนี้ใช้สูตรนี้สองครั้ง คือกับค่า P หนึ่งครั้ง และกับค่า L อีกหนึ่งครั้ง ซึ่งเป็นสองแนวทางการออกแบบมาตรฐานของกรม</span>
+          </p>
+        </div>
+
+        <h4><span class="en">Route A · solve for P — change the practice</span><span class="th">แนวทาง ก · แก้หาค่า P คือเปลี่ยนวิธีปฏิบัติ</span></h4>
+
+        <div class="formula">
+          <div class="eq"><code>P<sub>2</sub> = <span class="frac"><span class="num">A<sub>2</sub> × P<sub>1</sub></span><span class="den">A<sub>1</sub></span></span> = <span class="frac"><span class="num">12 × 1.00</span><span class="den">34.84</span></span></code></div>
+          <div class="eq result"><code>P<sub>2</sub> = <strong>0.34</strong></code><span class="eq-note"><span class="en">the practice must deliver P ≤ 0.34</span><span class="th">มาตรการที่เลือกต้องให้ค่า P ≤ 0.34</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">Now read the 3–5% row of the §8.8 table and see which measures qualify. Contour tillage gives 0.50 — <strong>not enough</strong>, exactly as Step 3 found. Contour strip cropping with 30 m strips gives <strong>0.25 ✓</strong>. Contour ridging gives <span class="mono">0.5 × 0.5 = 0.25 ✓</span>. Bunds give 0.10 ✓ but cost far more than the problem warrants. The department's recommendation for this field is <strong>contour strip cropping</strong>.</span>
+          <span class="th">ทีนี้ให้อ่านแถว 3–5% ของตารางในหัวข้อ 8.8 แล้วดูว่ามาตรการใดผ่านเกณฑ์ การไถตามแนวระดับให้ค่า 0.50 ซึ่ง <strong>ไม่พอ</strong> ตรงกับที่ขั้นที่ 3 พบ ส่วนการปลูกพืชสลับแถบตามแนวระดับด้วยแถบกว้าง 30 ม. ให้ค่า <strong>0.25 ✓</strong> การยกร่องตามแนวระดับให้ <span class="mono">0.5 × 0.5 = 0.25 ✓</span> และการสร้างคันดินให้ 0.10 ✓ แต่มีค่าใช้จ่ายสูงเกินกว่าที่ปัญหาระดับนี้จะคุ้ม ข้อเสนอแนะของกรมสำหรับแปลงนี้จึงเป็น <strong>การปลูกพืชสลับเป็นแถบตามแนวระดับ</strong></span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>A = 698.5 × 0.24 × 1.129 × 0.3506 × 0.525 × 0.25 = <strong>8.71</strong> <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span> = <strong>1.39</strong> <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> ✓</code><span class="eq-note"><span class="en">class 1 — inside tolerance</span><span class="th">ชั้น 1 — อยู่ในเกณฑ์</span></span></div>
+        </div>
+
+        <h4><span class="en">Route B · solve for L — change the geometry</span><span class="th">แนวทาง ข · แก้หาค่า L คือเปลี่ยนรูปทรงของพื้นที่</span></h4>
+
+        <p>
+          <span class="en">Suppose the farmer will not give up strips of the field to grass, but is willing to build small bunds. Then keep contour tillage (P = 0.50, A<sub>1</sub> = 17.42) and attack the slope length instead:</span>
+          <span class="th">สมมติว่าเกษตรกรไม่ยอมยกพื้นที่บางแถบของแปลงให้เป็นแถบหญ้า แต่ยอมสร้างคันดินเล็ก ๆ ได้ ก็ให้คงการไถตามแนวระดับไว้ (P = 0.50, A<sub>1</sub> = 17.42) แล้วไปจัดการกับความยาวลาดแทน</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>L<sub>2</sub> = <span class="frac"><span class="num">A<sub>2</sub></span><span class="den">A<sub>1</sub></span></span> × L<sub>1</sub> = <span class="frac"><span class="num">12</span><span class="den">17.42</span></span> × 1.129 = <strong>0.77</strong></code></div>
+          <div class="eq"><code>0.77 = ( λ / 22.13 )<sup>0.4</sup> &nbsp;→&nbsp; λ = 22.13 × 0.77<sup>1/0.4</sup></code></div>
+          <div class="eq result"><code>λ = <strong>11 <span class="en">m</span><span class="th">เมตร</span></strong></code><span class="eq-note"><span class="en">a bund every 11 m across the slope</span><span class="th">ทำคันดินขวางความลาดทุก 11 เมตร</span></span></div>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>A = 698.5 × 0.24 × 0.77 × 0.3506 × 0.525 × 0.50 = <strong>11.88</strong> <span class="en">t/ha/yr</span><span class="th">ตัน/เฮกแตร์/ปี</span> = <strong>1.90</strong> <span class="en">t/rai/yr</span><span class="th">ตัน/ไร่/ปี</span> ✓</code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Note what Route B actually asked for</span><span class="th">สังเกตว่าแนวทาง ข เรียกร้องอะไรจริง ๆ</span></div>
+          <p>
+            <span class="en">Cutting λ from 30 m to 11 m divides L by only <span class="mono">1.129 / 0.77 = 1.47</span>, and that took a <strong>threefold</strong> reduction in slope length. This is the m = 0.4 exponent from §8.6 doing exactly what that section warned about, met head on in a design. It is also why Route B lands at 1.90 t/rai — barely inside the limit — while Route A lands at 1.39 with more room to spare. Route B costs more earthworks for a worse margin, and the arithmetic says so before anyone digs.</span>
+            <span class="th">การตัดค่า λ จาก 30 ม. เหลือ 11 ม. หารค่า L ลงเพียง <span class="mono">1.129 / 0.77 = 1.47</span> เท่านั้น ทั้งที่ลดความยาวลาดลงถึง <strong>สามเท่า</strong> นี่คือเลขชี้กำลัง m = 0.4 จากหัวข้อ 8.6 ที่ทำสิ่งที่หัวข้อนั้นเตือนไว้พอดี และมาปะทะกันตรง ๆ ในงานออกแบบ อีกทั้งยังเป็นเหตุผลที่แนวทาง ข ได้ค่า 1.90 ตัน/ไร่ ซึ่งเฉียดเส้นเกณฑ์ ขณะที่แนวทาง ก ได้ 1.39 ซึ่งมีที่เหลือมากกว่า แนวทาง ข ใช้งานดินมากกว่าเพื่อแลกกับส่วนเผื่อที่แย่กว่า และเลขคณิตบอกเรื่องนี้ได้ก่อนที่ใครจะลงจอบ</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Step 5 · The whole plan, in one condition</span><span class="th">ขั้นที่ 5 · แผนงานทั้งหมด สรุปเป็นเงื่อนไขเดียว</span></h3>
+
+        <p>
+          <span class="en">R and K are fixed by the climate and the soil. S is fixed by the hill. If the slope length is left alone too, the design problem reduces to a single inequality:</span>
+          <span class="th">ค่า R และ K ถูกตรึงโดยภูมิอากาศและชนิดดิน ส่วน S ถูกตรึงโดยเนินเขา ถ้าไม่แตะความยาวลาดด้วย โจทย์การออกแบบก็ยุบลงเหลืออสมการเดียว</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>C × P ≤ <span class="frac"><span class="num">T</span><span class="den">R · K · L · S</span></span> = <span class="frac"><span class="num">12</span><span class="den">66.35</span></span></code></div>
+          <div class="eq result"><code>C × P ≤ <strong>0.181</strong></code><span class="eq-note"><span class="en">the whole conservation plan, in one number</span><span class="th">แผนอนุรักษ์ทั้งหมด สรุปเป็นตัวเลขเดียว</span></span></div>
         </div>
 
         <div class="table-wrap">
@@ -892,30 +1382,27 @@
               <tr>
                 <th><span class="en">Option</span><span class="th">ทางเลือก</span></th>
                 <th>C</th><th>P</th><th>C×P</th>
-                <th><span class="en">A (t/ha/yr)</span><span class="th">A (ตัน/เฮกตาร์/ปี)</span></th>
+                <th><span class="en">A (t/ha/yr)</span><span class="th">A (ตัน/เฮกแตร์/ปี)</span></th>
                 <th><span class="en">A (t/rai/yr)</span><span class="th">A (ตัน/ไร่/ปี)</span></th>
                 <th><span class="en">LDD class</span><span class="th">ชั้นของ พด.</span></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><span class="en">Do nothing</span><span class="th">ไม่ทำอะไร</span></td><td class="num">0.35</td><td class="num">1.00</td><td class="num">0.350</td><td class="num">75.4</td><td class="num">12.1</td><td><span class="en">3 — 6.0 × T</span><span class="th">ชั้น 3 — 6.0 เท่าของ T</span></td></tr>
-              <tr><td><span class="en">Contour farming only</span><span class="th">ไถตามแนวระดับอย่างเดียว</span></td><td class="num">0.35</td><td class="num">0.50</td><td class="num">0.175</td><td class="num">37.7</td><td class="num">6.0</td><td><span class="en">3 — still 3.0 × T</span><span class="th">ชั้น 3 — ยังเป็น 3.0 เท่าของ T</span></td></tr>
-              <tr><td><span class="en">Contour + residue mulch</span><span class="th">แนวระดับ + คลุมด้วยเศษซากพืช</span></td><td class="num">0.10</td><td class="num">0.50</td><td class="num">0.050</td><td class="num">10.8</td><td class="num">1.7</td><td><strong><span class="en">1 — inside T</span><span class="th">ชั้น 1 — อยู่ในเกณฑ์ T</span></strong></td></tr>
-              <tr><td><strong><span class="en">Contour strip cropping + mulch</span><span class="th">ปลูกพืชสลับแถบตามแนวระดับ + คลุมดิน</span></strong></td><td class="num">0.10</td><td class="num">0.25</td><td class="num">0.025</td><td class="num"><strong>5.4</strong></td><td class="num"><strong>0.9</strong></td><td><strong><span class="en">1 — comfortable</span><span class="th">ชั้น 1 — ปลอดภัยสบาย</span></strong></td></tr>
-              <tr><td><span class="en">Vetiver strips + minimum tillage</span><span class="th">แถบหญ้าแฝก + ไถพรวนน้อย</span></td><td class="num">0.05</td><td class="num">0.25</td><td class="num">0.013</td><td class="num">2.7</td><td class="num">0.4</td><td><span class="en">1 — near natural rates</span><span class="th">ชั้น 1 — ใกล้อัตราตามธรรมชาติ</span></td></tr>
+              <tr><td><span class="en">Do nothing — as farmed now</span><span class="th">ไม่ทำอะไร คือที่ทำอยู่ตอนนี้</span></td><td class="num">0.525</td><td class="num">1.00</td><td class="num">0.525</td><td class="num">34.8</td><td class="num">5.57</td><td><span class="en">3 — 2.9 × T</span><span class="th">ชั้น 3 — 2.9 เท่าของ T</span></td></tr>
+              <tr><td><span class="en">Contour tillage only</span><span class="th">ไถตามแนวระดับอย่างเดียว</span></td><td class="num">0.525</td><td class="num">0.50</td><td class="num">0.263</td><td class="num">17.4</td><td class="num">2.79</td><td><span class="en">2 — still 1.5 × T</span><span class="th">ชั้น 2 — ยังเป็น 1.5 เท่าของ T</span></td></tr>
+              <tr><td><span class="en">Contour tillage, bunds every 11 m <em>(Route B)</em></span><span class="th">ไถตามแนวระดับ ทำคันดินทุก 11 ม. <em>(แนวทาง ข)</em></span></td><td class="num">0.525</td><td class="num">0.50</td><td class="num">0.263</td><td class="num">11.9</td><td class="num">1.90</td><td><span class="en">1 — just inside</span><span class="th">ชั้น 1 — เฉียดเส้น</span></td></tr>
+              <tr><td><strong><span class="en">Contour strip cropping <em>(Route A)</em></span><span class="th">ปลูกพืชสลับแถบตามแนวระดับ <em>(แนวทาง ก)</em></span></strong></td><td class="num">0.525</td><td class="num">0.25</td><td class="num">0.131</td><td class="num"><strong>8.7</strong></td><td class="num"><strong>1.39</strong></td><td><strong><span class="en">1 — comfortable</span><span class="th">ชั้น 1 — ปลอดภัยสบาย</span></strong></td></tr>
+              <tr><td><span class="en">Contour tillage + residue mulch</span><span class="th">ไถตามแนวระดับ + คลุมด้วยเศษซากพืช</span></td><td class="num">0.10</td><td class="num">0.50</td><td class="num">0.050</td><td class="num">3.3</td><td class="num">0.53</td><td><span class="en">1 — near natural rates</span><span class="th">ชั้น 1 — ใกล้อัตราตามธรรมชาติ</span></td></tr>
+              <tr><td><span class="en">Bunds and terraces</span><span class="th">สร้างคันดินแบบขั้นบันได</span></td><td class="num">0.525</td><td class="num">0.10</td><td class="num">0.053</td><td class="num">3.5</td><td class="num">0.56</td><td><span class="en">1 — but the most expensive route here</span><span class="th">ชั้น 1 — แต่เป็นทางที่แพงที่สุดในกรณีนี้</span></td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="box">
-          <div class="box-title"><span class="en">What the table is really showing</span><span class="th">สิ่งที่ตารางนี้แสดงจริง ๆ</span></div>
+          <div class="box-title"><span class="en">What the last two rows are really saying</span><span class="th">สองแถวสุดท้ายกำลังบอกอะไรจริง ๆ</span></div>
           <p>
-            <span class="en"><strong>Contouring alone fails.</strong> It is the intervention farmers are most often told to adopt, it halves the loss, and it is still three times over the limit. Halving something that is seven times too big does not solve it. <strong>Mulch alone would very nearly succeed</strong> — C from 0.35 to 0.10 is a 3.5-fold cut, better than contouring manages, and it costs nothing but the decision not to burn or remove the residue.</span>
-            <span class="th"><strong>การไถตามแนวระดับอย่างเดียวไม่พอ</strong> ทั้งที่เป็นมาตรการที่มีคนแนะนำให้เกษตรกรทำมากที่สุด มันลดการสูญเสียลงครึ่งหนึ่ง แต่ก็ยังเกินขีดจำกัดอยู่สามเท่า การลดสิ่งที่ใหญ่เกินไปเจ็ดเท่าลงครึ่งหนึ่งย่อมไม่ได้แก้ปัญหา <strong>ส่วนการคลุมดินอย่างเดียวเกือบจะสำเร็จ</strong> เพราะค่า C จาก 0.35 เหลือ 0.10 คือลดลง 3.5 เท่า ดีกว่าที่การไถตามแนวระดับทำได้ และไม่มีค่าใช้จ่ายใด ๆ นอกจากการตัดสินใจไม่เผาหรือไม่ขนเศษซากพืชออกไป</span>
-          </p>
-          <p>
-            <span class="en">The general shape of the answer is worth carrying away: <strong>C is usually the cheapest and largest lever, P is the reliable second, and LS is the expensive last resort.</strong> Work them in that order and you will rarely need the third.</span>
-            <span class="th">เค้าโครงทั่วไปของคำตอบนี้ควรจำติดตัวไป คือ <strong>ปัจจัย C มักเป็นคานงัดที่ถูกที่สุดและแรงที่สุด ปัจจัย P เป็นตัวรองที่พึ่งพาได้ ส่วน LS เป็นทางเลือกสุดท้ายที่แพง</strong> ถ้าทำไล่ตามลำดับนี้ ก็แทบไม่ต้องใช้ตัวที่สามเลย</span>
+            <span class="en">Terracing and mulching arrive at the same place, 3.3 and 3.5 t/ha, by opposite routes: one moves P from 1.00 to 0.10 with earthmoving machinery, the other moves C from 0.525 to 0.10 by not burning the crop residue. The result is identical and the cost is not remotely so. <strong>Work down the C column before you reach for the P column</strong> — that is the practical content of §8.7's thousand-to-one span, and it is the ordering §8.10 follows.</span>
+            <span class="th">การทำขั้นบันไดดินกับการคลุมดินไปถึงจุดเดียวกัน คือ 3.3 กับ 3.5 ตัน/เฮกแตร์ แต่มาคนละทาง ทางหนึ่งย้ายค่า P จาก 1.00 ไป 0.10 ด้วยเครื่องจักรขุดดิน อีกทางหนึ่งย้ายค่า C จาก 0.525 ไป 0.10 ด้วยการไม่เผาเศษซากพืช ผลลัพธ์เท่ากัน แต่ค่าใช้จ่ายไม่ใกล้เคียงกันเลย <strong>ให้ไล่ลงคอลัมน์ C ให้หมดก่อนจะเอื้อมไปคอลัมน์ P</strong> นั่นคือเนื้อหาในทางปฏิบัติของช่วงค่าหนึ่งพันต่อหนึ่งในหัวข้อ 8.7 และเป็นลำดับที่หัวข้อ 8.10 เดินตาม</span>
           </p>
         </div>
       </section>
@@ -1187,8 +1674,8 @@
         <div class="box">
           <div class="box-title"><span class="en">How much to trust a USLE number</span><span class="th">ควรเชื่อตัวเลขจาก USLE มากแค่ไหน</span></div>
           <p>
-            <span class="en">Treat it the way Chapter 5 told you to treat a float gauging: right in order of magnitude and useful for comparing options, not accurate to two significant figures. The 75.4 of §8.9 should be read as "somewhere around 75, and unambiguously many times over the tolerance". Its real value is not the absolute figure but the <em>ratios</em> in the options table — those are far more reliable than any single row, because the uncertain factors R and K appear in every row and cancel when you compare.</span>
-            <span class="th">ให้ปฏิบัติกับมันแบบเดียวกับที่บทที่ 5 บอกให้ปฏิบัติกับการวัดน้ำด้วยทุ่นลอย คือถูกต้องในระดับอันดับของขนาด และใช้เปรียบเทียบทางเลือกได้ แต่ไม่ได้แม่นยำถึงสองตำแหน่งนัยสำคัญ ค่า 75.4 ในหัวข้อ 8.9 ควรอ่านว่า "ราว ๆ 75 และเกินขีดจำกัดอยู่หลายเท่าอย่างไม่ต้องสงสัย" คุณค่าที่แท้จริงของมันไม่ได้อยู่ที่ตัวเลขสัมบูรณ์ แต่อยู่ที่ <em>อัตราส่วน</em> ในตารางทางเลือก ซึ่งน่าเชื่อถือกว่าแถวใดแถวหนึ่งมาก เพราะปัจจัยที่ไม่แน่นอนอย่าง R และ K ปรากฏอยู่ในทุกแถวและตัดกันไปเมื่อนำมาเปรียบเทียบ</span>
+            <span class="en">Treat it the way Chapter 5 told you to treat a float gauging: right in order of magnitude and useful for comparing options, not accurate to two significant figures. The 34.8 of §8.9 should be read as "somewhere around 35, and unambiguously many times over the tolerance". Its real value is not the absolute figure but the <em>ratios</em> in the options table — those are far more reliable than any single row, because the uncertain factors R and K appear in every row and cancel when you compare.</span>
+            <span class="th">ให้ปฏิบัติกับมันแบบเดียวกับที่บทที่ 5 บอกให้ปฏิบัติกับการวัดน้ำด้วยทุ่นลอย คือถูกต้องในระดับอันดับของขนาด และใช้เปรียบเทียบทางเลือกได้ แต่ไม่ได้แม่นยำถึงสองตำแหน่งนัยสำคัญ ค่า 34.8 ในหัวข้อ 8.9 ควรอ่านว่า "ราว ๆ 75 และเกินขีดจำกัดอยู่หลายเท่าอย่างไม่ต้องสงสัย" คุณค่าที่แท้จริงของมันไม่ได้อยู่ที่ตัวเลขสัมบูรณ์ แต่อยู่ที่ <em>อัตราส่วน</em> ในตารางทางเลือก ซึ่งน่าเชื่อถือกว่าแถวใดแถวหนึ่งมาก เพราะปัจจัยที่ไม่แน่นอนอย่าง R และ K ปรากฏอยู่ในทุกแถวและตัดกันไปเมื่อนำมาเปรียบเทียบ</span>
           </p>
         </div>
       </section>
@@ -1197,16 +1684,16 @@
         <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
         <div class="box">
           <ul>
-            <li><span class="en">Erosion belongs in an irrigation course three times over: irrigation causes it, it destroys canals and reservoirs, and it is a boundary condition no pipe design can evade. Thailand’s tolerance is 2 t/rai/yr = 12.5 t/ha/yr = 0.96 mm of topsoil a year; nature replaces only 0.02–0.1 mm.</span><span class="th">การกร่อนของดินอยู่ในวิชาชลประทานด้วยเหตุผลสามข้อ คือการชลประทานทำให้เกิดการกร่อน การกร่อนทำลายคลองและอ่างเก็บน้ำ และเป็นเงื่อนไขขอบเขตที่การออกแบบท่อใด ๆ หลบไม่พ้น โดย 11 ตัน/เฮกตาร์/ปี ≈ ดินชั้นบน 0.85 มม./ปี ขณะที่ธรรมชาติสร้างทดแทนได้ 0.02–0.1 มม.</span></li>
-            <li><span class="en">Erosion is detachment (by raindrops) plus transport (by flowing water), proceeding splash → sheet → rill → gully. USLE covers the first three only.</span><span class="th">การกร่อนคือการทำให้ดินแตกตัว (โดยเม็ดฝน) บวกกับการพัดพา (โดยน้ำที่ไหล) ดำเนินไปตามลำดับ เม็ดฝนกระแทก → แผ่นน้ำบ่า → ร่องเล็ก → ร่องลึก โดย USLE ครอบคลุมเพียงสามขั้นแรก</span></li>
-            <li><span class="en"><span class="mono">A = R × K × LS × C × P</span>. R and K are given; LS, C and P are the conservation plan. All four non-A factors equal 1.00 on the standard plot: 22.13 m, 9% slope, bare tilled fallow.</span><span class="th"><span class="mono">A = R × K × LS × C × P</span> โดย R และ K เป็นสิ่งที่ได้มา ส่วน LS, C และ P คือแผนอนุรักษ์ ทั้งสี่ปัจจัยที่ไม่ใช่ A มีค่าเท่ากับ 1.00 บนแปลงมาตรฐาน คือยาว 22.13 ม. ความชัน 9% ดินเปลือยไถทิ้งไว้</span></li>
-            <li><span class="en">R = ΣEI<sub>30</sub> needs a recording rain gauge. In Thailand, read it off the LDD isoerodent map — never carry a textbook value into a design.</span><span class="th">ค่า R = ΣEI<sub>30</sub> ต้องใช้เครื่องวัดน้ำฝนแบบบันทึก ในประเทศไทยให้เปิดจากแผนที่เส้นชั้นค่า R ของกรมพัฒนาที่ดิน อย่านำค่าจากตำราไปใช้ในการออกแบบ</span></li>
-            <li><span class="en">K rises with silt and very fine sand, falls with clay, organic matter and good structure. Silt loam is the most erodible texture. US-unit K values are 7.6× larger — multiply by 0.1317.</span><span class="th">ค่า K สูงขึ้นตามทรายแป้งและทรายละเอียดมาก และต่ำลงตามดินเหนียว อินทรียวัตถุ และโครงสร้างดินที่ดี ดินร่วนปนทรายแป้งถูกกัดเซาะง่ายที่สุด ส่วนค่า K ในหน่วยอังกฤษใหญ่กว่า 7.6 เท่า ให้คูณด้วย 0.1317</span></li>
-            <li><span class="en"><span class="mono">LS = (λ/22.13)<sup>m</sup>(65.41 sin²θ + 4.56 sinθ + 0.065)</span>, m = 0.5 / 0.4 / 0.3 / 0.2. Test it: 22.13 m at 9% must give exactly 1.00. Steepness dominates length; halving λ divides LS by only √2.</span><span class="th"><span class="mono">LS = (λ/22.13)<sup>m</sup>(65.41 sin²θ + 4.56 sinθ + 0.065)</span> โดย m = 0.5 / 0.4 / 0.3 / 0.2 ให้ทดสอบว่าที่ 22.13 ม. ความชัน 9% ต้องได้ 1.00 พอดี ความชันมีอิทธิพลมากกว่าความยาว และการลดค่า λ ลงครึ่งหนึ่งหาร LS ด้วย √2 เท่านั้น</span></li>
-            <li><span class="en">C spans 1.00 (bare) to 0.001 (forest) — three orders of magnitude, the widest range of any factor and the cheapest to change. Cover at the <em>surface</em> is what counts, not the canopy, and timing against the erosive season matters more than the annual average.</span><span class="th">ค่า C กว้างตั้งแต่ 1.00 (ดินเปลือย) ถึง 0.001 (ป่าไม้) คือสามอันดับของขนาด กว้างที่สุดในบรรดาปัจจัยทั้งหมดและเปลี่ยนได้ถูกที่สุด สิ่งที่นับคือสิ่งปกคลุมที่ <em>ผิวดิน</em> ไม่ใช่ทรงพุ่ม และจังหวะเวลาเทียบกับฤดูที่ฝนกัดเซาะสำคัญกว่าค่าเฉลี่ยรายปี</span></li>
-            <li><span class="en">P is best at 3–8% slope and worsens both ways; above 25% contouring earns nothing. Terracing changes P <em>and</em> LS — apply both, but recompute λ from the terrace spacing.</span><span class="th">ค่า P ดีที่สุดที่ความลาด 3–8% และแย่ลงทั้งสองทิศทาง ที่ความลาดเกิน 25% การไถตามแนวระดับไม่ได้อะไรเลย ส่วนขั้นบันไดดินเปลี่ยนทั้ง P <em>และ</em> LS ให้ใช้ทั้งคู่ แต่ต้องคำนวณค่า λ ใหม่จากระยะห่างระหว่างขั้นบันได</span></li>
-            <li><span class="en">Design by rearranging: <span class="mono">C × P ≤ T / (R·K·LS)</span>, with T = 2 t/rai/yr. Work C first, then P, and build structures only when those two cannot reach T.</span><span class="th">ออกแบบด้วยการย้ายข้างสมการ คือ <span class="mono">C × P ≤ T / (R·K·LS)</span> ให้จัดการค่า C ก่อน แล้วจึงเป็น P และลงมือก่อสร้างต่อเมื่อสองตัวนั้นไปไม่ถึงค่า T</span></li>
-            <li><span class="en">Soil loss is not sediment yield. USLE gives soil moved off the plot; the sediment delivery ratio to a stream can be well under 0.1. For reservoirs and single storms, use MUSLE.</span><span class="th">การสูญเสียดินไม่ใช่ปริมาณตะกอนที่ออกจากลุ่มน้ำ สมการ USLE ให้ค่าดินที่เคลื่อนออกจากแปลง ส่วนอัตราส่วนการส่งผ่านตะกอนถึงลำน้ำอาจต่ำกว่า 0.1 มาก สำหรับอ่างเก็บน้ำและพายุฝนครั้งเดียว ให้ใช้ MUSLE</span></li>
+            <li><span class="en">Erosion belongs in an irrigation course three times over: irrigation causes it, it destroys canals and reservoirs, and it is a boundary condition no pipe design can evade. Thailand's tolerance is <strong>2 t/rai/yr = 12.5 t/ha/yr = 0.96 mm</strong> of topsoil a year; nature replaces only 0.02–0.1 mm.</span><span class="th">การกร่อนของดินอยู่ในวิชาชลประทานด้วยเหตุผลสามข้อ คือการชลประทานเป็นตัวก่อ การกร่อนทำลายคลองและอ่างเก็บน้ำ และเป็นเงื่อนไขขอบเขตที่การออกแบบท่อใดก็หลีกไม่พ้น ค่าที่ยอมรับได้ของประเทศไทยคือ <strong>2 ตัน/ไร่/ปี = 12.5 ตัน/เฮกแตร์/ปี = 0.96 มม.</strong> ของหน้าดินต่อปี ขณะที่ธรรมชาติสร้างทดแทนได้เพียง 0.02–0.1 มม.</span></li>
+            <li><span class="en">Erosion is detachment (by raindrops) plus transport (by flowing water), proceeding splash → sheet → rill → gully. USLE covers the first three only.</span><span class="th">การกร่อนคือการแตกกระจาย (โดยเม็ดฝน) บวกกับการพัดพา (โดยน้ำที่ไหล) ดำเนินไปตามลำดับ กระเซ็น → แผ่น → ร่องเล็ก → ร่องธาร โดยสมการ USLE ครอบคลุมเพียงสามขั้นแรกเท่านั้น</span></li>
+            <li><span class="mono">A = R × K × L × S × C × P</span> <span class="en">— the LDD six-factor form. R and K are given; L, S, C and P are where the plan lives, and only L, C and P are realistically changeable. All five non-A factors equal 1.00 on the standard plot: 22.13 m, 9% slope, bare tilled fallow.</span><span class="th">— รูปหกปัจจัยของกรมพัฒนาที่ดิน โดย R และ K เป็นสิ่งที่ได้มา ส่วน L, S, C และ P คือที่อยู่ของแผนงาน และมีเพียง L, C และ P ที่เปลี่ยนได้จริง ทั้งห้าปัจจัยที่ไม่ใช่ A มีค่าเท่ากับ 1.00 บนแปลงมาตรฐาน คือยาว 22.13 ม. ความชัน 9% ดินเปลือยไถทิ้งไว้</span></li>
+            <li><span class="en"><strong>Two unit systems exist and must never be mixed.</strong> In Thailand use the LDD scale: <span class="mono">R = 0.4669 X − 12.1415</span> in t/ha/yr from the mean annual rainfall X in mm, giving R of 400–1,100. International papers use the SI EI<sub>30</sub> scale, where R runs into the thousands and K is ten times smaller. Pairing one system's R with the other's K is wrong by about ten times, in whichever direction you mixed them.</span><span class="th"><strong>ระบบหน่วยมีสองระบบ และห้ามนำมาปนกันเด็ดขาด</strong> ในประเทศไทยให้ใช้มาตราของกรมพัฒนาที่ดิน คือ <span class="mono">R = 0.4669 X − 12.1415</span> หน่วย ตัน/เฮกแตร์/ปี โดย X คือน้ำฝนเฉลี่ยรายปีเป็นมิลลิเมตร ให้ค่า R ระหว่าง 400–1,100 ส่วนบทความนานาชาติใช้มาตรา EI<sub>30</sub> ในระบบ SI ซึ่งค่า R อยู่ในหลักพันและค่า K เล็กกว่าสิบเท่า การจับค่า R ของระบบหนึ่งไปคูณกับค่า K ของอีกระบบหนึ่งจะผิดราวสิบเท่า ในทิศทางที่เราเผลอปนมัน</span></li>
+            <li><span class="en">K rises with silt and very fine sand, falls with clay, organic matter and good structure. In the Thai tables silt and silt loam are the most erodible (up to <strong>0.57</strong>) and clay the least (<strong>0.11–0.18</strong>) — but the same texture name spans a factor of 2.7 between regions, so look up the region and the upland/lowland position, never just the texture. Paddy soils often have a <em>higher</em> K than upland ones; their protection comes from the bund, in P.</span><span class="th">ค่า K สูงขึ้นตามทรายแป้งและทรายละเอียดมาก และต่ำลงตามดินเหนียว อินทรียวัตถุ และโครงสร้างดินที่ดี ในตารางของไทย ดินทรายแป้งและดินร่วนปนทรายแป้งถูกกัดเซาะง่ายที่สุด (สูงถึง <strong>0.57</strong>) และดินเหนียวง่ายน้อยที่สุด (<strong>0.11–0.18</strong>) แต่ชื่อเนื้อดินเดียวกันกินช่วงกว้างถึง 2.7 เท่าระหว่างภาค จึงต้องเปิดหาทั้งภาคและตำแหน่งดินดอนหรือดินนา ไม่ใช่ดูแค่เนื้อดิน อีกทั้งดินนามักมีค่า K <em>สูงกว่า</em> ดินดอน เพราะการปกป้องของนามาจากคันนา ซึ่งอยู่ในค่า P</span></li>
+            <li><span class="mono">L = (λ/22.13)<sup>m</sup></span> <span class="en">with m = 0.2, 0.3, 0.4, 0.5 and <strong>0.7</strong> as the slope rises through 1, 3, 5 and 21%. S takes <strong>two</strong> equations — the polynomial <span class="mono">0.065 + 0.045a + 0.0065a²</span> up to 9%, and the Meijerink form above it. Extrapolating the polynomial to 35% overstates S by <strong>3.6 times</strong>. Keep λ at or below 120 m.</span><span class="th">โดย m = 0.2, 0.3, 0.4, 0.5 และ <strong>0.7</strong> เมื่อความชันไต่ผ่าน 1, 3, 5 และ 21% ส่วนค่า S ใช้ <strong>สองสมการ</strong> คือโพลิโนเมียล <span class="mono">0.065 + 0.045a + 0.0065a²</span> จนถึง 9% และสมการของ Meijerink เมื่อเกินจากนั้น การเอาโพลิโนเมียลไปใช้ต่อจนถึง 35% ทำให้ค่า S สูงเกินไป <strong>3.6 เท่า</strong> และควรใช้ค่า λ ไม่เกิน 120 ม.</span></li>
+            <li><span class="en">C spans 1.00 (bare tilled fallow) to 0.001 (undisturbed rain forest) — three orders of magnitude, the widest range of any factor and the cheapest to change. In the Thai tables <strong>cassava at 0.6</strong> is the worst common field crop and <strong>rubber or orchard with a ground cover at 0.01</strong> the best perennial. Cover at the surface is what counts, not the canopy, and timing against the erosive season matters more than the annual average.</span><span class="th">ค่า C กินช่วงตั้งแต่ 1.00 (ดินเปลือยไถทิ้งไว้) ถึง 0.001 (ป่าดิบชื้นที่ไม่ถูกรบกวน) คือสามเลขยกกำลัง เป็นช่วงที่กว้างที่สุดในบรรดาปัจจัยทั้งหมด และเปลี่ยนได้ถูกที่สุด ในตารางของไทย <strong>มันสำปะหลังที่ 0.6</strong> เป็นพืชไร่ที่พบบ่อยซึ่งแย่ที่สุด และ <strong>ยางพาราหรือสวนผลไม้ที่มีพืชคลุมดินที่ 0.01</strong> เป็นไม้ยืนต้นที่ดีที่สุด สิ่งที่สำคัญคือสิ่งปกคลุมที่ผิวดิน ไม่ใช่ทรงพุ่ม และจังหวะเวลาเทียบกับฤดูที่ฝนกัดเซาะสำคัญกว่าค่าเฉลี่ยรายปี</span></li>
+            <li><span class="en">P is best at 3–8% slope and worsens both ways; above 25% contouring earns nothing. <strong>Contour ridging = contour tillage × 0.5.</strong> Every contouring P carries a <strong>maximum slope length</strong> — 122 m at 1%, but only 18 m at 20% — and past it the credit is void. Terracing changes P <em>and</em> L; apply both, but recompute λ from the terrace spacing.</span><span class="th">ค่า P ดีที่สุดที่ความลาด 3–8% และแย่ลงทั้งสองทิศทาง ส่วนที่ชันเกิน 25% การไถตามแนวระดับไม่ได้อะไรเลย <strong>การยกร่องตามแนวระดับ = ไถตามแนวระดับ × 0.5</strong> และค่า P ของการไถตามแนวระดับทุกค่ามี <strong>ความยาวลาดสูงสุด</strong> กำกับอยู่ คือ 122 ม. ที่ความชัน 1% แต่เพียง 18 ม. ที่ความชัน 20% เกินจากนั้นเครดิตเป็นโมฆะ ส่วนการทำคันดินขั้นบันไดเปลี่ยนทั้งค่า P <em>และ</em> ค่า L ให้ใช้ทั้งคู่ แต่ต้องคำนวณ λ ใหม่จากระยะห่างระหว่างขั้นบันได</span></li>
+            <li><span class="en">Design by rearranging. Because A is a pure product it is linear in every factor, so <span class="mono">X₂ = (A₂/A₁) × X₁</span> solves directly for whichever one you intend to change — set A₂ = T and read off the answer. Equivalently, <span class="mono">C × P ≤ T / (R·K·L·S)</span> states the whole conservation plan as one number.</span><span class="th">ออกแบบด้วยการย้ายข้างสมการ เนื่องจากค่า A เป็นผลคูณล้วน ๆ จึงเป็นเชิงเส้นกับทุกปัจจัย ดังนั้น <span class="mono">X₂ = (A₂/A₁) × X₁</span> จึงแก้หาปัจจัยที่เราตั้งใจจะเปลี่ยนได้โดยตรง เพียงกำหนดให้ A₂ = T แล้วอ่านคำตอบออกมา หรือเทียบเท่ากันคือ <span class="mono">C × P ≤ T / (R·K·L·S)</span> ซึ่งระบุแผนอนุรักษ์ทั้งหมดเป็นตัวเลขเดียว</span></li>
+            <li><span class="en">Soil loss is not sediment yield. USLE gives soil moved off the plot; the sediment delivery ratio to a stream can be well under 0.1. For reservoirs and single storms, use MUSLE.</span><span class="th">การสูญเสียดินไม่ใช่ปริมาณตะกอนที่ออกจากลุ่มน้ำ สมการ USLE ให้ดินที่เคลื่อนออกจากแปลง ส่วนอัตราส่วนการส่งตะกอนไปถึงลำน้ำอาจต่ำกว่า 0.1 มาก สำหรับอ่างเก็บน้ำและพายุฝนครั้งเดียว ให้ใช้ MUSLE</span></li>
           </ul>
         </div>
       </section>
@@ -1221,25 +1708,25 @@
 
         <div class="exercise">
           <div class="exercise-q"><span class="qnum">1.</span>
-            <span class="en">Verify the LS equation yourself on the standard plot: λ = 22.13 m, s = 9%. Then compute LS for a 200 m slope at 12%, and for the same slope after bench terraces are built at 50 m spacing. By what factor does terracing reduce LS, and why is it not a factor of four?</span>
-            <span class="th">จงตรวจสอบสมการ LS ด้วยตัวเองบนแปลงมาตรฐาน คือ λ = 22.13 ม. และ s = 9% จากนั้นคำนวณค่า LS สำหรับลาดยาว 200 ม. ที่ความชัน 12% และสำหรับลาดเดียวกันหลังทำขั้นบันไดดินทุกระยะ 50 ม. จงหาว่าขั้นบันไดดินลดค่า LS ลงกี่เท่า และเหตุใดจึงไม่ใช่สี่เท่า</span>
+            <span class="en">Verify L and S yourself on the standard plot: λ = 22.13 m, s = 9%. Then compute L × S for a 200 m slope at <strong>12%</strong>, and again after bench terraces are built at 50 m spacing. By what factor does terracing reduce it, and why is it not a factor of four? Finally repeat the terracing calculation for a <strong>25%</strong> slope and explain why the answer changes.</span>
+            <span class="th">จงตรวจสอบค่า L และ S ด้วยตัวเองบนแปลงมาตรฐาน คือ λ = 22.13 ม. และ s = 9% จากนั้นคำนวณค่า L × S สำหรับลาดยาว 200 ม. ที่ความชัน <strong>12%</strong> และคำนวณอีกครั้งหลังทำขั้นบันไดดินทุกระยะ 50 ม. จงหาว่าขั้นบันไดดินลดค่านั้นลงกี่เท่า และเหตุใดจึงไม่ใช่สี่เท่า สุดท้ายให้ทำการคำนวณเรื่องขั้นบันไดดินซ้ำสำหรับลาด <strong>25%</strong> และอธิบายว่าทำไมคำตอบจึงเปลี่ยนไป</span>
           </div>
           <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
           <div class="answer">
-            <span class="en"><strong>Standard plot:</strong> λ/22.13 = 1 so the first bracket is 1. θ = arctan(0.09) = 5.143°, sinθ = 0.08964. Second bracket = 65.41(0.008035) + 4.56(0.08964) + 0.065 = 0.5256 + 0.4088 + 0.065 = <strong>1.00</strong> ✓ <strong>200 m at 12%:</strong> θ = 6.843°, sinθ = 0.11918; bracket = 65.41(0.014204) + 4.56(0.11918) + 0.065 = 0.9292 + 0.5435 + 0.065 = 1.5377. Length term = (200/22.13)<sup>0.5</sup> = 3.005. <strong>LS = 4.62.</strong> <strong>Terraced to 50 m:</strong> length term = (50/22.13)<sup>0.5</sup> = 1.503, so <strong>LS = 2.31.</strong> <strong>The factor is exactly 2.00</strong>, not 4. Because m = 0.5, LS varies as √λ — cutting λ by 4 divides LS by √4 = 2. To divide LS by 4 you would have to cut the slope length by <em>sixteen</em>, to 12.5 m, which is a staircase not a field. This is the arithmetic reason terracing is a supplement to cover management, never a substitute for it.</span>
-            <span class="th"><strong>แปลงมาตรฐาน</strong> λ/22.13 = 1 วงเล็บแรกจึงเป็น 1 ส่วน θ = arctan(0.09) = 5.143° และ sinθ = 0.08964 วงเล็บที่สอง = 65.41(0.008035) + 4.56(0.08964) + 0.065 = 0.5256 + 0.4088 + 0.065 = <strong>1.00</strong> ✓ <strong>ลาด 200 ม. ที่ 12%</strong> θ = 6.843°, sinθ = 0.11918 วงเล็บ = 65.41(0.014204) + 4.56(0.11918) + 0.065 = 0.9292 + 0.5435 + 0.065 = 1.5377 ส่วนพจน์ความยาว = (200/22.13)<sup>0.5</sup> = 3.005 ได้ <strong>LS = 4.62</strong> <strong>เมื่อทำขั้นบันไดทุก 50 ม.</strong> พจน์ความยาว = (50/22.13)<sup>0.5</sup> = 1.503 ได้ <strong>LS = 2.31</strong> <strong>ลดลงพอดี 2.00 เท่า</strong> ไม่ใช่ 4 เท่า เพราะ m = 0.5 ทำให้ LS แปรตาม √λ การลด λ ลง 4 เท่าจึงหาร LS ด้วย √4 = 2 ถ้าต้องการหาร LS ด้วย 4 จะต้องลดความยาวลาดลง <em>สิบหกเท่า</em> เหลือ 12.5 ม. ซึ่งกลายเป็นบันไดไม่ใช่แปลงเพาะปลูกแล้ว นี่คือเหตุผลเชิงเลขคณิตที่ทำให้ขั้นบันไดดินเป็นมาตรการเสริมของการจัดการสิ่งปกคลุมดิน ไม่ใช่มาตรการทดแทน</span>
+            <span class="en"><strong>Standard plot:</strong> λ/22.13 = 1, so L = 1.000 for any m. s = 9% is on the polynomial branch, so S = 0.065 + 0.045(9) + 0.0065(81) = 0.065 + 0.405 + 0.527 = 0.997, which the table gives as 1.0001. <strong>L × S = 1.00</strong> ✓ <strong>200 m at 12%:</strong> 12% is in the 5.1–21% band, so m = 0.5 and L = (200/22.13)<sup>0.5</sup> = 3.006. <strong>12% is above 9%, so S comes from the second equation, not the polynomial</strong> — S = 1.2821 from the table. <strong>L × S = 3.854.</strong> <strong>Terraced to 50 m:</strong> L = (50/22.13)<sup>0.5</sup> = 1.503, S unchanged, <strong>L × S = 1.927.</strong> <strong>The factor is exactly 2.000</strong>, not 4, because m = 0.5 makes L vary as √λ: cutting λ by 4 divides L by √4 = 2. To divide it by 4 you would have to cut λ by <em>sixteen</em>, to 12.5 m, which is a staircase not a field. <strong>At 25%:</strong> now m = 0.7, so L = (200/22.13)<sup>0.7</sup> = 4.669 falling to (50/22.13)<sup>0.7</sup> = 1.769 — a factor of <strong>2.64</strong>, which is 4<sup>0.7</sup>. Terracing buys noticeably more on steep land than on moderate land, because the steeper the slope the more of the damage is done by flow that has had a long run at it. That is convenient, since steep land is where terracing is the only measure left. Note also that if you had carelessly used the polynomial at 12% you would have got S = 1.537 instead of 1.282 and overstated every figure by 20%.</span>
+            <span class="th"><strong>แปลงมาตรฐาน</strong> λ/22.13 = 1 ดังนั้น L = 1.000 ไม่ว่า m จะเป็นเท่าใด ส่วน s = 9% อยู่บนสาขาโพลิโนเมียล จึงได้ S = 0.065 + 0.045(9) + 0.0065(81) = 0.065 + 0.405 + 0.527 = 0.997 ซึ่งตารางให้ไว้ที่ 1.0001 ได้ <strong>L × S = 1.00</strong> ✓ <strong>ลาด 200 ม. ที่ 12%</strong> ความชัน 12% อยู่ในช่วง 5.1–21% จึงได้ m = 0.5 และ L = (200/22.13)<sup>0.5</sup> = 3.006 <strong>ค่า 12% เกิน 9% ดังนั้นค่า S ต้องมาจากสมการที่สอง ไม่ใช่โพลิโนเมียล</strong> คือ S = 1.2821 จากตาราง ได้ <strong>L × S = 3.854</strong> <strong>เมื่อทำขั้นบันไดทุก 50 ม.</strong> L = (50/22.13)<sup>0.5</sup> = 1.503 ส่วน S ไม่เปลี่ยน ได้ <strong>L × S = 1.927</strong> <strong>ลดลงพอดี 2.000 เท่า</strong> ไม่ใช่ 4 เท่า เพราะ m = 0.5 ทำให้ L แปรตาม √λ การลด λ ลง 4 เท่าจึงหาร L ด้วย √4 = 2 ถ้าต้องการหารด้วย 4 จะต้องลด λ ลง <em>สิบหกเท่า</em> เหลือ 12.5 ม. ซึ่งกลายเป็นบันไดไม่ใช่แปลงเพาะปลูกแล้ว <strong>ที่ความชัน 25%</strong> ค่า m กลายเป็น 0.7 ดังนั้น L = (200/22.13)<sup>0.7</sup> = 4.669 ลดลงเหลือ (50/22.13)<sup>0.7</sup> = 1.769 คิดเป็น <strong>2.64 เท่า</strong> ซึ่งเท่ากับ 4<sup>0.7</sup> การทำขั้นบันไดดินจึงให้ผลตอบแทนบนที่ชันมากกว่าบนที่ลาดปานกลางอย่างเห็นได้ชัด เพราะยิ่งลาดชัน ความเสียหายก็ยิ่งมาจากน้ำที่ไหลสะสมระยะทางยาวมากขึ้น ซึ่งนับว่าสะดวก เพราะที่ชันเป็นที่ที่ขั้นบันไดดินเป็นมาตรการเดียวที่เหลืออยู่ และให้สังเกตด้วยว่า ถ้าเผลอใช้โพลิโนเมียลที่ 12% จะได้ S = 1.537 แทนที่จะเป็น 1.282 ซึ่งทำให้ทุกตัวเลขสูงเกินไป 20%</span>
           </div>
         </div>
 
         <div class="exercise">
           <div class="exercise-q"><span class="qnum">2.</span>
-            <span class="en">A cassava field on a silt loam (K = 0.035) has a 6% slope and a 150 m slope length. Take R = 7,500. The crop is grown with conventional tillage up and down the slope, C = 0.28. Estimate A, compare with the Thai tolerance T = 2 t/rai/yr (12.5 t/ha/yr), and find the combinations of C and P that would bring it inside tolerance.</span>
-            <span class="th">แปลงมันสำปะหลังบนดินร่วนปนทรายแป้ง (K = 0.035) มีความชัน 6% และความยาวลาด 150 ม. กำหนดให้ R = 7,500 ปลูกโดยไถพรวนตามปกติขึ้นลงตามความลาด C = 0.28 จงประมาณค่า A เทียบกับค่า T ของไทย คือ 2 ตัน/ไร่/ปี (12.5 ตัน/เฮกตาร์/ปี) และหาคู่ค่า C กับ P ที่จะทำให้อยู่ในเกณฑ์</span>
+            <span class="en">A <strong>cassava</strong> field in the Northeast sits on an upland <strong>silt loam</strong>. Mean annual rainfall is <strong>1,200 mm</strong>. The slope is <strong>6%</strong> and runoff accumulates over <strong>150 m</strong>. The crop is grown with conventional tillage up and down the slope. Estimate A, classify it, and find a plan that brings it inside T = 2 t/rai/yr. Check every measure you propose against the constraints in §8.8.</span>
+            <span class="th">แปลง <strong>มันสำปะหลัง</strong> ในภาคตะวันออกเฉียงเหนืออยู่บน <strong>ดินร่วนปนทรายแป้ง</strong> ในที่ดอน ปริมาณน้ำฝนเฉลี่ยรายปี <strong>1,200 มม.</strong> ความลาดชัน <strong>6%</strong> และน้ำไหลบ่าสะสมตัวตลอดระยะ <strong>150 ม.</strong> ปลูกโดยไถพรวนตามปกติขึ้นลงตามความลาด จงประมาณค่า A จำแนกชั้นความรุนแรง และหาแผนงานที่ทำให้ลดลงมาอยู่ในเกณฑ์ T = 2 ตัน/ไร่/ปี โดยตรวจทุกมาตรการที่เสนอกับข้อจำกัดในหัวข้อ 8.8</span>
           </div>
           <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
           <div class="answer">
-            <span class="en"><strong>LS:</strong> θ = arctan(0.06) = 3.434°, sinθ = 0.05990; bracket = 65.41(0.003588) + 4.56(0.05990) + 0.065 = 0.2347 + 0.2731 + 0.065 = 0.5728. m = 0.5 since s ≥ 5%. Length term = (150/22.13)<sup>0.5</sup> = 2.603. <strong>LS = 1.491.</strong> <strong>A</strong> = 7,500 × 0.035 × 1.491 × 0.28 × 1.00 = <strong>110 t/ha/yr</strong> = <strong>17.5 t/rai/yr</strong>, which is <strong>8.8 × T</strong> and sits in <strong>LDD class 4, severe</strong>. <strong>The target:</strong> <span class="mono">C × P ≤ 12.5 / (7,500 × 0.035 × 1.491) = 12.5 / 391.4 = 0.032</span>. Combinations that work: mulch to C = 0.10 plus contour strip cropping at P = 0.25 gives 0.025 → A = 9.8 ✓; a cover crop giving C = 0.05 with plain contouring at P = 0.50 gives 0.025 → A = 9.8 ✓. Contour strips alone (C unchanged at 0.28, P = 0.25) gives 0.070 → A = 27 ✗, still two and a half times over. <strong>Note the pattern:</strong> every successful combination required the C factor to come down. On a soil this erodible with rain this aggressive, no arrangement of the land alone is sufficient — the surface has to be covered.</span>
-            <span class="th"><strong>ค่า LS</strong> θ = arctan(0.06) = 3.434°, sinθ = 0.05990 วงเล็บ = 65.41(0.003588) + 4.56(0.05990) + 0.065 = 0.2347 + 0.2731 + 0.065 = 0.5728 ส่วน m = 0.5 เพราะ s ≥ 5% พจน์ความยาว = (150/22.13)<sup>0.5</sup> = 2.603 ได้ <strong>LS = 1.491</strong> <strong>ค่า A</strong> = 7,500 × 0.035 × 1.491 × 0.28 × 1.00 = <strong>110 ตัน/เฮกตาร์/ปี</strong> หรือ <strong>17.5 ตัน/ไร่/ปี</strong> ซึ่งเป็น <strong>8.8 เท่าของ T</strong> และอยู่ใน <strong>ชั้น 4 คือรุนแรง</strong> ของกรมพัฒนาที่ดิน <strong>เป้าหมาย</strong> คือ <span class="mono">C × P ≤ 12.5 / (7,500 × 0.035 × 1.491) = 12.5 / 391.4 = 0.032</span> คู่ค่าที่ใช้ได้ เช่น คลุมดินให้ C = 0.10 ร่วมกับปลูกพืชสลับแถบตามแนวระดับ P = 0.25 ได้ 0.025 → A = 9.8 ✓ หรือปลูกพืชคลุมดินให้ C = 0.05 ร่วมกับไถตามแนวระดับธรรมดา P = 0.50 ได้ 0.025 → A = 9.8 ✓ ส่วนการปลูกสลับแถบอย่างเดียว (C ยังเป็น 0.28, P = 0.25) ได้ 0.070 → A = 27 ✗ ซึ่งยังเกินอยู่สองเท่าครึ่ง <strong>ให้สังเกตรูปแบบ</strong> คือทุกคู่ที่สำเร็จต้องลดค่า C ลงทั้งสิ้น บนดินที่ถูกกัดเซาะง่ายขนาดนี้และฝนที่รุนแรงขนาดนี้ การจัดการรูปร่างที่ดินเพียงอย่างเดียวไม่เพียงพอ ต้องมีสิ่งปกคลุมผิวดิน</span>
+            <span class="en"><strong>The six factors.</strong> R = 0.4669(1,200) − 12.1415 = <strong>548</strong>. K = <strong>0.37</strong> (silt loam, upland, NE). 6% is in the 5.1–21% band so m = 0.5 and L = (150/22.13)<sup>0.5</sup> = <strong>2.603</strong>. 6% is below 9% so the polynomial applies: S = <strong>0.5714</strong>. C = <strong>0.6</strong> (cassava). P = <strong>1.00</strong>. <strong>A = 548 × 0.37 × 2.603 × 0.5714 × 0.6 × 1.00 = 181 t/ha/yr = 29.0 t/rai/yr = 13.9 mm/yr</strong> — <strong>LDD class 5, very severe</strong>, and <strong>15 times T</strong>. At that rate the 24 cm topsoil is gone in seventeen years. <strong>The target.</strong> <span class="mono">C × P ≤ 12 / (548 × 0.37 × 2.603 × 0.5714) = 12 / 301.7 = 0.040</span>. With cassava's C = 0.6 that needs P ≤ 0.066, and the best P in the §8.8 table is 0.10 for terracing. <strong>No support practice in existence can fix this field while it grows cassava up a 150 m slope.</strong> <strong>The constraint most people miss.</strong> Contour tillage at 6% is only credited up to 61–122 m of slope length. At λ = 150 m you may not claim P = 0.5 at all until the slope is first shortened — so any plan must start with bunds. <strong>Three plans that work.</strong> (a) Bunds every 60 m, contour tillage and a heavy residue mulch: L drops to 1.647, C to 0.10, P to 0.50, giving A = <strong>9.5 t/ha = 1.53 t/rai ✓</strong>. (b) Keep the 150 m slope but mulch to C = 0.10 and put in contour strip cropping at P = 0.25: C × P = 0.025, A = <strong>7.5 t/ha = 1.21 t/rai ✓</strong>. (c) Change the crop. Rubber or a fruit orchard with a permanent ground cover has C = 0.01, so even with P = 1.00 and the full 150 m slope, A = <strong>3.0 t/ha = 0.48 t/rai ✓</strong> — comfortably inside tolerance with no earthworks at all. <strong>The lesson.</strong> Options (a) and (b) fight the erosion; option (c) removes the cause. Cassava on long slopes of erodible Northeastern silt loam is not a field that needs better conservation practice — it is a land-use decision that the equation is politely declining to endorse.</span>
+            <span class="th"><strong>ปัจจัยทั้งหก</strong> R = 0.4669(1,200) − 12.1415 = <strong>548</strong> ค่า K = <strong>0.37</strong> (ดินร่วนปนทรายแป้ง ดินดอน ภาคอีสาน) ความชัน 6% อยู่ในช่วง 5.1–21% จึงได้ m = 0.5 และ L = (150/22.13)<sup>0.5</sup> = <strong>2.603</strong> ส่วน 6% ต่ำกว่า 9% จึงใช้โพลิโนเมียล ได้ S = <strong>0.5714</strong> ค่า C = <strong>0.6</strong> (มันสำปะหลัง) และ P = <strong>1.00</strong> <strong>A = 548 × 0.37 × 2.603 × 0.5714 × 0.6 × 1.00 = 181 ตัน/เฮกแตร์/ปี = 29.0 ตัน/ไร่/ปี = 13.9 มม./ปี</strong> คือ <strong>ชั้น 5 ของกรมพัฒนาที่ดิน รุนแรงมาก</strong> และเป็น <strong>15 เท่าของ T</strong> ที่อัตรานี้ หน้าดินหนา 24 ซม. จะหมดไปในสิบเจ็ดปี <strong>เป้าหมาย</strong> คือ <span class="mono">C × P ≤ 12 / (548 × 0.37 × 2.603 × 0.5714) = 12 / 301.7 = 0.040</span> เมื่อมันสำปะหลังมีค่า C = 0.6 จึงต้องการ P ≤ 0.066 ขณะที่ค่า P ที่ดีที่สุดในตารางหัวข้อ 8.8 คือ 0.10 ของการสร้างคันดิน <strong>ไม่มีมาตรการอนุรักษ์ใดในโลกที่แก้แปลงนี้ได้ ตราบใดที่ยังปลูกมันสำปะหลังบนลาดยาว 150 ม.</strong> <strong>ข้อจำกัดที่คนส่วนใหญ่มองข้าม</strong> การไถตามแนวระดับที่ความชัน 6% ได้เครดิตเฉพาะเมื่อความยาวลาดไม่เกิน 61–122 ม. ที่ λ = 150 ม. เราอ้างค่า P = 0.5 ไม่ได้เลยจนกว่าจะย่นความยาวลาดก่อน ดังนั้นแผนใด ๆ ต้องเริ่มด้วยการทำคันดิน <strong>สามแผนที่ใช้ได้</strong> (ก) ทำคันดินทุก 60 ม. ไถตามแนวระดับ และคลุมดินด้วยเศษซากพืชอย่างหนา ค่า L ลดเหลือ 1.647 ค่า C เหลือ 0.10 และ P เหลือ 0.50 ได้ A = <strong>9.5 ตัน/เฮกแตร์ = 1.53 ตัน/ไร่ ✓</strong> (ข) คงลาด 150 ม. ไว้ แต่คลุมดินให้ C = 0.10 และปลูกพืชสลับแถบตามแนวระดับที่ P = 0.25 ได้ C × P = 0.025 และ A = <strong>7.5 ตัน/เฮกแตร์ = 1.21 ตัน/ไร่ ✓</strong> (ค) เปลี่ยนชนิดพืช สวนยางหรือสวนผลไม้ที่มีพืชคลุมดินถาวรมีค่า C = 0.01 ดังนั้นแม้ P = 1.00 และลาดยาว 150 ม. เต็ม ก็ยังได้ A = <strong>3.0 ตัน/เฮกแตร์ = 0.48 ตัน/ไร่ ✓</strong> คืออยู่ในเกณฑ์อย่างสบาย ๆ โดยไม่ต้องขุดดินเลยแม้แต่น้อย <strong>บทเรียน</strong> ทางเลือก (ก) และ (ข) เป็นการสู้กับการกร่อน ส่วนทางเลือก (ค) เป็นการกำจัดสาเหตุ มันสำปะหลังบนลาดยาวของดินร่วนปนทรายแป้งภาคอีสานที่ถูกกัดเซาะง่าย ไม่ใช่แปลงที่ต้องการมาตรการอนุรักษ์ที่ดีขึ้น แต่เป็นการตัดสินใจเรื่องการใช้ที่ดินที่สมการกำลังปฏิเสธจะรับรองอย่างสุภาพ</span>
           </div>
         </div>
 
@@ -1281,13 +1768,13 @@
 
         <div class="exercise">
           <div class="exercise-q"><span class="qnum">6.</span>
-            <span class="en">A student computes A for a silt loam field and obtains 1,112 t/ha/yr — about 86 mm of topsoil a year. The inputs were R = 6,500, K = 0.38, LS = 1.80, C = 0.25, P = 1.00. Find the error without recomputing anything, and give the corrected answer.</span>
-            <span class="th">นักศึกษาคนหนึ่งคำนวณค่า A ของแปลงดินร่วนปนทรายแป้งได้ 1,112 ตัน/เฮกตาร์/ปี ซึ่งเท่ากับดินชั้นบนราว 86 มม. ต่อปี โดยใช้ค่า R = 6,500, K = 0.38, LS = 1.80, C = 0.25, P = 1.00 จงหาจุดผิดโดยไม่ต้องคำนวณใหม่ และให้คำตอบที่ถูกต้อง</span>
+            <span class="en">A student computes A for a maize field on an upland Northeastern silt loam, λ = 100 m at 8%, and obtains <strong>2,158 t/ha/yr</strong> — about 166 mm of topsoil a year. The inputs were R = 6,500, K = 0.37, L = 2.126, S = 0.8442, C = 0.50, P = 1.00, and the site's mean annual rainfall is 1,300 mm. Find the error <em>without recomputing anything</em>, then give the corrected answer.</span>
+            <span class="th">นักศึกษาคนหนึ่งคำนวณค่า A ของแปลงข้าวโพดบนดินร่วนปนทรายแป้งในที่ดอนภาคอีสาน λ = 100 ม. ความชัน 8% และได้ผลลัพธ์ <strong>2,158 ตัน/เฮกแตร์/ปี</strong> หรือราว 166 มม. ของหน้าดินต่อปี ค่าที่ใช้คือ R = 6,500, K = 0.37, L = 2.126, S = 0.8442, C = 0.50, P = 1.00 และปริมาณน้ำฝนเฉลี่ยรายปีของพื้นที่คือ 1,300 มม. จงหาจุดผิด <em>โดยไม่ต้องคำนวณอะไรใหม่</em> แล้วให้คำตอบที่ถูกต้อง</span>
           </div>
           <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
           <div class="answer">
-            <span class="en"><strong>The error is K.</strong> A value of 0.38 is a silt loam in <em>US customary</em> units; the metric equivalent is 0.38 × 0.1317 = <strong>0.050</strong>. The student mixed a US-unit K with a metric R, which inflates the answer by 1/0.1317 = 7.6 times. <strong>Corrected:</strong> A = 1,112 × 0.1317 = <strong>146 t/ha/yr</strong>, about 11 mm of topsoil a year. <strong>Spotting it without arithmetic:</strong> 86 mm a year would strip a 20 cm topsoil layer in under three years — the field would be subsoil before the student graduated. Any soil loss figure implying that the site cannot survive a single crop rotation is wrong before you check the working, and in this subject the overwhelmingly likely cause is the K unit conversion. It is worth noting that even the corrected 146 t/ha/yr — 23.4 t/rai/yr, LDD class 5 — is nearly twelve times the tolerance, so the field genuinely is in serious trouble — the unit error exaggerated a real problem rather than inventing one.</span>
-            <span class="th"><strong>จุดผิดอยู่ที่ค่า K</strong> ค่า 0.38 เป็นค่าของดินร่วนปนทรายแป้งในหน่วย <em>อังกฤษ</em> ส่วนค่าที่เทียบเท่าในหน่วยเมตริกคือ 0.38 × 0.1317 = <strong>0.050</strong> นักศึกษาใช้ค่า K หน่วยอังกฤษปนกับค่า R หน่วยเมตริก ทำให้คำตอบพองขึ้น 1/0.1317 = 7.6 เท่า <strong>ค่าที่ถูกต้อง</strong> A = 1,112 × 0.1317 = <strong>146 ตัน/เฮกตาร์/ปี</strong> หรือดินชั้นบนราว 11 มม. ต่อปี <strong>วิธีสังเกตโดยไม่ต้องคำนวณ</strong> คือ 86 มม. ต่อปี จะปาดดินชั้นบนหนา 20 ซม. หมดไปในไม่ถึงสามปี แปลงนั้นจะเหลือแต่ดินชั้นล่างก่อนที่นักศึกษาจะเรียนจบ ตัวเลขการสูญเสียดินใดก็ตามที่บ่งชี้ว่าพื้นที่นั้นอยู่ไม่รอดแม้แต่รอบการปลูกเดียว ย่อมผิดตั้งแต่ก่อนตรวจวิธีทำ และในเรื่องนี้สาเหตุที่เป็นไปได้มากที่สุดอย่างท่วมท้นคือการแปลงหน่วยของค่า K ทั้งนี้ควรสังเกตด้วยว่าค่าที่แก้แล้ว 146 ตัน/เฮกตาร์/ปี หรือ 23.4 ตัน/ไร่/ปี ซึ่งเป็นชั้น 5 ของกรมพัฒนาที่ดิน ก็ยังเป็นเกือบสิบสองเท่าของขีดจำกัดที่ยอมรับได้ แปลงนั้นจึงมีปัญหาร้ายแรงจริง ความผิดพลาดเรื่องหน่วยเพียงขยายปัญหาที่มีอยู่จริงให้เกินจริง ไม่ได้สร้างปัญหาขึ้นมาใหม่</span>
+            <span class="en"><strong>Spotting it without arithmetic.</strong> 166 mm a year would strip the whole 24 cm A and E horizon in <strong>under a year and a half</strong>. Nothing that happens to a field leaves it still being called a field. The LDD's most severe class, class 5, begins at 9.6 mm a year, so this answer is seventeen times past the top of the national scale. Whenever a USLE result is absurd by an order of magnitude, look at R and K before you look at anything else. <strong>The error is R.</strong> A value of 6,500 is on the <em>SI</em> scale, in MJ·mm·ha⁻¹·h⁻¹·yr⁻¹, almost certainly copied from an international paper. Every other factor in the list is from the LDD tables — K = 0.37 is the LDD silt loam. The student has paired an SI R with an LDD K, which §8.4 warns inflates the answer by roughly ten times. <strong>The correction.</strong> The site has 1,300 mm of rain, so R = 0.4669(1,300) − 12.1415 = <strong>595</strong>, which the published table confirms. Then <span class="mono">A = 595 × 0.37 × 2.126 × 0.8442 × 0.50 × 1.00 = <strong>198 t/ha/yr</strong> = 31.6 t/rai/yr = 15.2 mm/yr</span>. The wrong answer was 10.9 times too high. <strong>And the corrected answer is still terrible</strong> — LDD class 5, sixteen times T. Maize on a 100 m slope of erodible silt loam with no support practice really is a severe erosion problem; the point of the exercise is that you cannot see that while the arithmetic is out by a factor of eleven, because at 2,158 t/ha every option looks equally hopeless and none of them gets costed properly.</span>
+            <span class="th"><strong>การจับผิดโดยไม่ต้องคำนวณ</strong> ค่า 166 มม. ต่อปี จะปาดชั้น A และ E ทั้งหมดหนา 24 ซม. ออกไปใน <strong>ไม่ถึงหนึ่งปีครึ่ง</strong> ไม่มีสิ่งใดที่เกิดกับแปลงเพาะปลูกแล้วยังทำให้มันถูกเรียกว่าแปลงเพาะปลูกได้ ชั้นที่รุนแรงที่สุดของกรมพัฒนาที่ดินคือชั้น 5 ซึ่งเริ่มที่ 9.6 มม. ต่อปี คำตอบนี้จึงเกินยอดของมาตราระดับชาติไปสิบเจ็ดเท่า เมื่อใดที่ผลลัพธ์ของ USLE ไร้สาระในระดับเลขยกกำลัง ให้ดูที่ค่า R และ K ก่อนจะดูอย่างอื่น <strong>จุดผิดอยู่ที่ค่า R</strong> ค่า 6,500 อยู่ในมาตรา <em>SI</em> หน่วย MJ·mm·ha⁻¹·h⁻¹·yr⁻¹ และเกือบแน่นอนว่าลอกมาจากบทความต่างประเทศ ขณะที่ปัจจัยอื่นทุกตัวในรายการมาจากตารางของกรมพัฒนาที่ดิน เพราะ K = 0.37 คือค่าดินร่วนปนทรายแป้งของกรม นักศึกษาจึงจับค่า R ของ SI มาคูณกับค่า K ของกรมพัฒนาที่ดิน ซึ่งหัวข้อ 8.4 เตือนไว้ว่าจะทำให้คำตอบพองขึ้นราวสิบเท่า <strong>การแก้ไข</strong> พื้นที่มีฝน 1,300 มม. ดังนั้น R = 0.4669(1,300) − 12.1415 = <strong>595</strong> ซึ่งตรงกับตารางที่เผยแพร่ไว้ จากนั้น <span class="mono">A = 595 × 0.37 × 2.126 × 0.8442 × 0.50 × 1.00 = <strong>198 ตัน/เฮกแตร์/ปี</strong> = 31.6 ตัน/ไร่/ปี = 15.2 มม./ปี</span> คำตอบที่ผิดจึงสูงเกินไป 10.9 เท่า <strong>และคำตอบที่ถูกต้องก็ยังแย่มากอยู่ดี</strong> คืออยู่ในชั้น 5 ของกรมพัฒนาที่ดิน และเป็นสิบหกเท่าของค่า T ข้าวโพดบนลาดยาว 100 ม. ของดินร่วนปนทรายแป้งที่ถูกกัดเซาะง่ายโดยไม่มีมาตรการอนุรักษ์ เป็นปัญหาการกร่อนที่รุนแรงจริง ประเด็นของแบบฝึกหัดข้อนี้คือ เรามองไม่เห็นเรื่องนั้นเลยตราบใดที่การคำนวณยังคลาดไปสิบเอ็ดเท่า เพราะที่ค่า 2,158 ตัน/เฮกแตร์ ทุกทางเลือกดูสิ้นหวังเท่ากันหมด และไม่มีทางเลือกใดถูกประเมินราคาอย่างถูกต้อง</span>
           </div>
         </div>
       </section>
@@ -1314,21 +1801,21 @@
 <script>
 window.QUIZ = [
   {
-    q: { en: 'In A = R × K × LS × C × P, which two factors are effectively given to you rather than chosen?',
-         th: 'ในสมการ A = R × K × LS × C × P ปัจจัยสองตัวใดที่เป็นสิ่งที่ได้มา ไม่ใช่สิ่งที่เราเลือก' },
+    q: { en: 'In A = R × K × L × S × C × P, which two factors are effectively given to you rather than chosen?',
+         th: 'ในสมการ A = R × K × L × S × C × P ปัจจัยสองตัวใดที่เป็นสิ่งที่ได้มา ไม่ใช่สิ่งที่เราเลือก' },
     choices: [
       { en: 'C and P', th: 'C และ P' },
-      { en: 'LS and C', th: 'LS และ C' },
+      { en: 'L and S together, and C', th: 'L กับ S รวมกัน และ C' },
       { en: 'R and K', th: 'R และ K' },
       { en: 'K and C', th: 'K และ C' }
     ],
     answer: 2,
-    why: { en: 'R is the climate and K is the soil — neither is a decision. LS can be changed by terracing, at a cost; C and P are the conservation plan itself. A useful way to read the equation is: two factors describe the problem, three describe the answer.',
-           th: 'ค่า R คือภูมิอากาศ และ K คือดิน ทั้งสองอย่างไม่ใช่การตัดสินใจ ส่วน LS เปลี่ยนได้ด้วยการทำขั้นบันไดดินโดยมีค่าใช้จ่าย และ C กับ P คือตัวแผนอนุรักษ์เอง วิธีอ่านสมการที่มีประโยชน์คือ สองปัจจัยอธิบายปัญหา และสามปัจจัยอธิบายคำตอบ' }
+    why: { en: 'R is the climate and K is the soil — neither is a decision. L can be changed by terracing, at a cost, and S cannot be changed at all; C and P are the conservation plan itself. A useful way to read the equation is: two factors describe the problem, three describe the answer.',
+           th: 'ค่า R คือภูมิอากาศ และ K คือดิน ทั้งสองอย่างไม่ใช่การตัดสินใจ ส่วน L เปลี่ยนได้ด้วยการทำขั้นบันไดดินโดยมีค่าใช้จ่าย แต่ S เปลี่ยนไม่ได้เลย และ C กับ P คือตัวแผนอนุรักษ์เอง วิธีอ่านสมการที่มีประโยชน์คือ สองปัจจัยอธิบายปัญหา และสามปัจจัยอธิบายคำตอบ' }
   },
   {
-    q: { en: 'The standard plot on which K is measured and LS, C and P all equal 1.00 is:',
-         th: 'แปลงมาตรฐานที่ใช้วัดค่า K และเป็นแปลงที่ LS, C และ P มีค่าเท่ากับ 1.00 คือแปลงใด' },
+    q: { en: 'The standard plot on which K is measured and L, S, C and P all equal 1.00 is:',
+         th: 'แปลงมาตรฐานที่ใช้วัดค่า K และเป็นแปลงที่ L, S, C และ P มีค่าเท่ากับ 1.00 คือแปลงใด' },
     choices: [
       { en: '22.13 m long, 9% slope, bare tilled fallow, cultivated up and down the slope', th: 'ยาว 22.13 ม. ความชัน 9% ดินเปลือยไถทิ้งไว้ ไถขึ้นลงตามความลาด' },
       { en: '100 m long, 5% slope, under permanent grass', th: 'ยาว 100 ม. ความชัน 5% ปลูกหญ้าถาวร' },
@@ -1336,8 +1823,8 @@ window.QUIZ = [
       { en: 'One hectare, 9% slope, contour farmed', th: 'หนึ่งเฮกตาร์ ความชัน 9% ไถตามแนวระดับ' }
     ],
     answer: 0,
-    why: { en: 'Everything in USLE is referenced to that plot. It is also the best test of an implementation: put λ = 22.13 and s = 9% into the LS equation and it must return exactly 1.00. If it does not, the code is wrong.',
-           th: 'ทุกอย่างใน USLE อ้างอิงกับแปลงนั้น อีกทั้งยังเป็นวิธีทดสอบโปรแกรมที่ดีที่สุด คือแทน λ = 22.13 และ s = 9% ลงในสมการ LS แล้วต้องได้ 1.00 พอดี ถ้าไม่ได้ แสดงว่าเขียนโปรแกรมผิด' }
+    why: { en: 'Everything in USLE is referenced to that plot. It is also the best test of an implementation: put λ = 22.13 and s = 9% into the L and S equations and their product must be exactly 1.00. If it does not, the code is wrong.',
+           th: 'ทุกอย่างใน USLE อ้างอิงกับแปลงนั้น อีกทั้งยังเป็นวิธีทดสอบโปรแกรมที่ดีที่สุด คือแทน λ = 22.13 และ s = 9% ลงในสมการ L และ S แล้วผลคูณของสองค่าต้องได้ 1.00 พอดี ถ้าไม่ได้ แสดงว่าเขียนโปรแกรมผิด' }
   },
   {
     q: { en: 'Which soil texture is generally the most erodible — that is, has the highest K?',
@@ -1353,17 +1840,17 @@ window.QUIZ = [
            th: 'ทรายแป้งและทรายละเอียดมากเป็นขนาดอนุภาคที่เลวร้ายที่สุด คือใหญ่เกินกว่าจะยึดกันด้วยแรงเชื่อมแน่น แต่เล็กเกินกว่าจะต้านการพัดพา ดินทรายซึมน้ำได้ดีจึงเกิดน้ำไหลบ่าน้อย ส่วนดินเหนียวยึดตัวเป็นเม็ดดินที่ต้านการแตกตัวได้ ดินร่วนปนทรายแป้งอยู่ตรงช่องว่างและไม่มีการป้องกันทั้งสองแบบ' }
   },
   {
-    q: { en: 'Bench terraces cut a 200 m slope length into 50 m sections. By what factor does LS fall?',
-         th: 'ขั้นบันไดดินตัดความยาวลาดจาก 200 ม. ให้เหลือช่วงละ 50 ม. ค่า LS จะลดลงกี่เท่า' },
+    q: { en: 'On a 12% slope, bench terraces cut a 200 m slope length into 50 m sections. By what factor does L × S fall?',
+         th: 'บนลาดชัน 12% ขั้นบันไดดินตัดความยาวลาดจาก 200 ม. ให้เหลือช่วงละ 50 ม. ค่า L × S จะลดลงกี่เท่า' },
     choices: [
-      { en: 'It is unchanged — LS depends on steepness only', th: 'ไม่เปลี่ยน เพราะ LS ขึ้นกับความชันเท่านั้น' },
+      { en: 'It is unchanged — L × S depends on steepness only', th: 'ไม่เปลี่ยน เพราะ L × S ขึ้นกับความชันเท่านั้น' },
       { en: 'By a factor of 2', th: 'ลดลง 2 เท่า' },
       { en: 'By a factor of 4', th: 'ลดลง 4 เท่า' },
       { en: 'By a factor of 16', th: 'ลดลง 16 เท่า' }
     ],
     answer: 1,
-    why: { en: 'On a slope of 5% or more the exponent m = 0.5, so LS varies as the square root of λ. Cutting λ by 4 divides LS by √4 = 2. This is why terracing helps but cannot by itself rescue a badly eroding field — to divide LS by 4 you would need to cut the slope length by sixteen.',
-           th: 'บนความลาดตั้งแต่ 5% ขึ้นไป เลขชี้กำลัง m = 0.5 ค่า LS จึงแปรตามรากที่สองของ λ การลด λ ลง 4 เท่าจึงหาร LS ด้วย √4 = 2 นี่คือเหตุผลที่ขั้นบันไดดินช่วยได้แต่ไม่อาจกู้แปลงที่ถูกกัดเซาะหนักได้ด้วยตัวเอง เพราะถ้าจะหาร LS ด้วย 4 ต้องลดความยาวลาดลงถึงสิบหกเท่า' }
+    why: { en: 'Between 5.1 and 21% the exponent m = 0.5, so L varies as the square root of λ, and S does not change at all. Cutting λ by 4 divides L by √4 = 2. Above 21% m rises to 0.7 and the same cut would divide it by 4⁰·⁷ = 2.64. This is why terracing helps but cannot by itself rescue a badly eroding field — to divide LS by 4 you would need to cut the slope length by sixteen.',
+           th: 'ในช่วง 5.1 ถึง 21% เลขชี้กำลัง m = 0.5 ค่า L จึงแปรตามรากที่สองของ λ ส่วน S ไม่เปลี่ยนเลย การลด λ ลง 4 เท่าจึงหาร L ด้วย √4 = 2 ส่วนที่ชันเกิน 21% ค่า m เพิ่มเป็น 0.7 การตัดเท่าเดิมจะหารด้วย 4⁰·⁷ = 2.64 นี่คือเหตุผลที่ขั้นบันไดดินช่วยได้แต่ไม่อาจกู้แปลงที่ถูกกัดเซาะหนักได้ด้วยตัวเอง เพราะถ้าจะหาร L ด้วย 4 ต้องลดความยาวลาดลงถึงสิบหกเท่า' }
   },
   {
     q: { en: 'Two mango orchards have identical soil, slope and closed canopies. One keeps the floor bare and cultivated, the other has grass beneath the trees. Their soil losses differ by roughly thirty times because:',
@@ -1392,17 +1879,17 @@ window.QUIZ = [
            th: 'สันดินตามแนวระดับทำงานด้วยการกักน้ำไว้จนกว่าจะซึมลงดิน บนที่ชัน น้ำไหลบ่ามาถึงมากกว่าและเร็วกว่า พื้นที่เก็บกักจึงเต็ม และเมื่อแตกจะปล่อยน้ำทั้งหมดออกที่จุดเดียวพุ่งลงตามแนวลาด ซึ่งเป็นเงื่อนไขที่ทำให้เกิดร่องลึก ที่ความลาดเกิน 25% ตารางให้ค่า P = 1.00 คือไม่ให้เครดิตเลย ซึ่งเป็นการที่สมการบอกว่าพืชแถวไม่ควรอยู่ตรงนั้น' }
   },
   {
-    q: { en: 'A design must bring A below the tolerance T. Since R, K and LS are fixed, the design condition reduces to:',
-         th: 'การออกแบบต้องลดค่า A ให้ต่ำกว่าขีดจำกัด T เมื่อ R, K และ LS ตรึงอยู่กับที่ เงื่อนไขการออกแบบจะยุบลงเหลืออะไร' },
+    q: { en: 'A design must bring A below the tolerance T. Since R, K, L and S are fixed, the design condition reduces to:',
+         th: 'การออกแบบต้องลดค่า A ให้ต่ำกว่าขีดจำกัด T เมื่อ R, K, L และ S ตรึงอยู่กับที่ เงื่อนไขการออกแบบจะยุบลงเหลืออะไร' },
     choices: [
       { en: 'R × K ≤ T', th: 'R × K ≤ T' },
-      { en: 'LS ≤ T / R', th: 'LS ≤ T / R' },
-      { en: 'C + P ≤ T / (R·K·LS)', th: 'C + P ≤ T / (R·K·LS)' },
-      { en: 'C × P ≤ T / (R·K·LS)', th: 'C × P ≤ T / (R·K·LS)' }
+      { en: 'L·S ≤ T / R', th: 'L·S ≤ T / R' },
+      { en: 'C + P ≤ T / (R·K·L·S)', th: 'C + P ≤ T / (R·K·L·S)' },
+      { en: 'C × P ≤ T / (R·K·L·S)', th: 'C × P ≤ T / (R·K·L·S)' }
     ],
     answer: 3,
-    why: { en: 'The factors multiply, so the constraint is on the product C × P, not on their sum. In the §8.9 example that target was 0.058, and reading it as a single number turns a vague goal into a shopping list of combinations that meet it.',
-           th: 'ปัจจัยต่าง ๆ คูณกัน ข้อจำกัดจึงอยู่ที่ผลคูณ C × P ไม่ใช่ผลบวก ในตัวอย่างหัวข้อ 8.9 เป้าหมายนั้นคือ 0.058 และการอ่านมันเป็นตัวเลขเดียวเปลี่ยนเป้าหมายที่คลุมเครือให้กลายเป็นรายการทางเลือกที่ทำได้จริง' }
+    why: { en: 'The factors multiply, so the constraint is on the product C × P, not on their sum. In the §8.9 example that target was 0.181, and reading it as a single number turns a vague goal into a shopping list of combinations that meet it.',
+           th: 'ปัจจัยต่าง ๆ คูณกัน ข้อจำกัดจึงอยู่ที่ผลคูณ C × P ไม่ใช่ผลบวก ในตัวอย่างหัวข้อ 8.9 เป้าหมายนั้นคือ 0.181 และการอ่านมันเป็นตัวเลขเดียวเปลี่ยนเป้าหมายที่คลุมเครือให้กลายเป็นรายการทางเลือกที่ทำได้จริง' }
   },
   {
     q: { en: 'Of the conservation measures below, which should normally be tried first?',
@@ -1431,17 +1918,17 @@ window.QUIZ = [
            th: 'สมการ USLE ให้ค่าดินที่เคลื่อนออกจากแปลง ไม่ใช่ตะกอนที่ส่งถึงลำน้ำ ส่วนใหญ่ตกทับถมอยู่ที่ตีนลาด ตามคันแปลง และในคูน้ำ อัตราส่วนการส่งผ่านตะกอนลดลงเมื่อพื้นที่ลุ่มน้ำใหญ่ขึ้น และอาจต่ำกว่า 0.1 สำหรับลุ่มน้ำขนาดใหญ่ สำหรับอ่างเก็บน้ำและพายุฝนครั้งเดียว ให้ใช้ MUSLE ซึ่งแทนค่า R ด้วยพจน์ของน้ำไหลบ่า' }
   },
   {
-    q: { en: 'A calculation returns A = 1,100 t/ha/yr for a silt loam field, about 85 mm of topsoil a year. The most likely explanation is:',
-         th: 'การคำนวณให้ค่า A = 1,100 ตัน/เฮกตาร์/ปี สำหรับแปลงดินร่วนปนทรายแป้ง หรือราว 85 มม. ของดินชั้นบนต่อปี คำอธิบายที่เป็นไปได้มากที่สุดคือ' },
+    q: { en: 'A student computing A for a field in the Northeast takes K, L, S, C and P from the LDD tables, and R = 6,500 from an international journal. The result is about 2,000 t/ha/yr, or 155 mm of topsoil a year. What went wrong?',
+         th: 'นักศึกษาคนหนึ่งคำนวณค่า A ของแปลงในภาคอีสาน โดยเอาค่า K, L, S, C และ P มาจากตารางของกรมพัฒนาที่ดิน และเอาค่า R = 6,500 มาจากวารสารต่างประเทศ ผลลัพธ์ที่ได้คือราว 2,000 ตัน/เฮกแตร์/ปี หรือ 155 มม. ของหน้าดินต่อปี อะไรคือสิ่งที่ผิด' },
     choices: [
-      { en: 'A US-unit K value was used with metric R — multiply the answer by 0.1317', th: 'ใช้ค่า K หน่วยอังกฤษร่วมกับค่า R หน่วยเมตริก ต้องคูณคำตอบด้วย 0.1317' },
+      { en: 'R was taken from the SI scale while every other factor came from the LDD scale — the two systems cannot be mixed', th: 'ค่า R มาจากมาตรา SI ขณะที่ปัจจัยอื่นทุกตัวมาจากมาตราของกรมพัฒนาที่ดิน ซึ่งสองระบบนี้นำมาปนกันไม่ได้' },
       { en: 'The slope length was measured in feet', th: 'วัดความยาวลาดเป็นฟุต' },
       { en: 'The C factor was left at its forest value', th: 'ตั้งค่า C ไว้ที่ค่าของป่าไม้' },
-      { en: 'Nothing is wrong; silt loam really does erode that fast', th: 'ไม่มีอะไรผิด ดินร่วนปนทรายแป้งกร่อนเร็วขนาดนั้นจริง ๆ' }
+      { en: 'Nothing is wrong; Northeastern silt loam really does erode that fast', th: 'ไม่มีอะไรผิด ดินร่วนปนทรายแป้งภาคอีสานกร่อนเร็วขนาดนั้นจริง ๆ' }
     ],
     answer: 0,
-    why: { en: 'US-unit K values are about 7.6 times the metric ones — a silt loam is 0.38 US and 0.050 metric. This is the commonest unit error in the subject. The sanity check needs no arithmetic: 85 mm a year would strip a 20 cm topsoil layer in under three years, and any figure implying a site cannot survive one crop rotation is wrong before you check the working.',
-           th: 'ค่า K หน่วยอังกฤษมากกว่าหน่วยเมตริกราว 7.6 เท่า เช่นดินร่วนปนทรายแป้งมีค่า 0.38 ในหน่วยอังกฤษ และ 0.050 ในหน่วยเมตริก นี่เป็นความผิดพลาดเรื่องหน่วยที่พบบ่อยที่สุดในเรื่องนี้ การตรวจสอบความสมเหตุสมผลไม่ต้องคำนวณเลย เพราะ 85 มม. ต่อปีจะปาดดินชั้นบนหนา 20 ซม. หมดในไม่ถึงสามปี และตัวเลขใดที่บ่งชี้ว่าพื้นที่นั้นอยู่ไม่รอดแม้แต่รอบการปลูกเดียว ย่อมผิดตั้งแต่ก่อนตรวจวิธีทำ' }
+    why: { en: 'Thai R values come from R = 0.4669X − 12.1415 and run from about 400 to 1,100 t/ha/yr. SI R values run into the thousands and belong with K values about ten times smaller. Mixing the two inflates the answer by roughly ten times, and it is the commonest unit error in Thai USLE work. The sanity check needs no arithmetic: 155 mm a year would strip Thailand’s average 24 cm of topsoil in under two years, and the LDD’s most severe class, class 5, begins at only 9.6 mm a year.',
+           th: 'ค่า R ของไทยมาจากสมการ R = 0.4669X − 12.1415 และอยู่ในช่วงราว 400 ถึง 1,100 ตัน/เฮกแตร์/ปี ส่วนค่า R ในระบบ SI อยู่ในหลักพัน และต้องใช้คู่กับค่า K ที่เล็กกว่าราวสิบเท่า การนำสองระบบมาปนกันทำให้คำตอบพองขึ้นราวสิบเท่า และเป็นความผิดพลาดเรื่องหน่วยที่พบบ่อยที่สุดในงาน USLE ของไทย การตรวจสอบความสมเหตุสมผลไม่ต้องคำนวณเลย เพราะ 155 มม. ต่อปี จะปาดหน้าดินเฉลี่ย 24 ซม. ของไทยหมดในไม่ถึงสองปี และชั้นที่รุนแรงที่สุดของกรมพัฒนาที่ดิน คือชั้น 5 เริ่มที่เพียง 9.6 มม. ต่อปี' }
   }
 ];
 </script>
