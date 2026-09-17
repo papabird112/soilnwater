@@ -158,6 +158,33 @@ labour rates.
 
 ---
 
+## 9. การอนุรักษ์ดินและน้ำ — บัญชี 34 มาตรการ (กรมพัฒนาที่ดิน)
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `ldd-conservation-measures-th.pdf` (5.3 MB, 49 หน้า) |
+
+เอกสารประกอบการสอนของกรมพัฒนาที่ดิน ว่าด้วยนิยาม สาเหตุ วัตถุประสงค์ และ
+**หลักสี่ข้อ** ของการอนุรักษ์ดินและน้ำ ตามด้วยบัญชีมาตรการครบทั้ง **34 มาตรการ**
+แบ่งเป็นวิธีกล 24 (1.1–1.24) และวิธีพืช 10 (2.1–2.10) โดยแต่ละมาตรการมีวัตถุประสงค์
+และ **หลักเกณฑ์การนำไปใช้** กำกับไว้ ซึ่งเป็นส่วนที่ระบุช่วงความลาดชันและเงื่อนไข
+ที่ทำให้มาตรการนั้นใช้ไม่ได้
+
+The LDD teaching document on soil and water conservation: the definition, the
+three causes, the six objectives, and the **four principles** — condition the
+soil, cover the soil, slow the runoff and wind, drain the runoff properly —
+followed by the complete catalogue of **34 measures**, twenty-four mechanical
+(1.1–1.24) and ten vegetative (2.1–2.10). Each entry carries its objectives and
+its *application criteria*, which is where the slope bands and the conditions
+that void a measure are stated: contour cultivation 2–7% with λ ≤ 100 m,
+terracing 2–12%, strip cropping ≤ 15%, cover crops above 20%, hillside ditches
+below 40%, bench terraces inward-sloping above 650 mm/yr, grassed waterways
+≤ 30 m, no-tillage only with a mulch, and windbreaks at 10–12 × their height.
+
+**ใช้ในบทใด / Used in:** ch08 §8.10
+
+---
+
 ## ยังไม่ได้เพิ่ม / Not yet in this folder
 
 **หลักการชลประทาน (Irrigation Principle)** โดย อาจารย์บุญมา ป้านประดิษฐ์
@@ -170,12 +197,13 @@ Panpradit (Kasetsart University Kamphaeng Saen, B.E. 2546). Drop the PDF into
 this folder and it can be catalogued and drawn on like the others.
 
 
-**เอกสารของกรมพัฒนาที่ดินอีกสองฉบับ** ที่แนบมาพร้อมชุดของบทที่ 8 แต่ยังไม่ได้นำมาใช้
-คือ *การอนุรักษ์ดินและน้ำ – For teaching* (49 หน้า) และ
-*มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือ* โดย อุทิศ เตจ๊ะใจ
+**เอกสารของกรมพัฒนาที่ดินอีกหนึ่งฉบับ** ที่แนบมาพร้อมชุดของบทที่ 8 แต่ยังไม่ได้นำมาใช้
+คือ *มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือของประเทศไทย*
+โดย อุทิศ เตจ๊ะใจ ศูนย์ปฏิบัติการโครงการหลวงภาคเหนือ สำนักงานพัฒนาที่ดินเขต 6
 (46 หน้า, มีนาคม 2548) ถ้าต้องการนำมาเพิ่มในบท ให้วางไฟล์ไว้ในโฟลเดอร์นี้ได้เลย
 
-**Two further LDD documents** were supplied with the Chapter 8 material but
-have not yet been drawn on: *การอนุรักษ์ดินและน้ำ – For teaching* (49 pp.) and
-*มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือ* by อุทิศ เตจ๊ะใจ
-(46 pp., March B.E. 2548). Drop them into this folder to bring them in.
+**One further LDD document** was supplied with the Chapter 8 material but has
+not yet been drawn on: *มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือของประเทศไทย*
+by อุทิศ เตจ๊ะใจ, Northern Royal Project Operations Centre, Land Development
+Regional Office 6 (46 pp., March B.E. 2548). Drop it into this folder to bring
+it in.
