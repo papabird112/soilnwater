@@ -102,6 +102,62 @@ transcribed into `friction-loss-tables.md`, which Chapter 6 references throughou
 
 ---
 
+## 6. การประเมินการสูญเสียดินในพื้นที่เกษตรกรรม (กรมพัฒนาที่ดิน)
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `ldd-soil-loss-assessment-th.pdf` (7.3 MB, 66 หน้า) |
+| **ผู้จัดทำ / Author** | นางสาวถนอมขวัญ ทิพวงศ์ — กลุ่มวิจัยและพัฒนาการอนุรักษ์ดินและน้ำเพื่อการเกษตร, กวจ., กรมพัฒนาที่ดิน |
+
+เอกสารหลักของบทที่ 8 คือชุดค่าปัจจัยทั้งหมดของ USLE ในระบบของกรมพัฒนาที่ดิน
+The primary source for Chapter 8 — the complete LDD factor set for USLE:
+the R regression `R = 0.4669X − 12.1415` of มนู ศรีขจร และคณะ (2527) with its
+lookup table, K by texture × region × upland/lowland, the separate L and S
+equations with five m bands, C by crop and by land use, P with strip widths
+and maximum slope lengths, the tolerance T, and a fully worked kenaf example
+at Khon Kaen with the two design formulas `P2 = A2·P1/A1` and `L2 = (A2/A1)·L1`.
+
+**ใช้ในบทใด / Used in:** ch08 §8.4–§8.9 ทั้งหมด
+
+---
+
+## 7. การอนุรักษ์ดินและน้ำ (กรมพัฒนาที่ดิน, 2556)
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `ldd-soil-water-conservation-th.pdf` (8.7 MB, 38 หน้า) |
+
+ที่มาของค่า T ของไทย ชั้นความรุนแรงห้าชั้น สถิติระดับประเทศ และคำแนะนำตามช่วงความลาดชัน
+Source of the Thai soil-loss tolerance (T = 2 t/rai/yr), the five severity
+classes, the national erosion statistics, the LDD taxonomy of erosion types
+including internal erosion and the 5–8 cm rill-to-gully threshold, and the
+slope-band advice to farmers.
+
+**ใช้ในบทใด / Used in:** ch08 §8.1, §8.2, §8.9, §8.10
+
+---
+
+## 8. คู่มือวิธีการก่อสร้างระบบอนุรักษ์ดินและน้ำบนพื้นที่สูง
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `ldd-highland-construction-manual-th.pdf` (5.3 MB, 108 หน้า) |
+| **ผู้จัดทำ / Author** | สนิท อินทะชัย — ศูนย์ปฏิบัติการโครงการหลวงภาคเหนือ, สำนักงานพัฒนาที่ดินเขต 6, กรมพัฒนาที่ดิน |
+
+คู่มือก่อสร้างระบบอนุรักษ์ดินและน้ำในพื้นที่ศูนย์พัฒนาโครงการหลวง 37 ศูนย์
+The construction manual for the 37 Royal Project development centres: the
+seven structures LDD actually builds (diversion, broad-base terrace, bench
+terrace, hillside ditch, orchard hillside terrace, waterway, drop structure),
+each with its slope band, benefits and limits; the level-versus-graded rule;
+the 10-year peak, 15 cm freeboard, 300 m and 3–5% grade constraints; the
+bench-terrace design formulas of T. C. Sheng (FAO THA/76/001) with dimension
+tables for 2.5, 3 and 4 m benches; and field construction standards and
+labour rates.
+
+**ใช้ในบทใด / Used in:** ch08 §8.10
+
+---
+
 ## ยังไม่ได้เพิ่ม / Not yet in this folder
 
 **หลักการชลประทาน (Irrigation Principle)** โดย อาจารย์บุญมา ป้านประดิษฐ์
@@ -112,3 +168,14 @@ transcribed into `friction-loss-tables.md`, which Chapter 6 references throughou
 A second, different book with a near-identical title, by Ajarn Boonma
 Panpradit (Kasetsart University Kamphaeng Saen, B.E. 2546). Drop the PDF into
 this folder and it can be catalogued and drawn on like the others.
+
+
+**เอกสารของกรมพัฒนาที่ดินอีกสองฉบับ** ที่แนบมาพร้อมชุดของบทที่ 8 แต่ยังไม่ได้นำมาใช้
+คือ *การอนุรักษ์ดินและน้ำ – For teaching* (49 หน้า) และ
+*มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือ* โดย อุทิศ เตจ๊ะใจ
+(46 หน้า, มีนาคม 2548) ถ้าต้องการนำมาเพิ่มในบท ให้วางไฟล์ไว้ในโฟลเดอร์นี้ได้เลย
+
+**Two further LDD documents** were supplied with the Chapter 8 material but
+have not yet been drawn on: *การอนุรักษ์ดินและน้ำ – For teaching* (49 pp.) and
+*มาตรการอนุรักษ์ดินและน้ำบนพื้นที่ลาดชันสูงในเขตภาคเหนือ* by อุทิศ เตจ๊ะใจ
+(46 pp., March B.E. 2548). Drop them into this folder to bring them in.
