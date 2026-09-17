@@ -88,6 +88,7 @@ Used in Chapter 4 for matching method to soil, crop and slope.
 |---|---|
 | **ไฟล์ / File** | `friction-loss-tables.md` (ถอดข้อมูลไว้ / transcribed) |
 | **ต้นฉบับ / Original** | สไลด์ 54 หน้า + ตารางสแกน 15 หน้า — ไม่ได้อยู่ในที่เก็บนี้ |
+| **เหตุผล / Why not** | ไฟล์ `.pptx` ต้นฉบับมีขนาด 58 MB ใหญ่เกินกว่าที่เก็บทั้งที่เก็บรวมกัน จึงตัดสินใจไม่นำเข้า repo — the original `.pptx` is 58 MB, larger than the whole repository, so it is deliberately kept out |
 
 เอกสารประกอบการสอนของรายวิชา ว่าด้วยองค์ประกอบของระบบให้น้ำแบบเดินท่อ ท่อ PVC และ PE การคำนวณขนาดท่อ และการเลือกเครื่องสูบน้ำ
 Course lecture slides on the components of a piped irrigation system, PVC and PE pipe,
