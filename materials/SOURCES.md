@@ -82,6 +82,25 @@ Used in Chapter 4 for matching method to soil, crop and slope.
 
 ---
 
+## 5. องค์ประกอบ อุปกรณ์ และการออกแบบระบบให้น้ำ (สไลด์สอน)
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `friction-loss-tables.md` (ถอดข้อมูลไว้ / transcribed) |
+| **ต้นฉบับ / Original** | สไลด์ 54 หน้า + ตารางสแกน 15 หน้า — ไม่ได้อยู่ในที่เก็บนี้ |
+
+เอกสารประกอบการสอนของรายวิชา ว่าด้วยองค์ประกอบของระบบให้น้ำแบบเดินท่อ ท่อ PVC และ PE การคำนวณขนาดท่อ และการเลือกเครื่องสูบน้ำ
+Course lecture slides on the components of a piped irrigation system, PVC and PE pipe,
+pipe sizing, and pump selection, issued with a set of scanned friction-loss tables.
+
+ตัวไฟล์ต้นฉบับไม่ได้เก็บไว้ในที่เก็บนี้ จึงถอดตารางความเสียดทานทั้งชุดไว้เป็นไฟล์ `friction-loss-tables.md` เพราะบทที่ 6 อ้างอิงตารางเหล่านี้ตลอดทั้งบท
+The original files are not stored here, so the full set of friction-loss tables was
+transcribed into `friction-loss-tables.md`, which Chapter 6 references throughout.
+
+**ใช้ในบทใด / Used in:** ch06 ทั้งบท (§6.1–§6.11)
+
+---
+
 ## ยังไม่ได้เพิ่ม / Not yet in this folder
 
 **หลักการชลประทาน (Irrigation Principle)** โดย อาจารย์บุญมา ป้านประดิษฐ์

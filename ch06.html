@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 6 อุปกรณ์ในระบบให้น้ำพืชและการออกแบบระบบให้น้ำพืช · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-chapter="ch06">
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">6 · Irrigation Hardware &amp; System Design</span>
+          <span class="th">บทที่ 6 · อุปกรณ์และการออกแบบระบบให้น้ำพืช</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 6</span><span class="th">บทที่ 6</span>
+        </span>
+        <h1>
+          <span class="en">Irrigation Hardware and System Design</span>
+          <span class="th">อุปกรณ์ในระบบให้น้ำพืชและการออกแบบระบบให้น้ำพืช</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">Chapter 4 said a micro system "never lets go of the water". This chapter is the hardware that keeps that promise, and the arithmetic that sizes it. By the end you will be able to take a field, a crop spacing and an emitter off a catalogue page, and come out with a pipe size for every run and a pump you can actually buy.</span>
+          <span class="th">บทที่ 4 บอกว่าระบบจุลภาค "ไม่เคยปล่อยน้ำหลุดมือ" บทนี้คืออุปกรณ์ที่ทำให้คำพูดนั้นเป็นจริง และคือการคำนวณที่กำหนดขนาดของมัน เมื่อจบบทนี้เราจะสามารถรับโจทย์ที่มีเพียงแปลง ระยะปลูก และหัวจ่ายน้ำหนึ่งรุ่นจากแค็ตตาล็อก แล้วออกมาเป็นขนาดท่อทุกช่วง พร้อมเครื่องสูบน้ำที่ซื้อได้จริง</span>
+        </p>
+      </header>
+
+      <!-- ===================== 6.1 ===================== -->
+      <section id="s-components">
+        <h2><span class="en">6.1 The six components</span><span class="th">6.1 องค์ประกอบหกอย่างของระบบให้น้ำ</span></h2>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Source of this chapter</span><span class="th">ที่มาของบทนี้</span></div>
+          <p>
+            <span class="en">This chapter follows the course lecture slides <em>องค์ประกอบ อุปกรณ์ และการออกแบบระบบให้น้ำ</em>, together with the friction-loss tables <em>ค่าการสูญเสียความดันเนื่องจากความเสียดทานของน้ำในท่อ</em> issued with them. Every worked example in the slides was recomputed and reproduces exactly; the drip example that the slides leave unanswered is solved in full in §6.10.</span>
+            <span class="th">บทนี้เรียบเรียงตามเอกสารประกอบการสอน <em>องค์ประกอบ อุปกรณ์ และการออกแบบระบบให้น้ำ</em> ร่วมกับตาราง <em>ค่าการสูญเสียความดันเนื่องจากความเสียดทานของน้ำในท่อ</em> ที่แจกคู่กัน ตัวอย่างการคำนวณทุกข้อในสไลด์ได้คำนวณซ้ำแล้วและตรงกันทุกตัว ส่วนตัวอย่างระบบน้ำหยดที่สไลด์ให้โจทย์ไว้โดยไม่มีเฉลย ได้แก้ไว้เต็มรูปแบบในหัวข้อ 6.10</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">Every piped irrigation system — sprinkler, mini sprinkler, micro spray and jet, or drip — is built from the same six parts in the same order. Learn the order and you can read any system diagram, price any bill of quantities, and find any fault.</span>
+          <span class="th">ระบบการให้น้ำพืชแบบเดินท่อทุกระบบ ไม่ว่าจะเป็นสปริงเกลอร์ มินิสปริงเกลอร์ ไมโครสเปรย์และเจ็ท หรือน้ำหยด ล้วนประกอบขึ้นจากหกส่วนเดียวกันและเรียงลำดับเหมือนกัน ถ้าจำลำดับนี้ได้ ก็จะอ่านผังระบบใดก็ได้ ประเมินราคาจากบัญชีปริมาณงานใดก็ได้ และหาจุดบกพร่องได้ทุกจุด</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="The six components of a piped irrigation system in order">
+            <!-- source -->
+            <ellipse cx="62" cy="212" rx="40" ry="20" fill="var(--accent-light)" opacity=".35"/>
+            <ellipse cx="62" cy="212" rx="40" ry="20" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+            <!-- pump -->
+            <rect x="122" y="196" width="46" height="32" rx="3" fill="var(--accent-hot)" opacity=".7" stroke="var(--ink)" stroke-width="1.2"/>
+            <!-- filter -->
+            <rect x="204" y="188" width="30" height="48" rx="14" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4"/>
+            <line x1="209" y1="200" x2="229" y2="200" stroke="var(--ink-soft)" stroke-width="1"/>
+            <line x1="209" y1="212" x2="229" y2="212" stroke="var(--ink-soft)" stroke-width="1"/>
+            <line x1="209" y1="224" x2="229" y2="224" stroke="var(--ink-soft)" stroke-width="1"/>
+            <!-- valve -->
+            <path d="M268,200 L292,224 M268,224 L292,200" stroke="var(--link)" stroke-width="3"/>
+            <circle cx="280" cy="212" r="15" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
+            <!-- main pipe -->
+            <line x1="102" y1="212" x2="122" y2="212" stroke="var(--accent)" stroke-width="5"/>
+            <line x1="168" y1="212" x2="204" y2="212" stroke="var(--accent)" stroke-width="5"/>
+            <line x1="234" y1="212" x2="265" y2="212" stroke="var(--accent)" stroke-width="5"/>
+            <line x1="295" y1="212" x2="400" y2="212" stroke="var(--accent)" stroke-width="5"/>
+            <!-- sub-main riser -->
+            <line x1="400" y1="212" x2="400" y2="62" stroke="var(--accent)" stroke-width="4"/>
+            <!-- laterals -->
+            <g stroke="var(--ink)" stroke-width="2.4">
+              <line x1="400" y1="80" x2="672" y2="80"/>
+              <line x1="400" y1="122" x2="672" y2="122"/>
+              <line x1="400" y1="164" x2="672" y2="164"/>
+              <line x1="400" y1="206" x2="672" y2="206"/>
+            </g>
+            <!-- emitters -->
+            <g fill="var(--accent-hot)">
+              <circle cx="450" cy="80" r="3.4"/><circle cx="510" cy="80" r="3.4"/><circle cx="570" cy="80" r="3.4"/><circle cx="630" cy="80" r="3.4"/>
+              <circle cx="450" cy="122" r="3.4"/><circle cx="510" cy="122" r="3.4"/><circle cx="570" cy="122" r="3.4"/><circle cx="630" cy="122" r="3.4"/>
+              <circle cx="450" cy="164" r="3.4"/><circle cx="510" cy="164" r="3.4"/><circle cx="570" cy="164" r="3.4"/><circle cx="630" cy="164" r="3.4"/>
+              <circle cx="450" cy="206" r="3.4"/><circle cx="510" cy="206" r="3.4"/><circle cx="570" cy="206" r="3.4"/><circle cx="630" cy="206" r="3.4"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink)" text-anchor="middle">
+              <text x="62" y="254" class="en">source</text><text x="62" y="254" class="th">แหล่งน้ำ</text>
+              <text x="145" y="254" class="en">pump</text><text x="145" y="254" class="th">เครื่องสูบน้ำ</text>
+              <text x="219" y="254" class="en">filter</text><text x="219" y="254" class="th">เครื่องกรอง</text>
+              <text x="280" y="254" class="en">valve</text><text x="280" y="254" class="th">วาล์ว</text>
+              <text x="348" y="238" class="en">main</text><text x="348" y="238" class="th">ท่อเมน</text>
+              <text x="378" y="46" class="en">sub-main</text><text x="378" y="46" class="th">ท่อเมนย่อย</text>
+              <text x="612" y="46" class="en">laterals + emitters</text><text x="612" y="46" class="th">ท่อย่อย + หัวปล่อยน้ำ</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="360" y="284" class="en">Pressure is created once, then spent — on friction, on height, and finally at the emitter</text>
+              <text x="360" y="284" class="th">แรงดันถูกสร้างขึ้นครั้งเดียว แล้วถูกใช้ไปกับความเสียดทาน ความสูง และสุดท้ายที่หัวปล่อยน้ำ</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 6.1 — The six components in the order water meets them. Design runs the other way: you start at the emitter on the right, decide what pressure it needs, and add up backwards everything the water will lose on the way to it. The pump is the <em>last</em> thing you choose, not the first.</span>
+            <span class="th">รูปที่ 6.1 — องค์ประกอบทั้งหกเรียงตามลำดับที่น้ำเดินทางผ่าน แต่การออกแบบเดินสวนทาง คือเริ่มจากหัวปล่อยน้ำทางขวา กำหนดว่ามันต้องการแรงดันเท่าใด แล้วบวกย้อนกลับมาด้วยทุกสิ่งที่น้ำจะสูญเสียไประหว่างทาง เครื่องสูบน้ำจึงเป็นสิ่งที่เลือก <em>ท้ายสุด</em> ไม่ใช่สิ่งแรก</span>
+          </figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Component</span><span class="th">องค์ประกอบ</span></th>
+                <th><span class="en">What it does</span><span class="th">ทำหน้าที่อะไร</span></th>
+                <th><span class="en">Does water leave it along the way?</span><span class="th">มีน้ำออกระหว่างทางหรือไม่</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Pump</span><span class="th">เครื่องสูบน้ำ</span></strong></td>
+                <td><span class="en">Lifts water from the source and adds the pressure every emitter downstream will need</span><span class="th">สูบน้ำจากแหล่งน้ำ และเพิ่มแรงดันให้กับหัวปล่อยน้ำทุกหัวที่อยู่ปลายทาง</span></td>
+                <td><span class="en">—</span><span class="th">—</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Filter</span><span class="th">เครื่องกรองน้ำ</span></strong></td>
+                <td><span class="en">Removes dirt and debris so the emitters do not block</span><span class="th">กรองสิ่งสกปรกและเศษผงต่าง ๆ ที่ปนมากับน้ำ เพื่อไม่ให้หัวปล่อยน้ำอุดตัน</span></td>
+                <td><span class="en">—</span><span class="th">—</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Main</span><span class="th">ท่อเมน</span></strong></td>
+                <td><span class="en">Carries water from the pump to the sub-main</span><span class="th">ส่งน้ำจากเครื่องสูบน้ำไปยังท่อเมนย่อย</span></td>
+                <td><span class="en"><strong>No</strong> — it only transports</span><span class="th"><strong>ไม่มี</strong> ทำหน้าที่ส่งน้ำอย่างเดียว</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Sub-main</span><span class="th">ท่อเมนย่อย</span></strong></td>
+                <td><span class="en">Takes water off the main and feeds the laterals</span><span class="th">รับน้ำแยกออกมาจากท่อเมน แล้วจ่ายน้ำไปยังท่อย่อย</span></td>
+                <td><span class="en"><strong>Yes</strong> — one outlet per lateral</span><span class="th"><strong>มี</strong> คือมีทางออกหนึ่งจุดต่อท่อย่อยหนึ่งเส้น</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Lateral</span><span class="th">ท่อย่อย</span></strong></td>
+                <td><span class="en">Carries the emitters and feeds each one</span><span class="th">เป็นที่ติดตั้งหัวปล่อยน้ำ และจ่ายน้ำให้หัวปล่อยน้ำแต่ละหัว</span></td>
+                <td><span class="en"><strong>Yes</strong> — one outlet per emitter</span><span class="th"><strong>มี</strong> คือมีทางออกหนึ่งจุดต่อหัวปล่อยน้ำหนึ่งหัว</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Emitter</span><span class="th">หัวปล่อยน้ำ</span></strong></td>
+                <td><span class="en">Takes water from the lateral and delivers it to the plant at the required rate</span><span class="th">รับน้ำจากท่อย่อย และจ่ายน้ำให้กับต้นพืชตามปริมาณที่ต้องการ</span></td>
+                <td><span class="en">It <em>is</em> the outlet</span><span class="th">ตัวมันเอง <em>คือ</em> ทางออก</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The third column is the whole of §6.8</span><span class="th">คอลัมน์ที่สามคือเนื้อหาทั้งหมดของหัวข้อ 6.8</span></div>
+          <p>
+            <span class="en">Notice that the six components fall into two groups: pipes that only <strong>transport</strong>, and pipes that <strong>distribute as they go</strong>. A main carries its full flow from one end to the other. A sub-main starts with the full flow and ends with none, because it has been handing water out along its whole length. The two lose pressure to friction in completely different amounts — and getting that wrong is the single most expensive mistake in this chapter.</span>
+            <span class="th">ให้สังเกตว่าองค์ประกอบทั้งหกแบ่งออกเป็นสองกลุ่ม คือท่อที่ <strong>ส่งน้ำ</strong> อย่างเดียว กับท่อที่ <strong>จ่ายน้ำออกไปเรื่อย ๆ ระหว่างทาง</strong> ท่อเมนพาอัตราการไหลเต็มจำนวนจากปลายหนึ่งไปอีกปลายหนึ่ง ส่วนท่อเมนย่อยเริ่มต้นด้วยอัตราเต็มจำนวนแล้วไปจบที่ศูนย์ เพราะจ่ายน้ำออกไปตลอดความยาวของมัน ท่อสองแบบนี้สูญเสียแรงดันจากความเสียดทานในปริมาณที่ต่างกันโดยสิ้นเชิง และการคิดเรื่องนี้ผิดคือความผิดพลาดที่แพงที่สุดข้อเดียวของบทนี้</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 6.2 ===================== -->
+      <section id="s-emitter">
+        <h2><span class="en">6.2 The emitter — where the design starts</span><span class="th">6.2 หัวปล่อยน้ำ — จุดเริ่มต้นของการออกแบบ</span></h2>
+
+        <p>
+          <span class="en">The emitter is the only component that touches the crop, and it is the only component whose specification you do not calculate — you read it off a catalogue. Two numbers matter, and they always come as a pair:</span>
+          <span class="th">หัวปล่อยน้ำเป็นองค์ประกอบเดียวที่สัมผัสกับพืชโดยตรง และเป็นองค์ประกอบเดียวที่เราไม่ได้คำนวณหาค่ามันเอง แต่เปิดอ่านจากแค็ตตาล็อก มีตัวเลขสองตัวที่สำคัญ และมาคู่กันเสมอ</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>q <span class="en">at</span><span class="th">ที่</span> H</code><span class="eq-note"><span class="en">discharge in L/h, at a working pressure in metres of water</span><span class="th">อัตราการจ่ายน้ำ หน่วย ล./ชม. ที่แรงดันใช้งาน หน่วยเมตรของน้ำ</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">"90 L/h at 15 m" is a single fact, not two. Feed that emitter 12 m and it will not deliver 90 L/h; feed it 20 m and it will deliver more than 90 and throw its water further than the spacing allows. Everything in §6.6 onwards exists to guarantee that every emitter in the field sees close to the pressure written on the box.</span>
+          <span class="th">ข้อความว่า "90 ล./ชม. ที่ 15 ม." เป็นข้อเท็จจริงชิ้นเดียว ไม่ใช่สองชิ้น ถ้าป้อนแรงดันให้หัวนั้นเพียง 12 ม. มันจะไม่จ่ายน้ำ 90 ล./ชม. และถ้าป้อน 20 ม. มันจะจ่ายมากกว่า 90 พร้อมกับสาดน้ำไปไกลเกินกว่าระยะที่วางไว้ ทุกอย่างตั้งแต่หัวข้อ 6.6 เป็นต้นไปมีอยู่เพื่อรับประกันว่าหัวปล่อยน้ำทุกหัวในแปลงจะได้รับแรงดันใกล้เคียงกับที่เขียนไว้ข้างกล่อง</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Type</span><span class="th">ชนิด</span></th>
+                <th><span class="en">Typical discharge</span><span class="th">อัตราจ่ายน้ำโดยทั่วไป</span></th>
+                <th><span class="en">Working pressure</span><span class="th">แรงดันใช้งาน</span></th>
+                <th><span class="en">Wetted radius</span><span class="th">รัศมีเปียก</span></th>
+                <th><span class="en">Where it is used</span><span class="th">ใช้กับอะไร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Mini sprinkler</span><span class="th">มินิสปริงเกลอร์</span></strong></td>
+                <td class="num">90–150 <span class="en">L/h</span><span class="th">ล./ชม.</span></td>
+                <td class="num">1–3 <span class="en">bar</span><span class="th">บาร์</span><br>(10–30 <span class="en">m</span><span class="th">ม.</span>)</td>
+                <td class="num">2–4.5 <span class="en">m</span><span class="th">ม.</span></td>
+                <td><span class="en">Orchards at 6 × 6 m and wider; one head per tree</span><span class="th">สวนไม้ผลระยะ 6 × 6 ม. ขึ้นไป ใช้หนึ่งหัวต่อหนึ่งต้น</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Micro spray / jet</span><span class="th">ไมโครสเปรย์และเจ็ท</span></strong></td>
+                <td class="num">30–120 <span class="en">L/h</span><span class="th">ล./ชม.</span></td>
+                <td class="num">1.5–2.5 <span class="en">bar</span><span class="th">บาร์</span></td>
+                <td class="num">0.7–2 <span class="en">m</span><span class="th">ม.</span></td>
+                <td><span class="en">Young trees, nurseries, vegetables under cover</span><span class="th">ไม้ผลต้นเล็ก เรือนเพาะชำ ผักในโรงเรือน</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Drip emitter</span><span class="th">หัวน้ำหยด</span></strong></td>
+                <td class="num">2–8 <span class="en">L/h</span><span class="th">ล./ชม.</span></td>
+                <td class="num">1 <span class="en">bar</span><span class="th">บาร์</span> (10 <span class="en">m</span><span class="th">ม.</span>)</td>
+                <td><span class="en">a wetted bulb, not a circle</span><span class="th">เป็นกระเปาะน้ำในดิน ไม่ใช่วงกลมบนผิว</span></td>
+                <td><span class="en">Row crops and orchards; several emitters per tree</span><span class="th">พืชแถวและไม้ผล ใช้หลายหัวต่อหนึ่งต้น</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Drip tape</span><span class="th">เทปน้ำหยด</span></strong></td>
+                <td><span class="en">per metre of tape</span><span class="th">คิดต่อความยาวเทปหนึ่งเมตร</span></td>
+                <td class="num">0.6–1 <span class="en">bar</span><span class="th">บาร์</span></td>
+                <td><span class="en">a wetted strip</span><span class="th">เป็นแถบเปียกตามแนวเทป</span></td>
+                <td><span class="en">Close-spaced vegetables; 16 mm tape, wall 0.1–0.2 mm</span><span class="th">ผักที่ปลูกถี่ ใช้เทปขนาด 16 มม. ผนังหนา 0.1–0.2 มม.</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Reading a catalogue line without being sold something</span><span class="th">อ่านบรรทัดในแค็ตตาล็อกโดยไม่ถูกขายของ</span></div>
+          <p>
+            <span class="en">A typical mini-sprinkler line reads: <span class="mono">150 L/h · radius 2–3.5 m · 1–3 bar · 2,500 baht per 100</span>. Three of those four numbers are engineering and one is not. The pressure <em>range</em> is the manufacturer telling you the head still works at 1 bar and does not fly apart at 3 — it is not permission to design anywhere in that band, because the radius quoted belongs to the <em>top</em> of it. Design at the pressure that produces the radius you need, and treat the rest of the range as tolerance, not as choice.</span>
+            <span class="th">บรรทัดในแค็ตตาล็อกของมินิสปริงเกลอร์ทั่วไปเขียนว่า <span class="mono">150 ล./ชม. · รัศมี 2–3.5 ม. · 1–3 บาร์ · 2,500 บาทต่อ 100 หัว</span> ในสี่ตัวเลขนี้ สามตัวเป็นเรื่องวิศวกรรม และหนึ่งตัวไม่ใช่ <em>ช่วง</em> แรงดันนั้นคือผู้ผลิตกำลังบอกว่าหัวนี้ยังทำงานได้ที่ 1 บาร์ และไม่แตกที่ 3 บาร์ ไม่ใช่การอนุญาตให้ออกแบบที่แรงดันใดก็ได้ในช่วงนั้น เพราะรัศมีที่ระบุไว้เป็นค่าที่ <em>ปลายบน</em> ของช่วง การออกแบบจึงต้องใช้แรงดันที่ให้รัศมีตามที่เราต้องการ แล้วถือว่าส่วนที่เหลือของช่วงเป็นค่าเผื่อ ไม่ใช่ทางเลือก</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 6.3 ===================== -->
+      <section id="s-headworks">
+        <h2><span class="en">6.3 Pump, filter and valves</span><span class="th">6.3 เครื่องสูบน้ำ เครื่องกรองน้ำ และวาล์ว</span></h2>
+
+        <h3><span class="en">The pump</span><span class="th">เครื่องสูบน้ำ</span></h3>
+
+        <p>
+          <span class="en">The pump does two separate jobs that beginners collapse into one: it <strong>lifts</strong> water from the source, and it <strong>pressurises</strong> it for the emitters. A pump specification therefore carries several numbers, and only two of them are the ones you design against.</span>
+          <span class="th">เครื่องสูบน้ำทำงานสองอย่างที่แยกจากกัน ซึ่งผู้เริ่มต้นมักรวบเป็นอย่างเดียว คือ <strong>ยก</strong> น้ำขึ้นมาจากแหล่งน้ำ และ <strong>เพิ่มแรงดัน</strong> ให้หัวปล่อยน้ำ ข้อกำหนดของเครื่องสูบน้ำจึงมีตัวเลขหลายตัว แต่มีเพียงสองตัวเท่านั้นที่เราใช้ในการออกแบบ</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Specification on the box</span><span class="th">ข้อมูลที่ระบุข้างกล่อง</span></th>
+                <th><span class="en">What it really tells you</span><span class="th">ความหมายที่แท้จริง</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Suction lift 9 m</span><span class="th">ดูดลึก 9 เมตร</span></td>
+                <td><span class="en">How far <em>below</em> the pump the water surface may fall. A hard physical ceiling — atmospheric pressure will not lift water more than about 10 m even in theory, and never that much in practice.</span><span class="th">ระดับผิวน้ำอยู่ <em>ต่ำกว่า</em> ตัวเครื่องได้ลึกที่สุดเท่าใด นี่เป็นเพดานทางฟิสิกส์ที่แข็งตัว เพราะความดันบรรยากาศยกน้ำได้ไม่เกินราว 10 เมตรแม้ในทางทฤษฎี และไม่เคยได้มากขนาดนั้นในทางปฏิบัติ</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Delivery head 9 m</span><span class="th">ส่งสูง 9 เมตร</span></td>
+                <td><span class="en">Height it will push water <em>above</em> the pump — at zero flow. Useless on its own.</span><span class="th">ความสูงที่ดันน้ำขึ้นไป <em>เหนือ</em> ตัวเครื่องได้ โดยวัดที่อัตราการไหลเป็นศูนย์ ค่านี้ตามลำพังใช้ประโยชน์ไม่ได้</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Horizontal delivery 40 m</span><span class="th">ส่งแนวราบ 40 เมตร</span></td>
+                <td><span class="en">A marketing number. It depends entirely on the pipe you attach, which the manufacturer did not know.</span><span class="th">เป็นตัวเลขทางการตลาด เพราะขึ้นอยู่กับท่อที่เราต่อเข้าไปทั้งหมด ซึ่งผู้ผลิตไม่ได้รู้ด้วย</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Flow 35 L/min</span><span class="th">ปริมาณน้ำ 35 ลิตร/นาที</span></strong></td>
+                <td><span class="en"><strong>Design number 1.</strong> Must equal or exceed the total flow of every emitter running at once.</span><span class="th"><strong>ตัวเลขสำหรับออกแบบตัวที่ 1</strong> ต้องมากกว่าหรือเท่ากับผลรวมอัตราการไหลของหัวปล่อยน้ำทุกหัวที่เปิดพร้อมกัน</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Total head, from the pump curve</span><span class="th">เฮดรวม อ่านจากกราฟของเครื่อง</span></strong></td>
+                <td><span class="en"><strong>Design number 2.</strong> The head the pump can still produce <em>at that flow</em> — always less than the delivery head quoted above.</span><span class="th"><strong>ตัวเลขสำหรับออกแบบตัวที่ 2</strong> คือเฮดที่เครื่องยังทำได้ <em>ที่อัตราการไหลนั้น</em> ซึ่งน้อยกว่าค่าส่งสูงที่ระบุข้างบนเสมอ</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Suction / discharge 1", 2,850 rpm</span><span class="th">ท่อดูด/ท่อส่ง 1 นิ้ว, 2,850 รอบ/นาที</span></td>
+                <td><span class="en">Connection sizes and motor speed. They constrain the plumbing, not the design.</span><span class="th">ขนาดจุดต่อและความเร็วรอบมอเตอร์ เป็นข้อจำกัดของงานประปา ไม่ใช่ของการออกแบบ</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">The filter</span><span class="th">เครื่องกรองน้ำ</span></h3>
+
+        <p>
+          <span class="en">The filter earns its keep by preventing a failure you cannot see until it is general. A blocked emitter does not announce itself — the tree simply does less well than its neighbours, and by the time a row is visibly suffering, a hundred emitters are already partly closed. A typical agricultural filter reads <span class="mono">130 micron screen · 10 m³/h · 6 bar maximum</span>, often with a cyclonic pre-stage that spins sand down into a collection bowl before it ever reaches the screen.</span>
+          <span class="th">เครื่องกรองน้ำคุ้มค่าตัวด้วยการป้องกันความเสียหายที่เรามองไม่เห็นจนกว่ามันจะลุกลามไปทั่ว หัวปล่อยน้ำที่อุดตันไม่ได้ส่งสัญญาณบอก ต้นไม้เพียงแต่โตสู้ต้นข้างเคียงไม่ได้ และกว่าจะเห็นได้ชัดว่าทั้งแถวมีปัญหา หัวปล่อยน้ำก็อุดตันไปบางส่วนแล้วนับร้อยหัว เครื่องกรองสำหรับการเกษตรทั่วไประบุว่า <span class="mono">ไส้กรองตะแกรง 130 ไมครอน · 10 ลบ.ม./ชม. · แรงดันสูงสุด 6 บาร์</span> และมักมีระบบน้ำวนนำหน้าเพื่อเหวี่ยงทรายลงไปเก็บที่ก้นกรองก่อนจะไปถึงตะแกรง</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Match the filter to the emitter, not to the pump</span><span class="th">เลือกเครื่องกรองให้เข้ากับหัวปล่อยน้ำ ไม่ใช่เข้ากับเครื่องสูบน้ำ</span></div>
+          <p>
+            <span class="en">The screen must be finer than the smallest passage in the emitter — the usual rule is <strong>one-tenth of the emitter orifice</strong>. A drip emitter with a 0.8 mm passage wants a screen of about 80 micron; a mini sprinkler with a 1.5 mm nozzle is comfortable at 130. Fitting a coarse filter because it was cheaper, or because it matched the pipe size, protects nothing.</span>
+            <span class="th">ตะแกรงกรองต้องละเอียดกว่าช่องทางน้ำที่เล็กที่สุดในหัวปล่อยน้ำ โดยกฎที่ใช้กันคือ <strong>หนึ่งในสิบของขนาดรูหัวปล่อยน้ำ</strong> หัวน้ำหยดที่มีช่องทางน้ำ 0.8 มม. ต้องการตะแกรงราว 80 ไมครอน ส่วนมินิสปริงเกลอร์ที่มีรูหัวฉีด 1.5 มม. ใช้ 130 ไมครอนก็สบาย การติดตั้งเครื่องกรองหยาบเพราะราคาถูกกว่า หรือเพราะขนาดพอดีกับท่อ ไม่ได้ป้องกันอะไรเลย</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Valves</span><span class="th">ประตูน้ำและวาล์ว</span></h3>
+
+        <p>
+          <span class="en">Valves are the cheapest component and the one most often left out, which is why so many systems can only be run all at once. Three placements matter: a <strong>check valve</strong> at the pump so the line does not drain back through it; a <strong>zone valve</strong> on each sub-main so the field can be watered in blocks; and a small valve at the head of <strong>every lateral</strong>, which costs very little and turns a blocked line from a mystery into a two-minute job. Solenoid valves replace the zone valves where a timer runs the system.</span>
+          <span class="th">วาล์วเป็นองค์ประกอบที่ราคาถูกที่สุดและถูกตัดออกบ่อยที่สุด จึงเป็นเหตุให้ระบบจำนวนมากเปิดได้แต่แบบเปิดพร้อมกันทั้งแปลง ตำแหน่งที่สำคัญมีสามจุด คือ <strong>วาล์วกันกลับ (เช็ควาล์ว)</strong> ที่เครื่องสูบน้ำ เพื่อไม่ให้น้ำในเส้นท่อไหลย้อนกลับลงไป <strong>วาล์วคุมโซน</strong> ที่ท่อเมนย่อยแต่ละเส้น เพื่อให้ให้น้ำทีละส่วนของแปลงได้ และวาล์วขนาดเล็กที่หัว <strong>ท่อย่อยทุกเส้น</strong> ซึ่งราคาน้อยมากแต่เปลี่ยนท่อที่อุดตันจากปริศนาให้กลายเป็นงานสองนาที ส่วนระบบที่ใช้เครื่องตั้งเวลาจะใช้โซลินอยด์วาล์วแทนวาล์วคุมโซน</span>
+        </p>
+      </section>
+
+
+      <!-- ===================== 6.4 ===================== -->
+      <section id="s-pipe">
+        <h2><span class="en">6.4 Pipe: PVC and PE</span><span class="th">6.4 ท่อน้ำ: พีวีซีและพีอี</span></h2>
+
+        <p>
+          <span class="en">Two plastics do almost all of the work in Thai farm irrigation, and the choice between them is settled by <em>where in the system the pipe sits</em>, not by preference.</span>
+          <span class="th">พลาสติกสองชนิดทำงานแทบทั้งหมดในระบบให้น้ำพืชของไทย และการเลือกระหว่างสองชนิดนี้ตัดสินจาก <em>ตำแหน่งของท่อในระบบ</em> ไม่ใช่จากความชอบ</span>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">PVC — Poly Vinyl Chloride</span><span class="th">พีวีซี (PVC)</span></h4>
+            <p><span class="en">Light, glued joints, no rust, resists acid and chemicals. Standard length <strong>4 m</strong>, sizes <strong>½ to 16 inch</strong>. Brittle: it cracks under a heavy load and goes chalky and fragile after long exposure to sun.</span><span class="th">น้ำหนักเบา ต่อกันด้วยกาว ไม่เป็นสนิม ทนกรดและสารเคมี ความยาวมาตรฐาน <strong>ท่อนละ 4 เมตร</strong> ขนาด <strong>½ ถึง 16 นิ้ว</strong> ข้อเสียคือเปราะ แตกได้เมื่อถูกทับด้วยน้ำหนักมาก และถ้าตากแดดนาน ๆ จะกรอบและแตกง่าย</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">PE — Polyethylene</span><span class="th">พีอี (PE)</span></h4>
+            <p><span class="en">The black pipe, made for agriculture. Easy to cut and punch for emitters, far more flexible than PVC, survives being driven over. Comes in <strong>50–200 m</strong> rolls, so a run needs almost no joints.</span><span class="th">คือท่อสีดำ ผลิตมาเพื่องานเกษตรโดยเฉพาะ ตัดต่อและเจาะรูติดหัวปล่อยน้ำได้ง่าย ยืดหยุ่นกว่าพีวีซีมาก ถูกรถทับก็ไม่แตก มาเป็นม้วนยาว <strong>50–200 เมตร</strong> ท่อหนึ่งเส้นจึงแทบไม่ต้องมีข้อต่อเลย</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The size trap — read this twice</span><span class="th">กับดักเรื่องขนาด — ควรอ่านสองรอบ</span></div>
+          <p>
+            <span class="en"><strong>PVC is called by its nominal size in inches. PE is called by its OUTSIDE diameter in millimetres.</strong> A "20 mm" PE lateral has an <em>inside</em> diameter of 18 mm in PN 2.5 and only 17 mm in PN 4 — the stronger pipe is the narrower one. Every friction-loss table in §6.7 is entered by the name on the pipe, but the number it returns is governed by the inside diameter printed in the table's second row. Confusing the two conventions is why a design sometimes comes out one whole pipe size wrong.</span>
+            <span class="th"><strong>ท่อพีวีซีเรียกขนาดตามขนาดระบุเป็นนิ้ว ส่วนท่อพีอีเรียกขนาดตามเส้นผ่านศูนย์กลาง ภายนอก เป็นมิลลิเมตร</strong> ท่อย่อยพีอีที่เรียกว่า "20 มม." มีเส้นผ่านศูนย์กลาง <em>ภายใน</em> 18 มม. ในชั้น PN 2.5 และเหลือเพียง 17 มม. ในชั้น PN 4 กล่าวคือท่อที่แข็งแรงกว่าคือท่อที่แคบกว่า ตารางการสูญเสียแรงดันทุกตารางในหัวข้อ 6.7 เปิดหาด้วยชื่อที่เขียนบนท่อ แต่ตัวเลขที่ได้กลับถูกกำหนดด้วยเส้นผ่านศูนย์กลางภายในที่พิมพ์อยู่ในแถวที่สองของตาราง การสับสนสองธรรมเนียมนี้คือเหตุที่บางครั้งผลการออกแบบคลาดไปทั้งขนาดท่อ</span>
+          </p>
+        </div>
+
+        <h3><span class="en">HDPE and LDPE do different jobs</span><span class="th">HDPE กับ LDPE ทำงานคนละหน้าที่</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Property</span><span class="th">คุณสมบัติ</span></th>
+                <th><span class="en">HDPE — high density</span><span class="th">HDPE — ความหนาแน่นสูง</span></th>
+                <th><span class="en">LDPE — low density</span><span class="th">LDPE — ความหนาแน่นต่ำ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Used as</span><span class="th">ใช้เป็น</span></td>
+                <td><strong><span class="en">Main or sub-main</span><span class="th">ท่อเมนหรือท่อเมนย่อย</span></strong></td>
+                <td><strong><span class="en">Lateral</span><span class="th">ท่อย่อย</span></strong></td>
+              </tr>
+              <tr>
+                <td><span class="en">Supplied as</span><span class="th">รูปแบบที่จำหน่าย</span></td>
+                <td><span class="en">Straight lengths of <strong>6 m</strong></span><span class="th">ท่อนตรงยาว <strong>6 เมตร</strong></span></td>
+                <td><span class="en">Rolls of <strong>50–200 m</strong>; bends and coils</span><span class="th">ม้วนยาว <strong>50–200 เมตร</strong> โค้งงอและม้วนเก็บได้</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Pressure class</span><span class="th">ชั้นความดัน</span></td>
+                <td class="num">PN 6.3 – PN 16</td>
+                <td class="num">PN 2.5, PN 4</td>
+              </tr>
+              <tr>
+                <td><span class="en">Sizes in common use</span><span class="th">ขนาดที่ใช้กันทั่วไป</span></td>
+                <td class="num">25–110 <span class="en">mm</span><span class="th">มม.</span></td>
+                <td class="num">16, 20, 25 <span class="en">mm</span><span class="th">มม.</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Joining</span><span class="th">การต่อ</span></td>
+                <td><span class="en">Compression fittings, threaded fittings, or heat fusion; joins to PVC without trouble</span><span class="th">ข้อต่อสวมอัด ข้อต่อเกลียว หรือเชื่อมด้วยความร้อน และต่อเข้ากับพีวีซีได้โดยไม่มีปัญหา</span></td>
+                <td><span class="en">Punch and push in the emitter; plastic fittings up to 25 mm</span><span class="th">เจาะรูแล้วเสียบหัวปล่อยน้ำ ใช้ข้อต่อพลาสติกได้ถึงขนาด 25 มม.</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Why black</span><span class="th">ทำไมต้องสีดำ</span></td>
+                <td colspan="2"><span class="en">Carbon black blocks sunlight, so the pipe survives on the surface without burial <em>and</em> no algae grows inside it — and algae is what blocks emitters.</span><span class="th">ผงคาร์บอนสีดำกันแสงแดดไม่ให้ส่องผ่านผนังท่อ ท่อจึงวางบนผิวดินได้โดยไม่ต้องฝัง <em>และ</em> ไม่เกิดตะไคร่น้ำภายในท่อ ซึ่งตะไคร่น้ำนี่เองที่ทำให้หัวปล่อยน้ำอุดตัน</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Where the cost crossover sits</span><span class="th">จุดที่ราคาสลับกัน</span></div>
+          <p>
+            <span class="en">PE is cheaper than PVC in small sizes and <em>dearer</em> in large ones. That single fact produces the standard Thai layout: <strong>LDPE laterals, PVC or HDPE sub-mains and mains</strong>. In practice keep LDPE laterals at 20 mm or below unless the hydraulics force you higher — 16, 20 and 25 mm are the everyday sizes, and above 25 mm you should be pricing HDPE or PVC instead.</span>
+            <span class="th">ท่อพีอีถูกกว่าพีวีซีในขนาดเล็ก และ <em>แพงกว่า</em> ในขนาดใหญ่ ข้อเท็จจริงข้อเดียวนี้สร้างรูปแบบมาตรฐานของไทยขึ้นมา คือ <strong>ท่อย่อยใช้ LDPE ส่วนท่อเมนย่อยและท่อเมนใช้พีวีซีหรือ HDPE</strong> ในทางปฏิบัติควรใช้ท่อย่อย LDPE ขนาดไม่เกิน 20 มม. เว้นแต่ผลการคำนวณทางชลศาสตร์จะบังคับให้ใหญ่ขึ้น ขนาดที่ใช้กันประจำคือ 16, 20 และ 25 มม. ส่วนที่ใหญ่กว่า 25 มม. ควรหันไปเทียบราคา HDPE หรือพีวีซีแทน</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 6.5 ===================== -->
+      <section id="s-class">
+        <h2><span class="en">6.5 Pressure class: the second half of choosing a pipe</span><span class="th">6.5 ชั้นความดัน: ครึ่งหลังของการเลือกท่อ</span></h2>
+
+        <p>
+          <span class="en">Choosing a pipe takes <strong>two</strong> decisions, and students reliably make only the first. The diameter must be large enough to carry the flow without losing too much head. The <strong>wall</strong> must be thick enough to contain the pressure inside it. A 3-inch pipe that passes the friction check can still burst.</span>
+          <span class="th">การเลือกท่อต้องตัดสินใจ <strong>สองเรื่อง</strong> และนักศึกษามักตัดสินใจเพียงเรื่องแรกอย่างสม่ำเสมอ คือเส้นผ่านศูนย์กลางต้องใหญ่พอที่จะพาอัตราการไหลไปได้โดยไม่สูญเสียเฮดมากเกินไป ส่วน <strong>ผนังท่อ</strong> ต้องหนาพอที่จะทนความดันภายในได้ ท่อขนาด 3 นิ้วที่ผ่านการตรวจสอบความเสียดทานแล้วก็ยังระเบิดได้</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">PVC class</span><span class="th">ชั้นของท่อพีวีซี</span></th>
+                <th><span class="en">Maximum pressure</span><span class="th">รับความดันได้สูงสุด</span></th>
+                <th><span class="en">As a head of water</span><span class="th">คิดเป็นความสูงของน้ำ</span></th>
+                <th><span class="en">When to specify it</span><span class="th">ใช้เมื่อไร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">Class 5</span><span class="th">ชั้น 5</span></strong></td>
+                <td class="num">5 kg/cm² = 5 bar</td>
+                <td class="num">50 <span class="en">m</span><span class="th">ม.</span></td>
+                <td><span class="en">Enough for almost every small farm system</span><span class="th">เพียงพอกับระบบชลประทานขนาดเล็กแทบทุกกรณี</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Class 8.5</span><span class="th">ชั้น 8.5</span></strong></td>
+                <td class="num">8.5 kg/cm² = 8.5 bar</td>
+                <td class="num">85 <span class="en">m</span><span class="th">ม.</span></td>
+                <td><span class="en">Whenever the pressure anywhere in the line exceeds 50 m</span><span class="th">เมื่อใดที่ความดัน ณ จุดใดในเส้นท่อเกิน 50 เมตร</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">Class 13.5</span><span class="th">ชั้น 13.5</span></strong></td>
+                <td class="num">13.5 kg/cm² = 13.5 bar</td>
+                <td class="num">135 <span class="en">m</span><span class="th">ม.</span></td>
+                <td><span class="en">Long rising mains, deep wells, tall lifts</span><span class="th">ท่อส่งขึ้นเนินระยะยาว บ่อบาดาลลึก และการยกน้ำสูง</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The thicker pipe is also the slower pipe</span><span class="th">ท่อที่หนากว่าคือท่อที่น้ำไหลได้ยากกว่าด้วย</span></div>
+          <p>
+            <span class="en">A 2-inch class 5 and a 2-inch class 13.5 have the same <em>outside</em> dimension and the same name — but the class 13.5 has a much thicker wall, so its bore is smaller. It is stronger, it is dearer, and it <strong>loses more head to friction at the same flow</strong>. Upgrading the class to be safe is not free: check the friction table again after you do it, because you may have to go up a diameter as well.</span>
+            <span class="th">ท่อ 2 นิ้วชั้น 5 กับท่อ 2 นิ้วชั้น 13.5 มีขนาด <em>ภายนอก</em> เท่ากันและเรียกชื่อเหมือนกัน แต่ชั้น 13.5 มีผนังหนากว่ามาก รูในจึงเล็กกว่า มันแข็งแรงกว่า แพงกว่า และ <strong>สูญเสียเฮดจากความเสียดทานมากกว่าที่อัตราการไหลเท่ากัน</strong> การเลื่อนชั้นขึ้นเพื่อความปลอดภัยจึงไม่ได้ฟรี ต้องกลับไปเปิดตารางความเสียดทานใหม่หลังจากเปลี่ยนชั้นแล้ว เพราะอาจต้องขยายเส้นผ่านศูนย์กลางขึ้นด้วย</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Thai PVC colour code — มอก. 17-2532</span><span class="th">รหัสสีของท่อพีวีซีไทย — มอก. 17-2532</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Colour</span><span class="th">สี</span></th>
+                <th><span class="en">Intended for</span><span class="th">ใช้สำหรับ</span></th>
+                <th><span class="en">Use in irrigation?</span><span class="th">ใช้กับงานชลประทานได้หรือไม่</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Blue</span><span class="th">ฟ้า</span></td>
+                <td><span class="en">Drinking water</span><span class="th">น้ำดื่ม</span></td>
+                <td><span class="en">Yes — the common choice</span><span class="th">ได้ และเป็นตัวเลือกที่ใช้กันทั่วไป</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Grey</span><span class="th">เทา</span></td>
+                <td><span class="en">Agricultural systems — contains a UV inhibitor</span><span class="th">ระบบเกษตร โดยผสมสารกันรังสียูวี</span></td>
+                <td><span class="en">Yes — better where the pipe is left above ground</span><span class="th">ได้ และดีกว่าถ้าวางท่อไว้เหนือดิน</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">Yellow, white</span><span class="th">เหลือง ขาว</span></td>
+                <td><span class="en">Electrical conduit</span><span class="th">ร้อยสายไฟฟ้า</span></td>
+                <td><span class="en"><strong>No</strong> — not a pressure pipe</span><span class="th"><strong>ไม่ได้</strong> เพราะไม่ใช่ท่อรับความดัน</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">One footnote that matters in Thailand: the class ratings are quoted at <strong>26 °C</strong>. A blue pipe lying in full sun on a Thai afternoon is a good deal hotter than that, and PVC loses strength as it warms. This is the practical argument for grey pipe, for burying the main, or simply for not designing a class 5 line to sit at 48 m.</span>
+          <span class="th">มีเชิงอรรถหนึ่งข้อที่สำคัญสำหรับประเทศไทย คือค่าชั้นความดันกำหนดไว้ที่อุณหภูมิ <strong>26 องศาเซลเซียส</strong> ท่อสีฟ้าที่วางตากแดดจัดในบ่ายวันหนึ่งของเมืองไทยย่อมร้อนกว่านั้นมาก และพีวีซีจะสูญเสียความแข็งแรงเมื่อร้อนขึ้น นี่คือเหตุผลในทางปฏิบัติที่สนับสนุนการใช้ท่อสีเทา การฝังท่อเมน หรือเพียงแค่ไม่ออกแบบให้ท่อชั้น 5 ต้องรับความดัน 48 เมตร</span>
+        </p>
+      </section>
+
+      <!-- ===================== 6.6 ===================== -->
+      <section id="s-energy">
+        <h2><span class="en">6.6 The energy equation, and what survives of it</span><span class="th">6.6 สมการพลังงาน และส่วนที่เหลือรอดจากมัน</span></h2>
+
+        <p>
+          <span class="en">Everything from here to the end of the chapter is one equation applied over and over. Bernoulli's equation says that between any two points in a pipe, the total head is conserved — except for what friction takes:</span>
+          <span class="th">ทุกอย่างตั้งแต่นี้จนจบบทคือสมการเดียวที่ใช้ซ้ำไปซ้ำมา สมการเบอร์นูลลีบอกว่าระหว่างจุดสองจุดใด ๆ ในเส้นท่อ เฮดรวมจะคงที่ ยกเว้นส่วนที่ความเสียดทานพรากไป</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code><span class="frac"><span class="num">v₁²</span><span class="den">2g</span></span> + <span class="frac"><span class="num">p₁</span><span class="den">ρg</span></span> + z₁ = <span class="frac"><span class="num">v₂²</span><span class="den">2g</span></span> + <span class="frac"><span class="num">p₂</span><span class="den">ρg</span></span> + z₂ + Δh<sub>ls</sub></code><span class="eq-note"><span class="en">real flow, with loss</span><span class="th">การไหลจริง ที่มีการสูญเสีย</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>v²/2g</dt><dd><span class="en"><strong>velocity head</strong> — the kinetic energy of the moving water (m)</span><span class="th"><strong>เฮดความเร็ว</strong> คือพลังงานจลน์ของน้ำที่กำลังเคลื่อนที่ (ม.)</span></dd>
+          <dt>p/ρg</dt><dd><span class="en"><strong>pressure head</strong> — what a gauge on the pipe reads (m)</span><span class="th"><strong>เฮดความดัน</strong> คือค่าที่เกจซึ่งติดอยู่กับท่ออ่านได้ (ม.)</span></dd>
+          <dt>z</dt><dd><span class="en"><strong>potential head</strong> — the elevation of the point above the chosen datum (m)</span><span class="th"><strong>เฮดตำแหน่ง</strong> คือค่าระดับของจุดนั้นเทียบกับระดับอ้างอิงที่เลือกไว้ (ม.)</span></dd>
+          <dt>Δh<sub>ls</sub></dt><dd><span class="en"><strong>head loss</strong> — energy converted to heat by friction between points 1 and 2 (m)</span><span class="th"><strong>การสูญเสียเฮด</strong> คือพลังงานที่ถูกความเสียดทานเปลี่ยนเป็นความร้อนระหว่างจุดที่ 1 และ 2 (ม.)</span></dd>
+        </dl>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Three of the six terms disappear — here is why</span><span class="th">พจน์สามในหกหายไป — ด้วยเหตุผลนี้</span></div>
+          <p>
+            <span class="en">In a pipe of constant diameter carrying a steady flow, <strong>v₁ = v₂</strong>, so the two velocity heads are equal and cancel. They do not vanish physically; they simply appear on both sides and drop out of the arithmetic. What is left is the working form that every calculation in this chapter uses:</span>
+            <span class="th">ในท่อที่มีเส้นผ่านศูนย์กลางคงที่และมีอัตราการไหลสม่ำเสมอ <strong>v₁ = v₂</strong> เฮดความเร็วสองตัวจึงเท่ากันและตัดกันไป ทั้งสองไม่ได้หายไปในทางกายภาพ เพียงแต่ปรากฏอยู่ทั้งสองข้างแล้วหลุดออกจากการคำนวณ สิ่งที่เหลืออยู่คือรูปแบบใช้งานที่การคำนวณทุกข้อในบทนี้ใช้</span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code>H₁ + z₁ = H₂ + z₂ + <span class="en">loss</span><span class="th">การสูญเสีย</span></code><span class="eq-note"><span class="en">all terms in metres of water</span><span class="th">ทุกพจน์มีหน่วยเป็นเมตรของน้ำ</span></span></div>
+          </div>
+          <p>
+            <span class="en">Read it as a budget. The pressure you have at the start, plus any height you are falling <em>from</em>, has to cover the pressure you need at the end, plus any height you are climbing <em>to</em>, plus the friction bill. Design is nothing more than rearranging that sentence to solve for whichever term you do not yet know.</span>
+            <span class="th">ให้อ่านสมการนี้เหมือนงบประมาณ คือแรงดันที่มีอยู่ที่จุดเริ่มต้น บวกกับความสูงที่เรากำลังไหล <em>ลงมาจาก</em> จะต้องครอบคลุมแรงดันที่ต้องการที่จุดปลาย บวกกับความสูงที่เรากำลังไต่ <em>ขึ้นไป</em> บวกกับค่าความเสียดทาน การออกแบบก็คือการย้ายข้างประโยคนี้เพื่อหาพจน์ที่เรายังไม่รู้ค่า เท่านั้นเอง</span>
+          </p>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 280" role="img" aria-label="Energy budget along a pipe running downhill">
+            <!-- datum -->
+            <line x1="50" y1="238" x2="680" y2="238" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="5 4"/>
+            <!-- pipe -->
+            <line x1="110" y1="150" x2="620" y2="200" stroke="var(--accent)" stroke-width="6"/>
+            <circle cx="110" cy="150" r="9" fill="var(--accent-hot)" opacity=".85" stroke="var(--ink)" stroke-width="1.2"/>
+            <circle cx="620" cy="200" r="9" fill="var(--accent-hot)" opacity=".85" stroke="var(--ink)" stroke-width="1.2"/>
+            <!-- hydraulic grade line -->
+            <line x1="110" y1="52" x2="620" y2="120" stroke="var(--link)" stroke-width="2" stroke-dasharray="7 4"/>
+            <!-- H1 -->
+            <g stroke="var(--accent-hot)" stroke-width="1.3">
+              <line x1="92" y1="52" x2="92" y2="150"/>
+              <line x1="86" y1="52" x2="98" y2="52"/><line x1="86" y1="150" x2="98" y2="150"/>
+              <line x1="646" y1="120" x2="646" y2="200"/>
+              <line x1="640" y1="120" x2="652" y2="120"/><line x1="640" y1="200" x2="652" y2="200"/>
+              <line x1="676" y1="200" x2="676" y2="238"/>
+              <line x1="670" y1="200" x2="682" y2="200"/><line x1="670" y1="238" x2="682" y2="238"/>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)">
+              <text x="60" y="104">H₁</text>
+              <text x="656" y="164">H₂</text>
+              <text x="688" y="222">z₂</text>
+            </g>
+            <!-- loss wedge -->
+            <path d="M110,52 L620,120 L620,138 L110,52 Z" fill="var(--bad)" opacity=".28"/>
+            <text x="370" y="74" font-family="Inter, sans-serif" font-size="11" fill="var(--ink)" text-anchor="middle" class="en">friction loss eats the grade line</text>
+            <text x="370" y="74" font-family="Inter, sans-serif" font-size="11" fill="var(--ink)" text-anchor="middle" class="th">การสูญเสียจากความเสียดทานกัดเส้นระดับพลังงานลง</text>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <text x="116" y="140" class="en">point 1 — pump end</text>
+              <text x="116" y="140" class="th">จุดที่ 1 — ด้านเครื่องสูบน้ำ</text>
+              <text x="516" y="226" class="en">point 2 — far end</text>
+              <text x="516" y="226" class="th">จุดที่ 2 — ปลายทาง</text>
+              <text x="52" y="252" class="en">datum</text>
+              <text x="52" y="252" class="th">ระดับอ้างอิง</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+              <text x="360" y="272" class="en">Falling ground gives head back; friction and the pressure you must keep spend it</text>
+              <text x="360" y="272" class="th">พื้นที่ลาดลงคืนเฮดให้เรา ส่วนความเสียดทานและแรงดันที่ต้องรักษาไว้เป็นตัวใช้เฮดนั้นไป</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 6.2 — The head budget drawn out. The dashed line is the hydraulic grade line: its height above any point on the pipe is the pressure a gauge would read there. Design succeeds when that line still sits far enough above the pipe at the very last emitter.</span>
+            <span class="th">รูปที่ 6.2 — งบประมาณเฮดเขียนออกมาเป็นภาพ เส้นประคือเส้นระดับชลศาสตร์ ความสูงของเส้นนี้เหนือจุดใดก็ตามบนท่อคือแรงดันที่เกจ ณ จุดนั้นจะอ่านได้ การออกแบบจะสำเร็จก็ต่อเมื่อเส้นนั้นยังอยู่สูงกว่าตัวท่อมากพอ ณ ตำแหน่งหัวปล่อยน้ำหัวสุดท้าย</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Worked example 1 · Sizing a main that runs downhill</span><span class="th">ตัวอย่างการคำนวณที่ 1 · หาขนาดท่อเมนกรณีจ่ายน้ำลงเนิน</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Deliver <strong>Q = 25 m³/h</strong> through <strong>1,000 m</strong> of PVC from point 1, where the head is <strong>35 m</strong> at elevation <strong>0.0</strong>, to point 2 at elevation <strong>−12.5 m</strong>, where the head must be at least <strong>25 m</strong>. What size pipe?</span>
+            <span class="th">ต้องการส่งน้ำ <strong>Q = 25 ลบ.ม./ชม.</strong> ผ่านท่อพีวีซียาว <strong>1,000 ม.</strong> จากจุดที่ 1 ซึ่งมีเฮด <strong>35 ม.</strong> ที่ระดับ <strong>0.0</strong> ไปยังจุดที่ 2 ที่ระดับ <strong>−12.5 ม.</strong> โดยต้องมีเฮดที่จุดที่ 2 ไม่น้อยกว่า <strong>25 ม.</strong> จะต้องใช้ท่อขนาดเท่าใด</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>35 + 0.0 = 25 + (−12.5) + <span class="en">loss</span><span class="th">loss</span></code></div>
+          <div class="eq"><code><span class="en">loss</span><span class="th">loss</span> = 35 − 25 + 12.5 = 22.5 m</code><span class="eq-note"><span class="en">over the whole 1,000 m</span><span class="th">ตลอดระยะ 1,000 ม.</span></span></div>
+          <div class="eq result"><code>j = <span class="frac"><span class="num">22.5</span><span class="den">1,000 / 10</span></span> = <strong>0.225 m per 10 m</strong></code><span class="eq-note"><span class="en">the number to enter the table with</span><span class="th">คือค่าที่ใช้เปิดตาราง</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">At <span class="mono">25 m³/h = 416.7 L/min</span>, the PVC class 5 table gives 0.44 m per 10 m for a 2½-inch pipe and <strong>0.20</strong> for a 3-inch. Anything at or below 0.225 will do, so <strong>3 inch or larger</strong>. Note the direction of the inequality: a <em>bigger</em> pipe gives a <em>smaller</em> loss, so the table value must come out below the budget, not above it.</span>
+          <span class="th">ที่อัตรา <span class="mono">25 ลบ.ม./ชม. = 416.7 ล./นาที</span> ตารางท่อพีวีซีชั้น 5 ให้ค่า 0.44 ม. ต่อ 10 ม. สำหรับท่อ 2½ นิ้ว และ <strong>0.20</strong> สำหรับท่อ 3 นิ้ว ค่าใดก็ตามที่ไม่เกิน 0.225 ใช้ได้ ดังนั้นจึงเลือก <strong>ท่อ 3 นิ้วหรือใหญ่กว่า</strong> ให้สังเกตทิศทางของอสมการด้วย คือท่อที่ <em>ใหญ่กว่า</em> ให้การสูญเสียที่ <em>น้อยกว่า</em> ค่าจากตารางจึงต้องออกมาต่ำกว่างบประมาณ ไม่ใช่สูงกว่า</span>
+        </p>
+
+        <h3><span class="en">Worked example 2 · The same main running uphill</span><span class="th">ตัวอย่างการคำนวณที่ 2 · ท่อเมนเส้นเดิมแต่จ่ายน้ำขึ้นเนิน</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Same flow and length, but now the head at point 1 is <strong>60 m</strong> at elevation <strong>0.0</strong> and point 2 is <strong>7.0 m</strong> uphill, still needing <strong>25 m</strong>.</span>
+            <span class="th">อัตราการไหลและความยาวเท่าเดิม แต่คราวนี้เฮดที่จุดที่ 1 เป็น <strong>60 ม.</strong> ที่ระดับ <strong>0.0</strong> และจุดที่ 2 อยู่สูงขึ้นไป <strong>7.0 ม.</strong> โดยยังต้องการเฮด <strong>25 ม.</strong> เท่าเดิม</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>60 + 0.0 = 25 + 7 + <span class="en">loss</span><span class="th">loss</span></code></div>
+          <div class="eq"><code><span class="en">loss</span><span class="th">loss</span> = 60 − 25 − 7 = 28 m</code></div>
+          <div class="eq result"><code>j = 28 / 100 = <strong>0.28 m per 10 m</strong> → <strong>3 <span class="en">inch or larger</span><span class="th">นิ้วขึ้นไป</span></strong></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">But the answer is not finished</span><span class="th">แต่คำตอบยังไม่จบ</span></div>
+          <p>
+            <span class="en">The diameter check passes at 3 inch, exactly as before. The <em>class</em> check does not. The pipe at point 1 is carrying <strong>60 m</strong> of head, which is above the 50 m limit of class 5 — so this line must be built in <strong>class 8.5</strong>. Two problems with almost identical arithmetic, and the second one has an extra answer that the first does not. Whenever the head anywhere in a line exceeds 50 m, stop and re-specify the class before you quote a price.</span>
+            <span class="th">การตรวจสอบเส้นผ่านศูนย์กลางผ่านที่ 3 นิ้ว เหมือนข้อที่แล้วทุกประการ แต่การตรวจสอบ <em>ชั้นความดัน</em> ไม่ผ่าน เพราะท่อที่จุดที่ 1 รับเฮดอยู่ <strong>60 ม.</strong> ซึ่งเกินขีดจำกัด 50 ม. ของท่อชั้น 5 เส้นท่อนี้จึงต้องใช้ <strong>ชั้น 8.5</strong> โจทย์สองข้อที่มีการคำนวณเกือบเหมือนกันทุกอย่าง แต่ข้อที่สองมีคำตอบเพิ่มมาอีกข้อที่ข้อแรกไม่มี เมื่อใดที่เฮด ณ จุดใดในเส้นท่อเกิน 50 ม. ให้หยุดและกำหนดชั้นความดันใหม่ก่อนจะเสนอราคา</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 6.7 ===================== -->
+      <section id="s-friction">
+        <h2><span class="en">6.7 Reading the friction-loss table</span><span class="th">6.7 การอ่านตารางการสูญเสียแรงดัน</span></h2>
+
+        <p>
+          <span class="en">Head loss in a pipe can be computed from Darcy-Weisbach or Hazen-Williams, but nobody in the field does. Instead you read it off a table published for each pipe type and class. Learn the three-step drill and you will never need the formula.</span>
+          <span class="th">การสูญเสียเฮดในท่อคำนวณได้จากสมการดาร์ซี-ไวส์บาค หรือเฮเซน-วิลเลียมส์ แต่ไม่มีใครในสนามทำเช่นนั้น วิธีที่ใช้จริงคือเปิดอ่านจากตารางที่จัดทำไว้สำหรับท่อแต่ละชนิดและแต่ละชั้น ถ้าจำสามขั้นตอนนี้ได้ ก็ไม่ต้องใช้สมการเลย</span>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Convert the flow to L/min</span><span class="th">แปลงอัตราการไหลเป็น ล./นาที</span></h4>
+            <p><span class="en">Every table in this set is entered by flow in litres per minute. <span class="mono">25 m³/h × 1000 / 60 = 416.7 L/min</span>.</span><span class="th">ตารางทุกตารางในชุดนี้เปิดหาด้วยอัตราการไหลหน่วยลิตรต่อนาที เช่น <span class="mono">25 ลบ.ม./ชม. × 1000 / 60 = 416.7 ล./นาที</span></span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Read down to the pipe size</span><span class="th">ไล่ลงไปที่คอลัมน์ขนาดท่อ</span></h4>
+            <p><span class="en">The number in the cell is the loss in <strong>metres per 10 metres of pipe</strong> — not per metre, and not per 100.</span><span class="th">ตัวเลขในช่องคือการสูญเสียเป็น <strong>เมตร ต่อความยาวท่อ 10 เมตร</strong> ไม่ใช่ต่อหนึ่งเมตร และไม่ใช่ต่อ 100 เมตร</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">Scale to the real length</span><span class="th">ปรับตามความยาวจริง</span></h4>
+            <p><span class="en"><span class="mono">loss = j × L / 10</span>. For a distributing pipe there is a fourth step — §6.8.</span><span class="th"><span class="mono">การสูญเสีย = j × L / 10</span> ถ้าเป็นท่อที่จ่ายน้ำระหว่างทาง จะมีขั้นที่สี่ ดูหัวข้อ 6.8</span></p>
+          </div>
+        </div>
+
+        <h3><span class="en">PVC class 5 — loss in metres per 10 m of pipe</span><span class="th">ท่อพีวีซีชั้น 5 — การสูญเสีย (เมตร ต่อความยาวท่อ 10 เมตร)</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Flow (L/min)</span><span class="th">อัตราการไหล (ล./นาที)</span></th>
+                <th colspan="7"><span class="en">Nominal size (inch) — inside diameter in mm below</span><span class="th">ขนาดระบุ (นิ้ว) — เส้นผ่านศูนย์กลางภายใน (มม.) อยู่ข้างล่าง</span></th>
+              </tr>
+              <tr>
+                <th>1¼<br><span class="mono">39</span></th>
+                <th>1½<br><span class="mono">45</span></th>
+                <th>2<br><span class="mono">56.4</span></th>
+                <th>2½<br><span class="mono">71.6</span></th>
+                <th>3<br><span class="mono">84</span></th>
+                <th>4<br><span class="mono">107.6</span></th>
+                <th>5<br><span class="mono">132.2</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">50</td><td class="num">0.17</td><td class="num">0.08</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">100</td><td class="num">0.60</td><td class="num">0.30</td><td class="num">0.10</td><td class="num">0.03</td><td class="num">0.01</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">140</td><td class="num">1.11</td><td class="num">0.55</td><td class="num">0.18</td><td class="num">0.06</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">150</td><td class="num">1.26</td><td class="num">0.63</td><td class="num">0.21</td><td class="num">0.07</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">160</td><td class="num">1.42</td><td class="num">0.71</td><td class="num">0.24</td><td class="num">0.07</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">200</td><td class="num">2.15</td><td class="num">1.07</td><td class="num">0.36</td><td class="num">0.11</td><td class="num">0.05</td><td class="num">0.02</td><td class="num">—</td></tr>
+              <tr><td class="num">300</td><td class="num">4.56</td><td class="num">2.27</td><td class="num">0.76</td><td class="num">0.24</td><td class="num">0.11</td><td class="num">0.03</td><td class="num">—</td></tr>
+              <tr><td class="num">400</td><td class="num">—</td><td class="num">3.87</td><td class="num">1.29</td><td class="num">0.40</td><td class="num">0.19</td><td class="num">0.06</td><td class="num">0.02</td></tr>
+              <tr><td class="num">420</td><td class="num">—</td><td class="num">4.24</td><td class="num">1.41</td><td class="num">0.44</td><td class="num">0.20</td><td class="num">0.06</td><td class="num">0.02</td></tr>
+              <tr><td class="num">500</td><td class="num">—</td><td class="num">—</td><td class="num">1.95</td><td class="num">0.61</td><td class="num">0.28</td><td class="num">0.08</td><td class="num">0.03</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">LDPE PN 2.5 — loss in metres per 10 m of pipe</span><span class="th">ท่อ LDPE ชั้น PN 2.5 — การสูญเสีย (เมตร ต่อความยาวท่อ 10 เมตร)</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Flow (L/min)</span><span class="th">อัตราการไหล (ล./นาที)</span></th>
+                <th colspan="6"><span class="en">Outside diameter (mm) — inside diameter below</span><span class="th">เส้นผ่านศูนย์กลางภายนอก (มม.) — ภายในอยู่ข้างล่าง</span></th>
+              </tr>
+              <tr>
+                <th>20<br><span class="mono">18</span></th>
+                <th>25<br><span class="mono">22.6</span></th>
+                <th>32<br><span class="mono">29</span></th>
+                <th>40<br><span class="mono">36</span></th>
+                <th>50<br><span class="mono">45.2</span></th>
+                <th>63<br><span class="mono">57</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">3</td><td class="num">0.04</td><td class="num">0.01</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">5</td><td class="num">0.10</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">6</td><td class="num">0.14</td><td class="num">0.05</td><td class="num">0.01</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">7</td><td class="num">0.19</td><td class="num">0.06</td><td class="num">0.02</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">8</td><td class="num">0.24</td><td class="num">0.08</td><td class="num">0.02</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">10</td><td class="num">0.36</td><td class="num">0.12</td><td class="num">0.04</td><td class="num">0.01</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">12</td><td class="num">0.51</td><td class="num">0.17</td><td class="num">0.05</td><td class="num">0.02</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">14</td><td class="num">0.67</td><td class="num">0.22</td><td class="num">0.07</td><td class="num">0.02</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">16</td><td class="num">0.86</td><td class="num">0.28</td><td class="num">0.08</td><td class="num">0.03</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td class="num">20</td><td class="num">1.30</td><td class="num">0.43</td><td class="num">0.13</td><td class="num">0.04</td><td class="num">0.01</td><td class="num">—</td></tr>
+              <tr><td class="num">30</td><td class="num">2.76</td><td class="num">0.91</td><td class="num">0.27</td><td class="num">0.09</td><td class="num">0.03</td><td class="num">—</td></tr>
+              <tr><td class="num">40</td><td class="num">4.70</td><td class="num">1.55</td><td class="num">0.46</td><td class="num">0.16</td><td class="num">0.05</td><td class="num">0.02</td></tr>
+              <tr><td class="num">50</td><td class="num">—</td><td class="num">2.35</td><td class="num">0.70</td><td class="num">0.24</td><td class="num">0.08</td><td class="num">0.03</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Two things the tables are quietly telling you</span><span class="th">สองสิ่งที่ตารางบอกเราอย่างเงียบ ๆ</span></div>
+          <p>
+            <span class="en"><strong>Loss rises roughly as the square of the flow.</strong> Look down the 1½-inch column: 100 L/min costs 0.30, 200 costs 1.07, 400 costs 3.87 — double the flow and the loss goes up about four times. This is why a sub-main serving two zones instead of four is not twice as expensive in head, it is four times cheaper.</span>
+            <span class="th"><strong>การสูญเสียเพิ่มขึ้นราวกับกำลังสองของอัตราการไหล</strong> ลองไล่ลงไปในคอลัมน์ 1½ นิ้ว จะเห็นว่า 100 ล./นาที เสีย 0.30 ที่ 200 เสีย 1.07 และที่ 400 เสีย 3.87 กล่าวคือเพิ่มอัตราการไหลเป็นสองเท่า การสูญเสียเพิ่มขึ้นราวสี่เท่า นี่คือเหตุผลที่ท่อเมนย่อยซึ่งรับผิดชอบสองโซนแทนที่จะเป็นสี่โซน ไม่ได้ประหยัดเฮดลงครึ่งหนึ่ง แต่ประหยัดลงถึงสี่เท่า</span>
+          </p>
+          <p>
+            <span class="en"><strong>Loss falls very steeply with diameter.</strong> At 200 L/min, going from 1¼ to 1½ inch cuts the loss in half; going from 1¼ to 2 inch cuts it to a sixth. One pipe size up is almost always cheaper than one pump size up.</span>
+            <span class="th"><strong>การสูญเสียลดลงอย่างรวดเร็วมากเมื่อท่อใหญ่ขึ้น</strong> ที่ 200 ล./นาที การเปลี่ยนจาก 1¼ เป็น 1½ นิ้ว ลดการสูญเสียลงครึ่งหนึ่ง และการเปลี่ยนจาก 1¼ เป็น 2 นิ้ว ลดลงเหลือหนึ่งในหก การขยับขนาดท่อขึ้นหนึ่งขั้นแทบจะถูกกว่าการขยับขนาดเครื่องสูบน้ำขึ้นหนึ่งขั้นเสมอ</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 6.8 ===================== -->
+      <section id="s-outlets">
+        <h2><span class="en">6.8 The outlet correction factor</span><span class="th">6.8 ค่าปรับแก้จำนวนทางออก</span></h2>
+
+        <p>
+          <span class="en">Here is the idea that separates a working design from a wrong one. The table in §6.7 assumes the full flow travels the whole length of the pipe. That is true of a main. It is <em>not</em> true of a sub-main or a lateral, which hand water out as they go.</span>
+          <span class="th">นี่คือแนวคิดที่แยกการออกแบบที่ใช้ได้จริงออกจากการออกแบบที่ผิด ตารางในหัวข้อ 6.7 ตั้งอยู่บนสมมติฐานว่าอัตราการไหลเต็มจำนวนวิ่งไปตลอดความยาวท่อ ซึ่งจริงสำหรับท่อเมน แต่ <em>ไม่จริง</em> สำหรับท่อเมนย่อยและท่อย่อย ซึ่งจ่ายน้ำออกไประหว่างทาง</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 260" role="img" aria-label="Main versus sub-main friction with outlets">
+            <!-- main -->
+            <line x1="90" y1="56" x2="600" y2="56" stroke="var(--accent)" stroke-width="7"/>
+            <circle cx="90" cy="56" r="9" fill="var(--accent-hot)" stroke="var(--ink)" stroke-width="1.2"/>
+            <circle cx="600" cy="56" r="9" fill="var(--accent-hot)" stroke="var(--ink)" stroke-width="1.2"/>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="70" y="38" class="en">H = 16 m</text><text x="70" y="38" class="th">H = 16 ม.</text>
+              <text x="580" y="38" class="en">H = 16 m</text><text x="580" y="38" class="th">H = 16 ม.</text>
+            </g>
+            <text x="345" y="80" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--link)" text-anchor="middle" class="en">MAIN — friction = A</text>
+            <text x="345" y="80" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--link)" text-anchor="middle" class="th">ท่อเมน — ความเสียดทาน = A</text>
+            <text x="345" y="98" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" text-anchor="middle" class="en">full flow travels the whole length</text>
+            <text x="345" y="98" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" text-anchor="middle" class="th">อัตราการไหลเต็มจำนวนวิ่งตลอดความยาว</text>
+
+            <!-- sub-main -->
+            <line x1="90" y1="168" x2="600" y2="168" stroke="var(--ink)" stroke-width="5"/>
+            <circle cx="90" cy="168" r="9" fill="var(--accent-hot)" stroke="var(--ink)" stroke-width="1.2"/>
+            <circle cx="600" cy="168" r="9" fill="var(--accent-hot)" stroke="var(--ink)" stroke-width="1.2"/>
+            <g stroke="var(--accent)" stroke-width="2.2">
+              <line x1="150" y1="168" x2="150" y2="136"/><line x1="214" y1="168" x2="214" y2="136"/>
+              <line x1="278" y1="168" x2="278" y2="136"/><line x1="342" y1="168" x2="342" y2="136"/>
+              <line x1="406" y1="168" x2="406" y2="136"/><line x1="470" y1="168" x2="470" y2="136"/>
+              <line x1="534" y1="168" x2="534" y2="136"/><line x1="580" y1="168" x2="580" y2="136"/>
+            </g>
+            <g fill="var(--accent)">
+              <path d="M146,138 L154,138 L150,130 z"/><path d="M210,138 L218,138 L214,130 z"/>
+              <path d="M274,138 L282,138 L278,130 z"/><path d="M338,138 L346,138 L342,130 z"/>
+              <path d="M402,138 L410,138 L406,130 z"/><path d="M466,138 L474,138 L470,130 z"/>
+              <path d="M530,138 L538,138 L534,130 z"/><path d="M576,138 L584,138 L580,130 z"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="70" y="200" class="en">H = 16 m</text><text x="70" y="200" class="th">H = 16 ม.</text>
+              <text x="580" y="200" class="en">H = 16 m</text><text x="580" y="200" class="th">H = 16 ม.</text>
+            </g>
+            <text x="345" y="222" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--link)" text-anchor="middle" class="en">SUB-MAIN, 8 outlets — friction = 0.38 A</text>
+            <text x="345" y="222" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--link)" text-anchor="middle" class="th">ท่อเมนย่อย 8 ทางออก — ความเสียดทาน = 0.38 A</text>
+            <text x="345" y="242" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" text-anchor="middle" class="en">flow falls step by step to zero at the far end</text>
+            <text x="345" y="242" font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)" text-anchor="middle" class="th">อัตราการไหลลดลงทีละขั้นจนเป็นศูนย์ที่ปลายทาง</text>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 6.3 — The same pipe, the same length, the same inlet flow, and less than two-fifths of the friction. Because the sub-main sheds water at every outlet, most of its length is carrying only a fraction of the inlet flow — and friction depends on the square of what is actually passing.</span>
+            <span class="th">รูปที่ 6.3 — ท่อเส้นเดียวกัน ความยาวเท่ากัน อัตราน้ำเข้าเท่ากัน แต่ความเสียดทานไม่ถึงสองในห้า เพราะท่อเมนย่อยปล่อยน้ำออกที่ทุกทางออก ความยาวส่วนใหญ่ของมันจึงพาอัตราการไหลเพียงเศษเสี้ยวของอัตราที่เข้ามา และความเสียดทานขึ้นอยู่กับกำลังสองของสิ่งที่ไหลผ่านจริง</span>
+          </figcaption>
+        </figure>
+
+        <div class="formula">
+          <div class="eq result"><code><span class="en">loss</span><span class="th">การสูญเสีย</span> = j × <span class="frac"><span class="num">L</span><span class="den">10</span></span> × F</code><span class="eq-note"><span class="en">distributing pipe: sub-main or lateral</span><span class="th">ท่อที่จ่ายน้ำระหว่างทาง คือท่อเมนย่อยหรือท่อย่อย</span></span></div>
+        </div>
+
+        <div class="where-title"><span class="en">where</span><span class="th">โดยที่</span></div>
+        <dl class="where">
+          <dt>j</dt><dd><span class="en">table value at the <strong>inlet</strong> flow (m per 10 m)</span><span class="th">ค่าจากตารางที่อัตราการไหล <strong>ขาเข้า</strong> (เมตร ต่อ 10 เมตร)</span></dd>
+          <dt>L</dt><dd><span class="en">length of the pipe (m)</span><span class="th">ความยาวท่อ (ม.)</span></dd>
+          <dt>F</dt><dd><span class="en">outlet correction factor, from the number of equally spaced outlets</span><span class="th">ค่าปรับแก้จำนวนทางออก หาจากจำนวนทางออกที่วางห่างเท่า ๆ กัน</span></dd>
+        </dl>
+
+        <h3><span class="en">The correction factor</span><span class="th">ตารางค่าปรับแก้</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Outlets</span><span class="th">จำนวนทางออก</span></th>
+                <th><span class="en">F</span><span class="th">ค่าปรับแก้</span></th>
+                <th><span class="en">Outlets</span><span class="th">จำนวนทางออก</span></th>
+                <th><span class="en">F</span><span class="th">ค่าปรับแก้</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="num">1.000</td><td class="num">15</td><td class="num">0.358</td></tr>
+              <tr><td class="num">2</td><td class="num">0.512</td><td class="num">20</td><td class="num">0.354</td></tr>
+              <tr><td class="num">3</td><td class="num">0.434</td><td class="num">30</td><td class="num">0.350</td></tr>
+              <tr><td class="num">4</td><td class="num">0.405</td><td class="num">40</td><td class="num">0.349</td></tr>
+              <tr><td class="num">5</td><td class="num">0.380</td><td class="num">50</td><td class="num">0.348</td></tr>
+              <tr><td class="num">10</td><td class="num">0.365</td><td class="num">100</td><td class="num">0.347</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why the factor stops falling at about ⅓</span><span class="th">ทำไมค่าปรับแก้จึงหยุดลดลงที่ราวหนึ่งในสาม</span></div>
+          <p>
+            <span class="en">With one outlet at the very end, nothing is shed on the way and F = 1. Add a second and the loss halves. Add a third and it drops again — but by less. By ten outlets the factor is 0.365 and by a hundred it is 0.347, and it will never go below <strong>⅓</strong> however many you add. That limit is not arbitrary: a pipe whose flow tapers smoothly to zero loses exactly one-third of what the same pipe would lose carrying its inlet flow throughout. Everything above ⅓ is the lumpiness of having a finite number of outlets.</span>
+            <span class="th">ถ้ามีทางออกเพียงจุดเดียวที่ปลายสุด ก็ไม่มีน้ำออกระหว่างทางเลย ค่า F จึงเท่ากับ 1 เพิ่มจุดที่สองการสูญเสียลดลงครึ่งหนึ่ง เพิ่มจุดที่สามก็ลดลงอีก แต่ลดน้อยลง พอถึงสิบทางออกค่าปรับแก้เหลือ 0.365 และที่ร้อยทางออกเหลือ 0.347 และไม่มีวันต่ำกว่า <strong>หนึ่งในสาม</strong> ไม่ว่าจะเพิ่มอีกกี่จุด ขีดจำกัดนี้ไม่ได้ตั้งขึ้นมาลอย ๆ เพราะท่อที่อัตราการไหลค่อย ๆ ลดลงจนเป็นศูนย์อย่างต่อเนื่อง จะสูญเสียเพียงหนึ่งในสามของท่อเส้นเดียวกันที่พาอัตราขาเข้าไปตลอดทาง ส่วนที่เกินหนึ่งในสามขึ้นมาคือผลจากการที่ทางออกมีจำนวนจำกัดเป็นจุด ๆ</span>
+          </p>
+          <p>
+            <span class="en">Practical consequence: the factor is worth applying carefully at two, three or four outlets, where it changes fast. Beyond ten it hardly matters which row you pick, so do not agonise over interpolating between 0.365 and 0.358.</span>
+            <span class="th">ผลในทางปฏิบัติคือ ค่าปรับแก้ต้องใช้อย่างระมัดระวังเมื่อมีสอง สาม หรือสี่ทางออก เพราะค่าเปลี่ยนเร็ว แต่เกินสิบทางออกไปแล้ว จะเลือกแถวไหนก็แทบไม่ต่างกัน จึงไม่ต้องกังวลกับการเทียบบัญญัติไตรยางศ์ระหว่าง 0.365 กับ 0.358</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Worked example 3 · Friction in a sub-main</span><span class="th">ตัวอย่างการคำนวณที่ 3 · ความเสียดทานในท่อเมนย่อย</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">A sub-main of <strong>PVC class 5, 1½ inch, 40 m long</strong> carries <strong>160 L/min</strong> and feeds <strong>8 equally spaced laterals</strong> of 20 L/min each. Find the friction loss.</span>
+            <span class="th">ท่อเมนย่อย <strong>พีวีซีชั้น 5 ขนาด 1½ นิ้ว ยาว 40 เมตร</strong> มีน้ำไหลผ่าน <strong>160 ล./นาที</strong> จ่ายน้ำออก <strong>8 จุดเท่า ๆ กัน</strong> จุดละ 20 ล./นาที จงหาแรงเสียดทานในท่อ</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>j = 0.71 <span class="en">m per 10 m</span><span class="th">ม. ต่อ 10 ม.</span></code><span class="eq-note"><span class="en">table, 160 L/min, 1½ inch</span><span class="th">จากตาราง ที่ 160 ล./นาที ท่อ 1½ นิ้ว</span></span></div>
+          <div class="eq"><code>0.71 × 40/10 = 2.84 m</code><span class="eq-note"><span class="en">if it were a main</span><span class="th">ถ้าเป็นท่อเมน</span></span></div>
+          <div class="eq result"><code>0.71 × 40/10 × 0.38 = <strong>1.08 m</strong></code><span class="eq-note"><span class="en">8 outlets, so F = 0.38</span><span class="th">มี 8 ทางออก จึงใช้ F = 0.38</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">Had you skipped the factor you would have carried <strong>2.84 m</strong> into the head budget instead of 1.08 — an error of 1.76 m, which on a system designed around a 3 m allowance is the whole design. Note also that the slides take F = 0.38 for 8 outlets, reading the 5-outlet row rather than interpolating to about 0.371. That is the conservative direction, and at this precision it is the sensible habit.</span>
+          <span class="th">ถ้าลืมใส่ค่าปรับแก้ เราจะนำค่า <strong>2.84 ม.</strong> เข้าไปในงบประมาณเฮดแทนที่จะเป็น 1.08 ม. คลาดเคลื่อนไป 1.76 ม. ซึ่งในระบบที่ออกแบบโดยมีงบเพียง 3 ม. เท่ากับผิดทั้งการออกแบบ ข้อสังเกตอีกข้อคือ เอกสารประกอบการสอนใช้ F = 0.38 สำหรับ 8 ทางออก โดยอ่านจากแถว 5 ทางออก แทนที่จะเทียบบัญญัติไตรยางศ์ให้ได้ราว 0.371 ซึ่งเป็นการเผื่อไปในทางปลอดภัย และที่ความละเอียดระดับนี้ถือเป็นนิสัยที่เหมาะสม</span>
+        </p>
+      </section>
+
+      <!-- ===================== 6.9 ===================== -->
+      <section id="s-design">
+        <h2><span class="en">6.9 Worked design · A mini-sprinkler orchard</span><span class="th">6.9 ตัวอย่างการออกแบบ · สวนไม้ผลระบบมินิสปริงเกลอร์</span></h2>
+
+        <div class="box">
+          <p>
+            <span class="en">Install a mini-sprinkler system on an orchard planted at <strong>6 × 6 m</strong>, one head per tree, using a head rated <strong>Q = 90 L/h at H = 15 m</strong>. The block is <strong>8 heads</strong> along each lateral and <strong>12 laterals</strong> off the sub-main. Size the lateral and the sub-main.</span>
+            <span class="th">จงติดตั้งระบบมินิสปริงเกลอร์ในแปลงไม้ผลระยะปลูก <strong>6 × 6 ม.</strong> โดยให้หนึ่งต้นมีหนึ่งหัวจ่าย เลือกใช้หัวมินิสปริงเกลอร์ <strong>Q = 90 ล./ชม. ที่ H = 15 ม.</strong> แปลงหนึ่งมี <strong>8 หัว</strong> ต่อท่อย่อยหนึ่งเส้น และมี <strong>12 ท่อย่อย</strong> ต่อท่อเมนย่อยหนึ่งเส้น จงหาขนาดท่อย่อยและท่อเมนย่อย</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Step 1 · Set the head budget</span><span class="th">ขั้นที่ 1 · กำหนดงบประมาณเฮด</span></h3>
+
+        <p>
+          <span class="en">The design rule for a micro system is that head loss between the zone valve and the <em>furthest</em> emitter must not exceed <strong>20% of the emitter's working pressure</strong>. That keeps every head in the block between about 90% and 110% of its rated discharge, which is close enough to uniform for an orchard.</span>
+          <span class="th">กฎการออกแบบสำหรับระบบจุลภาคคือ การสูญเสียเฮดระหว่างวาล์วคุมโซนกับหัวจ่ายน้ำที่ <em>ไกลที่สุด</em> ต้องไม่เกิน <strong>ร้อยละ 20 ของแรงดันใช้งานของหัวจ่าย</strong> ซึ่งจะทำให้หัวจ่ายทุกหัวในโซนนั้นจ่ายน้ำอยู่ระหว่างราวร้อยละ 90 ถึง 110 ของค่าที่ระบุไว้ ถือว่าสม่ำเสมอเพียงพอสำหรับสวนไม้ผล</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>H<sub>loss</sub>(AB + BC) ≤ 0.20 × 15 = <strong>3.0 m</strong></code><span class="eq-note"><span class="en">the entire budget for sub-main plus lateral</span><span class="th">คืองบทั้งหมดสำหรับท่อเมนย่อยรวมกับท่อย่อย</span></span></div>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 300" role="img" aria-label="Sub-main A to B and lateral B to C layout">
+            <!-- sub-main -->
+            <line x1="120" y1="252" x2="120" y2="52" stroke="var(--accent)" stroke-width="7"/>
+            <!-- laterals -->
+            <g stroke="var(--ink)" stroke-width="2.2">
+              <line x1="120" y1="52" x2="620" y2="52"/>
+              <line x1="120" y1="84" x2="620" y2="84"/>
+              <line x1="120" y1="116" x2="620" y2="116"/>
+              <line x1="120" y1="148" x2="620" y2="148"/>
+              <line x1="120" y1="180" x2="620" y2="180"/>
+              <line x1="120" y1="212" x2="620" y2="212"/>
+              <line x1="120" y1="244" x2="620" y2="244"/>
+            </g>
+            <!-- emitter ticks on top lateral -->
+            <g fill="var(--accent-hot)">
+              <circle cx="182" cy="52" r="3.6"/><circle cx="244" cy="52" r="3.6"/><circle cx="306" cy="52" r="3.6"/><circle cx="368" cy="52" r="3.6"/>
+              <circle cx="430" cy="52" r="3.6"/><circle cx="492" cy="52" r="3.6"/><circle cx="554" cy="52" r="3.6"/><circle cx="616" cy="52" r="3.6"/>
+            </g>
+            <!-- nodes -->
+            <circle cx="120" cy="252" r="11" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"/>
+            <circle cx="120" cy="52" r="11" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"/>
+            <circle cx="620" cy="52" r="11" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"/>
+            <g font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="var(--ink)" text-anchor="middle">
+              <text x="120" y="257">A</text><text x="120" y="57">B</text><text x="620" y="57">C</text>
+            </g>
+            <!-- spacing marks -->
+            <g stroke="var(--accent-hot)" stroke-width="1.3">
+              <line x1="120" y1="30" x2="182" y2="30"/>
+              <line x1="120" y1="24" x2="120" y2="36"/><line x1="182" y1="24" x2="182" y2="36"/>
+              <line x1="96" y1="52" x2="96" y2="84"/>
+              <line x1="90" y1="52" x2="102" y2="52"/><line x1="90" y1="84" x2="102" y2="84"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="10.5" fill="var(--ink-soft)">
+              <text x="151" y="20" text-anchor="middle">6 m</text>
+              <text x="74" y="72" text-anchor="middle">6 m</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink)">
+              <text x="30" y="160" class="en">sub-main AB</text><text x="30" y="160" class="th">ท่อเมนย่อย AB</text>
+              <text x="30" y="176" font-size="10.5" fill="var(--ink-soft)">144 L/min · 72 m</text>
+              <text x="330" y="40" text-anchor="middle" class="en">lateral BC — 12 L/min · 48 m</text>
+              <text x="330" y="40" text-anchor="middle" class="th">ท่อย่อย BC — 12 ล./นาที · 48 ม.</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+              <text x="360" y="286" class="en">The critical path is A → B → C: the longest sub-main plus the longest lateral</text>
+              <text x="360" y="286" class="th">เส้นทางวิกฤตคือ A → B → C คือท่อเมนย่อยที่ยาวที่สุด บวกท่อย่อยที่ยาวที่สุด</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 6.4 — Only one path in the whole block has to be checked: from the zone valve at A, along the full sub-main to B, then along the full lateral to the last emitter at C. Every other emitter is closer to the valve and therefore better off. Design the worst case and the rest look after themselves.</span>
+            <span class="th">รูปที่ 6.4 — ในทั้งโซนมีเพียงเส้นทางเดียวที่ต้องตรวจสอบ คือจากวาล์วคุมโซนที่จุด A ไปตามท่อเมนย่อยจนสุดที่จุด B แล้วไปตามท่อย่อยจนถึงหัวจ่ายหัวสุดท้ายที่จุด C หัวจ่ายอื่นทุกหัวอยู่ใกล้วาล์วกว่านี้ จึงได้เปรียบกว่าอยู่แล้ว ออกแบบกรณีที่แย่ที่สุดได้ ที่เหลือก็ดูแลตัวเองได้</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Step 2 · Flows and lengths</span><span class="th">ขั้นที่ 2 · อัตราการไหลและความยาว</span></h3>
+
+        <div class="formula">
+          <div class="eq"><code>q<sub>BC</sub> = 8 × 90 / 60 = 12 <span class="en">L/min</span><span class="th">ล./นาที</span></code><span class="eq-note"><span class="en">lateral: 8 heads</span><span class="th">ท่อย่อย: 8 หัว</span></span></div>
+          <div class="eq"><code>L<sub>BC</sub> = 8 × 6 = 48 m</code></div>
+          <div class="eq"><code>q<sub>AB</sub> = 12 × 12 = 144 <span class="en">L/min</span><span class="th">ล./นาที</span></code><span class="eq-note"><span class="en">sub-main: 12 laterals</span><span class="th">ท่อเมนย่อย: 12 ท่อย่อย</span></span></div>
+          <div class="eq result"><code>L<sub>AB</sub> = 12 × 6 = 72 m</code></div>
+        </div>
+
+        <h3><span class="en">Step 3 · Size the lateral BC</span><span class="th">ขั้นที่ 3 · เลือกขนาดท่อย่อย BC</span></h3>
+
+        <p>
+          <span class="en">Use LDPE PN 2.5, the cheapest lateral material. At 12 L/min the 20 mm size gives <strong>0.51 m per 10 m</strong>, and with 8 outlets F = 0.38:</span>
+          <span class="th">ใช้ท่อ LDPE ชั้น PN 2.5 ซึ่งเป็นวัสดุท่อย่อยที่ถูกที่สุด ที่ 12 ล./นาที ขนาด 20 มม. ให้ค่า <strong>0.51 ม. ต่อ 10 ม.</strong> และเมื่อมี 8 ทางออก F = 0.38</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>H<sub>BC</sub> = 0.51 × <span class="frac"><span class="num">48</span><span class="den">10</span></span> × 0.38 = <strong>0.93 m</strong></code></div>
+        </div>
+
+        <h3><span class="en">Step 4 · Size the sub-main AB</span><span class="th">ขั้นที่ 4 · เลือกขนาดท่อเมนย่อย AB</span></h3>
+
+        <p>
+          <span class="en">What is left of the budget is <span class="mono">3.0 − 0.93 = 2.07 m</span>. Use PVC class 5; with 12 outlets, F = 0.365. Work backwards to the largest table value you can afford:</span>
+          <span class="th">งบที่เหลืออยู่คือ <span class="mono">3.0 − 0.93 = 2.07 ม.</span> ใช้ท่อพีวีซีชั้น 5 เมื่อมี 12 ทางออก F = 0.365 แล้วคำนวณย้อนกลับเพื่อหาค่าจากตารางที่สูงที่สุดเท่าที่ยอมรับได้</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>j × <span class="frac"><span class="num">72</span><span class="den">10</span></span> × 0.365 &lt; 2.07</code></div>
+          <div class="eq result"><code>j &lt; <strong>0.79 m per 10 m</strong></code><span class="eq-note"><span class="en">the largest loss rate the budget allows</span><span class="th">คืออัตราการสูญเสียสูงสุดที่งบประมาณยอมให้</span></span></div>
+        </div>
+
+        <p>
+          <span class="en">144 L/min falls between table rows, so read the <em>next row up</em> — 150 L/min — which errs towards more friction, not less. That row gives 1.26 for 1¼ inch, far over the limit, and <strong>0.63</strong> for 1½ inch, which clears it. Choose <strong>1½ inch</strong>:</span>
+          <span class="th">ค่า 144 ล./นาที อยู่ระหว่างแถวของตาราง จึงให้อ่าน <em>แถวถัดไปที่สูงกว่า</em> คือ 150 ล./นาที ซึ่งเผื่อไปทางความเสียดทานที่มากขึ้น ไม่ใช่น้อยลง แถวนั้นให้ค่า 1.26 สำหรับ 1¼ นิ้ว ซึ่งเกินขีดจำกัดไปมาก และ <strong>0.63</strong> สำหรับ 1½ นิ้ว ซึ่งผ่าน จึงเลือก <strong>1½ นิ้ว</strong></span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>H<sub>AB</sub> = 0.63 × <span class="frac"><span class="num">72</span><span class="den">10</span></span> × 0.365 = <strong>1.66 m</strong></code></div>
+          <div class="eq result"><code>H<sub>AB</sub> + H<sub>BC</sub> = 1.66 + 0.93 = <strong>2.59 m</strong> ≤ 3.0 m ✓</code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the leftover</span><span class="th">อ่านส่วนที่เหลือ</span></div>
+          <p>
+            <span class="en">The design finishes 0.41 m inside its budget — about 14% spare. That is a comfortable place to be. If it had finished at 2.98 m you would technically have passed and practically have failed, because nothing in this calculation accounts for the fittings, the partly closed valve, or the emitter that is three years old. If it had come out at 3.4 m the fix is not a bigger pump: it is a 2-inch sub-main, or splitting the block into two zones of six laterals, which cuts the sub-main flow in half and its friction by about four.</span>
+            <span class="th">การออกแบบจบลงโดยเหลืองบอยู่ 0.41 ม. หรือราวร้อยละ 14 ซึ่งเป็นจุดที่สบายใจได้ ถ้าจบลงที่ 2.98 ม. ก็ถือว่าผ่านในทางเทคนิคแต่ล้มเหลวในทางปฏิบัติ เพราะไม่มีอะไรในการคำนวณนี้ที่เผื่อไว้ให้ข้อต่อ วาล์วที่ปิดไม่สุด หรือหัวจ่ายที่ใช้งานมาแล้วสามปี และถ้าผลออกมาเป็น 3.4 ม. ทางแก้ไม่ใช่การเปลี่ยนเครื่องสูบน้ำให้ใหญ่ขึ้น แต่คือใช้ท่อเมนย่อยขนาด 2 นิ้ว หรือแบ่งโซนออกเป็นสองโซน โซนละหกท่อย่อย ซึ่งจะลดอัตราการไหลในท่อเมนย่อยลงครึ่งหนึ่งและลดความเสียดทานลงราวสี่เท่า</span>
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ===================== 6.10 ===================== -->
+      <section id="s-pump">
+        <h2><span class="en">6.10 Adding up the head and choosing the pump</span><span class="th">6.10 รวมเฮดทั้งหมดและเลือกเครื่องสูบน้ำ</span></h2>
+
+        <p>
+          <span class="en">The pump is chosen last, from two numbers: the <strong>flow</strong> every emitter running at once demands, and the <strong>total head</strong> needed to deliver it. The flow you already have. The head is an accounting exercise that starts at the furthest emitter and walks backwards to the pump, adding each loss as you pass it.</span>
+          <span class="th">เครื่องสูบน้ำเป็นสิ่งที่เลือกท้ายสุด โดยใช้ตัวเลขสองตัว คือ <strong>อัตราการไหล</strong> ที่หัวจ่ายน้ำทุกหัวซึ่งเปิดพร้อมกันต้องการ และ <strong>เฮดรวม</strong> ที่ต้องใช้เพื่อส่งน้ำไปให้ได้ อัตราการไหลเรามีอยู่แล้ว ส่วนเฮดคืองานบัญชีที่เริ่มจากหัวจ่ายที่ไกลที่สุดแล้วเดินย้อนกลับมาที่เครื่องสูบน้ำ โดยบวกการสูญเสียแต่ละก้อนเข้าไปเมื่อเดินผ่าน</span>
+        </p>
+
+        <h3><span class="en">The chain, continued from §6.9</span><span class="th">ลูกโซ่ ต่อจากหัวข้อ 6.9</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">The block of §6.9 sits at elevation <strong>3.0 m</strong>. The pump D is at elevation <strong>0.0</strong>, and the main DA runs <strong>40 m</strong> horizontally then <strong>30 m</strong> up to the zone valve — <strong>70 m</strong> of PVC class 5, 1½ inch, carrying the full 144 L/min with no outlets along the way.</span>
+            <span class="th">แปลงในหัวข้อ 6.9 อยู่ที่ระดับ <strong>3.0 ม.</strong> ส่วนเครื่องสูบน้ำจุด D อยู่ที่ระดับ <strong>0.0</strong> และท่อเมน DA วางในแนวราบ <strong>40 ม.</strong> แล้วขึ้นไปอีก <strong>30 ม.</strong> จนถึงวาล์วคุมโซน รวมเป็นท่อพีวีซีชั้น 5 ขนาด 1½ นิ้ว ยาว <strong>70 ม.</strong> พาอัตราการไหลเต็มจำนวน 144 ล./นาที โดยไม่มีทางออกระหว่างทาง</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq"><code>H<sub>DA</sub> = 0.63 × <span class="frac"><span class="num">70</span><span class="den">10</span></span> = 4.41 m</code><span class="eq-note"><span class="en">a main — <strong>no</strong> outlet factor</span><span class="th">เป็นท่อเมน จึง <strong>ไม่</strong> ใช้ค่าปรับแก้ทางออก</span></span></div>
+          <div class="eq"><code>H<sub>C</sub> = 15.00 m</code><span class="eq-note"><span class="en">what the last emitter must see</span><span class="th">คือแรงดันที่หัวจ่ายหัวสุดท้ายต้องได้รับ</span></span></div>
+          <div class="eq"><code>H<sub>B</sub> = 15.00 + 0.93 = 15.93 m</code><span class="eq-note"><span class="en">add the lateral</span><span class="th">บวกท่อย่อย</span></span></div>
+          <div class="eq"><code>H<sub>A</sub> = 15.93 + 1.66 = 17.59 m</code><span class="eq-note"><span class="en">add the sub-main</span><span class="th">บวกท่อเมนย่อย</span></span></div>
+          <div class="eq"><code>H<sub>D</sub> = 17.59 + 4.41 + 3.0 = 25.00 m</code><span class="eq-note"><span class="en">add the main, then the 3 m climb</span><span class="th">บวกท่อเมน แล้วบวกความสูงที่ไต่ขึ้นไป 3 ม.</span></span></div>
+          <div class="eq result"><code>H<sub>pump</sub> = 25.00 + 10% = <strong>27.5 m</strong></code><span class="eq-note"><span class="en">allowance for fittings, filter and valves</span><span class="th">ค่าเผื่อสำหรับข้อต่อ เครื่องกรอง และวาล์ว</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">What the 10% is standing in for</span><span class="th">ร้อยละ 10 นั้นแทนอะไร</span></div>
+          <p>
+            <span class="en">Every elbow, tee, valve and filter takes head that no pipe table accounts for. The exact method is <strong>equivalent length</strong>: each fitting is replaced by the length of straight pipe that would lose the same head, and that length is added to the run before the table is entered. A 90° elbow in 2-inch pipe is worth roughly 1.5 m of straight pipe; a fully open gate valve almost nothing; a filter, several metres and rising as it clogs.</span>
+            <span class="th">ข้องอ สามทาง วาล์ว และเครื่องกรองทุกตัวล้วนกินเฮดที่ตารางท่อไม่ได้คิดให้ วิธีที่แม่นยำคือใช้ <strong>ความยาวเทียบเท่า</strong> คือแทนอุปกรณ์แต่ละตัวด้วยความยาวของท่อตรงที่จะสูญเสียเฮดเท่ากัน แล้วบวกความยาวนั้นเข้าไปในเส้นท่อก่อนจะเปิดตาราง ข้องอ 90 องศาในท่อ 2 นิ้วมีค่าเทียบเท่าท่อตรงราว 1.5 ม. ประตูน้ำแบบเปิดสุดแทบไม่มีค่าเลย ส่วนเครื่องกรองกินหลายเมตรและเพิ่มขึ้นเรื่อย ๆ เมื่ออุดตัน</span>
+          </p>
+          <p>
+            <span class="en">For a farm system with a handful of fittings, adding <strong>10% of the total</strong> is quicker and close enough. Use equivalent length when the run is long and full of bends — a line with three elbows over 650 m, for example, where the fittings are trivial next to the pipe, or a compact pump house where they are not.</span>
+            <span class="th">สำหรับระบบในไร่นาที่มีอุปกรณ์ไม่กี่ตัว การบวกเพิ่ม <strong>ร้อยละ 10 ของเฮดรวม</strong> เร็วกว่าและใกล้เคียงพอ ส่วนวิธีความยาวเทียบเท่าควรใช้เมื่อเส้นท่อยาวและมีข้องอมาก เช่น เส้นท่อที่มีข้องอสามตัวตลอดระยะ 650 ม. ซึ่งอุปกรณ์เล็กน้อยมากเมื่อเทียบกับท่อ หรือในโรงสูบน้ำที่อัดแน่นซึ่งไม่ใช่เช่นนั้น</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Reading a pump table</span><span class="th">การอ่านตารางเครื่องสูบน้ำ</span></h3>
+
+        <p>
+          <span class="en">A pump is not rated by one head — it is rated by a <em>curve</em>, which the catalogue prints as a row of heads, one per flow. Enter the table at your flow, read down the column, and take the first pump whose head equals or exceeds what you need. Our design wants <strong>144 L/min ≈ 150</strong> and <strong>27.5 m</strong>:</span>
+          <span class="th">เครื่องสูบน้ำไม่ได้ระบุค่าเฮดเพียงค่าเดียว แต่ระบุเป็น <em>กราฟ</em> ซึ่งแค็ตตาล็อกพิมพ์ออกมาเป็นแถวของค่าเฮด หนึ่งค่าต่อหนึ่งอัตราการไหล วิธีใช้คือเข้าตารางที่อัตราการไหลของเรา ไล่ลงไปในคอลัมน์นั้น แล้วเลือกเครื่องตัวแรกที่เฮดเท่ากับหรือมากกว่าที่เราต้องการ การออกแบบของเราต้องการ <strong>144 ล./นาที ≈ 150</strong> และ <strong>27.5 ม.</strong></span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Model</span><span class="th">รุ่น</span></th>
+                <th rowspan="2"><span class="en">kW</span><span class="th">กิโลวัตต์</span></th>
+                <th rowspan="2"><span class="en">HP</span><span class="th">แรงม้า</span></th>
+                <th colspan="7"><span class="en">Total head (m) at each flow (L/min)</span><span class="th">เฮดรวม (ม.) ที่แต่ละอัตราการไหล (ล./นาที)</span></th>
+              </tr>
+              <tr>
+                <th class="num">50</th><th class="num">100</th><th class="num">150</th><th class="num">200</th>
+                <th class="num">300</th><th class="num">400</th><th class="num">500</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>SE 150</td><td class="num">1.1</td><td class="num">1.5</td><td class="num">25</td><td class="num">24.5</td><td class="num">23.5</td><td class="num">22.5</td><td class="num">18.5</td><td class="num">12.5</td><td class="num">4</td></tr>
+              <tr><td>SE 200</td><td class="num">1.5</td><td class="num">2</td><td class="num">28.5</td><td class="num">28</td><td class="num">26.5</td><td class="num">25</td><td class="num">21</td><td class="num">15</td><td class="num">5.5</td></tr>
+              <tr><td><strong>SE 300</strong></td><td class="num">2.2</td><td class="num">3</td><td class="num">34</td><td class="num">33.5</td><td class="num"><strong>32.5</strong></td><td class="num">31.5</td><td class="num">28</td><td class="num">22.5</td><td class="num">13.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">In the 150 L/min column, SE 150 offers 23.5 m and SE 200 offers 26.5 m — both short of 27.5. The <strong>SE 300</strong> gives 32.5 m and is the answer. Notice how narrowly the 2 HP pump fails: one metre. That single metre is why the 10% fittings allowance is not optional, and why you do not design to exactly 100% of budget.</span>
+          <span class="th">ในคอลัมน์ 150 ล./นาที รุ่น SE 150 ให้เฮด 23.5 ม. และ SE 200 ให้ 26.5 ม. ทั้งคู่ต่ำกว่า 27.5 ม. ส่วนรุ่น <strong>SE 300</strong> ให้ 32.5 ม. จึงเป็นคำตอบ ให้สังเกตว่าเครื่อง 2 แรงม้าพลาดไปอย่างหวุดหวิดเพียงหนึ่งเมตร หนึ่งเมตรนั้นเองคือเหตุผลที่ค่าเผื่ออุปกรณ์ร้อยละ 10 ไม่ใช่สิ่งที่จะละไว้ได้ และเป็นเหตุผลที่ไม่ควรออกแบบให้พอดีร้อยละ 100 ของงบ</span>
+        </p>
+
+        <h3><span class="en">The power the pump actually needs</span><span class="th">กำลังที่เครื่องสูบน้ำต้องใช้จริง</span></h3>
+
+        <div class="formula">
+          <div class="eq result"><code>HP = <span class="frac"><span class="num">Q × H</span><span class="den">76 × η</span></span></code><span class="eq-note"><span class="en">Q in <strong>L/s</strong>, H in m, η the pump efficiency</span><span class="th">Q หน่วย <strong>ล./วินาที</strong> H หน่วยเมตร และ η คือประสิทธิภาพของเครื่องสูบน้ำ</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">A units trap worth stopping for</span><span class="th">กับดักเรื่องหน่วยที่ควรหยุดดู</span></div>
+          <p>
+            <span class="en">The constant 76 carries units of kgf·m/s per horsepower, so <strong>Q must be in litres per second</strong>. Everything else in this chapter is in litres per minute, so the conversion is the easiest step in the whole calculation to forget — and forgetting it inflates the answer sixtyfold. Convert first, then substitute.</span>
+            <span class="th">ค่าคงที่ 76 มีหน่วยเป็น กิโลกรัมแรง·เมตร/วินาที ต่อหนึ่งแรงม้า ดังนั้น <strong>Q ต้องมีหน่วยเป็นลิตรต่อวินาที</strong> แต่ทุกอย่างในบทนี้ใช้หน่วยลิตรต่อนาที การแปลงหน่วยจึงเป็นขั้นตอนที่ลืมง่ายที่สุดในการคำนวณทั้งหมด และถ้าลืม คำตอบจะพองขึ้นถึงหกสิบเท่า ให้แปลงหน่วยก่อน แล้วค่อยแทนค่า</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code>Q = 144 <span class="en">L/min</span><span class="th">ล./นาที</span> ÷ 60 = 2.4 <span class="en">L/s</span><span class="th">ล./วินาที</span></code></div>
+            <div class="eq result"><code>HP = <span class="frac"><span class="num">2.4 × 27.5</span><span class="den">76 × 0.6</span></span> = <strong>1.45 HP</strong> ≈ 1.1 kW</code></div>
+          </div>
+          <p>
+            <span class="en">So the water needs 1.45 HP at the shaft, and we are buying a 3 HP motor. That is not waste — it is the price of the nearest catalogue size that also clears 27.5 m of head. Power and head are two different tests, and a pump has to pass both.</span>
+            <span class="th">นั่นคือน้ำต้องการกำลังที่เพลา 1.45 แรงม้า แต่เรากำลังซื้อมอเตอร์ 3 แรงม้า ซึ่งไม่ใช่ความสิ้นเปลือง แต่เป็นราคาของขนาดที่ใกล้ที่สุดในแค็ตตาล็อกซึ่งให้เฮดเกิน 27.5 ม. ด้วย กำลังกับเฮดเป็นการตรวจสอบคนละเรื่อง และเครื่องสูบน้ำต้องผ่านทั้งสองอย่าง</span>
+          </p>
+        </div>
+
+        <h3><span class="en">The eight-line head checklist</span><span class="th">รายการตรวจสอบเฮดแปดบรรทัด</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th><span class="en">Item</span><span class="th">รายการ</span></th>
+                <th><span class="en">In the §6.9 design</span><span class="th">ค่าในการออกแบบของหัวข้อ 6.9</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td><span class="en">Pressure required at the furthest emitter</span><span class="th">ความดันที่ใช้ในระบบ คือที่จุดไกลสุด</span></td><td class="num">15.00 m</td></tr>
+              <tr><td class="num">2</td><td><span class="en">Loss in the lateral</span><span class="th">ความดันสูญเสียในท่อย่อย</span></td><td class="num">0.93 m</td></tr>
+              <tr><td class="num">3</td><td><span class="en">Loss in the sub-main</span><span class="th">ความดันสูญเสียในท่อเมนย่อย</span></td><td class="num">1.66 m</td></tr>
+              <tr><td class="num">4</td><td><strong><span class="en">Sub-total: pressure to get water through the block (1+2+3)</span><span class="th">รวม: ความดันที่ใช้ส่งน้ำผ่านท่อ (1+2+3)</span></strong></td><td class="num"><strong>17.59 m</strong></td></tr>
+              <tr><td class="num">5</td><td><span class="en">Loss in fittings, filter and valves — 10% of line 4</span><span class="th">ความดันสูญเสียในข้อต่อ กรอง วาล์ว คือร้อยละ 10 ของข้อ 4</span></td><td class="num">≈ 2.5 m</td></tr>
+              <tr><td class="num">6</td><td><span class="en">Loss in the main</span><span class="th">ความดันสูญเสียในท่อเมน</span></td><td class="num">4.41 m</td></tr>
+              <tr><td class="num">7</td><td><span class="en">Difference in elevation</span><span class="th">ค่าความต่างระดับ</span></td><td class="num">3.00 m</td></tr>
+              <tr><td class="num">8</td><td><strong><span class="en">Total head required (4+5+6+7)</span><span class="th">ความดันที่ต้องการทั้งสิ้น (4+5+6+7)</span></strong></td><td class="num"><strong>27.5 m</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Worked design · A drip system for pomelo</span><span class="th">ตัวอย่างการออกแบบ · ระบบน้ำหยดสำหรับส้มโอ</span></h3>
+
+        <div class="box">
+          <p>
+            <span class="en">Pomelo at <strong>6 × 6 m</strong> uses <strong>80 L per tree per day</strong>. Emitters are rated <strong>8 L/h at 10 m</strong>, with <strong>3 emitters per tree</strong>. The block is <strong>8 rows of 16 trees</strong>. Find the daily run time, the losses in lateral and sub-main, and the pressure required.</span>
+            <span class="th">สวนส้มโอระยะปลูก <strong>6 × 6 ม.</strong> ใช้น้ำ <strong>80 ลิตร/ต้น/วัน</strong> ใช้หัวน้ำหยดอัตรา <strong>8 ล./ชม. ที่ความดัน 10 ม.</strong> จำนวน <strong>3 หัวต่อต้น</strong> แปลงมี <strong>8 แถว แถวละ 16 ต้น</strong> จงหาระยะเวลาให้น้ำต่อวัน ความดันสูญเสียในท่อย่อยและท่อเมนย่อย และความดันที่ต้องการ</span>
+          </p>
+        </div>
+
+        <div class="formula">
+          <div class="eq result"><code>t = <span class="frac"><span class="num">80</span><span class="den">3 × 8</span></span> = 3.33 <span class="en">h/day</span><span class="th">ชม./วัน</span> ≈ <strong>3 h 20 min</strong></code><span class="eq-note"><span class="en">(a) run time</span><span class="th">(ก) ระยะเวลาให้น้ำ</span></span></div>
+          <div class="eq"><code>q<sub>lat</sub> = 16 × 3 × 8 / 60 = 6.4 <span class="en">L/min</span><span class="th">ล./นาที</span></code><span class="eq-note"><span class="en">48 emitters on one lateral</span><span class="th">ท่อย่อยหนึ่งเส้นมี 48 หัว</span></span></div>
+          <div class="eq"><code>L<sub>lat</sub> = 16 × 6 = 96 m &nbsp;·&nbsp; q<sub>sub</sub> = 8 × 6.4 = 51.2 <span class="en">L/min</span><span class="th">ล./นาที</span> &nbsp;·&nbsp; L<sub>sub</sub> = 8 × 6 = 48 m</code></div>
+        </div>
+
+        <p>
+          <span class="en"><strong>(b) Lateral.</strong> LDPE PN 2.5, 20 mm. The table reads 0.14 at 6 L/min and 0.19 at 7, so 6.4 L/min gives about <strong>0.16</strong>. With 48 outlets, F = 0.349:</span>
+          <span class="th"><strong>(ข) ท่อย่อย</strong> ใช้ LDPE ชั้น PN 2.5 ขนาด 20 มม. ตารางให้ค่า 0.14 ที่ 6 ล./นาที และ 0.19 ที่ 7 ดังนั้นที่ 6.4 ล./นาที จะได้ราว <strong>0.16</strong> เมื่อมี 48 ทางออก F = 0.349</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq result"><code>H<sub>lat</sub> = 0.16 × <span class="frac"><span class="num">96</span><span class="den">10</span></span> × 0.349 = <strong>0.54 m</strong></code></div>
+        </div>
+
+        <p>
+          <span class="en"><strong>(c) Sub-main.</strong> The budget is <span class="mono">0.20 × 10 = 2.0 m</span>, leaving <span class="mono">2.0 − 0.54 = 1.46 m</span>. In PVC class 5 at 51.2 L/min, a 1¼-inch pipe gives about 0.18, and with 8 outlets F = 0.38:</span>
+          <span class="th"><strong>(ค) ท่อเมนย่อย</strong> งบประมาณคือ <span class="mono">0.20 × 10 = 2.0 ม.</span> เหลือให้ท่อเมนย่อย <span class="mono">2.0 − 0.54 = 1.46 ม.</span> ในท่อพีวีซีชั้น 5 ที่ 51.2 ล./นาที ท่อขนาด 1¼ นิ้วให้ค่าราว 0.18 และเมื่อมี 8 ทางออก F = 0.38</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code>H<sub>sub</sub> = 0.18 × <span class="frac"><span class="num">48</span><span class="den">10</span></span> × 0.38 = <strong>0.32 m</strong></code></div>
+          <div class="eq result"><code><span class="en">total</span><span class="th">รวม</span> = 0.54 + 0.32 = <strong>0.86 m</strong> <span class="en">of the</span><span class="th">จากงบ</span> 2.0 m ✓</code></div>
+        </div>
+
+        <p>
+          <span class="en"><strong>(d) Pressure required</strong> at the inlet to the sub-main is <span class="mono">10 + 0.86 = 10.86 m</span>, before the main, the fittings allowance and the lift. The hydraulic power is tiny — <span class="mono">Q = 51.2 L/min = 0.85 L/s</span>, so at 10.86 m and η = 0.6 the shaft needs about <strong>0.2 HP</strong>. A drip system for eight rows of pomelo can genuinely run off a very small pump, and that — not the water saving alone — is a large part of why drip spread as fast as it did.</span>
+          <span class="th"><strong>(ง) ความดันที่ต้องการ</strong> ที่ปากท่อเมนย่อยคือ <span class="mono">10 + 0.86 = 10.86 ม.</span> ก่อนที่จะบวกท่อเมน ค่าเผื่ออุปกรณ์ และความต่างระดับ ส่วนกำลังทางชลศาสตร์นั้นน้อยมาก คือ <span class="mono">Q = 51.2 ล./นาที = 0.85 ล./วินาที</span> ที่เฮด 10.86 ม. และ η = 0.6 เพลาต้องการกำลังเพียงราว <strong>0.2 แรงม้า</strong> ระบบน้ำหยดสำหรับส้มโอแปดแถวจึงใช้เครื่องสูบน้ำขนาดเล็กมากได้จริง และเรื่องนี้ ไม่ใช่การประหยัดน้ำเพียงอย่างเดียว คือส่วนสำคัญที่ทำให้ระบบน้ำหยดแพร่หลายอย่างรวดเร็ว</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Compare the two designs</span><span class="th">เปรียบเทียบการออกแบบทั้งสอง</span></div>
+          <p>
+            <span class="en">Same orchard spacing, same layout logic, and yet the mini-sprinkler block needed a 3 HP pump while the drip block needs a fraction of one. The reason is entirely in the emitter line: <strong>90 L/h at 15 m</strong> against <strong>8 L/h at 10 m</strong>. Lower flow per emitter means less flow in every pipe, which means less friction; lower working pressure means less head to generate in the first place. Choose the emitter and you have very nearly chosen the pump.</span>
+            <span class="th">ระยะปลูกเท่ากัน ตรรกะการวางผังเหมือนกัน แต่แปลงมินิสปริงเกลอร์ต้องใช้เครื่องสูบน้ำ 3 แรงม้า ขณะที่แปลงน้ำหยดใช้เพียงเศษเสี้ยวของหนึ่งแรงม้า เหตุผลทั้งหมดอยู่ที่บรรทัดของหัวจ่ายน้ำ คือ <strong>90 ล./ชม. ที่ 15 ม.</strong> เทียบกับ <strong>8 ล./ชม. ที่ 10 ม.</strong> อัตราการไหลต่อหัวที่น้อยกว่าหมายถึงอัตราการไหลในท่อทุกเส้นน้อยกว่า ซึ่งหมายถึงความเสียดทานน้อยกว่า และแรงดันใช้งานที่ต่ำกว่าก็หมายถึงเฮดที่ต้องสร้างขึ้นตั้งแต่แรกน้อยกว่าด้วย การเลือกหัวจ่ายน้ำจึงเท่ากับได้เลือกเครื่องสูบน้ำไปแล้วเกือบทั้งหมด</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 6.11 ===================== -->
+      <section id="s-layout">
+        <h2><span class="en">6.11 Zoning and pipe layout</span><span class="th">6.11 การแบ่งโซนและการวางแนวท่อ</span></h2>
+
+        <p>
+          <span class="en">Everything above assumed the block was already drawn. Deciding <em>how big a block should be</em> and <em>where the sub-main runs</em> is the part of the job that cannot be done with a table, and it is where most installed systems go wrong.</span>
+          <span class="th">ทุกอย่างข้างบนตั้งอยู่บนสมมติฐานว่าแปลงถูกเขียนผังไว้แล้ว การตัดสินใจว่า <em>โซนหนึ่งควรใหญ่เท่าใด</em> และ <em>ท่อเมนย่อยควรวางตรงไหน</em> เป็นส่วนของงานที่ทำด้วยตารางไม่ได้ และเป็นจุดที่ระบบซึ่งติดตั้งไปแล้วส่วนใหญ่ผิดพลาด</span>
+        </p>
+
+        <h3><span class="en">The two classic installation faults</span><span class="th">ข้อผิดพลาดคลาสสิกสองข้อในการติดตั้ง</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Cause</span><span class="th">สาเหตุ</span></th>
+                <th><span class="en">Symptom in the field</span><span class="th">อาการที่เห็นในแปลง</span></th>
+                <th><span class="en">Fix</span><span class="th">การแก้ไข</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="en">Too many laterals open at once, or the sub-main is too small and too long</span><span class="th">จำนวนแถวที่เปิดให้น้ำแต่ละครั้งมากเกินไป หรือท่อเมนย่อยเล็กและยาวเกินไป</span></td>
+                <td><span class="en">Water is weak in the rows <strong>furthest from the valve</strong> — the far end of the sub-main</span><span class="th">น้ำอ่อนในแถวที่ <strong>อยู่ไกลจากวาล์วที่สุด</strong> คือปลายท่อเมนย่อย</span></td>
+                <td><span class="en">Shorten the sub-main by splitting the field into more zones</span><span class="th">ตัดท่อเมนย่อยให้สั้นลงโดยแบ่งโซนเพิ่ม</span></td>
+              </tr>
+              <tr>
+                <td><span class="en">The lateral itself is too long</span><span class="th">ท่อย่อยยาวเกินไป</span></td>
+                <td><span class="en">Plenty of water at the <strong>head of every row</strong>, little at the end of it</span><span class="th">น้ำมากที่ <strong>บริเวณหัวแถว</strong> และน้ำน้อยที่ปลายแถว</span></td>
+                <td><span class="en">Shorten the laterals by moving the sub-main into the <strong>middle</strong> of the block, so each lateral runs half as far in each direction</span><span class="th">ทำท่อย่อยให้สั้นลง โดยย้ายท่อเมนย่อยไปไว้ <strong>กลางแปลง</strong> ท่อย่อยแต่ละเส้นจะวิ่งเพียงครึ่งเดียวในแต่ละทิศ</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Diagnose by asking which way the weakness runs</span><span class="th">วินิจฉัยด้วยการถามว่าอาการอ่อนไปในทิศใด</span></div>
+          <p>
+            <span class="en">The two faults look identical to a farmer — "the water is weak over there" — and they are told apart by one question: <strong>is the weakness at the end of the rows, or at the end of the block?</strong> Weak at the end of every row, including the row nearest the valve, means the laterals are too long. Weak in the far rows but strong at the ends of the near ones means the sub-main is starved. The first is fixed with a centre-fed layout; the second by adding a zone. Neither is fixed by a bigger pump, which merely over-pressures the near end while the far end stays poor.</span>
+            <span class="th">ข้อผิดพลาดสองข้อนี้ดูเหมือนกันหมดในสายตาเกษตรกร คือ "น้ำอ่อนตรงโน้น" และแยกออกจากกันได้ด้วยคำถามเดียว คือ <strong>อาการอ่อนอยู่ที่ปลายแถว หรืออยู่ที่ท้ายแปลง</strong> ถ้าอ่อนที่ปลายของทุกแถว รวมทั้งแถวที่อยู่ใกล้วาล์วที่สุดด้วย แสดงว่าท่อย่อยยาวเกินไป แต่ถ้าอ่อนเฉพาะแถวที่อยู่ไกล ในขณะที่ปลายแถวใกล้ ๆ ยังแรงดี แสดงว่าท่อเมนย่อยได้น้ำไม่พอ ข้อแรกแก้ด้วยการวางท่อเมนย่อยไว้กลางแปลง ข้อที่สองแก้ด้วยการเพิ่มโซน ทั้งสองข้อไม่ได้แก้ด้วยการเปลี่ยนเครื่องสูบน้ำให้ใหญ่ขึ้น ซึ่งมีแต่จะทำให้ด้านใกล้แรงดันเกิน ในขณะที่ด้านไกลยังแย่เหมือนเดิม</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Three layout rules worth following</span><span class="th">กฎการวางผังสามข้อที่ควรทำตาม</span></h3>
+
+        <div class="cards">
+          <div class="card">
+            <h4><span class="card-num">1</span><span class="en">Run laterals along the contour where you can</span><span class="th">วางท่อย่อยไปตามเส้นชั้นความสูงถ้าทำได้</span></h4>
+            <p><span class="en">A lateral on the contour has no elevation term at all, so the whole head budget is available for friction. A lateral running downhill gains head as it goes, which can offset friction neatly; one running uphill loses on both counts.</span><span class="th">ท่อย่อยที่วางตามเส้นชั้นความสูงไม่มีพจน์ความต่างระดับเลย งบประมาณเฮดทั้งก้อนจึงเหลือไว้ให้ความเสียดทาน ท่อย่อยที่ลาดลงจะได้เฮดคืนระหว่างทาง ซึ่งหักล้างความเสียดทานได้พอดิบพอดี ส่วนท่อที่วิ่งขึ้นเนินเสียเปรียบทั้งสองทาง</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">2</span><span class="en">Put a valve on every lateral</span><span class="th">ติดวาล์วที่ท่อย่อยทุกเส้น</span></h4>
+            <p><span class="en">It costs almost nothing at installation and it is the only way to flush one line, isolate one leak, or prove which row is blocked without shutting the block down.</span><span class="th">มีค่าใช้จ่ายตอนติดตั้งน้อยมาก และเป็นวิธีเดียวที่จะล้างท่อทีละเส้น ตัดแยกจุดรั่วจุดเดียว หรือพิสูจน์ว่าแถวไหนอุดตัน โดยไม่ต้องหยุดทั้งโซน</span></p>
+          </div>
+          <div class="card">
+            <h4><span class="card-num">3</span><span class="en">Size the main for the largest zone, not the whole field</span><span class="th">คิดขนาดท่อเมนจากโซนที่ใหญ่ที่สุด ไม่ใช่ทั้งแปลง</span></h4>
+            <p><span class="en">Zones run one at a time, so the main only ever carries one zone's flow. Sizing it for the sum of all zones buys pipe that will never be used — but the main must still be at least as large as the sub-main it feeds.</span><span class="th">โซนต่าง ๆ เปิดทีละโซน ท่อเมนจึงพาอัตราการไหลของเพียงโซนเดียวเสมอ การคิดขนาดจากผลรวมของทุกโซนเท่ากับซื้อท่อที่ไม่มีวันได้ใช้ แต่ทั้งนี้ท่อเมนต้องมีขนาดไม่เล็กกว่าท่อเมนย่อยที่มันจ่ายน้ำให้</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Zoning is the cheapest lever you have</span><span class="th">การแบ่งโซนคือเครื่องมือที่ถูกที่สุดที่เรามี</span></div>
+          <p>
+            <span class="en">Splitting a block into two zones halves the flow in the sub-main and the main, which cuts their friction by about <strong>four</strong>. It costs one extra valve and some operating time; it can save a pipe size on every run and a whole pump size at the headworks. When a design will not close its head budget, try dividing the block before you try anything else.</span>
+            <span class="th">การแบ่งแปลงหนึ่งออกเป็นสองโซน ลดอัตราการไหลในท่อเมนย่อยและท่อเมนลงครึ่งหนึ่ง ซึ่งลดความเสียดทานของทั้งสองลงราว <strong>สี่เท่า</strong> โดยมีค่าใช้จ่ายเพียงวาล์วเพิ่มหนึ่งตัวกับเวลาเดินระบบที่นานขึ้น แต่ประหยัดขนาดท่อได้หนึ่งขั้นในทุกเส้น และประหยัดขนาดเครื่องสูบน้ำได้ทั้งขั้นที่หัวงาน เมื่อใดที่การออกแบบปิดงบประมาณเฮดไม่ลง ให้ลองแบ่งแปลงก่อนจะลองอย่างอื่น</span>
+          </p>
+        </div>
+      </section>
+
+
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">Six components in order: <strong>pump → filter → main → sub-main → lateral → emitter</strong>. Water meets them in that order; design walks the other way, from the emitter back to the pump.</span><span class="th">องค์ประกอบหกอย่างเรียงตามลำดับ คือ <strong>เครื่องสูบน้ำ → เครื่องกรอง → ท่อเมน → ท่อเมนย่อย → ท่อย่อย → หัวปล่อยน้ำ</strong> น้ำเดินทางตามลำดับนี้ ส่วนการออกแบบเดินสวนทาง คือจากหัวปล่อยน้ำย้อนกลับไปหาเครื่องสูบน้ำ</span></li>
+            <li><span class="en">A <strong>main only transports</strong>; a <strong>sub-main and a lateral distribute as they go</strong>. That distinction governs the friction calculation and is the most expensive thing in this chapter to get wrong.</span><span class="th"><strong>ท่อเมนส่งน้ำอย่างเดียว</strong> ส่วน <strong>ท่อเมนย่อยและท่อย่อยจ่ายน้ำออกไประหว่างทาง</strong> ความต่างข้อนี้กำกับการคำนวณความเสียดทาน และเป็นสิ่งที่ถ้าคิดผิดจะแพงที่สุดในบทนี้</span></li>
+            <li><span class="en">An emitter is specified as <strong>q at H</strong> — one fact, not two. PVC is named in inches; PE is named by <em>outside</em> diameter in mm, and the friction table is governed by the inside diameter beneath the heading.</span><span class="th">หัวปล่อยน้ำระบุเป็น <strong>q ที่ H</strong> เป็นข้อเท็จจริงชิ้นเดียว ไม่ใช่สองชิ้น ท่อพีวีซีเรียกขนาดเป็นนิ้ว ส่วนท่อพีอีเรียกตามเส้นผ่านศูนย์กลาง <em>ภายนอก</em> เป็นมิลลิเมตร และตารางความเสียดทานถูกกำกับด้วยเส้นผ่านศูนย์กลางภายในที่อยู่ใต้หัวตาราง</span></li>
+            <li><span class="en">Choosing a pipe is <strong>two</strong> checks: diameter for flow, and class for pressure. PVC class 5 / 8.5 / 13.5 hold 50 / 85 / 135 m of head; a thicker class has a smaller bore and therefore <em>more</em> friction.</span><span class="th">การเลือกท่อมี <strong>สอง</strong> การตรวจสอบ คือเส้นผ่านศูนย์กลางสำหรับอัตราการไหล และชั้นความดันสำหรับแรงดัน ท่อพีวีซีชั้น 5 / 8.5 / 13.5 รับเฮดได้ 50 / 85 / 135 ม. และชั้นที่หนากว่ามีรูในเล็กกว่า จึงมีความเสียดทาน <em>มากกว่า</em></span></li>
+            <li><span class="en">The working form of Bernoulli: <span class="mono">H₁ + z₁ = H₂ + z₂ + loss</span>. Read it as a budget and rearrange for whatever is unknown.</span><span class="th">รูปแบบใช้งานของสมการเบอร์นูลลี คือ <span class="mono">H₁ + z₁ = H₂ + z₂ + การสูญเสีย</span> ให้อ่านเป็นงบประมาณ แล้วย้ายข้างเพื่อหาสิ่งที่ยังไม่รู้ค่า</span></li>
+            <li><span class="en">Friction table drill: convert flow to <strong>L/min</strong>, read the cell in <strong>m per 10 m</strong>, scale by <span class="mono">L/10</span>, and for a distributing pipe multiply by <strong>F</strong>. Loss rises as the square of flow and falls steeply with diameter.</span><span class="th">ขั้นตอนใช้ตารางความเสียดทาน คือแปลงอัตราการไหลเป็น <strong>ล./นาที</strong> อ่านค่าในช่องซึ่งเป็น <strong>เมตรต่อ 10 เมตร</strong> คูณด้วย <span class="mono">L/10</span> และถ้าเป็นท่อที่จ่ายน้ำระหว่างทางให้คูณด้วย <strong>F</strong> อีก การสูญเสียเพิ่มตามกำลังสองของอัตราการไหล และลดลงอย่างรวดเร็วเมื่อท่อใหญ่ขึ้น</span></li>
+            <li><span class="en">The outlet factor F runs from 1.000 at one outlet to 0.347 at a hundred, and never falls below ⅓. It matters most at two to five outlets.</span><span class="th">ค่าปรับแก้ F ไล่จาก 1.000 ที่หนึ่งทางออก ไปถึง 0.347 ที่ร้อยทางออก และไม่ต่ำกว่าหนึ่งในสาม ค่านี้สำคัญที่สุดในช่วงสองถึงห้าทางออก</span></li>
+            <li><span class="en">Design rule for micro systems: <strong>H<sub>loss</sub>(sub-main + lateral) ≤ 20% of the emitter working pressure</strong>, checked along the single worst path — longest sub-main plus longest lateral.</span><span class="th">กฎการออกแบบสำหรับระบบจุลภาค คือ <strong>H<sub>loss</sub>(ท่อเมนย่อย + ท่อย่อย) ไม่เกินร้อยละ 20 ของแรงดันใช้งานของหัวจ่าย</strong> โดยตรวจสอบตามเส้นทางที่แย่ที่สุดเพียงเส้นเดียว คือท่อเมนย่อยที่ยาวที่สุดบวกท่อย่อยที่ยาวที่สุด</span></li>
+            <li><span class="en">Total head = emitter pressure + lateral + sub-main + <strong>10% for fittings</strong> + main + elevation. Then pick the pump from its curve at your flow, and check power with <span class="mono">HP = Q·H / (76 η)</span> — <strong>Q in L/s</strong>.</span><span class="th">เฮดรวม = แรงดันที่หัวจ่าย + ท่อย่อย + ท่อเมนย่อย + <strong>ร้อยละ 10 สำหรับอุปกรณ์</strong> + ท่อเมน + ความต่างระดับ จากนั้นเลือกเครื่องสูบน้ำจากกราฟที่อัตราการไหลของเรา และตรวจกำลังด้วย <span class="mono">HP = Q·H / (76 η)</span> โดย <strong>Q หน่วย ล./วินาที</strong></span></li>
+            <li><span class="en">Weak at the end of <em>every</em> row → laterals too long, feed from the middle. Weak only in the <em>far</em> rows → sub-main starved, add a zone. Neither is cured by a bigger pump.</span><span class="th">น้ำอ่อนที่ปลาย <em>ทุก</em> แถว แปลว่าท่อย่อยยาวเกินไป ให้จ่ายน้ำจากกลางแปลง ส่วนน้ำอ่อนเฉพาะแถวที่ <em>อยู่ไกล</em> แปลว่าท่อเมนย่อยได้น้ำไม่พอ ให้เพิ่มโซน ทั้งสองอาการไม่หายด้วยการเปลี่ยนเครื่องสูบน้ำให้ใหญ่ขึ้น</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">Repeat the design of §6.9 with a larger head: <strong>Q = 120 L/h at H = 15 m</strong>, same 6 × 6 m orchard, 8 heads per lateral and 12 laterals. Choose the lateral from LDPE PN 2.5 in 16 or 20 mm, and the sub-main from PVC class 5 in 1½ or 2 inch.</span>
+            <span class="th">จงออกแบบซ้ำตามหัวข้อ 6.9 แต่ใช้หัวจ่ายที่ใหญ่ขึ้น คือ <strong>Q = 120 ล./ชม. ที่ H = 15 ม.</strong> แปลงไม้ผลระยะ 6 × 6 ม. เท่าเดิม ท่อย่อยละ 8 หัว และมี 12 ท่อย่อย โดยเลือกท่อย่อยจาก LDPE PN 2.5 ขนาด 16 หรือ 20 มม. และเลือกท่อเมนย่อยจากพีวีซีชั้น 5 ขนาด 1½ หรือ 2 นิ้ว</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">Flows scale directly with the emitter: <span class="mono">q<sub>lat</sub> = 8 × 120/60 = 16 L/min</span> over 48 m, and <span class="mono">q<sub>sub</sub> = 12 × 16 = 192 L/min</span> over 72 m. Budget is unchanged at <span class="mono">0.2 × 15 = 3.0 m</span>. <strong>Lateral:</strong> LDPE PN 2.5 at 16 L/min gives 0.86 for 20 mm, so <span class="mono">0.86 × 48/10 × 0.38 = 1.57 m</span>. The 16 mm size is smaller still and would be far worse, so take <strong>20 mm</strong>. <strong>Sub-main:</strong> 1.43 m is left. Reading the 200 L/min row, 1½ inch gives 1.07 → <span class="mono">1.07 × 72/10 × 0.365 = 2.81 m</span>, which busts the budget on its own; 2 inch gives 0.36 → <span class="mono">0.36 × 72/10 × 0.365 = 0.95 m</span>. Take <strong>2 inch</strong>. Total <span class="mono">1.57 + 0.95 = 2.51 m ≤ 3.0 m</span> ✓. <strong>Read the result:</strong> raising the emitter from 90 to 120 L/h — a third more water — forced the sub-main up a whole pipe size, because friction went up by roughly (192/144)² ≈ 1.8. Emitter choice propagates through the entire bill of materials.</span>
+            <span class="th">อัตราการไหลแปรผันตรงกับหัวจ่าย คือ <span class="mono">q<sub>ท่อย่อย</sub> = 8 × 120/60 = 16 ล./นาที</span> ตลอด 48 ม. และ <span class="mono">q<sub>ท่อเมนย่อย</sub> = 12 × 16 = 192 ล./นาที</span> ตลอด 72 ม. งบประมาณยังเท่าเดิมคือ <span class="mono">0.2 × 15 = 3.0 ม.</span> <strong>ท่อย่อย:</strong> LDPE PN 2.5 ที่ 16 ล./นาที ขนาด 20 มม. ให้ค่า 0.86 ดังนั้น <span class="mono">0.86 × 48/10 × 0.38 = 1.57 ม.</span> ส่วนขนาด 16 มม. เล็กกว่าอีกและจะแย่กว่ามาก จึงเลือก <strong>20 มม.</strong> <strong>ท่อเมนย่อย:</strong> เหลืองบ 1.43 ม. เมื่ออ่านที่แถว 200 ล./นาที ขนาด 1½ นิ้วให้ 1.07 → <span class="mono">1.07 × 72/10 × 0.365 = 2.81 ม.</span> ซึ่งเกินงบตั้งแต่ตัวมันเอง ส่วนขนาด 2 นิ้วให้ 0.36 → <span class="mono">0.36 × 72/10 × 0.365 = 0.95 ม.</span> จึงเลือก <strong>2 นิ้ว</strong> รวม <span class="mono">1.57 + 0.95 = 2.51 ม. ไม่เกิน 3.0 ม.</span> ✓ <strong>อ่านผลลัพธ์:</strong> การเพิ่มหัวจ่ายจาก 90 เป็น 120 ล./ชม. คือเพิ่มน้ำอีกหนึ่งในสาม กลับบังคับให้ท่อเมนย่อยต้องขยายขึ้นทั้งขนาด เพราะความเสียดทานเพิ่มขึ้นราว (192/144)² ≈ 1.8 เท่า การเลือกหัวจ่ายน้ำจึงส่งผลกระทบไปทั้งบัญชีวัสดุ</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">Explain why the friction loss in a sub-main is multiplied by an outlet factor while the loss in a main is not, and why that factor can never fall below one third however many outlets are added.</span>
+            <span class="th">จงอธิบายว่าเหตุใดการสูญเสียความเสียดทานในท่อเมนย่อยจึงต้องคูณด้วยค่าปรับแก้จำนวนทางออก ในขณะที่ท่อเมนไม่ต้อง และเหตุใดค่าปรับแก้นั้นจึงไม่มีทางต่ำกว่าหนึ่งในสาม ไม่ว่าจะเพิ่มทางออกอีกกี่จุด</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">A main carries its full inlet flow from one end to the other, which is exactly what the friction table assumes, so the table value applies directly. A sub-main sheds water at every outlet: it starts with the full flow and ends with none. Because friction is proportional to roughly the <em>square</em> of the flow passing a point, the sections near the far end contribute almost nothing. Summing the real flow section by section gives a total far below the table value, and F is the ratio between the two. <strong>The ⅓ limit:</strong> in the limit of very many, very closely spaced outlets, the flow tapers linearly from Q at the inlet to zero at the end. Integrating a loss proportional to the square of a linearly falling flow over the length gives exactly one third of the loss that the constant flow Q would produce — <span class="mono">∫₀¹(1−x)² dx = ⅓</span>. Any finite number of outlets is lumpier than that smooth taper, so F always sits a little above ⅓ and approaches it from above.</span>
+            <span class="th">ท่อเมนพาอัตราการไหลขาเข้าเต็มจำนวนจากปลายหนึ่งไปอีกปลายหนึ่ง ซึ่งตรงกับสมมติฐานของตารางความเสียดทานพอดี ค่าจากตารางจึงใช้ได้โดยตรง ส่วนท่อเมนย่อยจ่ายน้ำออกที่ทุกทางออก คือเริ่มด้วยอัตราเต็มจำนวนและไปจบที่ศูนย์ เนื่องจากความเสียดทานแปรผันตามราว <em>กำลังสอง</em> ของอัตราการไหลที่ผ่านจุดนั้น ช่วงท่อใกล้ปลายทางจึงแทบไม่มีส่วนร่วมเลย การรวมอัตราการไหลจริงทีละช่วงจะได้ผลรวมที่ต่ำกว่าค่าจากตารางมาก และ F ก็คืออัตราส่วนระหว่างสองค่านั้น <strong>ขีดจำกัดหนึ่งในสาม:</strong> ในกรณีที่มีทางออกจำนวนมากและถี่มาก อัตราการไหลจะลดลงเป็นเส้นตรงจาก Q ที่ปากทางไปเป็นศูนย์ที่ปลาย การอินทิเกรตการสูญเสียซึ่งแปรตามกำลังสองของอัตราที่ลดลงเป็นเส้นตรงตลอดความยาว จะได้เท่ากับหนึ่งในสามของการสูญเสียที่อัตราคงที่ Q จะทำให้เกิดขึ้นพอดี คือ <span class="mono">∫₀¹(1−x)² dx = ⅓</span> ส่วนทางออกจำนวนจำกัดใด ๆ ย่อมเป็นขั้น ๆ มากกว่าการลดลงอย่างต่อเนื่องนั้น ค่า F จึงอยู่สูงกว่าหนึ่งในสามเล็กน้อยเสมอ และเข้าใกล้จากด้านบน</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">A main must deliver 25 m³/h over 1,200 m from a point where the head is 55 m at elevation 0.0, to a point at elevation 4.0 m where 25 m of head is required. Find the size and the class of PVC pipe.</span>
+            <span class="th">ท่อเมนเส้นหนึ่งต้องส่งน้ำ 25 ลบ.ม./ชม. ระยะ 1,200 ม. จากจุดที่มีเฮด 55 ม. ที่ระดับ 0.0 ไปยังจุดที่ระดับ 4.0 ม. ซึ่งต้องการเฮด 25 ม. จงหาขนาดและชั้นของท่อพีวีซี</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>Diameter.</strong> <span class="mono">55 + 0.0 = 25 + 4.0 + loss</span> → <span class="mono">loss = 26 m</span> over 1,200 m → <span class="mono">j = 26 / (1200/10) = 0.217 m per 10 m</span>. At <span class="mono">25 m³/h = 416.7 L/min</span>, read the 420 row: 2½ inch gives 0.44 (too much) and 3 inch gives 0.20 (fits). <strong>3 inch or larger.</strong> <strong>Class.</strong> The head at the upstream end is 55 m, which exceeds the 50 m limit of class 5, so the line must be <strong>class 8.5</strong>. <strong>And now the trap:</strong> the 0.20 you read came from the class 5 table. Class 8.5 has a thicker wall and a smaller bore, so its 3-inch loss is higher — from the class 8.5 table, about 0.25 at 420 L/min, which still clears 0.217? No: 0.25 &gt; 0.217, so the class 8.5 3-inch pipe <em>fails</em> and you must go to 4 inch. This is exactly the check §6.5 warned about — after upgrading the class, re-enter the table for that class.</span>
+            <span class="th"><strong>เส้นผ่านศูนย์กลาง</strong> <span class="mono">55 + 0.0 = 25 + 4.0 + loss</span> → <span class="mono">loss = 26 ม.</span> ตลอด 1,200 ม. → <span class="mono">j = 26 / (1200/10) = 0.217 ม. ต่อ 10 ม.</span> ที่ <span class="mono">25 ลบ.ม./ชม. = 416.7 ล./นาที</span> อ่านที่แถว 420 จะได้ 2½ นิ้ว = 0.44 (มากเกินไป) และ 3 นิ้ว = 0.20 (ผ่าน) จึงได้ <strong>3 นิ้วขึ้นไป</strong> <strong>ชั้นความดัน</strong> เฮดที่ปลายเหนือน้ำคือ 55 ม. ซึ่งเกินขีดจำกัด 50 ม. ของชั้น 5 เส้นท่อจึงต้องเป็น <strong>ชั้น 8.5</strong> <strong>และนี่คือกับดัก</strong> ค่า 0.20 ที่อ่านมานั้นมาจากตารางของชั้น 5 ส่วนชั้น 8.5 มีผนังหนากว่าและรูในเล็กกว่า ค่าการสูญเสียของท่อ 3 นิ้วจึงสูงกว่า คือจากตารางชั้น 8.5 ได้ราว 0.25 ที่ 420 ล./นาที ซึ่ง 0.25 มากกว่า 0.217 ท่อ 3 นิ้วชั้น 8.5 จึง <em>ไม่ผ่าน</em> และต้องขยับขึ้นเป็น 4 นิ้ว นี่คือการตรวจสอบที่หัวข้อ 6.5 เตือนไว้พอดี คือหลังจากเลื่อนชั้นความดันแล้ว ต้องกลับไปเปิดตารางของชั้นนั้นใหม่</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">A student computes the pump power for a system delivering 180 L/min at a total head of 30 m, with η = 0.6, and reports 118 HP. The answer is wrong. Find the error, give the correct value, and state how you could have spotted the mistake without doing any arithmetic.</span>
+            <span class="th">นักศึกษาคนหนึ่งคำนวณกำลังเครื่องสูบน้ำของระบบที่ส่งน้ำ 180 ล./นาที ที่เฮดรวม 30 ม. โดยใช้ η = 0.6 แล้วตอบว่า 118 แรงม้า คำตอบนี้ผิด จงหาจุดผิด ให้ค่าที่ถูกต้อง และระบุว่าจะสังเกตความผิดพลาดนี้ได้อย่างไรโดยไม่ต้องคำนวณเลย</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The error:</strong> the flow was substituted in litres per <em>minute</em>. The constant 76 requires litres per <em>second</em>. <span class="mono">180 / (76 × 0.6) × 30 = 118</span> — the reported figure exactly, confirming the diagnosis. <strong>Correct:</strong> <span class="mono">Q = 180/60 = 3.0 L/s</span>, so <span class="mono">HP = 3.0 × 30 / (76 × 0.6) = 1.97 ≈ 2 HP</span>. <strong>Spotting it without arithmetic:</strong> 118 HP is about 88 kW. That is an industrial motor needing a three-phase supply and its own transformer, to water a farm block — and the system it belongs to delivers three litres a second, which a garden hose can nearly do. Any answer that implies hardware wildly out of scale with the job is wrong before you check the working. Cultivating that reflex is worth more than the formula.</span>
+            <span class="th"><strong>จุดผิด</strong> คือแทนค่าอัตราการไหลเป็นลิตรต่อ <em>นาที</em> ทั้งที่ค่าคงที่ 76 ต้องการลิตรต่อ <em>วินาที</em> ลองคำนวณ <span class="mono">180 / (76 × 0.6) × 30 = 118</span> ซึ่งตรงกับตัวเลขที่รายงานมาพอดี ยืนยันการวินิจฉัย <strong>ค่าที่ถูกต้อง</strong> คือ <span class="mono">Q = 180/60 = 3.0 ล./วินาที</span> ดังนั้น <span class="mono">HP = 3.0 × 30 / (76 × 0.6) = 1.97 ≈ 2 แรงม้า</span> <strong>วิธีสังเกตโดยไม่ต้องคำนวณ</strong> คือ 118 แรงม้าเท่ากับราว 88 กิโลวัตต์ ซึ่งเป็นมอเตอร์ระดับอุตสาหกรรมที่ต้องใช้ไฟสามเฟสและหม้อแปลงของตัวเอง เพียงเพื่อรดน้ำแปลงเกษตรแปลงเดียว ทั้งที่ระบบนั้นส่งน้ำเพียงสามลิตรต่อวินาที ซึ่งสายยางรดน้ำสวนก็เกือบทำได้ คำตอบใดก็ตามที่บ่งชี้ว่าต้องใช้อุปกรณ์ผิดขนาดไปจากงานอย่างมหาศาล ย่อมผิดตั้งแต่ก่อนจะตรวจวิธีทำ การฝึกให้มีปฏิกิริยาแบบนี้มีค่ามากกว่าตัวสมการเสียอีก</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">A farmer reports that in his drip block the plants at the far end of every row are doing poorly, including the row nearest the valve. A neighbour reports that in her block the first three rows are fine from end to end but the last four rows are weak everywhere. Diagnose both, and say what each should do.</span>
+            <span class="th">เกษตรกรคนหนึ่งแจ้งว่าในแปลงน้ำหยดของเขา ต้นไม้ที่ปลายแถวทุกแถวโตไม่ดี รวมทั้งแถวที่อยู่ใกล้วาล์วที่สุดด้วย ส่วนเพื่อนบ้านแจ้งว่าในแปลงของเธอ สามแถวแรกดีตลอดทั้งแถว แต่สี่แถวสุดท้ายอ่อนไปทั้งแถว จงวินิจฉัยทั้งสองกรณี และระบุว่าแต่ละคนควรทำอย่างไร</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The farmer:</strong> the weakness follows the <em>lateral</em>, not the block — even the row closest to the valve fails at its far end. The laterals are too long, so pressure is being lost along each row. The fix is to shorten them: move the sub-main into the middle of the block and feed each lateral from its centre, so each half-lateral runs half as far and carries half the flow — which cuts the friction in each run to roughly an eighth. <strong>The neighbour:</strong> the weakness follows the <em>sub-main</em> — whole rows are affected together, and the affected rows are the distant ones. The sub-main is undersized or too long for the flow it carries. The fix is to add a zone valve part-way along it and irrigate the two halves in turn, which halves the sub-main flow and cuts its friction by about four; a larger sub-main does the same job if the run must stay in one piece. <strong>Both:</strong> a bigger pump would make the near end worse without fixing either — it raises pressure where there is already enough while the far end is limited by loss along the way, not by supply.</span>
+            <span class="th"><strong>กรณีของเกษตรกร</strong> อาการอ่อนเดินตาม <em>ท่อย่อย</em> ไม่ใช่ตามแปลง เพราะแม้แต่แถวที่อยู่ใกล้วาล์วที่สุดก็ยังแย่ที่ปลายแถว แสดงว่าท่อย่อยยาวเกินไป แรงดันจึงถูกสูญเสียไปตลอดแนวแถว ทางแก้คือทำให้สั้นลง โดยย้ายท่อเมนย่อยไปไว้กลางแปลงแล้วจ่ายน้ำให้ท่อย่อยแต่ละเส้นจากตรงกลาง ท่อย่อยแต่ละครึ่งจะวิ่งเพียงครึ่งระยะและพาอัตราการไหลครึ่งเดียว ซึ่งลดความเสียดทานในแต่ละช่วงลงเหลือราวหนึ่งในแปด <strong>กรณีของเพื่อนบ้าน</strong> อาการอ่อนเดินตาม <em>ท่อเมนย่อย</em> เพราะแถวทั้งแถวได้รับผลกระทบพร้อมกัน และแถวที่มีปัญหาคือแถวที่อยู่ไกล แสดงว่าท่อเมนย่อยเล็กเกินไปหรือยาวเกินไปสำหรับอัตราการไหลที่พา ทางแก้คือเพิ่มวาล์วคุมโซนที่กึ่งกลางแล้วให้น้ำทีละครึ่ง ซึ่งลดอัตราการไหลในท่อเมนย่อยลงครึ่งหนึ่งและลดความเสียดทานลงราวสี่เท่า หรือถ้าจำเป็นต้องให้ท่อเป็นเส้นเดียว การขยายขนาดท่อเมนย่อยก็ให้ผลเดียวกัน <strong>ทั้งสองกรณี</strong> การเปลี่ยนเครื่องสูบน้ำให้ใหญ่ขึ้นจะทำให้ด้านใกล้แย่ลงโดยไม่ได้แก้ปัญหาทั้งสองข้อ เพราะเป็นการเพิ่มแรงดันตรงที่มีเพียงพออยู่แล้ว ในขณะที่ด้านไกลถูกจำกัดด้วยการสูญเสียระหว่างทาง ไม่ใช่ด้วยปริมาณน้ำต้นทาง</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">Design a drip block for durian at 8 × 8 m spacing using 4 L/h emitters at 10 m, 4 emitters per tree, in 6 rows of 12 trees. Find the lateral flow and length, the sub-main flow and length, and check whether an LDPE PN 2.5 lateral of 20 mm will stay inside the 20% head budget.</span>
+            <span class="th">จงออกแบบแปลงน้ำหยดสำหรับทุเรียนระยะปลูก 8 × 8 ม. ใช้หัวน้ำหยด 4 ล./ชม. ที่ความดัน 10 ม. จำนวน 4 หัวต่อต้น จัดเป็น 6 แถว แถวละ 12 ต้น จงหาอัตราการไหลและความยาวของท่อย่อยและท่อเมนย่อย และตรวจสอบว่าท่อย่อย LDPE PN 2.5 ขนาด 20 มม. จะอยู่ในงบประมาณเฮดร้อยละ 20 หรือไม่</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>Lateral:</strong> 12 trees × 4 emitters = 48 emitters, so <span class="mono">q = 48 × 4 / 60 = 3.2 L/min</span> over <span class="mono">12 × 8 = 96 m</span>. <strong>Sub-main:</strong> <span class="mono">6 × 3.2 = 19.2 L/min</span> over <span class="mono">6 × 8 = 48 m</span>. <strong>Budget:</strong> <span class="mono">0.20 × 10 = 2.0 m</span>. <strong>Lateral check:</strong> LDPE PN 2.5, 20 mm — the table gives 0.04 at 3 L/min and 0.10 at 5, so 3.2 L/min is about 0.046. With 48 outlets F = 0.349: <span class="mono">0.046 × 96/10 × 0.349 = 0.15 m</span>. Comfortably inside — the lateral uses under 8% of the budget. <strong>Worth noticing:</strong> the wider 8 m spacing made the lateral <em>longer</em> (96 m) but the small 4 L/h emitter made the flow tiny, and flow wins because friction goes as its square. A 20 mm lateral is generously oversized here; 16 mm would very likely also pass and would cost less, which is exactly the check to run next.</span>
+            <span class="th"><strong>ท่อย่อย</strong> 12 ต้น × 4 หัว = 48 หัว ดังนั้น <span class="mono">q = 48 × 4 / 60 = 3.2 ล./นาที</span> ตลอดระยะ <span class="mono">12 × 8 = 96 ม.</span> <strong>ท่อเมนย่อย</strong> <span class="mono">6 × 3.2 = 19.2 ล./นาที</span> ตลอดระยะ <span class="mono">6 × 8 = 48 ม.</span> <strong>งบประมาณ</strong> <span class="mono">0.20 × 10 = 2.0 ม.</span> <strong>ตรวจท่อย่อย</strong> LDPE PN 2.5 ขนาด 20 มม. ตารางให้ค่า 0.04 ที่ 3 ล./นาที และ 0.10 ที่ 5 ดังนั้นที่ 3.2 ล./นาที ได้ราว 0.046 เมื่อมี 48 ทางออก F = 0.349 จะได้ <span class="mono">0.046 × 96/10 × 0.349 = 0.15 ม.</span> ซึ่งอยู่ในงบอย่างสบาย คือท่อย่อยใช้งบไม่ถึงร้อยละ 8 <strong>ข้อสังเกต</strong> ระยะปลูกที่กว้างขึ้นเป็น 8 ม. ทำให้ท่อย่อย <em>ยาวขึ้น</em> เป็น 96 ม. แต่หัวจ่ายขนาดเล็กเพียง 4 ล./ชม. ทำให้อัตราการไหลน้อยมาก และอัตราการไหลเป็นฝ่ายชนะ เพราะความเสียดทานแปรตามกำลังสองของมัน ท่อย่อยขนาด 20 มม. จึงใหญ่เกินความจำเป็นมากในกรณีนี้ ขนาด 16 มม. น่าจะผ่านเช่นกันและราคาถูกกว่า ซึ่งเป็นสิ่งที่ควรตรวจสอบเป็นลำดับถัดไปพอดี</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">แบบทดสอบเก็บคะแนน</span></h2>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 6 · Irrigation Hardware and System Design</span>
+      <span class="th">บทที่ 6 · อุปกรณ์ในระบบให้น้ำพืชและการออกแบบระบบให้น้ำพืช</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'Water passing through a piped irrigation system meets the components in which order?',
+         th: 'น้ำที่ไหลผ่านระบบให้น้ำพืชแบบเดินท่อ จะพบองค์ประกอบตามลำดับใด' },
+    choices: [
+      { en: 'Pump → main → filter → lateral → sub-main → emitter', th: 'เครื่องสูบน้ำ → ท่อเมน → เครื่องกรอง → ท่อย่อย → ท่อเมนย่อย → หัวปล่อยน้ำ' },
+      { en: 'Filter → pump → sub-main → main → lateral → emitter', th: 'เครื่องกรอง → เครื่องสูบน้ำ → ท่อเมนย่อย → ท่อเมน → ท่อย่อย → หัวปล่อยน้ำ' },
+      { en: 'Pump → filter → main → sub-main → lateral → emitter', th: 'เครื่องสูบน้ำ → เครื่องกรอง → ท่อเมน → ท่อเมนย่อย → ท่อย่อย → หัวปล่อยน้ำ' },
+      { en: 'Pump → filter → lateral → sub-main → main → emitter', th: 'เครื่องสูบน้ำ → เครื่องกรอง → ท่อย่อย → ท่อเมนย่อย → ท่อเมน → หัวปล่อยน้ำ' }
+    ],
+    answer: 2,
+    why: { en: 'The filter goes immediately after the pump, before any pipe it is meant to protect. The three pipe grades then run largest to smallest: main carries, sub-main feeds the laterals, lateral feeds the emitters.',
+           th: 'เครื่องกรองอยู่ถัดจากเครื่องสูบน้ำทันที คือก่อนท่อทุกเส้นที่มันมีหน้าที่ปกป้อง จากนั้นท่อทั้งสามลำดับไล่จากใหญ่ไปเล็ก คือท่อเมนส่งน้ำ ท่อเมนย่อยจ่ายให้ท่อย่อย และท่อย่อยจ่ายให้หัวปล่อยน้ำ' }
+  },
+  {
+    q: { en: 'The outlet correction factor F is applied to the friction loss in:',
+         th: 'ค่าปรับแก้จำนวนทางออก F ใช้กับการสูญเสียความเสียดทานในท่อใด' },
+    choices: [
+      { en: 'The sub-main and the lateral, but not the main', th: 'ท่อเมนย่อยและท่อย่อย แต่ไม่ใช้กับท่อเมน' },
+      { en: 'The main only', th: 'ท่อเมนเท่านั้น' },
+      { en: 'All three pipe grades equally', th: 'ท่อทั้งสามลำดับเท่ากันหมด' },
+      { en: 'Whichever pipe is longest', th: 'ท่อเส้นใดก็ตามที่ยาวที่สุด' }
+    ],
+    answer: 0,
+    why: { en: 'F corrects for flow leaving the pipe along its length. A main carries its full flow end to end, exactly as the table assumes, so no correction applies. Forgetting F on a sub-main overstates its loss by about two and a half times.',
+           th: 'ค่า F ปรับแก้สำหรับน้ำที่ออกจากท่อไประหว่างทาง ส่วนท่อเมนพาอัตราการไหลเต็มจำนวนตลอดเส้น ตรงกับที่ตารางสมมติไว้พอดี จึงไม่ต้องปรับแก้ การลืมใส่ F ในท่อเมนย่อยจะทำให้ค่าการสูญเสียสูงเกินจริงราวสองเท่าครึ่ง' }
+  },
+  {
+    q: { en: 'A PE pipe described as "20 mm" refers to:',
+         th: 'ท่อพีอีที่ระบุว่า "20 มม." หมายถึงอะไร' },
+    choices: [
+      { en: 'Its inside diameter', th: 'เส้นผ่านศูนย์กลางภายใน' },
+      { en: 'Its wall thickness', th: 'ความหนาของผนังท่อ' },
+      { en: 'Its nominal size, the same convention as PVC', th: 'ขนาดระบุ ซึ่งใช้ธรรมเนียมเดียวกับพีวีซี' },
+      { en: 'Its outside diameter — the bore is smaller and depends on the PN class', th: 'เส้นผ่านศูนย์กลางภายนอก โดยรูในเล็กกว่าและขึ้นกับชั้น PN' }
+    ],
+    answer: 3,
+    why: { en: 'PE is named by outside diameter in mm; PVC is named by nominal size in inches. A 20 mm PE pipe bores 18 mm in PN 2.5 and only 17 mm in PN 4 — the stronger pipe is the narrower one, and the friction table follows the bore, not the name.',
+           th: 'ท่อพีอีเรียกตามเส้นผ่านศูนย์กลางภายนอกเป็นมิลลิเมตร ส่วนพีวีซีเรียกตามขนาดระบุเป็นนิ้ว ท่อพีอี 20 มม. มีรูใน 18 มม. ในชั้น PN 2.5 และเหลือเพียง 17 มม. ในชั้น PN 4 กล่าวคือท่อที่แข็งแรงกว่าคือท่อที่แคบกว่า และตารางความเสียดทานยึดตามรูใน ไม่ใช่ตามชื่อ' }
+  },
+  {
+    q: { en: 'PVC class 8.5 means the pipe will safely hold a head of about:',
+         th: 'ท่อพีวีซีชั้น 8.5 หมายความว่าท่อรับเฮดได้อย่างปลอดภัยประมาณเท่าใด' },
+    choices: [
+      { en: '8.5 m', th: '8.5 เมตร' },
+      { en: '85 m', th: '85 เมตร' },
+      { en: '850 m', th: '850 เมตร' },
+      { en: '8.5 m per 10 m of pipe length', th: '8.5 เมตร ต่อความยาวท่อ 10 เมตร' }
+    ],
+    answer: 1,
+    why: { en: 'The class number is the pressure in kg/cm², which equals bar, and 1 bar of water is about 10 m of head. So class 5 → 50 m, class 8.5 → 85 m, class 13.5 → 135 m. Note this is a rating at 26 °C; pipe in full Thai sun is weaker.',
+           th: 'ตัวเลขชั้นคือความดันหน่วย กก./ตร.ซม. ซึ่งเท่ากับบาร์ และน้ำ 1 บาร์เท่ากับเฮดราว 10 เมตร ดังนั้นชั้น 5 → 50 ม. ชั้น 8.5 → 85 ม. และชั้น 13.5 → 135 ม. ทั้งนี้เป็นค่าที่อุณหภูมิ 26 องศาเซลเซียส ท่อที่ตากแดดจัดในเมืองไทยจะอ่อนกว่านี้' }
+  },
+  {
+    q: { en: 'The number you read from a friction-loss table in this chapter is in units of:',
+         th: 'ตัวเลขที่อ่านได้จากตารางการสูญเสียแรงดันในบทนี้มีหน่วยเป็นอะไร' },
+    choices: [
+      { en: 'Metres of head lost over the whole pipe', th: 'เมตรของเฮดที่สูญเสียตลอดทั้งเส้นท่อ' },
+      { en: 'Metres of head lost per metre of pipe', th: 'เมตรของเฮดที่สูญเสียต่อความยาวท่อหนึ่งเมตร' },
+      { en: 'Metres of head lost per 10 metres of pipe', th: 'เมตรของเฮดที่สูญเสียต่อความยาวท่อ 10 เมตร' },
+      { en: 'Bar of pressure lost per 100 metres of pipe', th: 'บาร์ของความดันที่สูญเสียต่อความยาวท่อ 100 เมตร' }
+    ],
+    answer: 2,
+    why: { en: 'Every table in this set is headed หน่วย: เมตรต่อความยาวท่อ 10 เมตร. So loss = j × L/10, and a 1,000 m run multiplies the cell value by 100 — which is why a table value of 0.20 became a 20 m loss in §6.6.',
+           th: 'ตารางทุกตารางในชุดนี้มีหัวว่า หน่วย: เมตรต่อความยาวท่อ 10 เมตร ดังนั้นการสูญเสีย = j × L/10 และเส้นท่อยาว 1,000 ม. จะคูณค่าในช่องด้วย 100 ซึ่งเป็นเหตุให้ค่า 0.20 จากตารางกลายเป็นการสูญเสีย 20 ม. ในหัวข้อ 6.6' }
+  },
+  {
+    q: { en: 'If the flow through a given pipe is doubled, the friction loss rises by roughly:',
+         th: 'ถ้าเพิ่มอัตราการไหลในท่อขนาดหนึ่งเป็นสองเท่า การสูญเสียความเสียดทานจะเพิ่มขึ้นราวกี่เท่า' },
+    choices: [
+      { en: 'It is unchanged — loss depends on diameter only', th: 'ไม่เปลี่ยน เพราะการสูญเสียขึ้นกับเส้นผ่านศูนย์กลางเท่านั้น' },
+      { en: 'Half as much again', th: 'เพิ่มขึ้นอีกครึ่งหนึ่ง' },
+      { en: 'Twice', th: 'สองเท่า' },
+      { en: 'About four times', th: 'ราวสี่เท่า' }
+    ],
+    answer: 3,
+    why: { en: 'Loss goes roughly as the square of the flow. It is the single most useful fact in the chapter: splitting a block into two zones halves the flow in the sub-main and cuts its friction to about a quarter, which is why zoning is the cheapest fix for a design that will not close.',
+           th: 'การสูญเสียแปรตามกำลังสองของอัตราการไหลโดยประมาณ นี่คือข้อเท็จจริงที่มีประโยชน์ที่สุดข้อเดียวของบทนี้ การแบ่งแปลงออกเป็นสองโซนลดอัตราการไหลในท่อเมนย่อยลงครึ่งหนึ่งและลดความเสียดทานเหลือราวหนึ่งในสี่ จึงเป็นเหตุให้การแบ่งโซนเป็นทางแก้ที่ถูกที่สุดเมื่อการออกแบบปิดงบไม่ลง' }
+  },
+  {
+    q: { en: 'The 20% design rule for a micro system limits:',
+         th: 'กฎการออกแบบร้อยละ 20 สำหรับระบบจุลภาค เป็นการจำกัดสิ่งใด' },
+    choices: [
+      { en: 'Head loss from the zone valve to the furthest emitter, as a fraction of the emitter working pressure', th: 'การสูญเสียเฮดจากวาล์วคุมโซนถึงหัวจ่ายที่ไกลที่สุด คิดเป็นสัดส่วนของแรงดันใช้งานของหัวจ่าย' },
+      { en: 'Total head loss in the main, as a fraction of the pump head', th: 'การสูญเสียเฮดรวมในท่อเมน คิดเป็นสัดส่วนของเฮดเครื่องสูบน้ำ' },
+      { en: 'The difference in elevation across the block', th: 'ความต่างระดับตลอดแปลง' },
+      { en: 'The share of the pump capacity held in reserve', th: 'สัดส่วนของสมรรถนะเครื่องสูบน้ำที่กันไว้เป็นสำรอง' }
+    ],
+    answer: 0,
+    why: { en: 'It is checked along one path only — the longest sub-main plus the longest lateral. Holding the loss to 20% of working pressure keeps every emitter between roughly 90% and 110% of its rated discharge, which is uniform enough for an orchard.',
+           th: 'ตรวจสอบตามเส้นทางเดียวเท่านั้น คือท่อเมนย่อยที่ยาวที่สุดบวกท่อย่อยที่ยาวที่สุด การจำกัดการสูญเสียไว้ที่ร้อยละ 20 ของแรงดันใช้งาน ทำให้หัวจ่ายทุกหัวจ่ายน้ำอยู่ระหว่างราวร้อยละ 90 ถึง 110 ของค่าที่ระบุ ซึ่งสม่ำเสมอเพียงพอสำหรับสวนไม้ผล' }
+  },
+  {
+    q: { en: 'A design needs 150 L/min at a total head of 27.5 m. From the pump table, SE 150 gives 23.5 m at that flow, SE 200 gives 26.5 m and SE 300 gives 32.5 m. Which pump?',
+         th: 'การออกแบบหนึ่งต้องการ 150 ล./นาที ที่เฮดรวม 27.5 ม. จากตารางเครื่องสูบน้ำ รุ่น SE 150 ให้ 23.5 ม. รุ่น SE 200 ให้ 26.5 ม. และรุ่น SE 300 ให้ 32.5 ม. ที่อัตราการไหลนั้น ควรเลือกรุ่นใด' },
+    choices: [
+      { en: 'SE 150 — the flow matches and the head can be made up with a smaller pipe', th: 'SE 150 เพราะอัตราการไหลตรงกัน และชดเชยเฮดได้ด้วยการใช้ท่อเล็กลง' },
+      { en: 'SE 300 — it is the smallest pump whose head at 150 L/min clears 27.5 m', th: 'SE 300 เพราะเป็นเครื่องที่เล็กที่สุดซึ่งให้เฮดที่ 150 ล./นาที เกิน 27.5 ม.' },
+      { en: 'SE 200 — 26.5 m is within 4% and the difference is negligible', th: 'SE 200 เพราะ 26.5 ม. ต่างกันไม่ถึงร้อยละ 4 ซึ่งถือว่าไม่มีนัยสำคัญ' },
+      { en: 'Any of them — head is set by the pipe, not by the pump', th: 'รุ่นใดก็ได้ เพราะเฮดถูกกำหนดด้วยท่อ ไม่ใช่ด้วยเครื่องสูบน้ำ' }
+    ],
+    answer: 1,
+    why: { en: 'A pump must meet or beat the required head at the required flow, and 26.5 m does not reach 27.5 m. Option a has it backwards — a smaller pipe raises friction and so raises the head required. The 1 m by which SE 200 fails is exactly why the 10% fittings allowance exists.',
+           th: 'เครื่องสูบน้ำต้องให้เฮดเท่ากับหรือมากกว่าที่ต้องการ ณ อัตราการไหลที่ต้องการ และ 26.5 ม. ไปไม่ถึง 27.5 ม. ส่วนข้อ ก. คิดกลับด้าน เพราะท่อที่เล็กลงจะเพิ่มความเสียดทาน จึงเพิ่มเฮดที่ต้องการขึ้นไปอีก และระยะ 1 เมตรที่ SE 200 พลาดไปนั้นเองคือเหตุผลที่ต้องมีค่าเผื่ออุปกรณ์ร้อยละ 10' }
+  },
+  {
+    q: { en: 'In the pump power formula HP = Q·H / (76 η), the flow Q must be expressed in:',
+         th: 'ในสมการกำลังเครื่องสูบน้ำ HP = Q·H / (76 η) ค่าอัตราการไหล Q ต้องมีหน่วยเป็นอะไร' },
+    choices: [
+      { en: 'Litres per minute', th: 'ลิตรต่อนาที' },
+      { en: 'Cubic metres per hour', th: 'ลูกบาศก์เมตรต่อชั่วโมง' },
+      { en: 'Cubic metres per day', th: 'ลูกบาศก์เมตรต่อวัน' },
+      { en: 'Litres per second', th: 'ลิตรต่อวินาที' }
+    ],
+    answer: 3,
+    why: { en: 'The constant 76 carries units of kgf·m/s per horsepower, so the flow must be per second. Everything else in the chapter is in L/min, so this conversion is the easiest step to forget — and forgetting it multiplies the answer by sixty.',
+           th: 'ค่าคงที่ 76 มีหน่วยเป็น กิโลกรัมแรง·เมตร/วินาที ต่อหนึ่งแรงม้า อัตราการไหลจึงต้องเป็นต่อวินาที แต่ทุกอย่างในบทนี้ใช้หน่วยลิตรต่อนาที การแปลงหน่วยนี้จึงลืมง่ายที่สุด และถ้าลืม คำตอบจะถูกคูณด้วยหกสิบ' }
+  },
+  {
+    q: { en: 'In a drip block the plants at the far end of every row are weak — including the row closest to the valve. The most likely cause is:',
+         th: 'ในแปลงน้ำหยดแห่งหนึ่ง ต้นไม้ที่ปลายแถวทุกแถวอ่อนแอ รวมทั้งแถวที่อยู่ใกล้วาล์วที่สุดด้วย สาเหตุที่น่าจะเป็นไปได้มากที่สุดคือ' },
+    choices: [
+      { en: 'The pump is too small', th: 'เครื่องสูบน้ำเล็กเกินไป' },
+      { en: 'The sub-main is too small for the flow it carries', th: 'ท่อเมนย่อยเล็กเกินไปสำหรับอัตราการไหลที่พา' },
+      { en: 'The laterals are too long', th: 'ท่อย่อยยาวเกินไป' },
+      { en: 'The filter is blocked', th: 'เครื่องกรองอุดตัน' }
+    ],
+    answer: 2,
+    why: { en: 'The weakness follows the lateral, not the block — the row nearest the valve fails too, so the sub-main is delivering fine. The fix is to shorten the laterals by feeding them from the middle of the block. A starved sub-main would instead show whole distant rows weak from end to end, and a blocked filter or small pump would weaken everything at once.',
+           th: 'อาการอ่อนเดินตามท่อย่อย ไม่ใช่ตามแปลง เพราะแถวที่ใกล้วาล์วที่สุดก็แย่ด้วย แสดงว่าท่อเมนย่อยส่งน้ำได้ดีอยู่ ทางแก้คือทำท่อย่อยให้สั้นลงโดยจ่ายน้ำจากกลางแปลง ถ้าเป็นท่อเมนย่อยที่ได้น้ำไม่พอ อาการจะเป็นแถวไกลอ่อนทั้งแถวตลอดความยาว ส่วนเครื่องกรองอุดตันหรือเครื่องสูบน้ำเล็กเกินไปจะทำให้อ่อนทั้งแปลงพร้อมกัน' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>
