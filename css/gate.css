@@ -1,0 +1,341 @@
+/* ============================================================
+   gate.css — หน้าตาของประตูยืนยันสิทธิ์ / Access gate styling
+   ใช้ตัวแปรสีและฟอนต์ชุดเดียวกับทั้งเว็บใน css/theme.css
+   Uses the same colour and font tokens as the rest of the site.
+   ============================================================ */
+
+/* ---------- 1. ซ่อนเนื้อหาระหว่างที่ยังล็อกอยู่ / Hide the page while locked ----------
+   js/gate.js ใส่ data-locked ไว้ที่ <html> ตั้งแต่ยังอยู่ใน <head>
+   ทำให้บทเรียนไม่ปรากฏแวบหนึ่งก่อนโมดอลจะขึ้น
+   gate.js sets data-locked on <html> from inside <head>, so the lesson never
+   flashes into view before the modal arrives. */
+
+html[data-locked] {
+  overflow: hidden;                       /* กันการเลื่อนหน้าอยู่หลังโมดอล */
+}
+
+html[data-locked] body > *:not(.gate):not(.gate-toast) {
+  display: none !important;
+}
+
+/* ---------- 2. ฉากหลัง / The overlay ---------- */
+
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;                     /* กันขอบจอ 16px ตามทั้งเว็บ */
+  background: var(--bg);
+  overflow-y: auto;                       /* จอเตี้ยยังเลื่อนดูทั้งการ์ดได้ */
+  animation: gate-in .28s ease both;
+}
+
+/* ลายจาง ๆ ให้ฉากหลังไม่แบนจนเกินไป / a faint wash so the backdrop is not flat */
+.gate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60rem 40rem at 18% -10%, var(--th-tint), transparent 65%),
+    radial-gradient(48rem 34rem at 108% 112%, var(--th-tint), transparent 60%);
+  pointer-events: none;
+}
+
+.gate.is-going {
+  animation: gate-out .3s ease both;
+}
+
+@keyframes gate-in  { from { opacity: 0 }               to { opacity: 1 } }
+@keyframes gate-out { from { opacity: 1 } to { opacity: 0; visibility: hidden } }
+
+/* ---------- 3. การ์ด / The card ---------- */
+
+.gate-card {
+  position: relative;
+  width: min(430px, 100%);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 18px 50px -12px var(--shadow);
+  padding: 38px 34px 30px;
+  text-align: center;
+  animation: gate-rise .34s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+@keyframes gate-rise {
+  from { opacity: 0; transform: translateY(14px) }
+  to   { opacity: 1; transform: none }
+}
+
+/* ---------- 4. ปุ่มสลับภาษา มุมบนขวาของการ์ด / Language switch ---------- */
+
+.gate-lang {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 2px;
+}
+
+.gate-lang-btn {
+  font-family: var(--font-ui);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: none;
+  color: var(--ink-soft);
+  opacity: .55;
+  cursor: pointer;
+  transition: opacity .15s, color .15s, border-color .15s;
+}
+
+.gate-lang-btn:hover          { opacity: .9 }
+.gate-lang-btn.active         { opacity: 1; color: var(--accent); border-color: var(--rule) }
+
+/* ---------- 5. หัวการ์ด / Card header ---------- */
+
+.gate-mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--th-tint);
+}
+
+.gate-eyebrow {
+  font-family: var(--font-ui);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: .8;
+  margin: 0 0 8px;
+}
+
+.gate-title {
+  font-family: var(--font-display);
+  font-size: 1.62rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.gate-lede {
+  font-family: var(--font-body);
+  font-size: .89rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+}
+
+/* ---------- 6. ฟอร์ม / The form ---------- */
+
+.gate-form { text-align: left }
+
+.gate-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 7px;
+}
+
+/* ช่องกรอกกับปุ่มรูปตาวางซ้อนกัน จึงต้องมี position: relative ครอบ
+   The input and the eye button overlap, so the wrapper is the positioning context. */
+.gate-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.gate-input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  letter-spacing: .04em;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 12px 46px 12px 13px;           /* เว้นที่ด้านขวาให้ปุ่มรูปตา */
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.gate-input:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px var(--th-tint);
+}
+
+/* ปุ่มรูปตา / eye toggle */
+.gate-eye {
+  position: absolute;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--ink-soft);
+  opacity: .6;
+  cursor: pointer;
+  transition: opacity .15s, color .15s;
+}
+
+.gate-eye:hover { opacity: 1; color: var(--accent) }
+
+/* สลับไอคอนตามสถานะ: ปกติโชว์ "ตาเปิด", เมื่อกำลังแสดงรหัสโชว์ "ตาปิด"
+   Swap the icon: eye-open normally, eye-shut while the passcode is visible. */
+.gate-eye .gate-eye-shut           { display: none }
+.gate-eye.is-showing .gate-eye-open { display: none }
+.gate-eye.is-showing .gate-eye-shut { display: block }
+
+/* ข้อความสำหรับโปรแกรมอ่านหน้าจอเท่านั้น / screen-reader only */
+.gate-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- 7. ข้อความแจ้งรหัสผิด / The error message ---------- */
+
+.gate-error {
+  min-height: 1.15rem;                    /* จองที่ไว้ การ์ดจะได้ไม่กระตุกตอนข้อความขึ้น */
+  font-family: var(--font-body);
+  font-size: .82rem;
+  line-height: 1.4;
+  color: var(--bad);
+  margin: 9px 0 0;
+}
+
+.gate-submit {
+  width: 100%;
+  margin-top: 14px;
+  justify-content: center;
+}
+
+/* ---------- 8. เอฟเฟกต์สั่นเมื่อรหัสผิด / Shake on a wrong passcode ---------- */
+
+.gate-card.is-wrong {
+  animation: gate-shake .42s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.gate-card.is-wrong .gate-input {
+  border-color: var(--bad);
+}
+
+@keyframes gate-shake {
+  10%, 90% { transform: translateX(-2px) }
+  20%, 80% { transform: translateX(4px)  }
+  30%, 50%, 70% { transform: translateX(-7px) }
+  40%, 60% { transform: translateX(7px)  }
+  100%     { transform: none }
+}
+
+/* ---------- 9. ปุ่มขอรหัส และข้อความแนะนำ / Contact link and note ---------- */
+
+/* แอตทริบิวต์ hidden ต้องชนะกฎ display ที่เขียนไว้เอง ไม่งั้นซ่อนไม่ลง
+   The hidden attribute has to beat our own display rules, or it does nothing. */
+.gate [hidden] { display: none !important }
+
+.gate-help {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 4px 2px;
+  font-family: var(--font-body);
+  font-size: .82rem;
+  color: var(--link);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+
+.gate-help:hover { border-bottom-color: var(--link) }
+
+.gate-note {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: .82rem;
+  line-height: 1.65;
+  text-align: left;
+  color: var(--ink-soft);
+  background: var(--th-tint);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+}
+
+/* ---------- 10. แถบแจ้งผลสำเร็จ / Success toast ---------- */
+
+.gate-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 18px;
+  font-family: var(--font-body);
+  font-size: .87rem;
+  color: var(--bg);
+  background: var(--ink);
+  border-radius: 3px;
+  box-shadow: 0 12px 30px -8px var(--shadow);
+  animation: toast-in .32s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.gate-toast svg    { color: var(--accent-light); flex: none }
+.gate-toast.is-going { animation: toast-out .38s ease both }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 14px) }
+  to   { opacity: 1; transform: translate(-50%, 0) }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translate(-50%, 0) }
+  to   { opacity: 0; transform: translate(-50%, 10px) }
+}
+
+/* ---------- 11. จอเล็ก / Small screens ---------- */
+
+@media (max-width: 480px) {
+  .gate-card  { padding: 32px 22px 26px }
+  .gate-title { font-size: 1.4rem }
+  .gate-lede  { font-size: .85rem }
+}
+
+/* ---------- 12. เคารพการตั้งค่าลดการเคลื่อนไหว / Respect reduced motion ----------
+   ผู้ใช้บางคนตั้งระบบไว้ให้ลดอนิเมชัน เช่น คนที่เวียนศีรษะจากการเคลื่อนไหวบนจอ
+   Some people set their system to reduce motion — honour that. */
+
+@media (prefers-reduced-motion: reduce) {
+  .gate, .gate-card, .gate-toast,
+  .gate.is-going, .gate-card.is-wrong, .gate-toast.is-going {
+    animation: none !important;
+  }
+  .gate.is-going { opacity: 0 }
+}
