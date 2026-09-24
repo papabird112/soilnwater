@@ -185,6 +185,48 @@ below 40%, bench terraces inward-sloping above 650 mm/yr, grassed waterways
 
 ---
 
+## 10. ระบบการให้ปุ๋ยพร้อมกับน้ำ (สมาคมวิศวกรรมเกษตรแห่งประเทศไทย)
+
+| | |
+|---|---|
+| **ไฟล์ / File** | `fertigation-systems-th.pdf` (11.9 MB, 57 หน้า) |
+| **ผู้เรียบเรียง / Author** | ชีรวรรธก์ มั่นกิจ — สมาคมวิศวกรรมเกษตรแห่งประเทศไทย |
+
+เอกสารหลักของบทที่ 9 แบ่งเป็นสี่บท คือ ลักษณะการให้ปุ๋ยร่วมกับการให้น้ำ (ข้อดี 9 ข้อ
+ข้อจำกัด 4 ข้อ) ข้อพิจารณาในการเลือกติดตั้งระบบ อุปกรณ์สำหรับการให้ปุ๋ยพร้อมน้ำ 6 ชนิด
+และการคำนวณหาปริมาณปุ๋ย ท้ายเล่มมีแบบฝึกหัดการออกแบบระบบน้ำหยดและมินิสปริงเกลอร์
+พร้อมเอกสารเรื่องกล่องควบคุมเวลาการให้น้ำ (Controller)
+
+The primary source for Chapter 9. Four parts: the character of fertigation (nine
+advantages, four limitations); what to consider when choosing an installation;
+the six injection devices — venturi, flow-through tank, pressure tank, TMB
+diaphragm injector, AMIAD piston injector and the FERTIMIX/OMETZ mixing tank,
+each with its operating pressures, rates and limits; and the twelve calculation
+methods with worked examples. The volume closes with drip and mini-sprinkler
+design exercises and a handout on irrigation time controllers.
+
+**ตัวเลขสำคัญที่บทที่ 9 ใช้ / Key data used in Chapter 9:** venturi loses at least
+⅓ of its inlet pressure; the flow-through tank needs 4 × its volume in water
+(5 × for granular) while the pressure tank needs 1 ×, with the by-pass flow
+table by pressure difference and pipe size; TMB 8–600 L/h at 30–120 psi costing
+2 L water per litre injected; AMIAD up to 320 L/h at 7–115 psi costing 3 L; the
+1 : 500 dilution limit and the five rules for a suitable fertiliser; and the
+straight and compound fertiliser grades sold in Thailand.
+
+**หมายเหตุ / Notes.** ตัวเลขทุกตัวได้คำนวณซ้ำแล้ว และตรงกับต้นฉบับทั้งหมดยกเว้นสองจุด
+ซึ่งระบุไว้ในบท คือ (ก) ตัวอย่างข้อ 8 ฉบับพิมพ์ให้ 323 มล./ลบ.ม. ขณะที่สูตรเดียวกันให้ 330
+(สูตรเดิมใช้กับตัวอย่างข้อ 10 ได้ 220 ตรงกับที่พิมพ์ไว้) และ (ข) ตารางปุ๋ยสูตรสำเร็จแถวแรก
+พิมพ์ 1-4-1 → 11-4-11 ซึ่งน่าจะคลาดจาก 11-44-11
+Every figure was recomputed. All reproduce except two, both flagged on the page:
+worked example 8 prints 323 mL/m³ where the same formula gives 330 (the formula
+reproduces example 10 exactly at 220), and the first row of the compound-grade
+table prints 1-4-1 → 11-4-11, which the neighbouring rows suggest is a misprint
+for 11-44-11.
+
+**ใช้ในบทใด / Used in:** ch09 ทั้งบท
+
+---
+
 ## ยังไม่ได้เพิ่ม / Not yet in this folder
 
 **หลักการชลประทาน (Irrigation Principle)** โดย อาจารย์บุญมา ป้านประดิษฐ์

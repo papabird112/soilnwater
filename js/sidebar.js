@@ -16,7 +16,8 @@ const CHAPTERS = [
   { id: 'ch05', file: 'ch05.html', en: 'Measuring Water Applications',      th: 'การวัดปริมาณน้ำ',                     ready: true  },
   { id: 'ch06', file: 'ch06.html', en: 'Irrigation Hardware & System Design', th: 'อุปกรณ์ในระบบให้น้ำพืชและการออกแบบระบบให้น้ำพืช', ready: true  },
   { id: 'ch07', file: 'ch07.html', en: 'Irrigation Water Management',       th: 'การจัดการน้ำชลประทาน',                ready: true  },
-  { id: 'ch08', file: 'ch08.html', en: 'USLE & Soil and Water Conservation', th: 'สมการการสูญเสียดินสากล และการอนุรักษ์ดินและน้ำ', ready: true  }
+  { id: 'ch08', file: 'ch08.html', en: 'USLE & Soil and Water Conservation', th: 'สมการการสูญเสียดินสากล และการอนุรักษ์ดินและน้ำ', ready: true  },
+  { id: 'ch09', file: 'ch09.html', en: 'Fertigation',                        th: 'การให้ปุ๋ยร่วมกับการให้น้ำ',                  ready: true  }
 ];
 
 /* ---------- ผู้สอน: แก้ที่บรรทัดเดียวนี้ มีผลทุกหน้า ---------- */

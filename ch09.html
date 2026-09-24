@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บทที่ 9 การให้ปุ๋ยร่วมกับการให้น้ำ · Irrigation Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/gate.css" />
+<!-- ประตูยืนยันสิทธิ์เข้าเรียน โหลดแบบ synchronous ใน head เพื่อไม่ให้เห็นเนื้อหาแวบหนึ่งก่อนถูกล็อก
+     Access gate: loaded synchronously in <head> so the lesson never flashes before the lock. -->
+<script src="js/gate.js"></script>
+</head>
+<body data-chapter="ch09">
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">Irrigation.</a>
+    <div class="sidebar-title">
+      <span class="en">Irrigation Technology</span>
+      <span class="th">เทคโนโลยีการชลประทาน</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+  <div class="scrim"></div>
+
+  <div class="stage">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggle-sidebar" title="S">☰</button>
+        <span class="topbar-title">
+          <span class="en">9 · Fertigation</span>
+          <span class="th">บทที่ 9 · การให้ปุ๋ยร่วมกับการให้น้ำ</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="th">TH</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="btn" data-nav="prev" data-short="1">←</a>
+        <a class="btn" data-nav="next" data-short="1">→</a>
+      </div>
+    </div>
+
+    <article class="chapter">
+
+      <header class="chapter-header">
+        <span class="chapter-number">
+          <span class="en">Chapter 9</span><span class="th">บทที่ 9</span>
+        </span>
+        <h1>
+          <span class="en">Applying Fertiliser with the Irrigation Water</span>
+          <span class="th">การให้ปุ๋ยร่วมกับการให้น้ำ</span>
+        </h1>
+        <p class="chapter-lede">
+          <span class="en">Chapter 6 built a network that puts water exactly where the roots are, on a schedule Chapter 7 worked out. That same network can carry the crop's nutrients at the same time, to the same place, in the same measured amounts — and once you see it that way, the pipe stops being a water line and becomes a delivery system. This chapter is about the equipment that injects the fertiliser, the arithmetic that decides how much, and the several ways the whole thing can go quietly wrong.</span>
+          <span class="th">บทที่ 6 สร้างระบบท่อที่ส่งน้ำไปยังตำแหน่งของรากได้อย่างแม่นยำ ตามตารางเวลาที่บทที่ 7 คำนวณไว้ ระบบท่อเดียวกันนั้นสามารถพาธาตุอาหารของพืชไปพร้อมกัน ไปที่เดียวกัน ในปริมาณที่วัดได้เท่ากัน และเมื่อมองเช่นนั้นแล้ว ท่อก็เลิกเป็นเพียงท่อน้ำ แต่กลายเป็นระบบส่งมอบ บทนี้ว่าด้วยอุปกรณ์ที่ฉีดปุ๋ยเข้าไป เลขคณิตที่ใช้ตัดสินว่าให้เท่าไร และหลายทางที่ทั้งระบบจะผิดพลาดไปอย่างเงียบ ๆ</span>
+        </p>
+      </header>
+
+      <!-- ===================== 9.1 ===================== -->
+      <section id="s-why">
+        <h2><span class="en">9.1 Why fertiliser belongs in an irrigation course</span><span class="th">9.1 ทำไมเรื่องปุ๋ยจึงมาอยู่ในวิชาชลประทาน</span></h2>
+
+        <div class="box">
+          <div class="box-title"><span class="en">A note on this chapter's sources</span><span class="th">ที่มาของเนื้อหาในบทนี้</span></div>
+          <p>
+            <span class="en">The equipment descriptions, the operating limits, the flow tables and every worked example in §9.9 follow <em>ระบบการให้ปุ๋ยพร้อมกับน้ำ</em> by <strong>ชีรวรรธก์ มั่นกิจ</strong>, published by the <strong>Thai Society of Agricultural Engineering</strong> (สมาคมวิศวกรรมเกษตรแห่งประเทศไทย). Every number in that text has been recomputed here; where this chapter departs from it, the departure is stated on the page. Two additions are mine and are labelled as such: the derivation of the four-tank-volume rule in §9.6, which the source states as a fact, and the integrated design example in §9.10.</span>
+            <span class="th">คำอธิบายอุปกรณ์ ขีดจำกัดการใช้งาน ตารางอัตราการไหล และตัวอย่างการคำนวณทุกข้อในหัวข้อ 9.9 อ้างอิงจาก <em>ระบบการให้ปุ๋ยพร้อมกับน้ำ</em> โดย <strong>ชีรวรรธก์ มั่นกิจ</strong> จัดพิมพ์โดย <strong>สมาคมวิศวกรรมเกษตรแห่งประเทศไทย</strong> ตัวเลขทุกตัวในเอกสารนั้นได้คำนวณซ้ำใหม่ทั้งหมดในบทนี้ และจุดใดที่บทนี้ต่างไปจากต้นฉบับ จะระบุไว้ในหน้านั้น ส่วนที่เพิ่มเข้ามาสองเรื่องเป็นของผู้เรียบเรียงและมีกำกับไว้ คือการพิสูจน์กฎ "น้ำสี่เท่าของความจุถัง" ในหัวข้อ 9.6 ซึ่งต้นฉบับระบุไว้เป็นข้อเท็จจริง และตัวอย่างการออกแบบรวมในหัวข้อ 9.10</span>
+          </p>
+        </div>
+
+        <p>
+          <span class="en">A crop needs two things delivered to the same few cubic metres of soil: water, and the nutrients dissolved in it. Roots do not absorb solid fertiliser. They absorb ions from the soil solution — which means that <strong>every fertiliser, however it is applied, has to end up dissolved in soil water before the plant can use any of it.</strong> Broadcasting granules onto the surface and waiting for rain is one way of arranging that. Dissolving them upstream and letting the irrigation system carry them is another, and it is the one this chapter is about.</span>
+          <span class="th">พืชต้องการสองสิ่งที่ถูกส่งไปยังดินไม่กี่ลูกบาศก์เมตรเดียวกัน คือน้ำ และธาตุอาหารที่ละลายอยู่ในน้ำนั้น รากพืชไม่ได้ดูดปุ๋ยที่เป็นของแข็ง แต่ดูดไอออนจากสารละลายในดิน ซึ่งหมายความว่า <strong>ปุ๋ยทุกชนิด ไม่ว่าจะใส่ด้วยวิธีใด ต้องไปจบลงที่การละลายอยู่ในน้ำในดินเสียก่อน พืชจึงจะใช้ได้</strong> การหว่านเม็ดปุ๋ยลงบนผิวดินแล้วรอฝนเป็นวิธีหนึ่งที่จัดการเรื่องนี้ ส่วนการละลายปุ๋ยไว้ตั้งแต่ต้นทางแล้วให้ระบบชลประทานพาไป เป็นอีกวิธีหนึ่ง และเป็นวิธีที่บทนี้พูดถึง</span>
+        </p>
+
+        <p>
+          <span class="en">The engineering case rests on something Chapter 6 already established. A drip or micro-sprinkler network is, by design, a machine for metering a liquid to a known number of points at a known rate. Having built it, you own a distribution system of considerable precision. Using it for water alone and then walking the same field with a bag of urea is a waste of the asset — and, as §9.2 shows, it is usually also a waste of the urea.</span>
+          <span class="th">เหตุผลทางวิศวกรรมตั้งอยู่บนสิ่งที่บทที่ 6 วางไว้แล้ว ระบบน้ำหยดหรือมินิสปริงเกลอร์ตามการออกแบบของมันคือเครื่องจักรสำหรับจ่ายของเหลวไปยังจุดจำนวนที่รู้แน่นอน ด้วยอัตราที่รู้แน่นอน เมื่อสร้างมันขึ้นมาแล้ว เราก็เป็นเจ้าของระบบกระจายที่มีความแม่นยำสูงพอสมควร การใช้มันเพื่อส่งน้ำอย่างเดียวแล้วเดินหว่านปุ๋ยยูเรียในแปลงเดียวกันอีกรอบ เป็นการใช้สินทรัพย์ไม่คุ้ม และอย่างที่หัวข้อ 9.2 จะแสดงให้เห็น ตามปกติมันยังเป็นการใช้ยูเรียไม่คุ้มด้วย</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Where this chapter sits relative to the others</span><span class="th">บทนี้อยู่ตรงไหนเมื่อเทียบกับบทอื่น</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th><span class="en">What you need before this chapter</span><span class="th">สิ่งที่ต้องมีก่อนเข้าบทนี้</span></th>
+                  <th><span class="en">From where</span><span class="th">มาจากไหน</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="en">The system flow rate Q, in m³/h, and the operating pressure</span><span class="th">อัตราการไหลของระบบ Q เป็น ลบ.ม./ชม. และแรงดันใช้งาน</span></td><td><span class="en">Chapter 6 — the head and discharge the network was designed for</span><span class="th">บทที่ 6 — แรงดันและอัตราการจ่ายที่ออกแบบระบบไว้</span></td></tr>
+                <tr><td><span class="en">How long an irrigation lasts and how often it repeats</span><span class="th">การให้น้ำแต่ละครั้งนานเท่าใด และซ้ำบ่อยแค่ไหน</span></td><td><span class="en">Chapter 7 — the irrigation interval and application time</span><span class="th">บทที่ 7 — ช่วงเวลาการให้น้ำและเวลาที่ใช้ให้น้ำแต่ละครั้ง</span></td></tr>
+                <tr><td><span class="en">The crop's nutrient recommendation, as kg/rai or as ppm in the water</span><span class="th">คำแนะนำธาตุอาหารของพืช เป็น กก./ไร่ หรือเป็น ppm ในน้ำ</span></td><td><span class="en">Soil test, extension service, or the crop specialist — <strong>not</strong> this chapter</span><span class="th">ผลวิเคราะห์ดิน หน่วยงานส่งเสริม หรือนักวิชาการพืช — <strong>ไม่ใช่</strong> จากบทนี้</span></td></tr>
+                <tr><td><span class="en">Filtration adequate for the emitter</span><span class="th">การกรองที่เพียงพอสำหรับหัวจ่าย</span></td><td><span class="en">Chapter 6 — and §9.11 explains why fertigation makes it matter more</span><span class="th">บทที่ 6 — และหัวข้อ 9.11 อธิบายว่าทำไมการให้ปุ๋ยยิ่งทำให้เรื่องนี้สำคัญขึ้น</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="en"><strong>Note the third row.</strong> This chapter will not tell you how much nitrogen a mango tree wants. That is an agronomic question answered by soil analysis and by people who study the crop. What an irrigation engineer owns is everything downstream of that recommendation: turning <span class="mono">kg/rai</span> into <span class="mono">litres per hour through an injector</span>, choosing the device that can deliver it, and making sure the result does not block the emitters or run back down the pipe into the farm well.</span>
+            <span class="th"><strong>ให้สังเกตแถวที่สาม</strong> บทนี้จะไม่บอกว่าต้นมะม่วงต้องการไนโตรเจนเท่าใด นั่นเป็นคำถามทางพืชศาสตร์ที่ตอบได้ด้วยผลวิเคราะห์ดินและโดยผู้ที่ศึกษาพืชชนิดนั้น สิ่งที่วิศวกรชลประทานเป็นเจ้าของคือทุกอย่างที่อยู่ถัดจากคำแนะนำนั้นลงมา คือการแปลง <span class="mono">กก./ไร่</span> ให้เป็น <span class="mono">ลิตรต่อชั่วโมงผ่านเครื่องฉีดปุ๋ย</span> การเลือกอุปกรณ์ที่จ่ายได้ตามนั้น และการทำให้แน่ใจว่าผลลัพธ์จะไม่อุดตันหัวจ่าย หรือไหลย้อนกลับลงไปในบ่อน้ำของฟาร์ม</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.2 ===================== -->
+      <section id="s-pros">
+        <h2><span class="en">9.2 What fertigation buys, and what it costs</span><span class="th">9.2 การให้ปุ๋ยไปกับน้ำได้อะไร และเสียอะไร</span></h2>
+
+        <p>
+          <span class="en">The source sets out nine advantages and four limitations. They are worth going through in full, because several of the advantages are not the obvious one, and every one of the limitations has caused a real system to fail.</span>
+          <span class="th">เอกสารต้นทางระบุข้อดีไว้เก้าข้อ และข้อจำกัดสี่ข้อ ควรอ่านให้ครบ เพราะข้อดีหลายข้อไม่ใช่ข้อที่นึกออกง่าย ๆ และข้อจำกัดทุกข้อล้วนเคยทำให้ระบบจริงเสียหายมาแล้ว</span>
+        </p>
+
+        <h3><span class="en">The nine advantages</span><span class="th">ข้อดีเก้าข้อ</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Advantage</span><span class="th">ข้อดี</span></th>
+                <th><span class="en">Why it follows from the system</span><span class="th">ทำไมจึงเป็นผลมาจากตัวระบบ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">1 Less labour</span><span class="th">1 ลดแรงงานที่ใช้ในการใส่ปุ๋ย</span></strong></td><td><span class="en">Spreading by hand or by machine is heavy, intermittent work. Injecting takes one person a few minutes at the head of the system, however large the block.</span><span class="th">การหว่านด้วยมือหรือด้วยเครื่องจักรเป็นงานหนักและทำเป็นครั้ง ๆ ส่วนการฉีดเข้าระบบใช้คนเดียวไม่กี่นาทีที่หัวระบบ ไม่ว่าแปลงจะใหญ่เพียงใด</span></td></tr>
+              <tr><td><strong><span class="en">2 Even distribution</span><span class="th">2 การกระจายตัวของปุ๋ยสม่ำเสมอ</span></strong></td><td><span class="en">The fertiliser goes wherever the water goes, in the same proportion. A drip system that applies water to ±5% applies nutrients to ±5% — a uniformity no spreader reaches.</span><span class="th">ปุ๋ยไปที่ไหนก็ตามที่น้ำไป ในสัดส่วนเดียวกัน ระบบน้ำหยดที่จ่ายน้ำได้สม่ำเสมอ ±5% ก็จ่ายธาตุอาหารได้สม่ำเสมอ ±5% ซึ่งเป็นความสม่ำเสมอที่เครื่องหว่านไม่มีทางทำได้</span></td></tr>
+              <tr><td><strong><span class="en">3 Nutrients matched to the growth stage</span><span class="th">3 ธาตุอาหารพอเหมาะกับช่วงการเจริญเติบโต</span></strong></td><td><span class="en">A crop does not want its whole season's nitrogen in one week. Fertigation lets the dose follow the demand curve, because the delivery vehicle already runs every few days.</span><span class="th">พืชไม่ได้ต้องการไนโตรเจนทั้งฤดูในสัปดาห์เดียว การให้ปุ๋ยไปกับน้ำทำให้ปริมาณที่ให้เดินตามเส้นความต้องการได้ เพราะพาหนะที่ใช้ส่งวิ่งอยู่แล้วทุกไม่กี่วัน</span></td></tr>
+              <tr><td><strong><span class="en">4 Higher fertiliser use efficiency</span><span class="th">4 เพิ่มประสิทธิภาพการใช้ปุ๋ยและประหยัดปุ๋ย</span></strong></td><td><span class="en">Nutrients are placed in the wetted zone where the roots actually are, not spread over ground the roots never reach. Less is lost to fixation, volatilisation and leaching below the root zone.</span><span class="th">ธาตุอาหารถูกวางไว้ในเขตเปียกที่รากอยู่จริง ไม่ได้กระจายทั่วพื้นที่ที่รากไปไม่ถึง การสูญเสียจากการตรึง การระเหิด และการชะล้างลงใต้เขตรากจึงน้อยลง</span></td></tr>
+              <tr><td><strong><span class="en">5 Control of the soil solution</span><span class="th">5 ควบคุมสารประกอบในสารละลายดินได้</span></strong></td><td><span class="en">Because you choose the compound and the concentration every time, you can steer what the root zone is actually sitting in, including its salinity — which links straight back to the leaching requirement of Chapter 7.</span><span class="th">เพราะเราเลือกสารประกอบและความเข้มข้นได้ทุกครั้ง จึงกำหนดทิศทางของสิ่งที่เขตรากแช่อยู่ได้ รวมถึงความเค็มด้วย ซึ่งเชื่อมกลับไปยังความต้องการน้ำชะล้างในบทที่ 7 โดยตรง</span></td></tr>
+              <tr><td><strong><span class="en">6 Liquid fertiliser becomes usable</span><span class="th">6 ใช้ปุ๋ยน้ำได้</span></strong></td><td><span class="en">Liquid formulations are convenient and already dissolved, but there is no sensible way to broadcast them by hand. An injector is what makes them practical.</span><span class="th">ปุ๋ยน้ำใช้สะดวกและละลายอยู่แล้ว แต่ไม่มีวิธีที่เข้าท่าในการหว่านด้วยมือ เครื่องฉีดปุ๋ยจึงเป็นสิ่งที่ทำให้ปุ๋ยน้ำใช้ได้จริง</span></td></tr>
+              <tr><td><strong><span class="en">7 The quantity is controlled</span><span class="th">7 ควบคุมปริมาณการให้ปุ๋ยได้</span></strong></td><td><span class="en">A measured charge in a tank, or a measured rate through a pump, is a quantity you can write down and repeat. A spreader setting is not.</span><span class="th">ปริมาณที่ตวงใส่ถัง หรืออัตราที่ตั้งไว้ที่ปั๊ม เป็นปริมาณที่จดบันทึกและทำซ้ำได้ ส่วนการตั้งเครื่องหว่านไม่ใช่</span></td></tr>
+              <tr><td><strong><span class="en">8 Fertilise at any time</span><span class="th">8 ให้ปุ๋ยเวลาใดก็ได้</span></strong></td><td><span class="en">Including when the crop canopy has closed and a machine could not enter the field without damaging it — which is exactly when a fruiting crop most wants feeding.</span><span class="th">รวมถึงตอนที่ทรงพุ่มปิดแล้วและเครื่องจักรเข้าแปลงไม่ได้โดยไม่ทำให้เสียหาย ซึ่งเป็นช่วงที่พืชกำลังติดผลต้องการอาหารมากที่สุดพอดี</span></td></tr>
+              <tr><td><strong><span class="en">9 The same equipment does other jobs</span><span class="th">9 อุปกรณ์เดียวกันใช้งานอย่างอื่นได้</span></strong></td><td><span class="en">The injector that puts fertiliser in will also put acid in. Hydrochloric acid injected periodically dissolves the carbonate scale that slowly closes drip emitters — see §9.11.</span><span class="th">เครื่องฉีดปุ๋ยตัวเดียวกันใช้ฉีดกรดได้ด้วย การฉีดกรดไฮโดรคลอริกเป็นระยะจะละลายตะกรันคาร์บอเนตที่ค่อย ๆ ปิดหัวน้ำหยด ดูหัวข้อ 9.11</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">The four limitations</span><span class="th">ข้อจำกัดสี่ข้อ</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Limitation</span><span class="th">ข้อจำกัด</span></th>
+                <th><span class="en">What actually goes wrong</span><span class="th">สิ่งที่เกิดขึ้นจริงเมื่อพลาด</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">1 Contamination of the water source</span><span class="th">1 สารพิษและการปนเปื้อน</span></strong></td><td><span class="en">Fertigation puts a concentrated chemical into a pipe that is connected — often through the pump — to a well, a canal or a public supply. If pressure drops while the injector is running, the solution can travel <em>backwards</em>. This is the one failure mode that harms people rather than plants, and it is why §9.5 spends as long on check valves as on venturis.</span><span class="th">การให้ปุ๋ยไปกับน้ำคือการใส่สารเคมีเข้มข้นลงในท่อที่ต่ออยู่ — บ่อยครั้งผ่านเครื่องสูบน้ำ — กับบ่อน้ำ คลอง หรือระบบประปา ถ้าแรงดันตกลงขณะที่เครื่องฉีดปุ๋ยกำลังทำงาน สารละลายสามารถเดินทาง <em>ย้อนกลับ</em> ได้ นี่เป็นรูปแบบความล้มเหลวข้อเดียวที่ทำอันตรายต่อคนมากกว่าต่อพืช และเป็นเหตุผลที่หัวข้อ 9.5 พูดถึงวาล์วกันน้ำกลับยาวพอ ๆ กับพูดถึงเวนจูรี</span></td></tr>
+              <tr><td><strong><span class="en">2 Not every fertiliser is suitable</span><span class="th">2 ความเหมาะสมของปุ๋ย</span></strong></td><td><span class="en">The compound must dissolve completely. Superphosphate and calcium ammonium phosphate do not dissolve well enough, and what does not dissolve ends up in the filter, or in the emitters.</span><span class="th">สารประกอบต้องละลายได้หมด ซูเปอร์ฟอสเฟตและแคลเซียมแอมโมเนียมฟอสเฟตละลายได้ไม่ดีพอ และสิ่งที่ไม่ละลายจะไปจบลงที่เครื่องกรอง หรือที่หัวจ่าย</span></td></tr>
+              <tr><td><strong><span class="en">3 Corrosion</span><span class="th">3 การกัดกร่อน</span></strong></td><td><span class="en">Fertiliser solutions attack metal. Any part of the system in contact with concentrate — the injector body, the tank, the fittings — has to be chosen for it, which is why the devices in §9.4 are made of plastic, brass or stainless steel and never of plain steel.</span><span class="th">สารละลายปุ๋ยกัดกร่อนโลหะ ชิ้นส่วนใดของระบบที่สัมผัสกับหัวเชื้อเข้มข้น ไม่ว่าจะเป็นตัวเครื่องฉีด ถัง หรือข้อต่อ ต้องเลือกวัสดุให้รองรับ ซึ่งเป็นเหตุผลที่อุปกรณ์ในหัวข้อ 9.4 ทำจากพลาสติก ทองเหลือง หรือสแตนเลส และไม่เคยทำจากเหล็กธรรมดา</span></td></tr>
+              <tr><td><strong><span class="en">4 Chemical reactions inside the system</span><span class="th">4 ปฏิกิริยาของสารเคมีในระบบ</span></strong></td><td><span class="en">Two fertilisers that are each perfectly soluble can precipitate when mixed — calcium and phosphate being the classic pair. The precipitate forms <em>inside the pipe</em>, and by the time you notice, the emitters are blocked. The pH of the irrigation water decides whether it happens.</span><span class="th">ปุ๋ยสองชนิดที่ต่างก็ละลายน้ำได้ดี เมื่อผสมกันอาจตกตะกอนได้ โดยคู่คลาสสิกคือแคลเซียมกับฟอสเฟต ตะกอนเกิดขึ้น <em>ภายในท่อ</em> และกว่าจะรู้ตัว หัวจ่ายก็อุดตันไปแล้ว ค่า pH ของน้ำชลประทานเป็นตัวตัดสินว่าจะเกิดหรือไม่</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The honest summary of that table</span><span class="th">สรุปตารางนั้นอย่างตรงไปตรงมา</span></div>
+          <p>
+            <span class="en">The advantages are about <strong>agronomy and labour</strong>, and they are large. The limitations are about <strong>chemistry and hydraulics</strong>, and they are the engineer's problem. Nobody ever abandoned fertigation because it failed to increase yield; systems get abandoned because the emitters blocked in the second season, or because somebody smelled fertiliser in the drinking water. Design accordingly.</span>
+            <span class="th">ข้อดีเป็นเรื่องของ <strong>พืชศาสตร์และแรงงาน</strong> และเป็นข้อดีที่ใหญ่ ส่วนข้อจำกัดเป็นเรื่องของ <strong>เคมีและชลศาสตร์</strong> และเป็นปัญหาของวิศวกร ไม่เคยมีใครเลิกให้ปุ๋ยไปกับน้ำเพราะมันไม่ช่วยเพิ่มผลผลิต ระบบถูกทิ้งเพราะหัวจ่ายอุดตันในฤดูที่สอง หรือเพราะมีคนได้กลิ่นปุ๋ยในน้ำดื่ม ให้ออกแบบโดยคิดถึงเรื่องนั้น</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.3 ===================== -->
+      <section id="s-choose">
+        <h2><span class="en">9.3 Choosing an injector: the questions to settle first</span><span class="th">9.3 การเลือกเครื่องให้ปุ๋ย: คำถามที่ต้องตอบก่อน</span></h2>
+
+        <p>
+          <span class="en">Before comparing devices, three numbers have to exist. They come out of the design you already have, and each takes one line of arithmetic. Get them wrong and no amount of equipment comparison will help.</span>
+          <span class="th">ก่อนจะเปรียบเทียบอุปกรณ์ ต้องมีตัวเลขสามตัวเสียก่อน ตัวเลขเหล่านี้ได้มาจากการออกแบบที่เรามีอยู่แล้ว และแต่ละตัวใช้การคำนวณบรรทัดเดียว ถ้าได้ตัวเลขเหล่านี้ผิด การเปรียบเทียบอุปกรณ์มากเพียงใดก็ไม่ช่วย</span>
+        </p>
+
+        <h3><span class="en">The three numbers</span><span class="th">ตัวเลขสามตัว</span></h3>
+
+        <div class="formula">
+          <div class="eq"><code><span class="en">delivery rate</span><span class="th">ความสามารถในการจ่ายปุ๋ย</span> = <span class="frac"><span class="num"><span class="en">rate per rai × area</span><span class="th">อัตราต่อไร่ × พื้นที่</span></span><span class="den"><span class="en">time available</span><span class="th">เวลาที่มี</span></span></span></code><span class="eq-note"><span class="en">L/h — the size of injector you need</span><span class="th">ลิตร/ชม. — บอกขนาดเครื่องฉีดที่ต้องใช้</span></span></div>
+          <div class="eq"><code><span class="en">tank size</span><span class="th">ขนาดของถัง</span> = <span class="en">rate per rai × area</span><span class="th">อัตราต่อไร่ × พื้นที่</span></code><span class="eq-note"><span class="en">L — how much has to fit in one charge</span><span class="th">ลิตร — ปริมาณที่ต้องใส่ได้ในการเติมครั้งเดียว</span></span></div>
+          <div class="eq result"><code><span class="en">dilution</span><span class="th">อัตราส่วนความเจือจาง</span> = <span class="frac"><span class="num"><span class="en">fertiliser volume</span><span class="th">ปริมาตรปุ๋ย</span> × 100</span><span class="den"><span class="en">total volume</span><span class="th">ปริมาตรรวม</span></span></span></code><span class="eq-note"><span class="en">% — must stay inside the 1 : 500 limit of §9.11</span><span class="th">% — ต้องอยู่ในขีดจำกัด 1 : 500 ของหัวข้อ 9.11</span></span></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Three worked examples, straight from the source</span><span class="th">ตัวอย่างสามข้อ ยกมาจากเอกสารต้นทางโดยตรง</span></div>
+          <p>
+            <span class="en"><strong>Delivery rate.</strong> A block of <strong>15 rai</strong> needs <strong>25 litres of fertiliser solution per rai</strong>, and the fertigation has to finish in <strong>3 hours</strong>.</span>
+            <span class="th"><strong>ความสามารถในการจ่ายปุ๋ย</strong> แปลงขนาด <strong>15 ไร่</strong> ต้องการสารละลายปุ๋ย <strong>25 ลิตรต่อไร่</strong> และต้องให้ปุ๋ยเสร็จภายใน <strong>3 ชั่วโมง</strong></span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code><span class="frac"><span class="num">25 × 15</span><span class="den">3</span></span> = <strong>125 <span class="en">L/h</span><span class="th">ลิตร/ชั่วโมง</span></strong></code></div>
+          </div>
+          <p>
+            <span class="en"><strong>Tank size.</strong> A block of <strong>3 rai</strong> needs <strong>30 litres per rai</strong> in one application.</span>
+            <span class="th"><strong>ขนาดของถัง</strong> แปลงขนาด <strong>3 ไร่</strong> ต้องการ <strong>30 ลิตรต่อไร่</strong> ในการให้หนึ่งครั้ง</span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code>30 × 3 = <strong>90 <span class="en">litres</span><span class="th">ลิตร</span></strong></code><span class="eq-note"><span class="en">so a 60 L tank will not do it in one charge</span><span class="th">ดังนั้นถังขนาด 60 ลิตรจะทำไม่ได้ในการเติมครั้งเดียว</span></span></div>
+          </div>
+          <p>
+            <span class="en"><strong>Dilution.</strong> Ten litres of fertiliser solution mixed into <strong>190 litres</strong> of water.</span>
+            <span class="th"><strong>อัตราส่วนความเจือจาง</strong> สารละลายปุ๋ย 10 ลิตร ผสมน้ำ <strong>190 ลิตร</strong></span>
+          </p>
+          <div class="formula">
+            <div class="eq result"><code><span class="frac"><span class="num">10 × 100</span><span class="den">200</span></span> = <strong>5%</strong></code><span class="eq-note"><span class="en">= 1 : 20 in the tank, which is the <em>stock</em>, not what reaches the emitter</span><span class="th">= 1 : 20 ในถัง ซึ่งเป็น <em>หัวเชื้อ</em> ไม่ใช่ค่าที่ไปถึงหัวจ่าย</span></span></div>
+          </div>
+          <p>
+            <span class="en">That last note is the one students trip over. <strong>There are two dilutions in every fertigation system</strong> — the one in the tank, and the one after the injected stream meets the main flow. The 1 : 500 limit in §9.11 applies to the second, not the first. §9.10 works both out for the same field.</span>
+            <span class="th">หมายเหตุข้อสุดท้ายนั้นคือจุดที่นักศึกษามักสะดุด <strong>ในระบบให้ปุ๋ยทุกระบบมีความเจือจางสองค่า</strong> คือค่าในถัง และค่าหลังจากสายที่ฉีดเข้าไปพบกับน้ำในท่อเมน ขีดจำกัด 1 : 500 ในหัวข้อ 9.11 ใช้กับค่าที่สอง ไม่ใช่ค่าแรก ส่วนหัวข้อ 9.10 คำนวณทั้งสองค่าให้ดูในแปลงเดียวกัน</span>
+          </p>
+        </div>
+
+        <h3><span class="en">The rest of the checklist</span><span class="th">รายการตรวจสอบที่เหลือ</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Question</span><span class="th">คำถาม</span></th>
+                <th><span class="en">Why it decides the choice</span><span class="th">ทำไมจึงเป็นตัวตัดสินการเลือก</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">Is there power at the head?</span><span class="th">ที่หัวระบบมีไฟฟ้าหรือไม่</span></strong></td><td><span class="en">Decides immediately between the devices that run on the water's own pressure and those that need an electric or engine drive. On a remote block this is often the whole decision.</span><span class="th">ตัดสินได้ทันทีระหว่างอุปกรณ์ที่ทำงานด้วยแรงดันน้ำในระบบเอง กับอุปกรณ์ที่ต้องใช้ไฟฟ้าหรือเครื่องยนต์ขับ ในแปลงที่อยู่ห่างไกล ข้อนี้มักเป็นตัวตัดสินทั้งหมด</span></td></tr>
+              <tr><td><strong><span class="en">How accurate does it have to be?</span><span class="th">ต้องการความแม่นยำเพียงใด</span></strong></td><td><span class="en">A tank gives you control of the total dose but not of the instantaneous concentration. A pump gives you both. Whether that matters depends on the crop and on §9.6.</span><span class="th">ถังให้เราควบคุมปริมาณรวมได้ แต่ไม่ได้ควบคุมความเข้มข้นขณะนั้น ส่วนปั๊มให้ทั้งสองอย่าง จะสำคัญหรือไม่ขึ้นอยู่กับชนิดพืชและหัวข้อ 9.6</span></td></tr>
+              <tr><td><strong><span class="en">Who will operate it?</span><span class="th">ใครจะเป็นผู้ใช้งาน</span></strong></td><td><span class="en">The source is blunt about this: the operator must understand what they are doing. A device that is precise in the hands of a technician and dangerous in the hands of a tired farmhand is not the right device for a farm.</span><span class="th">เอกสารต้นทางพูดเรื่องนี้ตรง ๆ ว่าผู้ใช้งานต้องเข้าใจสิ่งที่ตนทำ อุปกรณ์ที่แม่นยำในมือช่างเทคนิคแต่อันตรายในมือคนงานที่เหนื่อยล้า ไม่ใช่อุปกรณ์ที่เหมาะกับฟาร์ม</span></td></tr>
+              <tr><td><strong><span class="en">Does it have to move?</span><span class="th">ต้องเคลื่อนย้ายหรือไม่</span></strong></td><td><span class="en">One injector serving several blocks in turn must be portable. One injector per block need not be, and can be plumbed in permanently.</span><span class="th">เครื่องฉีดปุ๋ยตัวเดียวที่ต้องใช้หลายแปลงหมุนเวียนกันต้องเคลื่อนย้ายได้ ส่วนเครื่องประจำแปลงไม่จำเป็น และติดตั้งถาวรได้</span></td></tr>
+              <tr><td><strong><span class="en">Will it be automated?</span><span class="th">จะต่อเข้าระบบอัตโนมัติหรือไม่</span></strong></td><td><span class="en">If the block is on a controller, the injector has to be something the controller can start, stop and meter — see §9.8.</span><span class="th">ถ้าแปลงอยู่บนกล่องควบคุม เครื่องฉีดปุ๋ยต้องเป็นชนิดที่กล่องควบคุมสั่งเปิด ปิด และตวงปริมาณได้ ดูหัวข้อ 9.8</span></td></tr>
+              <tr><td><strong><span class="en">What does service look like?</span><span class="th">การบริการหลังการขายเป็นอย่างไร</span></strong></td><td><span class="en">Spare parts, a standard the parts conform to, and a supplier with a track record. An imported injector with no seals available is a tank with extra steps.</span><span class="th">อะไหล่ มาตรฐานที่อะไหล่นั้นอ้างอิง และผู้จำหน่ายที่มีประวัติการทำงาน เครื่องฉีดปุ๋ยนำเข้าที่หาซีลไม่ได้ ก็คือถังจ่ายปุ๋ยที่มีขั้นตอนเพิ่มขึ้นมาเท่านั้น</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================== 9.4 ===================== -->
+      <section id="s-devices">
+        <h2><span class="en">9.4 The six devices, and the one thing that separates them</span><span class="th">9.4 อุปกรณ์หกชนิด และสิ่งเดียวที่แยกพวกมันออกจากกัน</span></h2>
+
+        <p>
+          <span class="en">Thai practice recognises six injection devices. They look very different from each other, but they sort into three families by a single question: <strong>where does the energy to move the fertiliser come from?</strong> Answer that and most of the selection is already done.</span>
+          <span class="th">แนวปฏิบัติของไทยนับอุปกรณ์ฉีดปุ๋ยไว้หกชนิด หน้าตาต่างกันมาก แต่จัดกลุ่มได้เป็นสามตระกูลด้วยคำถามเดียว คือ <strong>พลังงานที่ใช้ขับเคลื่อนปุ๋ยมาจากไหน</strong> ตอบคำถามนั้นได้ การเลือกก็เสร็จไปเกือบหมดแล้ว</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Device</span><span class="th">อุปกรณ์</span></th>
+                <th><span class="en">Energy source</span><span class="th">แหล่งพลังงาน</span></th>
+                <th><span class="en">Rate</span><span class="th">อัตราการจ่าย</span></th>
+                <th><span class="en">Pressure cost</span><span class="th">แรงดันที่เสียไป</span></th>
+                <th><span class="en">Concentration over time</span><span class="th">ความเข้มข้นตามเวลา</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">1 Venturi</span><span class="th">1 เวนจูรี</span></strong><br><span class="mono">Venturi pump</span></td>
+                <td rowspan="3"><span class="en"><strong>System pressure.</strong> No moving parts, no external power at all.</span><span class="th"><strong>แรงดันน้ำในระบบ</strong> ไม่มีชิ้นส่วนเคลื่อนที่ ไม่ต้องใช้พลังงานภายนอกเลย</span></td>
+                <td><span class="en">up to 1,800 L/h</span><span class="th">สูงถึง 1,800 ลิตร/ชม.</span></td>
+                <td><strong><span class="en">≥ ⅓ of inlet pressure</span><span class="th">≥ ⅓ ของแรงดันขาเข้า</span></strong></td>
+                <td><span class="en">Steady while it runs</span><span class="th">คงที่ตลอดที่ทำงาน</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">2 Flow-through tank</span><span class="th">2 ถังจ่ายปุ๋ยแบบน้ำไหลผ่าน</span></strong><br><span class="mono">Flow by-pass tank</span></td>
+                <td><span class="en">60–220 L per charge</span><span class="th">60–220 ลิตรต่อการเติมหนึ่งครั้ง</span></td>
+                <td><span class="en">1–2 m across the tank</span><span class="th">1–2 ม. คร่อมถัง</span></td>
+                <td><strong><span class="en">Falls steeply — see §9.6</span><span class="th">ลดลงอย่างชัน ดูหัวข้อ 9.6</span></strong></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">3 Pressure tank</span><span class="th">3 ถังจ่ายปุ๋ยแบบแรงดัน</span></strong><br><span class="mono">Pressure by-pass tank</span></td>
+                <td><span class="en">60, 90, 120 L</span><span class="th">60, 90, 120 ลิตร</span></td>
+                <td><span class="en">1–2 m across the tank</span><span class="th">1–2 ม. คร่อมถัง</span></td>
+                <td><strong><span class="en">Flat</span><span class="th">คงที่</span></strong></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">4 Diaphragm injector</span><span class="th">4 ปั๊มฉีดปุ๋ยแบบไดอะแฟรม</span></strong><br><span class="mono">TMB</span></td>
+                <td rowspan="2"><span class="en"><strong>System pressure, converted.</strong> A water motor drives a pump. Still no external power, but it spends water.</span><span class="th"><strong>แรงดันน้ำในระบบ แปลงเป็นงานกล</strong> ใช้น้ำขับมอเตอร์ซึ่งขับปั๊มอีกทอด ยังไม่ต้องใช้พลังงานภายนอก แต่ต้องจ่ายด้วยน้ำ</span></td>
+                <td><span class="en">8–600 L/h, at 30–120 psi</span><span class="th">8–600 ลิตร/ชม. ที่ 30–120 psi</span></td>
+                <td><strong><span class="en">None</span><span class="th">ไม่เสีย</span></strong> <span class="en">— but costs 2 L water per 1 L fertiliser</span><span class="th">— แต่ใช้น้ำ 2 ลิตร ต่อปุ๋ย 1 ลิตร</span></td>
+                <td><span class="en">Flat</span><span class="th">คงที่</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">5 Piston injector</span><span class="th">5 เครื่องฉีดปุ๋ยแบบลูกสูบ</span></strong><br><span class="mono">AMIAD</span></td>
+                <td><span class="en">up to 320 L/h, at 7–115 psi</span><span class="th">สูงถึง 320 ลิตร/ชม. ที่ 7–115 psi</span></td>
+                <td><strong><span class="en">None</span><span class="th">ไม่เสีย</span></strong> <span class="en">— but costs 3 L water per 1 L fertiliser</span><span class="th">— แต่ใช้น้ำ 3 ลิตร ต่อปุ๋ย 1 ลิตร</span></td>
+                <td><span class="en">Flat</span><span class="th">คงที่</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">6 Automatic mixing tank</span><span class="th">6 ถังผสมปุ๋ยอัตโนมัติ</span></strong><br><span class="mono">FERTIMIX / OMETZ</span></td>
+                <td><span class="en"><strong>Its own pump, electrically driven</strong>, plus a controller.</span><span class="th"><strong>ปั๊มของตัวเอง ขับด้วยไฟฟ้า</strong> พร้อมกล่องควบคุม</span></td>
+                <td><span class="en">7 / 20 / 35 m³/h of finished water at 2.5–3 bar</span><span class="th">7 / 20 / 35 ลบ.ม./ชม. ของน้ำที่ผสมเสร็จ ที่ 2.5–3 บาร์</span></td>
+                <td><span class="en">Adds pressure rather than losing it</span><span class="th">เพิ่มแรงดันให้ ไม่ใช่ทำให้เสีย</span></td>
+                <td><strong><span class="en">Controlled to a set EC and pH</span><span class="th">ควบคุมให้ได้ค่า EC และ pH ที่ตั้งไว้</span></strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the last two columns together</span><span class="th">อ่านสองคอลัมน์สุดท้ายพร้อมกัน</span></div>
+          <p>
+            <span class="en">Nothing is free. The venturi asks for no power and no water, and charges you <strong>a third of your system pressure</strong> — which on a drip system designed to 20 m of head is 7 m you have to find somewhere. The injector pumps leave the pressure alone and charge you <strong>water</strong>: two or three litres pushed to waste for every litre of fertiliser delivered. The tanks charge you almost nothing and give you almost no control. The mixing tank charges you a capital budget and gives you everything.</span>
+            <span class="th">ไม่มีอะไรได้มาฟรี เวนจูรีไม่ขอทั้งพลังงานและน้ำ แต่เก็บค่าตอบแทนเป็น <strong>หนึ่งในสามของแรงดันในระบบ</strong> ซึ่งในระบบน้ำหยดที่ออกแบบไว้ที่แรงดัน 20 ม. ก็คือ 7 ม. ที่เราต้องไปหามาจากที่ไหนสักแห่ง ส่วนปั๊มฉีดปุ๋ยไม่แตะแรงดันเลย แต่เก็บค่าตอบแทนเป็น <strong>น้ำ</strong> คือสองหรือสามลิตรที่ถูกปล่อยทิ้งต่อปุ๋ยทุกหนึ่งลิตรที่จ่ายออกไป ถังจ่ายปุ๋ยแทบไม่เก็บอะไรเลย และก็แทบไม่ให้การควบคุมอะไรเลยเช่นกัน ส่วนถังผสมอัตโนมัติเก็บค่าตอบแทนเป็นงบลงทุน แล้วให้ทุกอย่าง</span>
+          </p>
+          <p>
+            <span class="en">There is no best device. There is a device that fits the pressure you have, the water you can afford to waste, and the precision the crop actually needs.</span>
+            <span class="th">ไม่มีอุปกรณ์ที่ดีที่สุด มีแต่อุปกรณ์ที่เข้ากับแรงดันที่เรามี น้ำที่เรายอมเสียได้ และความแม่นยำที่พืชต้องการจริง ๆ</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.5 ===================== -->
+      <section id="s-venturi">
+        <h2><span class="en">9.5 The venturi</span><span class="th">9.5 เวนจูรี</span></h2>
+
+        <p>
+          <span class="en">The venturi is the cheapest, simplest and most widely used injector in Thailand, and it works on a principle Chapter 5 already used to measure flow. Narrow the passage and the water must speed up; speed it up and its pressure falls. Put a hole at the narrow point and connect it to a bucket of fertiliser, and the pressure difference does the pumping.</span>
+          <span class="th">เวนจูรีเป็นเครื่องฉีดปุ๋ยที่ถูกที่สุด ง่ายที่สุด และใช้กันแพร่หลายที่สุดในประเทศไทย และทำงานบนหลักการที่บทที่ 5 ใช้วัดอัตราการไหลไปแล้ว คือบีบทางเดินน้ำให้แคบลง น้ำก็ต้องเร็วขึ้น เมื่อเร็วขึ้นแรงดันก็ลดลง เจาะรูไว้ที่จุดแคบแล้วต่อสายลงถังปุ๋ย ความแตกต่างของแรงดันจะทำหน้าที่สูบให้เอง</span>
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 720 320" role="img" aria-label="Venturi injector">
+            <g fill="none" stroke="var(--ink)" stroke-width="2">
+              <path d="M 60,70 L 190,70 L 300,96 L 370,96 L 500,70 L 660,70" />
+              <path d="M 60,140 L 190,140 L 300,114 L 370,114 L 500,140 L 660,140" />
+            </g>
+            <g fill="var(--th-tint)" stroke="none">
+              <path d="M 60,70 L 190,70 L 300,96 L 370,96 L 500,70 L 660,70 L 660,140 L 500,140 L 370,114 L 300,114 L 190,140 L 60,140 Z" />
+            </g>
+            <g fill="none" stroke="var(--ink)" stroke-width="2">
+              <path d="M 60,70 L 190,70 L 300,96 L 370,96 L 500,70 L 660,70" />
+              <path d="M 60,140 L 190,140 L 300,114 L 370,114 L 500,140 L 660,140" />
+              <path d="M 325,114 L 325,205" stroke-width="2.4" />
+              <rect x="292" y="205" width="66" height="54" rx="3" />
+            </g>
+            <g fill="var(--accent)" stroke="none">
+              <path d="M 96,98 L 130,98 L 130,92 L 148,105 L 130,118 L 130,112 L 96,112 Z" />
+              <path d="M 570,98 L 604,98 L 604,92 L 622,105 L 604,118 L 604,112 L 570,112 Z" />
+              <path d="M 322,150 L 328,150 L 328,176 L 334,176 L 325,190 L 316,176 L 322,176 Z" />
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="14" fill="var(--ink)">
+              <text x="60" y="52" class="en">inlet — full pressure</text>
+              <text x="60" y="52" class="th">ทางเข้า — แรงดันเต็ม</text>
+              <text x="300" y="52" class="en">throat — pressure falls</text>
+              <text x="300" y="52" class="th">คอคอด — แรงดันตก</text>
+              <text x="530" y="52" class="en">outlet</text>
+              <text x="530" y="52" class="th">ทางออก</text>
+              <text x="372" y="182" class="en">suction</text>
+              <text x="372" y="182" class="th">แรงดูด</text>
+              <text x="372" y="238" class="en">fertiliser solution</text>
+              <text x="372" y="238" class="th">สารละลายปุ๋ย</text>
+            </g>
+            <g stroke="var(--rule)" stroke-width="1" stroke-dasharray="4 4">
+              <line x1="60" y1="268" x2="660" y2="268" />
+            </g>
+            <g fill="none" stroke="var(--accent-hot)" stroke-width="2.4">
+              <path d="M 60,268 L 190,268 L 300,308 L 370,308 L 500,286 L 660,286" />
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink-soft)">
+              <text x="60" y="264" class="en">pressure along the pipe</text>
+              <text x="60" y="264" class="th">แรงดันตามแนวท่อ</text>
+              <text x="470" y="278" class="en">about a third never comes back</text>
+              <text x="470" y="278" class="th">ราวหนึ่งในสามไม่กลับคืนมา</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 9.1 — A venturi injector. The throat accelerates the flow and drops its pressure below atmospheric, which lifts solution from the container. The orange trace below shows the pressure along the pipe: it recovers after the throat, but <strong>not all the way</strong>. The gap between the inlet and outlet levels is the price of the device, and the source puts it at a third of the inlet pressure or more.</span>
+            <span class="th">รูปที่ 9.1 — เครื่องฉีดปุ๋ยแบบเวนจูรี คอคอดเร่งความเร็วของน้ำและทำให้แรงดันตกลงต่ำกว่าความดันบรรยากาศ จึงดูดสารละลายขึ้นมาจากถังได้ เส้นสีส้มด้านล่างแสดงแรงดันตามแนวท่อ คือฟื้นกลับขึ้นมาหลังผ่านคอคอด แต่ <strong>ไม่กลับมาจนสุด</strong> ช่องว่างระหว่างระดับขาเข้ากับขาออกคือราคาที่ต้องจ่ายให้อุปกรณ์นี้ ซึ่งเอกสารต้นทางระบุไว้ที่หนึ่งในสามของแรงดันขาเข้าหรือมากกว่า</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">What the numbers are</span><span class="th">ตัวเลขที่ต้องรู้</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td><strong><span class="en">Pressure difference to work</span><span class="th">ความต่างแรงดันที่ทำให้ทำงาน</span></strong></td><td><span class="en">About <strong>20%</strong> between inlet and outlet is enough to start the suction.</span><span class="th">ราว <strong>20%</strong> ระหว่างขาเข้ากับขาออก ก็เพียงพอให้เริ่มเกิดแรงดูด</span></td></tr>
+              <tr><td><strong><span class="en">Pressure actually lost</span><span class="th">แรงดันที่เสียไปจริง</span></strong></td><td><span class="en">At least <strong>one third</strong> of the inlet pressure. Some models lose as much as <strong>50%</strong>; a few of the better ones as little as <strong>10%</strong>. This varies more between models than any other figure, so read the manufacturer's curve.</span><span class="th">อย่างน้อย <strong>หนึ่งในสาม</strong> ของแรงดันขาเข้า บางรุ่นเสียถึง <strong>50%</strong> ส่วนรุ่นที่ดีกว่าบางรุ่นเสียเพียง <strong>10%</strong> ค่านี้ต่างกันระหว่างรุ่นมากกว่าค่าอื่นใด จึงต้องอ่านกราฟของผู้ผลิต</span></td></tr>
+              <tr><td><strong><span class="en">Sizes and materials</span><span class="th">ขนาดและวัสดุ</span></strong></td><td><span class="en"><strong>3/8 in to 2 in</strong>, in brass, stainless steel, copper or plastic.</span><span class="th"><strong>3/8 นิ้ว ถึง 2 นิ้ว</strong> ทำจากทองเหลือง สแตนเลส ทองแดง หรือพลาสติก</span></td></tr>
+              <tr><td><strong><span class="en">Suction rate</span><span class="th">อัตราการดูด</span></strong></td><td><span class="en">Up to <strong>1,800 L/h</strong> on the largest sizes.</span><span class="th">สูงถึง <strong>1,800 ลิตร/ชม.</strong> ในขนาดใหญ่ที่สุด</span></td></tr>
+              <tr><td><strong><span class="en">The by-pass variant</span><span class="th">แบบติดตั้งคร่อม</span></strong></td><td><span class="en">Only part of the flow goes through the venturi. Needs <strong>12–25%</strong> of the inlet pressure as the difference across the by-pass, and about <strong>30%</strong> if a throttling valve sets it.</span><span class="th">ให้น้ำเพียงส่วนหนึ่งผ่านเวนจูรี ต้องการความต่างแรงดันคร่อมสายแยกราว <strong>12–25%</strong> ของแรงดันขาเข้า และราว <strong>30%</strong> ถ้าใช้วาล์วปรับเป็นตัวกำหนด</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">Six ways to install one</span><span class="th">หกวิธีติดตั้ง</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Arrangement</span><span class="th">รูปแบบ</span></th>
+                <th><span class="en">Use it when</span><span class="th">ใช้เมื่อ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">1 In-line in the main</span><span class="th">1 ติดตั้งในท่อเมน</span></strong></td><td><span class="en">Flow is low and you can afford to lose the pressure outright. The simplest arrangement and the one that costs the most head.</span><span class="th">อัตราการไหลน้อยและยอมเสียแรงดันไปตรง ๆ ได้ เป็นแบบที่ง่ายที่สุด และเป็นแบบที่เสียแรงดันมากที่สุด</span></td></tr>
+              <tr><td><strong><span class="en">2 By-pass with a pressure regulator</span><span class="th">2 คร่อมท่อ พร้อมวาล์วควบคุมแรงดัน</span></strong></td><td><span class="en">The main already has enough pressure difference. The regulator holds the difference steady as demand changes.</span><span class="th">ท่อเมนมีความต่างแรงดันพออยู่แล้ว วาล์วควบคุมทำหน้าที่รักษาความต่างนั้นให้คงที่เมื่อความต้องการน้ำเปลี่ยนไป</span></td></tr>
+              <tr><td><strong><span class="en">3 By-pass with a throttling valve</span><span class="th">3 คร่อมท่อ พร้อมวาล์วปรับแรงดัน</span></strong></td><td><span class="en">You create the difference deliberately, at about <strong>30%</strong>. Cheap, and it works — but check that the pressure left over is still enough to run the emitters.</span><span class="th">เราสร้างความต่างแรงดันขึ้นมาเองที่ราว <strong>30%</strong> ถูกและใช้ได้ แต่ต้องตรวจว่าแรงดันที่เหลือยังพอให้หัวจ่ายทำงาน</span></td></tr>
+              <tr><td><strong><span class="en">4 With a booster pump</span><span class="th">4 พร้อมปั๊มเพิ่มแรงดัน</span></strong></td><td><span class="en">There is not enough pressure difference to find anywhere. A small pump on the by-pass makes one. Needs power, and a <strong>1 m minimum</strong> separation on the layout.</span><span class="th">หาความต่างแรงดันไม่ได้จากที่ไหนเลย ใช้ปั๊มเล็ก ๆ บนสายแยกสร้างขึ้นมา ต้องใช้ไฟฟ้า และต้องเว้นระยะอย่างน้อย <strong>1 เมตร</strong> ตามผัง</span></td></tr>
+              <tr><td><strong><span class="en">5 With a screen filter and regulator</span><span class="th">5 พร้อมเครื่องกรองและวาล์วควบคุมแรงดัน</span></strong></td><td><span class="en">The solution needs filtering before it enters the main — which, on any drip system, it does.</span><span class="th">สารละลายต้องผ่านการกรองก่อนเข้าท่อเมน ซึ่งในระบบน้ำหยดทุกระบบก็ต้องทำอยู่แล้ว</span></td></tr>
+              <tr><td><strong><span class="en">6 Across the existing pump</span><span class="th">6 คร่อมเครื่องสูบน้ำที่มีอยู่</span></strong></td><td><span class="en"><strong>The one worth remembering.</strong> Connect the venturi between the pump's suction and delivery lines. The pump already creates a large pressure difference, so the venturi runs on it and <strong>no extra energy is needed at all</strong>.</span><span class="th"><strong>แบบที่ควรจำไว้</strong> ต่อเวนจูรีคร่อมระหว่างท่อดูดกับท่อส่งของเครื่องสูบน้ำ ปั๊มสร้างความต่างแรงดันขนาดใหญ่ไว้อยู่แล้ว เวนจูรีจึงทำงานบนความต่างนั้น และ <strong>ไม่ต้องใช้พลังงานเพิ่มเลย</strong></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Stopping the fertiliser going the wrong way</span><span class="th">การกันไม่ให้ปุ๋ยไหลผิดทาง</span></div>
+          <p>
+            <span class="en">A venturi sucks only while water is flowing past it. The moment flow stops — a power cut, a closed valve, a burst pipe downstream — the suction stops too, and whatever is in the line can move under gravity or under the vacuum left behind. The source gives three defences, and a well-built head uses all three:</span>
+            <span class="th">เวนจูรีดูดได้เฉพาะขณะที่มีน้ำไหลผ่านเท่านั้น วินาทีที่น้ำหยุดไหล ไม่ว่าจะจากไฟดับ วาล์วปิด หรือท่อแตกทางท้ายน้ำ แรงดูดก็หยุดไปด้วย และสิ่งที่ค้างอยู่ในสายสามารถเคลื่อนที่ได้ด้วยแรงโน้มถ่วงหรือด้วยสุญญากาศที่ทิ้งไว้ เอกสารต้นทางให้แนวป้องกันสามชั้น และหัวระบบที่สร้างมาดีจะใช้ทั้งสามชั้น</span>
+          </p>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td><strong><span class="en">Check valve</span><span class="th">วาล์วกันน้ำกลับ</span></strong></td><td><span class="en">On the branch before the venturi, so nothing can travel back up the main.</span><span class="th">ติดที่สายแยกก่อนเข้าเวนจูรี เพื่อไม่ให้อะไรเดินทางย้อนขึ้นท่อเมนได้</span></td></tr>
+                <tr><td><strong><span class="en">Solenoid valve</span><span class="th">โซลินอยด์วาล์ว</span></strong></td><td><span class="en">On the branch, wired so that it closes automatically the moment the water supply stops.</span><span class="th">ติดที่สายแยก ต่อสายไฟให้ปิดเองอัตโนมัติทันทีที่น้ำหยุดจ่าย</span></td></tr>
+                <tr><td><strong><span class="en">Float in the suction line</span><span class="th">ลูกลอยในสายดูด</span></strong></td><td><span class="en">Between the suction pipe and the fertiliser tank. When the tank empties the float drops and seals the line, so the venturi cannot start drawing air.</span><span class="th">อยู่ระหว่างท่อดูดกับถังปุ๋ย เมื่อถังหมด ลูกลอยจะตกลงและปิดสาย เวนจูรีจึงไม่เริ่มดูดอากาศเข้าไป</span></td></tr>
+                <tr><td><strong><span class="en">Vacuum breaker</span><span class="th">วาล์วกันสุญญากาศ</span></strong></td><td><span class="en">Admits air when the line goes into vacuum, so the column cannot be siphoned backwards.</span><span class="th">ปล่อยอากาศเข้าเมื่อในสายเป็นสุญญากาศ เพื่อไม่ให้ลำน้ำถูกดูดย้อนกลับไปได้</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="en">None of these is expensive and all of them are sometimes left out. Limitation 1 in §9.2 is the reason not to.</span>
+            <span class="th">ไม่มีชิ้นใดในนี้ราคาแพง และทุกชิ้นบางครั้งก็ถูกละไว้ ข้อจำกัดข้อ 1 ในหัวข้อ 9.2 คือเหตุผลที่ไม่ควรละ</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.6 ===================== -->
+      <section id="s-tanks">
+        <h2><span class="en">9.6 The two tanks, and why one empties four times faster</span><span class="th">9.6 ถังจ่ายปุ๋ยสองแบบ และทำไมแบบหนึ่งจึงหมดเร็วกว่าสี่เท่า</span></h2>
+
+        <p>
+          <span class="en">Both tanks are plumbed the same way: a by-pass around a valve in the main, so that a small pressure difference pushes some of the flow through the tank. They differ in one thing only, and that difference changes everything about how they behave.</span>
+          <span class="th">ถังทั้งสองแบบต่อท่อเหมือนกัน คือคร่อมวาล์วในท่อเมน เพื่อให้ความต่างแรงดันเล็กน้อยผลักน้ำส่วนหนึ่งให้ไหลผ่านถัง ทั้งสองต่างกันเพียงเรื่องเดียว และความต่างนั้นเปลี่ยนพฤติกรรมของมันไปทั้งหมด</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th><span class="en">Flow-through tank</span><span class="th">ถังแบบน้ำไหลผ่าน</span></th>
+                <th><span class="en">Pressure tank</span><span class="th">ถังแบบแรงดัน</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">What happens inside</span><span class="th">ข้างในเกิดอะไรขึ้น</span></strong></td><td><span class="en">Water enters, <strong>mixes</strong> with the fertiliser, and the mixture leaves. Every litre out is more dilute than the last.</span><span class="th">น้ำเข้าไป <strong>ผสม</strong> กับปุ๋ย แล้วส่วนผสมไหลออก ทุกลิตรที่ออกมาเจือจางกว่าลิตรก่อนหน้า</span></td><td><span class="en">A rubber bladder holds the fertiliser. Water enters <em>outside</em> the bladder and squeezes it, so the solution is <strong>pushed out undiluted</strong>.</span><span class="th">ถุงยางบรรจุปุ๋ยไว้ น้ำเข้าไป <em>ด้านนอก</em> ถุงแล้วบีบถุง สารละลายจึงถูก <strong>ดันออกมาโดยไม่ถูกเจือจาง</strong></span></td></tr>
+              <tr><td><strong><span class="en">Water needed to empty it</span><span class="th">น้ำที่ต้องใช้จนหมดถัง</span></strong></td><td><strong><span class="en">4 × tank volume</span><span class="th">4 เท่าของความจุถัง</span></strong> <span class="en">(5 × for granular)</span><span class="th">(5 เท่า สำหรับปุ๋ยเม็ด)</span></td><td><strong><span class="en">1 × tank volume</span><span class="th">1 เท่าของความจุถัง</span></strong></td></tr>
+              <tr><td><strong><span class="en">Concentration delivered</span><span class="th">ความเข้มข้นที่จ่ายออก</span></strong></td><td><span class="en">Starts very high, falls away exponentially</span><span class="th">เริ่มสูงมาก แล้วลดลงแบบเลขชี้กำลัง</span></td><td><strong><span class="en">Constant</span><span class="th">คงที่</span></strong></td></tr>
+              <tr><td><strong><span class="en">Granular fertiliser</span><span class="th">ปุ๋ยเม็ด</span></strong></td><td><span class="en"><strong>Yes</strong> — it dissolves in the tank as water passes</span><span class="th"><strong>ใช้ได้</strong> — ละลายในถังขณะที่น้ำไหลผ่าน</span></td><td><span class="en"><strong>No</strong> — must be a ready-made solution</span><span class="th"><strong>ใช้ไม่ได้</strong> — ต้องเป็นสารละลายสำเร็จเท่านั้น</span></td></tr>
+              <tr><td><strong><span class="en">Standard sizes</span><span class="th">ขนาดมาตรฐาน</span></strong></td><td><span class="en">60–220 L</span><span class="th">60–220 ลิตร</span></td><td><span class="en">60, 90, 120 L</span><span class="th">60, 90, 120 ลิตร</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Where the "four times" comes from</span><span class="th">เลข "สี่เท่า" มาจากไหน</span></div>
+          <p>
+            <span class="en">The source states the rule and moves on. It is worth deriving, because the derivation tells you what is happening between the start and the end — which the rule alone does not. <em>This derivation is not in the source.</em></span>
+            <span class="th">เอกสารต้นทางระบุกฎนี้ไว้แล้วผ่านไป แต่ควรพิสูจน์ให้ดู เพราะการพิสูจน์บอกเราว่าเกิดอะไรขึ้นระหว่างจุดเริ่มกับจุดจบ ซึ่งลำพังตัวกฎไม่ได้บอก <em>การพิสูจน์นี้ไม่มีอยู่ในเอกสารต้นทาง</em></span>
+          </p>
+          <p>
+            <span class="en">Treat the tank as perfectly mixed — water entering is stirred instantly through the whole volume. Let <span class="mono">V</span> be the tank volume, <span class="mono">q</span> the flow through it, and <span class="mono">C</span> the concentration inside. In a time <span class="mono">dt</span>, the fertiliser leaving is <span class="mono">qC dt</span>, so:</span>
+            <span class="th">ให้ถือว่าถังผสมกันอย่างสมบูรณ์ คือน้ำที่เข้าไปถูกคนให้ทั่วทั้งถังทันที ให้ <span class="mono">V</span> คือความจุถัง <span class="mono">q</span> คืออัตราการไหลผ่านถัง และ <span class="mono">C</span> คือความเข้มข้นภายใน ในเวลา <span class="mono">dt</span> ปุ๋ยที่ออกไปคือ <span class="mono">qC dt</span> ดังนั้น</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code>V <span class="frac"><span class="num">dC</span><span class="den">dt</span></span> = − q C</code></div>
+            <div class="eq"><code>C(t) = C<sub>0</sub> e<sup>−qt/V</sup></code><span class="eq-note"><span class="en">the concentration decays exponentially</span><span class="th">ความเข้มข้นลดลงแบบเลขชี้กำลัง</span></span></div>
+            <div class="eq result"><code><span class="en">fraction delivered</span><span class="th">สัดส่วนที่จ่ายออกไปแล้ว</span> = 1 − e<sup>−n</sup></code><span class="eq-note"><span class="en">where n = qt/V, the number of tank volumes passed</span><span class="th">โดย n = qt/V คือจำนวนเท่าของความจุถังที่ผ่านไปแล้ว</span></span></div>
+          </div>
+          <p>
+            <span class="en">Now put <span class="mono">n = 4</span>: <span class="mono">1 − e<sup>−4</sup> = 0.982</span>. <strong>The four-volume rule is exactly the point at which 98% of the charge has left the tank</strong> — which is the figure the source quotes, arrived at from first principles. And <span class="mono">n = 5</span> gives 99.3%, which is why granular fertiliser, needing more time to dissolve, is given the extra volume.</span>
+            <span class="th">ทีนี้แทน <span class="mono">n = 4</span> จะได้ <span class="mono">1 − e<sup>−4</sup> = 0.982</span> <strong>กฎสี่เท่าจึงคือจุดที่ปุ๋ยในถัง 98% ออกไปแล้วพอดี</strong> ซึ่งเป็นตัวเลขที่เอกสารต้นทางอ้างไว้ และได้มาจากการพิสูจน์ตั้งแต่ต้น ส่วน <span class="mono">n = 5</span> ให้ 99.3% ซึ่งเป็นเหตุผลที่ปุ๋ยเม็ดซึ่งต้องใช้เวลาละลายนานกว่า จึงได้รับน้ำเพิ่มอีกหนึ่งเท่า</span>
+          </p>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 360" role="img" aria-label="Fertiliser delivered against tank volumes passed">
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="110" y1="40" x2="640" y2="40" />
+              <line x1="110" y1="105" x2="640" y2="105" />
+              <line x1="110" y1="170" x2="640" y2="170" />
+              <line x1="110" y1="235" x2="640" y2="235" />
+            </g>
+            <g stroke="var(--ink)" stroke-width="1.5">
+              <line x1="110" y1="40" x2="110" y2="300" />
+              <line x1="110" y1="300" x2="660" y2="300" />
+            </g>
+            <path d="M 110,300 L 123,269 L 136,242 L 150,219 L 163,198 L 176,179 L 190,163 L 203,148 L 216,136 L 229,124 L 242,114 L 256,106 L 269,98 L 282,91 L 296,85 L 309,80 L 322,75 L 335,71 L 348,67 L 362,64 L 375,61 L 388,59 L 402,57 L 415,55 L 428,53 L 441,51 L 454,50 L 468,49 L 481,48 L 494,47 L 508,46 L 521,45 L 534,45 L 547,44 L 560,44 L 574,43 L 587,43 L 600,43 L 614,42 L 627,42 L 640,42"
+                  fill="none" stroke="var(--accent)" stroke-width="2.6" />
+            <g fill="var(--accent-hot)">
+              <circle cx="216" cy="136" r="4.5" />
+              <circle cx="322" cy="75" r="4.5" />
+              <circle cx="428" cy="53" r="4.5" />
+              <circle cx="534" cy="45" r="6" />
+            </g>
+            <g stroke="var(--accent-hot)" stroke-width="1.6" stroke-dasharray="5 4">
+              <line x1="534" y1="45" x2="534" y2="300" />
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink-soft)">
+              <text x="60" y="45">100%</text>
+              <text x="66" y="110">75%</text>
+              <text x="66" y="175">50%</text>
+              <text x="66" y="240">25%</text>
+              <text x="106" y="320">0</text>
+              <text x="212" y="320">1</text>
+              <text x="318" y="320">2</text>
+              <text x="424" y="320">3</text>
+              <text x="530" y="320">4</text>
+              <text x="636" y="320">5</text>
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink)">
+              <text x="228" y="132">63%</text>
+              <text x="334" y="71">86%</text>
+              <text x="440" y="49">95%</text>
+              <text x="470" y="30" font-weight="700" class="en">98% at 4 volumes</text><text x="470" y="30" font-weight="700" class="th">98% ที่น้ำ 4 เท่า</text>
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink-soft)">
+              <text x="300" y="345" class="en">tank volumes of water passed through</text>
+              <text x="300" y="345" class="th">จำนวนเท่าของความจุถังที่น้ำไหลผ่าน</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 9.2 — How a flow-through tank empties. The curve is <span class="mono">1 − e<sup>−n</sup></span>. The first tank volume of water carries away 63% of the fertiliser; the fourth carries away only 3%. This is the same curve, upside down, as the concentration leaving the tank — which is why the first minutes of a flow-through fertigation are far stronger than the last.</span>
+            <span class="th">รูปที่ 9.2 — ถังแบบน้ำไหลผ่านหมดอย่างไร เส้นโค้งคือ <span class="mono">1 − e<sup>−n</sup></span> น้ำเท่าแรกของความจุถังพาปุ๋ยออกไป 63% ส่วนเท่าที่สี่พาออกไปเพียง 3% เส้นนี้เมื่อกลับหัวก็คือเส้นความเข้มข้นที่ออกจากถัง ซึ่งเป็นเหตุผลที่นาทีแรก ๆ ของการให้ปุ๋ยด้วยถังแบบน้ำไหลผ่านเข้มข้นกว่านาทีท้าย ๆ มาก</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Setting the flow through the tank</span><span class="th">การตั้งอัตราการไหลผ่านถัง</span></h3>
+
+        <p>
+          <span class="en">The flow is set by the pressure difference the by-pass valve creates, and by the size of the connecting pipe. The source tabulates it. In practice the difference is set to <strong>2–3 m (about 4.4 psi)</strong> and read off a gauge.</span>
+          <span class="th">อัตราการไหลถูกกำหนดโดยความต่างแรงดันที่วาล์วคร่อมสร้างขึ้น และโดยขนาดของท่อที่ต่อเข้าถัง เอกสารต้นทางทำเป็นตารางไว้ ในทางปฏิบัติจะตั้งความต่างแรงดันไว้ที่ <strong>2–3 เมตร (ราว 4.4 psi)</strong> แล้วอ่านจากเกจ</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2"><span class="en">Pressure difference, m (psi)</span><span class="th">ความต่างแรงดัน เมตร (psi)</span></th>
+                <th colspan="2"><span class="en">Flow through the tank, L/h</span><span class="th">อัตราการไหลผ่านถัง ลิตร/ชม.</span></th>
+              </tr>
+              <tr>
+                <th class="num"><span class="en">1/2 in pipe</span><span class="th">ท่อ 1/2 นิ้ว</span></th>
+                <th class="num"><span class="en">3/8 in pipe</span><span class="th">ท่อ 3/8 นิ้ว</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1 (1.5)</td><td class="num">690</td><td class="num">320</td></tr>
+              <tr><td class="num">2 (3.0)</td><td class="num"><strong>990</strong></td><td class="num"><strong>500</strong></td></tr>
+              <tr><td class="num">3 (4.5)</td><td class="num">1,200</td><td class="num">640</td></tr>
+              <tr><td class="num">4 (6.0)</td><td class="num">1,350</td><td class="num">760</td></tr>
+              <tr><td class="num">5 (7.0)</td><td class="num">1,500</td><td class="num">850</td></tr>
+              <tr><td class="num">6 (9.0)</td><td class="num">1,650</td><td class="num">940</td></tr>
+              <tr><td class="num">7 (10.0)</td><td class="num">1,820</td><td class="num">1,030</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The same tank, the same flow, four times the difference</span><span class="th">ถังเดียวกัน อัตราไหลเดียวกัน ต่างกันสี่เท่า</span></div>
+          <p>
+            <span class="en">Take a <strong>100 litre</strong> tank on a <strong>3/8 in</strong> pipe with the valve set to a <strong>2 m</strong> difference. The table gives <strong>500 L/h</strong>. How long until the fertiliser is gone?</span>
+            <span class="th">สมมติถังขนาด <strong>100 ลิตร</strong> ต่อท่อ <strong>3/8 นิ้ว</strong> ตั้งวาล์วให้มีความต่างแรงดัน <strong>2 เมตร</strong> จากตารางได้ <strong>500 ลิตร/ชม.</strong> ปุ๋ยจะหมดเมื่อใด</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code><span class="en">flow-through</span><span class="th">แบบน้ำไหลผ่าน</span> = <span class="frac"><span class="num">100 × <strong>4</strong> × 60</span><span class="den">500</span></span> = <strong>48 <span class="en">min</span><span class="th">นาที</span></strong></code></div>
+            <div class="eq result"><code><span class="en">pressure tank</span><span class="th">แบบแรงดัน</span> = <span class="frac"><span class="num">100 × 60</span><span class="den">500</span></span> = <strong>12 <span class="en">min</span><span class="th">นาที</span></strong></code></div>
+          </div>
+          <p>
+            <span class="en">Exactly four times faster, and the reason is the only difference between them: the pressure tank displaces its contents one-for-one, so one tank volume of water empties it, while the flow-through tank has to be flushed four times over. <strong>This is not a small practical difference.</strong> If the irrigation set is only 30 minutes long, the flow-through tank has not finished and part of the dose stays in the tank; the pressure tank finished with 18 minutes to spare and the system got a clean-water flush afterwards, which §9.11 says it must.</span>
+            <span class="th">เร็วกว่ากันสี่เท่าพอดี และเหตุผลคือความต่างเพียงข้อเดียวระหว่างสองแบบ คือถังแบบแรงดันแทนที่ของข้างในแบบหนึ่งต่อหนึ่ง น้ำเพียงหนึ่งเท่าของความจุถังก็ทำให้หมด ขณะที่ถังแบบน้ำไหลผ่านต้องถูกชะล้างถึงสี่เท่า <strong>นี่ไม่ใช่ความต่างเล็กน้อยในทางปฏิบัติ</strong> ถ้าการให้น้ำแต่ละรอบยาวเพียง 30 นาที ถังแบบน้ำไหลผ่านจะยังไม่เสร็จและปุ๋ยส่วนหนึ่งค้างอยู่ในถัง ส่วนถังแบบแรงดันเสร็จก่อนเวลาถึง 18 นาที และระบบได้ล้างด้วยน้ำสะอาดต่อท้าย ซึ่งหัวข้อ 9.11 บอกว่าต้องทำ</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.7 ===================== -->
+      <section id="s-pumps">
+        <h2><span class="en">9.7 Injector pumps: paying in water instead of pressure</span><span class="th">9.7 ปั๊มฉีดปุ๋ย: จ่ายด้วยน้ำแทนที่จะจ่ายด้วยแรงดัน</span></h2>
+
+        <p>
+          <span class="en">An injector pump is a small positive-displacement pump that pushes fertiliser into the main against the system pressure. The clever ones use the system's own water as the motor, so they need no electricity — but the water that drives the motor is spent and discharged. That is the trade in §9.4's table, made concrete.</span>
+          <span class="th">ปั๊มฉีดปุ๋ยคือปั๊มแบบแทนที่เชิงบวกขนาดเล็กที่ดันปุ๋ยเข้าไปในท่อเมนสู้กับแรงดันของระบบ รุ่นที่ฉลาดใช้น้ำของระบบเองเป็นมอเตอร์ จึงไม่ต้องใช้ไฟฟ้า แต่น้ำที่ขับมอเตอร์จะถูกใช้ไปและปล่อยทิ้ง นั่นคือการแลกเปลี่ยนในตารางหัวข้อ 9.4 ที่ทำให้เป็นรูปธรรม</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th><span class="en">Diaphragm, TMB</span><span class="th">แบบไดอะแฟรม TMB</span></th>
+                <th><span class="en">Piston, AMIAD</span><span class="th">แบบลูกสูบ AMIAD</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">Working pressure</span><span class="th">แรงดันใช้งาน</span></strong></td><td class="num">30–120 psi</td><td class="num"><strong>7–115 psi</strong></td></tr>
+              <tr><td><strong><span class="en">Injection rate</span><span class="th">อัตราการฉีด</span></strong></td><td class="num"><strong>8–600 L/h</strong></td><td class="num"><span class="en">up to 320 L/h</span><span class="th">สูงถึง 320 ลิตร/ชม.</span></td></tr>
+              <tr><td><strong><span class="en">Water spent per litre injected</span><span class="th">น้ำที่ใช้ต่อปุ๋ยหนึ่งลิตร</span></strong></td><td class="num"><strong>2 L</strong></td><td class="num">3 L</td></tr>
+              <tr><td><strong><span class="en">Pressure lost from the system</span><span class="th">แรงดันที่ระบบเสียไป</span></strong></td><td><span class="en">None</span><span class="th">ไม่เสีย</span></td><td><span class="en">None</span><span class="th">ไม่เสีย</span></td></tr>
+              <tr><td><strong><span class="en">Sizes</span><span class="th">รุ่น</span></strong></td><td><span class="en">50 L, 250 L, 600 L</span><span class="th">50, 250, 600 ลิตร</span></td><td><span class="en">single piston; twin-piston to 640 L/h at 14–115 psi, 7 kg</span><span class="th">ลูกสูบเดี่ยว ส่วนลูกสูบคู่ถึง 640 ลิตร/ชม. ที่ 14–115 psi หนัก 7 กก.</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">The number that decides between them</span><span class="th">ตัวเลขที่ตัดสินว่าจะเลือกตัวไหน</span></div>
+          <p>
+            <span class="en"><strong>Look at the minimum working pressure.</strong> The piston starts at <strong>7 psi</strong> — about 5 m of head. The diaphragm needs <strong>30 psi</strong>, about 21 m. On a gravity-fed system from a hill tank, or at the far end of a long main where the pressure has already been spent, the diaphragm unit simply will not turn over and the piston will. That single row eliminates one of the two devices on a great many Thai farms before any other consideration.</span>
+            <span class="th"><strong>ให้ดูที่แรงดันใช้งานต่ำสุด</strong> แบบลูกสูบเริ่มทำงานที่ <strong>7 psi</strong> หรือราว 5 เมตรของแรงดัน ส่วนแบบไดอะแฟรมต้องการ <strong>30 psi</strong> หรือราว 21 เมตร ในระบบที่จ่ายน้ำด้วยแรงโน้มถ่วงจากถังบนเนิน หรือที่ปลายท่อเมนยาว ๆ ซึ่งแรงดันถูกใช้ไปหมดแล้ว เครื่องแบบไดอะแฟรมจะไม่หมุนเลย ส่วนแบบลูกสูบจะหมุน แถวเดียวนี้ตัดอุปกรณ์หนึ่งในสองตัวออกไปในฟาร์มไทยจำนวนมาก ก่อนจะพิจารณาเรื่องอื่นใดเสียอีก</span>
+          </p>
+          <p>
+            <span class="en">Then look at the water cost. Injecting 20 litres of fertiliser costs <strong>40 litres</strong> through the diaphragm and <strong>60 litres</strong> through the piston. On a farm with plenty of water that is nothing; on one pumping from a shallow well in March it is not nothing.</span>
+            <span class="th">จากนั้นให้ดูที่ต้นทุนน้ำ การฉีดปุ๋ย 20 ลิตร ต้องใช้น้ำ <strong>40 ลิตร</strong> กับแบบไดอะแฟรม และ <strong>60 ลิตร</strong> กับแบบลูกสูบ ในฟาร์มที่มีน้ำเหลือเฟือถือว่าไม่เป็นไร แต่ในฟาร์มที่สูบจากบ่อตื้นในเดือนมีนาคม เรื่องนี้ไม่ใช่ไม่เป็นไร</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Stopping it at the right moment</span><span class="th">การหยุดเครื่องให้ถูกจังหวะ</span></h3>
+
+        <p>
+          <span class="en">A pump runs until something stops it, and the dose is whatever it injected in the meantime. The source gives four ways to make sure the right amount goes in and no more:</span>
+          <span class="th">ปั๊มจะทำงานไปจนกว่าจะมีอะไรมาหยุดมัน และปริมาณที่ได้ก็คือเท่าที่มันฉีดไปในช่วงนั้น เอกสารต้นทางให้สี่วิธีในการทำให้แน่ใจว่าปุ๋ยเข้าไปตามปริมาณที่ถูกต้องและไม่เกินกว่านั้น</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td><strong><span class="en">1 Measure the tank</span><span class="th">1 ตวงใส่ถัง</span></strong></td><td><span class="en">Put in exactly the dose and let the low-level cut-out stop the pump when the tank runs dry. Simple and self-limiting. Needs the automatic cut-out fitted.</span><span class="th">ใส่ปุ๋ยลงไปเท่าที่ต้องการพอดี แล้วให้ชุดตัดการทำงานเมื่อระดับต่ำหยุดปั๊มเมื่อถังหมด เรียบง่ายและจำกัดตัวเอง ต้องมีชุดตัดอัตโนมัติติดตั้งไว้</span></td></tr>
+              <tr><td><strong><span class="en">2 Meter the drive water</span><span class="th">2 ใช้มิเตอร์วัดน้ำขับ</span></strong></td><td><span class="en">For a large shared tank, fit a water meter on the drive inlet and set it to <strong>3 times</strong> the solution volume wanted (for the piston). Cannot be combined with a flow-control valve on the same line.</span><span class="th">สำหรับถังใหญ่ที่ใช้ร่วมกัน ให้ติดมิเตอร์น้ำที่ทางน้ำเข้าเครื่อง แล้วตั้งไว้ที่ <strong>3 เท่า</strong> ของปริมาตรสารละลายที่ต้องการ (สำหรับแบบลูกสูบ) ใช้ร่วมกับวาล์วควบคุมอัตราการไหลในสายเดียวกันไม่ได้</span></td></tr>
+              <tr><td><strong><span class="en">3 A person</span><span class="th">3 ใช้คน</span></strong></td><td><span class="en">Someone closes the valve. Works, and fails exactly as often as people get distracted.</span><span class="th">ให้คนไปปิดวาล์ว ใช้ได้ และล้มเหลวบ่อยเท่ากับที่คนเผลอ</span></td></tr>
+              <tr><td><strong><span class="en">4 Hydraulic valve on a controller</span><span class="th">4 วาล์วไฮดรอลิกที่สั่งจากกล่องควบคุม</span></strong></td><td><span class="en">The valve is driven by the water pressure itself but triggered electronically, by volume counted or by elapsed time. This is the one that scales to a whole scheme.</span><span class="th">วาล์วขับด้วยแรงดันน้ำเอง แต่สั่งงานด้วยอิเล็กทรอนิกส์ โดยนับปริมาตรหรือจับเวลา แบบนี้คือแบบที่ขยายไปใช้ทั้งโครงการได้</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">The AMIAD piston delivers <strong>1/30 of a litre per stroke</strong>, and signals its strokes to a controller — every 33 cc, 100 cc, 1 litre or 1 US gallon, depending on the model. That is how method 4 counts volume without a flow meter: it counts strokes.</span>
+          <span class="th">เครื่องแบบลูกสูบ AMIAD จ่ายปุ๋ยได้ <strong>1/30 ลิตรต่อจังหวะ</strong> และส่งสัญญาณจังหวะการปั๊มไปยังกล่องควบคุม โดยส่งทุก 33 ซีซี, 100 ซีซี, 1 ลิตร หรือ 1 ยูเอสแกลลอน แล้วแต่รุ่น นั่นคือวิธีที่ข้อ 4 ใช้นับปริมาตรโดยไม่ต้องมีมิเตอร์วัดการไหล คือมันนับจังหวะ</span>
+        </p>
+      </section>
+
+      <!-- ===================== 9.8 ===================== -->
+      <section id="s-auto">
+        <h2><span class="en">9.8 Automatic mixing and the EC/pH loop</span><span class="th">9.8 ถังผสมอัตโนมัติและวงจรควบคุม EC/pH</span></h2>
+
+        <p>
+          <span class="en">The five devices so far all share one blind spot: they inject a set amount and trust that the result is right. None of them measures what actually came out. The sixth device closes that loop.</span>
+          <span class="th">อุปกรณ์ห้าชนิดที่ผ่านมามีจุดบอดร่วมกันอยู่ข้อหนึ่ง คือฉีดปุ๋ยตามปริมาณที่ตั้งไว้แล้วเชื่อว่าผลลัพธ์จะถูกต้อง ไม่มีตัวใดวัดสิ่งที่ออกมาจริง ๆ อุปกรณ์ชนิดที่หกปิดวงจรนั้น</span>
+        </p>
+
+        <p>
+          <span class="en">In a mixing tank such as FERTIMIX (OMETZ), <strong>all</strong> the irrigation water passes through the machine. Three to eight venturis, each on its own electric valve, draw from separate stock tanks into a mixing vessel. Electrodes read the <strong>EC</strong> and <strong>pH</strong> of the mixture, a transmitter sends those readings as a 4–20 mA signal to the controller, and the controller adjusts the venturi valves until the mixture matches its target. Only then does the pump push the finished water into the field.</span>
+          <span class="th">ในถังผสมปุ๋ยอย่าง FERTIMIX (OMETZ) น้ำชลประทาน <strong>ทั้งหมด</strong> ไหลผ่านเครื่อง เวนจูรีสามถึงแปดตัว แต่ละตัวมีวาล์วไฟฟ้าของตัวเอง ดูดจากถังหัวเชื้อแยกกันเข้าสู่ถังผสม ขั้วอิเล็กโทรดอ่านค่า <strong>EC</strong> และ <strong>pH</strong> ของส่วนผสม ตัวส่งสัญญาณส่งค่าที่อ่านได้เป็นสัญญาณ 4–20 มิลลิแอมป์ไปยังกล่องควบคุม และกล่องควบคุมปรับวาล์วเวนจูรีจนกว่าส่วนผสมจะตรงกับค่าเป้าหมาย จากนั้นปั๊มจึงดันน้ำที่ผสมเสร็จแล้วออกไปยังแปลง</span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Why EC and pH, and not "nitrogen"</span><span class="th">ทำไมต้องวัด EC และ pH ไม่ใช่วัด "ไนโตรเจน"</span></div>
+          <p>
+            <span class="en">There is no cheap sensor that reads nitrogen in flowing water. There are cheap, rugged sensors that read <strong>electrical conductivity</strong> — which rises with the total dissolved salt, and therefore with the total fertiliser — and <strong>pH</strong>, which governs whether the phosphate stays dissolved or precipitates inside your pipe. Between them they catch the two failures that matter: <em>too much fertiliser</em>, and <em>fertiliser about to become a solid</em>. They cannot tell you the N:P:K ratio, and the controller does not try to. It trusts the stock tanks for the ratio and measures only the total and the chemistry.</span>
+            <span class="th">ไม่มีเซนเซอร์ราคาถูกที่อ่านค่าไนโตรเจนในน้ำที่กำลังไหลได้ แต่มีเซนเซอร์ราคาถูกและทนทานที่อ่านค่า <strong>การนำไฟฟ้า</strong> ซึ่งสูงขึ้นตามปริมาณเกลือที่ละลายทั้งหมด จึงสูงขึ้นตามปริมาณปุ๋ยทั้งหมดด้วย และอ่านค่า <strong>pH</strong> ซึ่งเป็นตัวกำหนดว่าฟอสเฟตจะคงละลายอยู่หรือจะตกตะกอนในท่อของเรา สองค่านี้รวมกันจับความล้มเหลวสองอย่างที่สำคัญได้ คือ <em>ปุ๋ยมากเกินไป</em> และ <em>ปุ๋ยที่กำลังจะกลายเป็นของแข็ง</em> ทั้งสองค่าบอกอัตราส่วน N:P:K ไม่ได้ และกล่องควบคุมก็ไม่ได้พยายามจะบอก มันเชื่อถังหัวเชื้อในเรื่องอัตราส่วน แล้ววัดเฉพาะปริมาณรวมกับสภาพทางเคมีเท่านั้น</span>
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Specification</span><span class="th">ข้อมูลจำเพาะ</span></th>
+                <th><span class="en">FERTIMIX / OMETZ</span><span class="th">FERTIMIX / OMETZ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">Output</span><span class="th">กำลังผลิต</span></td><td><span class="en"><strong>7, 20 or 35 m³/h</strong> at 2.5–3 bar (OMETZ-2000 = 20, OMETZ-24 = 35)</span><span class="th"><strong>7, 20 หรือ 35 ลบ.ม./ชม.</strong> ที่ 2.5–3 บาร์ (OMETZ-2000 = 20, OMETZ-24 = 35)</span></td></tr>
+              <tr><td><span class="en">Injection</span><span class="th">การฉีด</span></td><td><span class="en">3 venturis fitted, up to 8, each with an electric valve and up to 10 programs</span><span class="th">ติดตั้งเวนจูรี 3 ชุด ได้ถึง 8 ชุด แต่ละชุดมีวาล์วไฟฟ้าและตั้งได้ถึง 10 โปรแกรม</span></td></tr>
+              <tr><td><span class="en">Irrigation programs</span><span class="th">โปรแกรมการให้น้ำ</span></td><td><span class="en">Up to <strong>100 independent</strong> programs</span><span class="th">ได้ถึง <strong>100 โปรแกรมอิสระ</strong></span></td></tr>
+              <tr><td><span class="en">Measurement</span><span class="th">การวัด</span></td><td><span class="en">EC and pH electrodes, 4–20 mA transmitter, digital display</span><span class="th">ขั้วอิเล็กโทรด EC และ pH ตัวส่งสัญญาณ 4–20 มิลลิแอมป์ จอแสดงผลดิจิทัล</span></td></tr>
+              <tr><td><span class="en">Construction</span><span class="th">การประกอบ</span></td><td><span class="en">PVC pipework against corrosion, polyethylene tank with electrode level sensing, all on a stainless steel frame</span><span class="th">ระบบท่อ PVC กันการกัดกร่อน ถังโพลีเอทิลีนพร้อมขั้วไฟฟ้าวัดระดับ ทั้งหมดติดตั้งบนโครงสแตนเลส</span></td></tr>
+              <tr><td><span class="en">Options</span><span class="th">ออปชัน</span></td><td><span class="en">Automatic filter flushing (10 units), irrigation by solar radiation / temperature / soil moisture, drainage-water monitoring, remote link to a central computer</span><span class="th">ล้างกรองอัตโนมัติ 10 ชุด การให้น้ำตามความเข้มแสงอาทิตย์ อุณหภูมิ หรือความชื้นดิน การติดตามน้ำที่ระบายออก และการเชื่อมโยงระยะไกลกับคอมพิวเตอร์กลาง</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">What a plain irrigation controller already gives you</span><span class="th">กล่องควบคุมการให้น้ำธรรมดาให้อะไรเราอยู่แล้ว</span></div>
+          <p>
+            <span class="en">Full EC/pH control is a greenhouse and export-orchard technology. Most Thai field systems have something far simpler and far cheaper: a station controller that opens solenoid valves zone by zone on a clock. It is worth seeing what that alone does for fertigation.</span>
+            <span class="th">การควบคุม EC/pH เต็มรูปแบบเป็นเทคโนโลยีของโรงเรือนและสวนผลไม้เพื่อการส่งออก ระบบในแปลงของไทยส่วนใหญ่มีสิ่งที่ง่ายกว่าและถูกกว่ามาก คือกล่องควบคุมที่เปิดโซลินอยด์วาล์วทีละโซนตามเวลา ควรดูว่าลำพังสิ่งนั้นให้อะไรกับการให้ปุ๋ยบ้าง</span>
+          </p>
+          <p>
+            <span class="en">A controller runs stations <strong>in sequence, never together</strong> — station 1 from 6:00 to 6:15, station 2 from 6:15 to 6:30, and so on — because the pump can only supply one zone at a time. For fertigation this matters in a way that is easy to miss: <strong>the injector serves whichever zone is open</strong>. One injector therefore fertigates every zone in turn, provided the dose is recharged or the rate is right for each. It also means the zone that runs last gets its fertiliser last, and if the program ends when the last zone ends, <strong>that zone never gets its clean-water flush</strong>. Program a short water-only station at the end, or give the last zone a longer run than the fertigation window.</span>
+            <span class="th">กล่องควบคุมสั่งให้แต่ละสถานีทำงาน <strong>เรียงตามลำดับ ไม่เคยพร้อมกัน</strong> เช่น สถานีที่ 1 เวลา 6:00 ถึง 6:15 สถานีที่ 2 เวลา 6:15 ถึง 6:30 และต่อไปเรื่อย ๆ เพราะปั๊มจ่ายน้ำได้ทีละโซนเท่านั้น สำหรับการให้ปุ๋ย เรื่องนี้สำคัญในแบบที่มองข้ามได้ง่าย คือ <strong>เครื่องฉีดปุ๋ยจะจ่ายให้โซนใดก็ตามที่กำลังเปิดอยู่</strong> เครื่องฉีดปุ๋ยตัวเดียวจึงให้ปุ๋ยได้ทุกโซนตามลำดับ หากมีการเติมปุ๋ยใหม่หรือตั้งอัตราให้เหมาะกับแต่ละโซน อีกทั้งยังหมายความว่าโซนที่ทำงานเป็นลำดับสุดท้ายจะได้ปุ๋ยเป็นลำดับสุดท้าย และถ้าโปรแกรมจบลงพร้อมกับโซนสุดท้าย <strong>โซนนั้นจะไม่ได้ล้างด้วยน้ำสะอาดเลย</strong> ให้ตั้งสถานีที่ให้น้ำเปล่าสั้น ๆ ไว้ท้ายโปรแกรม หรือให้โซนสุดท้ายทำงานนานกว่าช่วงเวลาให้ปุ๋ย</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.9 ===================== -->
+      <section id="s-calc">
+        <h2><span class="en">9.9 Working out how much</span><span class="th">9.9 การคำนวณปริมาณปุ๋ย</span></h2>
+
+        <p>
+          <span class="en">A nutrient recommendation arrives in one of several forms — kilograms per rai, parts per million in the water, a ratio — and the injector needs litres per hour. Getting from one to the other is a short chain of conversions, and this section is that chain. Every formula and every worked example below is from the source; the arithmetic has been checked and two departures are noted.</span>
+          <span class="th">คำแนะนำธาตุอาหารมาในรูปแบบใดรูปแบบหนึ่งจากหลายรูปแบบ คือกิโลกรัมต่อไร่ ส่วนในล้านส่วนในน้ำ หรือเป็นอัตราส่วน แต่เครื่องฉีดปุ๋ยต้องการลิตรต่อชั่วโมง การแปลงจากอย่างหนึ่งไปอีกอย่างหนึ่งเป็นลูกโซ่การแปลงหน่วยสั้น ๆ และหัวข้อนี้คือลูกโซ่นั้น ทุกสูตรและทุกตัวอย่างข้างล่างมาจากเอกสารต้นทาง โดยได้ตรวจเลขคณิตแล้ว และมีจุดที่ต่างออกไปสองจุดซึ่งระบุไว้</span>
+        </p>
+
+        <h3><span class="en">A · How much fertiliser</span><span class="th">ก · ปุ๋ยเท่าไร</span></h3>
+
+        <div class="formula">
+          <div class="eq"><code><span class="en">fertiliser</span><span class="th">ปริมาณปุ๋ย</span> <span class="mono">(kg/rai)</span> = <span class="frac"><span class="num"><span class="en">nutrient</span><span class="th">ธาตุอาหาร</span> <span class="mono">(kg/rai)</span> × 100</span><span class="den"><span class="en">% nutrient in the fertiliser</span><span class="th">% ธาตุอาหารในปุ๋ย</span></span></span></code></div>
+          <div class="eq"><code><span class="en">volume</span><span class="th">ปริมาตร</span> <span class="mono">(L/rai)</span> = <span class="frac"><span class="num"><span class="en">weight</span><span class="th">น้ำหนัก</span> <span class="mono">(kg/rai)</span></span><span class="den"><span class="en">density</span><span class="th">ความหนาแน่น</span> <span class="mono">(kg/L)</span></span></span></code></div>
+          <div class="eq result"><code><span class="en">per application</span><span class="th">ต่อการให้หนึ่งครั้ง</span> = <span class="en">rate per rai</span><span class="th">อัตราต่อไร่</span> × <span class="en">area</span><span class="th">พื้นที่</span> <span class="mono">(rai)</span></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked</span><span class="th">ตัวอย่าง</span></div>
+          <p>
+            <span class="en"><strong>1.</strong> Give <strong>4 kg N/rai</strong> using ammonium sulphate, which is <strong>21% N</strong>.</span>
+            <span class="th"><strong>1.</strong> ให้ไนโตรเจน <strong>4 กก./ไร่</strong> โดยใช้ซัลเฟตของแอมโมเนีย ซึ่งมีไนโตรเจน <strong>21%</strong></span>
+          </p>
+          <div class="formula"><div class="eq result"><code><span class="frac"><span class="num">4 × 100</span><span class="den">21</span></span> = <strong>19 <span class="mono">kg/rai</span></strong></code></div></div>
+          <p>
+            <span class="en"><strong>2.</strong> Liquid ammonium nitrate at <strong>1.3 kg/L</strong>, wanted at <strong>10 kg/rai</strong>.</span>
+            <span class="th"><strong>2.</strong> ปุ๋ยน้ำแอมโมเนียมไนเตรต ความหนาแน่น <strong>1.3 กก./ลิตร</strong> ต้องการ <strong>10 กก./ไร่</strong></span>
+          </p>
+          <div class="formula"><div class="eq result"><code><span class="frac"><span class="num">10</span><span class="den">1.3</span></span> = <strong>8 <span class="mono">L/rai</span></strong></code></div></div>
+          <p>
+            <span class="en"><strong>3.</strong> That rate on <strong>8 rai</strong>, at 12 L/rai: <span class="mono">12 × 8 = <strong>96 litres</strong></span> per application. On a tank system this is what goes in the tank; on a controller it is the number you program.</span>
+            <span class="th"><strong>3.</strong> อัตรานั้นบนพื้นที่ <strong>8 ไร่</strong> ที่ 12 ลิตร/ไร่ ได้ <span class="mono">12 × 8 = <strong>96 ลิตร</strong></span> ต่อการให้หนึ่งครั้ง ในระบบที่ใช้ถัง นี่คือปริมาณที่ใส่ลงถัง ส่วนในระบบที่ใช้กล่องควบคุม นี่คือตัวเลขที่เราตั้งโปรแกรม</span>
+          </p>
+        </div>
+
+        <h3><span class="en">B · At what rate</span><span class="th">ข · ด้วยอัตราเท่าไร</span></h3>
+
+        <div class="formula">
+          <div class="eq"><code><span class="en">tank, flow-through</span><span class="th">ถังแบบน้ำไหลผ่าน</span> = <span class="frac"><span class="num"><strong>4</strong> × <span class="en">tank volume</span><span class="th">ความจุถัง</span></span><span class="den"><span class="en">fertigation time</span><span class="th">ช่วงเวลาให้ปุ๋ย</span></span></span></code><span class="eq-note"><span class="en">the flow to set on the by-pass valve</span><span class="th">อัตราไหลที่ต้องตั้งที่วาล์วคร่อม</span></span></div>
+          <div class="eq"><code><span class="en">pump</span><span class="th">ปั๊ม</span> <span class="mono">(L/h)</span> = <span class="en">L of solution per m³ of water</span><span class="th">ลิตรสารละลายต่อน้ำ 1 ลบ.ม.</span> × <span class="en">system flow</span><span class="th">อัตราการไหลของระบบ</span> <span class="mono">(m³/h)</span></code></div>
+          <div class="eq result"><code><span class="en">fixed dose</span><span class="th">ปริมาณที่กำหนดไว้</span> <span class="mono">(L/h)</span> = <span class="frac"><span class="num"><span class="en">total solution per application</span><span class="th">สารละลายรวมต่อการให้หนึ่งครั้ง</span> <span class="mono">(L)</span></span><span class="den"><span class="en">fertigation time</span><span class="th">ระยะเวลาให้ปุ๋ย</span> <span class="mono">(h)</span></span></span></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked</span><span class="th">ตัวอย่าง</span></div>
+          <p>
+            <span class="en"><strong>4.</strong> A <strong>120 L</strong> flow-through tank to empty in <strong>20 minutes</strong>: water needed = <span class="mono">120 × 4 = 480 L</span>, so the rate is <span class="mono">480 / 20 = <strong>24 L/min = 1,440 L/h</strong></span>.</span>
+            <span class="th"><strong>4.</strong> ถังแบบน้ำไหลผ่าน <strong>120 ลิตร</strong> ต้องการให้หมดใน <strong>20 นาที</strong> น้ำที่ต้องใช้ = <span class="mono">120 × 4 = 480 ลิตร</span> ดังนั้นอัตราการไหล = <span class="mono">480 / 20 = <strong>24 ลิตร/นาที = 1,440 ลิตร/ชม.</strong></span></span>
+          </p>
+          <p>
+            <span class="en"><strong>5.</strong> Two litres of solution per cubic metre of water, with the system pumping <strong>15 m³/h</strong>: <span class="mono">2 × 15 = <strong>30 L/h</strong></span>.</span>
+            <span class="th"><strong>5.</strong> สารละลาย 2 ลิตร ต่อน้ำ 1 ลบ.เมตร โดยระบบสูบน้ำ <strong>15 ลบ.ม./ชม.</strong> ได้ <span class="mono">2 × 15 = <strong>30 ลิตร/ชม.</strong></span></span>
+          </p>
+          <p>
+            <span class="en"><strong>6.</strong> <strong>30 rai</strong> at 15 L/rai is 450 litres, to be given in <strong>5 hours</strong>: <span class="mono">450 / 5 = <strong>90 L/h</strong></span>. Note that the 5 hours excludes the clean water before and after.</span>
+            <span class="th"><strong>6.</strong> พื้นที่ <strong>30 ไร่</strong> ที่ 15 ลิตร/ไร่ เท่ากับ 450 ลิตร ต้องให้ภายใน <strong>5 ชั่วโมง</strong> ได้ <span class="mono">450 / 5 = <strong>90 ลิตร/ชม.</strong></span> ให้สังเกตว่า 5 ชั่วโมงนี้ไม่รวมช่วงน้ำสะอาดก่อนและหลัง</span>
+          </p>
+        </div>
+
+        <h3><span class="en">C · At what concentration</span><span class="th">ค · ที่ความเข้มข้นเท่าไร</span></h3>
+
+        <p>
+          <span class="en">When the recommendation is in <strong>ppm</strong> — parts per million, which for water is grams per cubic metre — the chain runs the other way.</span>
+          <span class="th">เมื่อคำแนะนำมาเป็น <strong>ppm</strong> หรือส่วนในล้านส่วน ซึ่งสำหรับน้ำก็คือกรัมต่อลูกบาศก์เมตร ลูกโซ่การแปลงจะเดินกลับทาง</span>
+        </p>
+
+        <div class="formula">
+          <div class="eq"><code><span class="en">fertiliser</span><span class="th">ปุ๋ย</span> <span class="mono">(g/m³)</span> = <span class="frac"><span class="num"><span class="en">nutrient</span><span class="th">ธาตุอาหาร</span> <span class="mono">(ppm)</span> × 100</span><span class="den"><span class="en">% nutrient</span><span class="th">% ธาตุอาหาร</span></span></span></code></div>
+          <div class="eq"><code><span class="en">fertiliser</span><span class="th">ปุ๋ย</span> <span class="mono">(mL/m³)</span> = <span class="frac"><span class="num"><span class="en">nutrient</span><span class="th">ธาตุอาหาร</span> <span class="mono">(ppm)</span> × 100</span><span class="den"><span class="en">% nutrient</span><span class="th">% ธาตุอาหาร</span> × <span class="en">density</span><span class="th">ความหนาแน่น</span></span></span></code></div>
+          <div class="eq"><code><span class="en">relative concentration</span><span class="th">ความเข้มข้นสัมพัทธ์</span> = <span class="frac"><span class="num"><span class="en">water flow</span><span class="th">อัตราการไหลของน้ำ</span> <span class="mono">(m³/h)</span></span><span class="den"><span class="en">injection rate</span><span class="th">อัตราการจ่ายปุ๋ย</span> <span class="mono">(L/h)</span></span></span></code></div>
+          <div class="eq result"><code><span class="en">relative dilution</span><span class="th">ความเจือจางสัมพัทธ์</span> <span class="mono">(%)</span> = <span class="en">relative conc.</span><span class="th">ความเข้มข้นสัมพัทธ์</span> × <span class="en">fertiliser</span><span class="th">ปุ๋ย</span> <span class="mono">(L/m³)</span> × 100</code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked</span><span class="th">ตัวอย่าง</span></div>
+          <p>
+            <span class="en"><strong>7.</strong> <strong>90 ppm N</strong> from ammonium sulphate at <strong>20% N</strong>: <span class="mono">90 × 100 / 20 = <strong>450 g/m³</strong></span>, which is 0.45 kg per cubic metre of irrigation water.</span>
+            <span class="th"><strong>7.</strong> ให้ไนโตรเจน <strong>90 ppm</strong> จากซัลเฟตของแอมโมเนีย <strong>20% N</strong> ได้ <span class="mono">90 × 100 / 20 = <strong>450 กรัม/ลบ.ม.</strong></span> หรือ 0.45 กิโลกรัมต่อน้ำชลประทานหนึ่งลูกบาศก์เมตร</span>
+          </p>
+          <p>
+            <span class="en"><strong>8.</strong> The same 90 ppm from <em>liquid</em> ammonium nitrate, <strong>21% N</strong> at <strong>1.3 kg/L</strong>:</span>
+            <span class="th"><strong>8.</strong> ให้ 90 ppm เท่าเดิมจากปุ๋ย <em>น้ำ</em> แอมโมเนียมไนเตรต <strong>21% N</strong> ความหนาแน่น <strong>1.3 กก./ลิตร</strong></span>
+          </p>
+          <div class="formula"><div class="eq result"><code><span class="frac"><span class="num">90 × 100</span><span class="den">21 × 1.3</span></span> = <strong>330 <span class="mono">mL/m³</span></strong></code></div></div>
+          <p>
+            <span class="en"><em>Departure from the source.</em> The printed text gives 323 mL here. The same formula applied to example 10 below gives 220 mL and the text agrees, so the method is right and 323 appears to be a slip for 330. This chapter uses <strong>330</strong>, and §9.10 is built on it.</span>
+            <span class="th"><em>จุดที่ต่างจากเอกสารต้นทาง</em> ฉบับพิมพ์ให้ค่า 323 มล. ตรงนี้ แต่สูตรเดียวกันเมื่อใช้กับตัวอย่างข้อ 10 ข้างล่างให้ค่า 220 มล. ซึ่งตรงกับที่เอกสารพิมพ์ไว้ แสดงว่าวิธีถูกต้อง และ 323 น่าจะเป็นการพิมพ์คลาดจาก 330 บทนี้ใช้ค่า <strong>330</strong> และหัวข้อ 9.10 สร้างขึ้นบนค่านี้</span>
+          </p>
+          <p>
+            <span class="en"><strong>9.</strong> Water flowing at <strong>14 m³/h</strong> with the injector set to <strong>20 L/h</strong>: relative concentration <span class="mono">= 14 / 20 = <strong>0.7 m³ per litre</strong></span> — one litre of solution for every 0.7 cubic metres of water.</span>
+            <span class="th"><strong>9.</strong> น้ำไหล <strong>14 ลบ.ม./ชม.</strong> และตั้งเครื่องฉีดไว้ที่ <strong>20 ลิตร/ชม.</strong> ได้ความเข้มข้นสัมพัทธ์ <span class="mono">= 14 / 20 = <strong>0.7 ลบ.ม. ต่อลิตร</strong></span> คือสารละลายหนึ่งลิตรต่อน้ำทุก 0.7 ลูกบาศก์เมตร</span>
+          </p>
+          <p>
+            <span class="en"><strong>10.</strong> Putting it together for <strong>60 ppm N</strong>, ammonium sulphate <strong>21%</strong> at s.g. <strong>1.3</strong>, water at <strong>105 m³/h</strong>, injector at <strong>150 L/h</strong>:</span>
+            <span class="th"><strong>10.</strong> รวมทุกอย่างเข้าด้วยกันสำหรับ <strong>60 ppm N</strong> ซัลเฟตของแอมโมเนีย <strong>21%</strong> ความถ่วงจำเพาะ <strong>1.3</strong> น้ำไหล <strong>105 ลบ.ม./ชม.</strong> เครื่องฉีดตั้งไว้ <strong>150 ลิตร/ชม.</strong></span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code><span class="en">relative conc.</span><span class="th">ความเข้มข้นสัมพัทธ์</span> = 105 / 150 = 0.7</code></div>
+            <div class="eq"><code><span class="en">fertiliser</span><span class="th">ปุ๋ย</span> = <span class="frac"><span class="num">60 × 100</span><span class="den">1.3 × 21</span></span> = 220 <span class="mono">mL/m³</span> = 0.22 <span class="mono">L/m³</span></code></div>
+            <div class="eq result"><code><span class="en">relative dilution</span><span class="th">ความเจือจางสัมพัทธ์</span> = 0.7 × 0.22 × 100 = <strong>15.4%</strong></code></div>
+          </div>
+          <p>
+            <span class="en"><strong>11.</strong> So a <strong>250 litre</strong> stock tank holds <span class="mono">250 × 15.4 / 100 = <strong>38.5 litres</strong></span> of fertiliser and <strong>211.5 litres</strong> of water.</span>
+            <span class="th"><strong>11.</strong> ดังนั้นถังหัวเชื้อขนาด <strong>250 ลิตร</strong> บรรจุปุ๋ย <span class="mono">250 × 15.4 / 100 = <strong>38.5 ลิตร</strong></span> และน้ำ <strong>211.5 ลิตร</strong></span>
+          </p>
+        </div>
+
+        <h3><span class="en">D · Blending two fertilisers</span><span class="th">ง · การผสมปุ๋ยสองชนิด</span></h3>
+
+        <p>
+          <span class="en">A recommendation rarely names one nutrient. When it names two, one compound will usually supply all of the first and part of the second, and a second compound makes up the difference. The order matters: <strong>start with the nutrient that only one of your fertilisers can supply.</strong></span>
+          <span class="th">คำแนะนำมักไม่ได้ระบุธาตุอาหารเพียงตัวเดียว เมื่อระบุมาสองตัว ปุ๋ยชนิดหนึ่งมักให้ตัวแรกครบและให้ตัวที่สองบางส่วน แล้วปุ๋ยอีกชนิดจึงมาเติมส่วนที่ขาด ลำดับสำคัญ คือ <strong>ให้เริ่มจากธาตุอาหารที่ปุ๋ยของเรามีเพียงชนิดเดียวที่ให้ได้</strong></span>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Worked — 60 ppm N and 40 ppm P₂O₅</span><span class="th">ตัวอย่าง — N 60 ppm และ P₂O₅ 40 ppm</span></div>
+          <p>
+            <span class="en"><strong>12.</strong> Available: liquid ammonium phosphate <strong>8-24-0</strong> and liquid ammonium nitrate <strong>21% N</strong>, both at s.g. 1.3. Only the phosphate supplies P, so it goes first.</span>
+            <span class="th"><strong>12.</strong> ปุ๋ยที่มี คือปุ๋ยน้ำแอมโมเนียมฟอสเฟต <strong>8-24-0</strong> และปุ๋ยน้ำแอมโมเนียมไนเตรต <strong>21% N</strong> ทั้งคู่ความถ่วงจำเพาะ 1.3 มีเพียงฟอสเฟตที่ให้ธาตุ P จึงต้องคิดตัวนั้นก่อน</span>
+          </p>
+          <div class="formula">
+            <div class="eq"><code><span class="en">for the P</span><span class="th">สำหรับธาตุ P</span>: <span class="frac"><span class="num">40 × 100</span><span class="den">24</span></span> = 167 <span class="mono">g/m³</span> = <strong>128 <span class="mono">mL/m³</span></strong></code></div>
+            <div class="eq"><code><span class="en">N it carries with it</span><span class="th">ไนโตรเจนที่ติดมาด้วย</span>: 167 × <span class="frac"><span class="num">8</span><span class="den">100</span></span> = 13 <span class="mono">g/m³</span></code></div>
+            <div class="eq"><code><span class="en">N still needed</span><span class="th">ไนโตรเจนที่ยังขาด</span>: 60 − 13 = 47 <span class="mono">ppm</span></code></div>
+            <div class="eq"><code><span class="en">from the nitrate</span><span class="th">จากไนเตรต</span>: <span class="frac"><span class="num">47 × 100</span><span class="den">21</span></span> = 224 <span class="mono">g/m³</span> = <strong>172 <span class="mono">mL/m³</span></strong></code></div>
+            <div class="eq result"><code><span class="en">per m³ of water</span><span class="th">ต่อน้ำ 1 ลบ.ม.</span>: <strong>128 mL</strong> <span class="en">phosphate</span><span class="th">ฟอสเฟต</span> + <strong>172 mL</strong> <span class="en">nitrate</span><span class="th">ไนเตรต</span></code></div>
+          </div>
+          <p>
+            <span class="en"><strong>Check the answer by going forwards.</strong> 167 g of 8-24-0 delivers <span class="mono">167 × 0.24 = 40.1 ppm P₂O₅</span> and <span class="mono">167 × 0.08 = 13.4 ppm N</span>; 224 g of 21% nitrate delivers <span class="mono">224 × 0.21 = 47.0 ppm N</span>. Totals: <strong>60.4 ppm N and 40.1 ppm P₂O₅</strong> against targets of 60 and 40. Always do this check — it catches the commonest blending mistake, which is forgetting that the first fertiliser already supplied some of the second nutrient.</span>
+            <span class="th"><strong>ตรวจคำตอบโดยเดินย้อนไปข้างหน้า</strong> ปุ๋ย 8-24-0 จำนวน 167 กรัม ให้ <span class="mono">167 × 0.24 = 40.1 ppm P₂O₅</span> และ <span class="mono">167 × 0.08 = 13.4 ppm N</span> ส่วนไนเตรต 21% จำนวน 224 กรัม ให้ <span class="mono">224 × 0.21 = 47.0 ppm N</span> รวมได้ <strong>N 60.4 ppm และ P₂O₅ 40.1 ppm</strong> เทียบกับเป้าหมาย 60 และ 40 ให้ทำการตรวจแบบนี้เสมอ เพราะจับความผิดพลาดที่พบบ่อยที่สุดในการผสมปุ๋ยได้ คือการลืมว่าปุ๋ยตัวแรกให้ธาตุอาหารตัวที่สองมาแล้วส่วนหนึ่ง</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.10 ===================== -->
+      <section id="s-example">
+        <h2><span class="en">9.10 Worked example: one fertigation, three devices</span><span class="th">9.10 ตัวอย่างรวม: ให้ปุ๋ยหนึ่งรอบ ด้วยอุปกรณ์สามแบบ</span></h2>
+
+        <div class="box">
+          <p>
+            <span class="en">A <strong>30 rai</strong> mango block is on drip. The system delivers <strong>30 m³/h</strong> and an irrigation set runs for <strong>3 hours</strong>. The agronomist asks for <strong>90 ppm N</strong> in the water while fertigating, using liquid ammonium nitrate — <strong>21% N, s.g. 1.3</strong>. Fertigation is to occupy the middle <strong>2 hours</strong> of the set, leaving half an hour of clean water at each end. Work out the dose and the settings, for an injector pump, a flow-through tank and a pressure tank.</span>
+            <span class="th">แปลงมะม่วง <strong>30 ไร่</strong> ใช้ระบบน้ำหยด ระบบจ่ายน้ำ <strong>30 ลบ.ม./ชม.</strong> และการให้น้ำหนึ่งรอบใช้เวลา <strong>3 ชั่วโมง</strong> นักวิชาการพืชขอให้มีไนโตรเจน <strong>90 ppm</strong> ในน้ำขณะให้ปุ๋ย โดยใช้ปุ๋ยน้ำแอมโมเนียมไนเตรต <strong>21% N ความถ่วงจำเพาะ 1.3</strong> ให้ปุ๋ยในช่วง <strong>2 ชั่วโมง</strong> กลางของรอบ เหลือน้ำสะอาดหัวท้ายข้างละครึ่งชั่วโมง จงหาปริมาณปุ๋ยและค่าที่ต้องตั้ง สำหรับปั๊มฉีดปุ๋ย ถังแบบน้ำไหลผ่าน และถังแบบแรงดัน</span>
+          </p>
+        </div>
+
+        <h3><span class="en">Step 1 · The dose</span><span class="th">ขั้นที่ 1 · ปริมาณปุ๋ย</span></h3>
+
+        <div class="formula">
+          <div class="eq"><code><span class="en">fertiliser per m³</span><span class="th">ปุ๋ยต่อน้ำ 1 ลบ.ม.</span> = <span class="frac"><span class="num">90 × 100</span><span class="den">21 × 1.3</span></span> = 330 <span class="mono">mL/m³</span></code><span class="eq-note"><span class="en">method C of §9.9</span><span class="th">วิธี ค ของหัวข้อ 9.9</span></span></div>
+          <div class="eq"><code><span class="en">water carrying it</span><span class="th">น้ำที่พาปุ๋ยไป</span> = 30 × 2 = 60 <span class="mono">m³</span></code><span class="eq-note"><span class="en">the 2-hour window only, not the full 3 hours</span><span class="th">เฉพาะช่วง 2 ชั่วโมง ไม่ใช่ทั้ง 3 ชั่วโมง</span></span></div>
+          <div class="eq result"><code><span class="en">dose per set</span><span class="th">ปริมาณต่อรอบ</span> = 330 × 60 / 1,000 = <strong>19.8 <span class="en">litres</span><span class="th">ลิตร</span></strong></code></div>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Read the second line again</span><span class="th">อ่านบรรทัดที่สองอีกครั้ง</span></div>
+          <p>
+            <span class="en">"90 ppm in the water" has to mean <em>the water that carries it</em>. If you spread the same 19.8 litres over the whole three-hour set, the concentration while fertigating falls to 60 ppm, and if you squeeze it into one hour it rises to 180 ppm. The number is meaningless until the window is stated. <strong>Always write down the fertigation window before you write down the dose.</strong></span>
+            <span class="th">คำว่า "90 ppm ในน้ำ" ต้องหมายถึง <em>น้ำที่พาปุ๋ยไป</em> ถ้าเรากระจายปุ๋ย 19.8 ลิตรเท่าเดิมไปทั่วทั้งรอบสามชั่วโมง ความเข้มข้นขณะให้ปุ๋ยจะลดเหลือ 60 ppm และถ้าบีบให้เหลือหนึ่งชั่วโมงก็จะขึ้นเป็น 180 ppm ตัวเลขนี้ไม่มีความหมายเลยจนกว่าจะระบุช่วงเวลาให้ปุ๋ย <strong>ให้จดช่วงเวลาให้ปุ๋ยลงไปก่อนเสมอ แล้วจึงจดปริมาณปุ๋ย</strong></span>
+          </p>
+        </div>
+
+        <h3><span class="en">Step 2 · Three ways to deliver it</span><span class="th">ขั้นที่ 2 · สามวิธีในการจ่ายปุ๋ยนั้น</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Device</span><span class="th">อุปกรณ์</span></th>
+                <th><span class="en">Setting</span><span class="th">ค่าที่ตั้ง</span></th>
+                <th><span class="en">How long it runs</span><span class="th">ทำงานนานเท่าใด</span></th>
+                <th><span class="en">N in the water</span><span class="th">ไนโตรเจนในน้ำ</span></th>
+                <th><span class="en">Dilution in the main</span><span class="th">ความเจือจางในท่อเมน</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en">A · Injector pump</span><span class="th">ก · ปั๊มฉีดปุ๋ย</span></strong><br><span class="mono">TMB 50L</span></td>
+                <td class="num"><strong>9.9 L/h</strong><br><span class="en">(19.8 ÷ 2)</span><span class="th">(19.8 ÷ 2)</span></td>
+                <td class="num">2.00 h</td>
+                <td class="num"><strong>90 ppm, flat</strong></td>
+                <td class="num">1 : 3,030 ✓</td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">B · Flow-through tank</span><span class="th">ข · ถังแบบน้ำไหลผ่าน</span></strong><br><span class="en">120 L, 3/8 in, Δp = 1 m</span><span class="th">120 ลิตร ท่อ 3/8 นิ้ว Δp = 1 ม.</span></td>
+                <td class="num">320 L/h <span class="en">through the tank</span><span class="th">ผ่านถัง</span></td>
+                <td class="num">1.50 h<br><span class="en">(4 × 120 ÷ 320)</span><span class="th">(4 × 120 ÷ 320)</span></td>
+                <td class="num"><strong>480 → 9 ppm</strong></td>
+                <td class="num">1 : 569 <span class="en">at the peak</span><span class="th">ที่จุดสูงสุด</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en">C · Pressure tank</span><span class="th">ค · ถังแบบแรงดัน</span></strong><br><span class="en">120 L, same setting</span><span class="th">120 ลิตร ตั้งค่าเท่ากัน</span></td>
+                <td class="num">320 L/h <span class="en">through the tank</span><span class="th">ผ่านถัง</span></td>
+                <td class="num"><strong>0.38 h = 23 min</strong></td>
+                <td class="num">480 ppm, <span class="en">flat</span><span class="th">คงที่</span></td>
+                <td class="num">1 : 569</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure>
+          <svg viewBox="0 0 720 360" role="img" aria-label="Nitrogen concentration against time for three injection devices">
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="110" y1="40" x2="640" y2="40" />
+              <line x1="110" y1="144" x2="640" y2="144" />
+              <line x1="110" y1="196" x2="640" y2="196" />
+            </g>
+            <g stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="6 4">
+              <line x1="110" y1="253" x2="640" y2="253" />
+            </g>
+            <g stroke="var(--ink)" stroke-width="1.5">
+              <line x1="110" y1="40" x2="110" y2="300" />
+              <line x1="110" y1="300" x2="660" y2="300" />
+            </g>
+            <path d="M 110,50 L 209,50 L 209,300" fill="none" stroke="var(--link)" stroke-width="2.6" />
+            <path d="M 110,50 L 127,89 L 143,121 L 160,149 L 176,172 L 193,192 L 209,208 L 226,222 L 242,234 L 259,244 L 276,253 L 292,260 L 309,266 L 325,271 L 342,276 L 358,280 L 375,283 L 392,285 L 408,288 L 425,289 L 441,291 L 458,292 L 474,294 L 491,295 L 508,295"
+                  fill="none" stroke="var(--accent-hot)" stroke-width="2.6" />
+            <path d="M 110,253 L 640,253" fill="none" stroke="var(--accent)" stroke-width="3.2" />
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink-soft)">
+              <text x="52" y="45">500</text>
+              <text x="52" y="149">300</text>
+              <text x="52" y="201">200</text>
+              <text x="60" y="258">90</text>
+              <text x="70" y="305">0</text>
+              <text x="106" y="320">0</text>
+              <text x="234" y="320">0.5</text>
+              <text x="367" y="320">1.0</text>
+              <text x="500" y="320">1.5</text>
+              <text x="632" y="320">2.0</text>
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">
+              <text x="222" y="70" fill="var(--link)">C</text>
+              <text x="240" y="70" fill="var(--link)" font-weight="400" class="en">pressure tank</text>
+              <text x="240" y="70" fill="var(--link)" font-weight="400" class="th">ถังแบบแรงดัน</text>
+              <text x="255" y="212" fill="var(--accent-hot)">B</text>
+              <text x="271" y="212" fill="var(--accent-hot)" font-weight="400" class="en">flow-through tank</text>
+              <text x="271" y="212" fill="var(--accent-hot)" font-weight="400" class="th">ถังแบบน้ำไหลผ่าน</text>
+              <text x="540" y="245" fill="var(--accent)">A</text>
+              <text x="556" y="245" fill="var(--accent)" font-weight="400" class="en">injector pump</text>
+              <text x="556" y="245" fill="var(--accent)" font-weight="400" class="th">ปั๊มฉีดปุ๋ย</text>
+            </g>
+            <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--ink-soft)">
+              <text x="16" y="180" class="en">ppm N</text>
+              <text x="16" y="180" class="th">ppm N</text>
+              <text x="330" y="345" class="en">hours into the fertigation window</text>
+              <text x="330" y="345" class="th">ชั่วโมงนับจากเริ่มให้ปุ๋ย</text>
+            </g>
+          </svg>
+          <figcaption>
+            <span class="en">Fig. 9.3 — The same 19.8 litres of fertiliser, delivered three ways. <strong>Only the pump (A) actually holds 90 ppm.</strong> The pressure tank (C) delivers a clean rectangle — but five times too strong and over in 23 minutes. The flow-through tank (B) starts at the same 480 ppm and decays, spending most of its time below the target. All three deliver the same total nitrogen; the crop does not experience the same thing.</span>
+            <span class="th">รูปที่ 9.3 — ปุ๋ย 19.8 ลิตรเท่ากัน จ่ายด้วยสามวิธี <strong>มีเพียงปั๊ม (ก) เท่านั้นที่รักษา 90 ppm ได้จริง</strong> ถังแบบแรงดัน (ค) จ่ายออกมาเป็นสี่เหลี่ยมที่สะอาดตา แต่เข้มข้นเกินไปห้าเท่าและจบใน 23 นาที ส่วนถังแบบน้ำไหลผ่าน (ข) เริ่มที่ 480 ppm เท่ากันแล้วลดลง โดยใช้เวลาส่วนใหญ่อยู่ต่ำกว่าเป้าหมาย ทั้งสามวิธีจ่ายไนโตรเจนรวมเท่ากัน แต่พืชไม่ได้เจอสิ่งเดียวกัน</span>
+          </figcaption>
+        </figure>
+
+        <h3><span class="en">Step 3 · Check it against the rules</span><span class="th">ขั้นที่ 3 · ตรวจกับกฎ</span></h3>
+
+        <p>
+          <span class="en">The rule from §9.11 is that fertiliser reaching the main must be diluted at least <strong>1 : 500</strong>. Device A passes comfortably. Devices B and C reach 1 : 569 at their peak, which passes — but only just, and only because the tank is 120 litres. Try a smaller one:</span>
+          <span class="th">กฎจากหัวข้อ 9.11 คือปุ๋ยที่เข้าสู่ท่อเมนต้องเจือจางอย่างน้อย <strong>1 : 500</strong> อุปกรณ์ ก ผ่านอย่างสบาย ส่วนอุปกรณ์ ข และ ค แตะ 1 : 569 ที่จุดสูงสุด ซึ่งผ่าน แต่ผ่านแบบเฉียดฉิว และผ่านเพราะถังมีขนาด 120 ลิตรเท่านั้น ลองเปลี่ยนเป็นถังที่เล็กกว่าดู</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Tank size</span><span class="th">ขนาดถัง</span></th>
+                <th><span class="en">Peak injection rate</span><span class="th">อัตราการฉีดสูงสุด</span></th>
+                <th><span class="en">Dilution in the main</span><span class="th">ความเจือจางในท่อเมน</span></th>
+                <th><span class="en">Verdict</span><span class="th">ผลการตรวจ</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">60 L</td><td class="num">105.5 L/h</td><td class="num">1 : 284</td><td><strong><span class="en">Fails</span><span class="th">ไม่ผ่าน</span></strong></td></tr>
+              <tr><td class="num">90 L</td><td class="num">70.3 L/h</td><td class="num">1 : 427</td><td><strong><span class="en">Fails</span><span class="th">ไม่ผ่าน</span></strong></td></tr>
+              <tr><td class="num"><strong>120 L</strong></td><td class="num">52.7 L/h</td><td class="num">1 : 569</td><td><span class="en">Passes</span><span class="th">ผ่าน</span></td></tr>
+              <tr><td class="num">200 L</td><td class="num">31.6 L/h</td><td class="num">1 : 948</td><td><span class="en">Passes comfortably</span><span class="th">ผ่านอย่างสบาย</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title"><span class="en">What this example actually taught</span><span class="th">ตัวอย่างนี้สอนอะไรจริง ๆ</span></div>
+          <p>
+            <span class="en"><strong>1. A tank is sized by chemistry, not by convenience.</strong> The same 19.8 litre dose is safe in a 120 L tank and unsafe in a 60 L one, because a smaller tank means a more concentrated charge and a higher peak injection rate. The instinct to buy the small tank because the dose is small is exactly backwards.</span>
+            <span class="th"><strong>1. ขนาดถังถูกกำหนดด้วยเคมี ไม่ใช่ด้วยความสะดวก</strong> ปุ๋ยปริมาณ 19.8 ลิตรเท่ากัน ปลอดภัยในถัง 120 ลิตร แต่ไม่ปลอดภัยในถัง 60 ลิตร เพราะถังที่เล็กกว่าหมายถึงหัวเชื้อที่เข้มข้นกว่าและอัตราการฉีดสูงสุดที่สูงกว่า สัญชาตญาณที่จะซื้อถังเล็กเพราะปุ๋ยน้อย เป็นการคิดกลับด้านพอดี</span>
+          </p>
+          <p>
+            <span class="en"><strong>2. "The right total" and "the right concentration" are different requirements.</strong> All three devices delivered 19.8 litres. If the crop only cares about the seasonal total — most field crops, most of the time — any of them will do and you should buy the cheapest. If the crop responds to the concentration in the root zone, or if the water is already saline and §7's leaching requirement is tight, the flat line is worth paying for.</span>
+            <span class="th"><strong>2. "ปริมาณรวมที่ถูกต้อง" กับ "ความเข้มข้นที่ถูกต้อง" เป็นข้อกำหนดคนละข้อ</strong> อุปกรณ์ทั้งสามจ่ายปุ๋ยไป 19.8 ลิตรเท่ากัน ถ้าพืชสนใจเพียงปริมาณรวมตลอดฤดู ซึ่งเป็นกรณีของพืชไร่ส่วนใหญ่ในเวลาส่วนใหญ่ อุปกรณ์ตัวใดก็ใช้ได้ และควรซื้อตัวที่ถูกที่สุด แต่ถ้าพืชตอบสนองต่อความเข้มข้นในเขตราก หรือถ้าน้ำเค็มอยู่แล้วและความต้องการน้ำชะล้างในบทที่ 7 คับขัน เส้นตรงแนวราบนั้นก็คุ้มที่จะจ่าย</span>
+          </p>
+          <p>
+            <span class="en"><strong>3. The tanks finish early, and that is a feature.</strong> B finishes after 1.5 hours and C after 23 minutes, inside a 2 hour window inside a 3 hour set. Everything after that is clean water running through the emitters — which is precisely the flush that rule 5 of §9.11 demands. The pump, running the full two hours, leaves only the half hour that was designed in. Do not shorten it.</span>
+            <span class="th"><strong>3. ถังจ่ายปุ๋ยเสร็จก่อนเวลา และนั่นเป็นข้อดี</strong> แบบ ข เสร็จหลัง 1.5 ชั่วโมง และแบบ ค เสร็จหลัง 23 นาที ภายในช่วง 2 ชั่วโมงซึ่งอยู่ในรอบ 3 ชั่วโมงอีกที ทุกอย่างหลังจากนั้นคือน้ำสะอาดที่ไหลผ่านหัวจ่าย ซึ่งก็คือการล้างระบบที่กฎข้อ 5 ของหัวข้อ 9.11 เรียกร้องพอดี ส่วนปั๊มที่ทำงานเต็มสองชั่วโมง เหลือเพียงครึ่งชั่วโมงที่ออกแบบไว้ อย่าไปตัดให้สั้นลง</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 9.11 ===================== -->
+      <section id="s-fert">
+        <h2><span class="en">9.11 Which fertilisers, and the five rules</span><span class="th">9.11 ใช้ปุ๋ยชนิดใด และกฎห้าข้อ</span></h2>
+
+        <p>
+          <span class="en">Not every fertiliser can go down a pipe. The source gives five conditions, and they are worth memorising because four of them protect the equipment and the fifth protects the water supply.</span>
+          <span class="th">ปุ๋ยไม่ใช่ทุกชนิดที่ลงท่อได้ เอกสารต้นทางให้เงื่อนไขไว้ห้าข้อ และควรจำให้ได้ เพราะสี่ข้อปกป้องอุปกรณ์ และข้อที่ห้าปกป้องแหล่งน้ำ</span>
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td><strong><span class="en">1 Completely soluble</span><span class="th">1 ละลายน้ำได้สมบูรณ์</span></strong></td><td><span class="en">Anything that does not dissolve will be caught by the filter if you are lucky, and by the emitters if you are not.</span><span class="th">สิ่งใดที่ไม่ละลาย จะไปติดที่เครื่องกรองถ้าโชคดี และไปติดที่หัวจ่ายถ้าโชคไม่ดี</span></td></tr>
+              <tr><td><strong><span class="en">2 No precipitate, no sediment</span><span class="th">2 ไม่ตกตะกอน ไม่เกิดตะกอนนอน</span></strong></td><td><span class="en">Soluble on its own is not enough — it must stay soluble after mixing with the irrigation water and with the other fertiliser.</span><span class="th">ละลายได้เองยังไม่พอ ต้องคงละลายอยู่หลังผสมกับน้ำชลประทานและกับปุ๋ยอีกชนิดด้วย</span></td></tr>
+              <tr><td><strong><span class="en">3 No phosphate that will react</span><span class="th">3 ไม่ใช้ฟอสเฟตที่จะทำปฏิกิริยา</span></strong></td><td><span class="en">Phosphate plus the calcium in hard water is the classic blockage. If the water is hard and the recommendation calls for P, either acidify or apply the P separately.</span><span class="th">ฟอสเฟตบวกกับแคลเซียมในน้ำกระด้างเป็นสาเหตุการอุดตันคลาสสิก ถ้าน้ำกระด้างและคำแนะนำต้องการธาตุ P ให้ปรับน้ำให้เป็นกรด หรือแยกให้ธาตุ P ต่างหาก</span></td></tr>
+              <tr><td><strong><span class="en">4 Dilution not stronger than 1 : 500</span><span class="th">4 ความเข้มข้นไม่เกิน 1 : 500</span></strong></td><td><span class="en">In the main, after injection. §9.10 shows how a tank that is too small breaks this without anyone noticing.</span><span class="th">คิดที่ท่อเมนหลังการฉีดเข้าไปแล้ว หัวข้อ 9.10 แสดงให้เห็นว่าถังที่เล็กเกินไปทำให้ผิดกฎนี้ได้โดยไม่มีใครสังเกต</span></td></tr>
+              <tr><td><strong><span class="en">5 Finish before the irrigation ends</span><span class="th">5 ให้ปุ๋ยเสร็จก่อนการให้น้ำจบ</span></strong></td><td><span class="en">So that clean water flushes every metre of pipe and every emitter. Fertiliser left standing in a lateral overnight is fertiliser growing algae and depositing salts.</span><span class="th">เพื่อให้น้ำสะอาดล้างท่อทุกเมตรและหัวจ่ายทุกหัว ปุ๋ยที่ค้างอยู่ในท่อย่อยข้ามคืนคือปุ๋ยที่กำลังเลี้ยงสาหร่ายและตกผลึกเกลือทิ้งไว้</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="en">The straight fertilisers</span><span class="th">แม่ปุ๋ย</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Compound</span><span class="th">สารประกอบ</span></th>
+                <th><span class="en">Grade</span><span class="th">สูตร</span></th>
+                <th><span class="en">What it supplies</span><span class="th">ให้ธาตุอาหารอะไร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong><span class="en">Mono-ammonium phosphate</span><span class="th">โมโนแอมโมเนียมฟอสเฟต</span></strong><br><span class="mono">MAP</span></td><td class="num">12-61-0</td><td><span class="en">12% N, 61% P — 100% plant nutrient</span><span class="th">ไนโตรเจน 12% ฟอสฟอรัส 61% เป็นธาตุอาหารพืช 100%</span></td></tr>
+              <tr><td><strong><span class="en">Mono-potassium phosphate</span><span class="th">โมโนโปแตสเซียมฟอสเฟต</span></strong><br><span class="mono">MKP</span></td><td class="num">0-52-34</td><td><span class="en">52% P, 34% K — 100% plant nutrient</span><span class="th">ฟอสฟอรัส 52% โปแตสเซียม 34% เป็นธาตุอาหารพืช 100%</span></td></tr>
+              <tr><td><strong><span class="en">Potassium nitrate</span><span class="th">โปแตสเซียมไนเตรต</span></strong><br><span class="mono">KNO₃</span></td><td class="num">13.5-0-46.2</td><td><span class="en">13.5% N as nitrate, 46.2% K₂O — 100% plant nutrient</span><span class="th">ไนโตรเจน 13.5% ในรูปไนเตรต โปแตสเซียม 46.2% (K₂O) เป็นธาตุอาหารพืช 100%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <span class="en">Note the phrase that appears in all three rows: <strong>100% plant nutrient</strong>. These compounds contain no filler, no insoluble carrier and nothing that will not go through an emitter. That, not the analysis, is why they are the fertigation grades.</span>
+          <span class="th">ให้สังเกตวลีที่ปรากฏในทั้งสามแถว คือ <strong>เป็นธาตุอาหารพืช 100%</strong> สารประกอบเหล่านี้ไม่มีสารตัวเติม ไม่มีตัวพาที่ไม่ละลายน้ำ และไม่มีอะไรที่ผ่านหัวจ่ายไม่ได้ นั่นต่างหาก ไม่ใช่ตัวเลขสูตร คือเหตุผลที่มันเป็นปุ๋ยสำหรับให้ไปกับน้ำ</span>
+        </p>
+
+        <h3><span class="en">Compound grades available in Thailand</span><span class="th">ปุ๋ยสูตรสำเร็จที่มีจำหน่ายในประเทศไทย</span></h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Ratio N : P₂O₅ : K₂O</span><span class="th">อัตราส่วน N : P₂O₅ : K₂O</span></th>
+                <th><span class="en">Grade</span><span class="th">สูตร</span></th>
+                <th><span class="en">Ratio</span><span class="th">อัตราส่วน</span></th>
+                <th><span class="en">Grade</span><span class="th">สูตร</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1-4-1</td><td class="num">11-4-11</td><td class="num">2-1-3</td><td class="num">18-7-29+2MgO</td></tr>
+              <tr><td class="num">1-3-1</td><td class="num">13-36-13</td><td class="num">2-1-4</td><td class="num">14-7-28+2MgO</td></tr>
+              <tr><td class="num">1-2-1</td><td class="num">15-30-15</td><td class="num">2-1-4</td><td class="num">16-8-32+2MgO</td></tr>
+              <tr><td class="num">1-1-1</td><td class="num">19-19-19+1MgO</td><td class="num">3-1-3</td><td class="num">23-7-23+2MgO</td></tr>
+              <tr><td class="num">1-1-1</td><td class="num">20-20-20</td><td class="num">Poly-K</td><td class="num">12-5-40+2MgO</td></tr>
+              <tr><td class="num">1-1-1</td><td class="num">18-18-18+2MgO</td><td class="num">2-1-1</td><td class="num">26-12-12+2MgO</td></tr>
+              <tr><td class="num">2-1-2</td><td class="num">21-11-21+2MgO</td><td class="num">2-1-3</td><td class="num">14-7-21+2MgO</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>
+          <span class="en">Source: ชีรวรรธก์ มั่นกิจ, Thai Society of Agricultural Engineering. The first row is printed as 1-4-1 → 11-4-11, but 11-4-11 is a 1 : 0.4 : 1 grade; comparing it with the rows below suggests the grade is a misprint for 11-44-11. Check the bag before ordering.</span>
+          <span class="th">ที่มา: ชีรวรรธก์ มั่นกิจ สมาคมวิศวกรรมเกษตรแห่งประเทศไทย แถวแรกพิมพ์ไว้ว่า 1-4-1 → 11-4-11 แต่สูตร 11-4-11 มีอัตราส่วน 1 : 0.4 : 1 เมื่อเทียบกับแถวถัด ๆ ไปแล้วน่าจะเป็นการพิมพ์คลาดจาก 11-44-11 ให้ตรวจที่กระสอบก่อนสั่งซื้อ</span></em>
+        </p>
+
+        <div class="box">
+          <div class="box-title"><span class="en">Acid, and the other job the injector does</span><span class="th">กรด และงานอีกอย่างที่เครื่องฉีดปุ๋ยทำ</span></div>
+          <p>
+            <span class="en">Advantage 9 in §9.2 mentioned it in passing and it deserves a paragraph. Thai groundwater is frequently hard, and calcium carbonate slowly crystallises at the emitter orifice where the water evaporates. Injecting <strong>hydrochloric acid</strong> periodically dissolves that scale before it closes the hole. The same equipment, the same procedure, a different drum — and it is the single most effective thing you can do to keep a drip system alive past its fifth year.</span>
+            <span class="th">ข้อดีข้อ 9 ในหัวข้อ 9.2 กล่าวถึงเรื่องนี้ผ่าน ๆ และควรให้พื้นที่สักย่อหน้า น้ำบาดาลของไทยกระด้างบ่อยครั้ง และแคลเซียมคาร์บอเนตจะค่อย ๆ ตกผลึกที่รูของหัวจ่ายซึ่งเป็นจุดที่น้ำระเหย การฉีด <strong>กรดไฮโดรคลอริก</strong> เป็นระยะจะละลายตะกรันนั้นก่อนที่มันจะปิดรู ใช้อุปกรณ์เดิม ขั้นตอนเดิม เปลี่ยนแค่ถัง และเป็นสิ่งเดียวที่ได้ผลที่สุดในการทำให้ระบบน้ำหยดอยู่รอดข้ามปีที่ห้าไปได้</span>
+          </p>
+          <p>
+            <span class="en"><strong>Two cautions.</strong> Acid and fertiliser do not share a drum, and acid is added <em>to</em> water, never the reverse. And the corrosion warning of §9.2 applies with much more force: an injector rated for fertiliser may not be rated for acid. Check the material before you fill the drum.</span>
+            <span class="th"><strong>ข้อควรระวังสองข้อ</strong> กรดกับปุ๋ยไม่ใช้ถังเดียวกัน และการเติมกรดต้องเติมกรด <em>ลงใน</em> น้ำ ไม่ใช่ในทางกลับกัน อีกทั้งคำเตือนเรื่องการกัดกร่อนในหัวข้อ 9.2 ใช้ได้หนักแน่นกว่ามากในกรณีนี้ เพราะเครื่องฉีดที่รับรองสำหรับปุ๋ยอาจไม่ได้รับรองสำหรับกรด ให้ตรวจวัสดุก่อนเติมถัง</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="s-summary">
+        <h2><span class="en">Chapter summary</span><span class="th">สรุปท้ายบท</span></h2>
+        <div class="box">
+          <ul>
+            <li><span class="en">Roots absorb ions from the soil solution, so every fertiliser has to dissolve before it works. Fertigation simply dissolves it upstream and lets the irrigation network — already a precision distribution machine — carry it to the wetted zone where the roots are.</span><span class="th">รากพืชดูดไอออนจากสารละลายในดิน ปุ๋ยทุกชนิดจึงต้องละลายเสียก่อนจึงจะได้ผล การให้ปุ๋ยไปกับน้ำเป็นเพียงการละลายปุ๋ยไว้ตั้งแต่ต้นทาง แล้วให้ระบบชลประทานซึ่งเป็นเครื่องจักรกระจายที่แม่นยำอยู่แล้ว พามันไปยังเขตเปียกที่รากอยู่</span></li>
+            <li><span class="en">The nine advantages are agronomic and they are large. The four limitations — contamination of the water source, unsuitable fertilisers, corrosion, and reactions inside the pipe — are the engineer's problem, and they are what actually kills systems.</span><span class="th">ข้อดีเก้าข้อเป็นเรื่องทางพืชศาสตร์และเป็นข้อดีที่ใหญ่ ส่วนข้อจำกัดสี่ข้อ คือการปนเปื้อนของแหล่งน้ำ ปุ๋ยที่ไม่เหมาะสม การกัดกร่อน และปฏิกิริยาภายในท่อ เป็นปัญหาของวิศวกร และเป็นสิ่งที่ฆ่าระบบจริง ๆ</span></li>
+            <li><span class="en"><strong>Six devices, three families, one question: where does the energy come from?</strong> Venturi and the two tanks run on system pressure. TMB and AMIAD pumps convert system pressure into mechanical work. The FERTIMIX mixing tank has its own pump and controller.</span><span class="th"><strong>อุปกรณ์หกชนิด สามตระกูล คำถามเดียว คือพลังงานมาจากไหน</strong> เวนจูรีและถังทั้งสองแบบทำงานด้วยแรงดันในระบบ ส่วนปั๊ม TMB และ AMIAD แปลงแรงดันในระบบเป็นงานกล และถังผสม FERTIMIX มีปั๊มและกล่องควบคุมของตัวเอง</span></li>
+            <li><span class="en"><strong>Nothing is free.</strong> The venturi charges at least <strong>⅓ of the inlet pressure</strong>. The injector pumps charge <strong>2 L (TMB) or 3 L (AMIAD) of water per litre injected</strong> and no pressure at all. Match the cost to what your system can spare.</span><span class="th"><strong>ไม่มีอะไรได้มาฟรี</strong> เวนจูรีเก็บค่าตอบแทนอย่างน้อย <strong>หนึ่งในสามของแรงดันขาเข้า</strong> ส่วนปั๊มฉีดปุ๋ยเก็บเป็น <strong>น้ำ 2 ลิตร (TMB) หรือ 3 ลิตร (AMIAD) ต่อปุ๋ยที่ฉีดหนึ่งลิตร</strong> และไม่เก็บแรงดันเลย ให้จับคู่ต้นทุนกับสิ่งที่ระบบของเรายอมเสียได้</span></li>
+            <li><span class="en">The AMIAD piston works from <strong>7 psi</strong>, the TMB diaphragm needs <strong>30 psi</strong>. On a low-pressure or gravity-fed system that one row decides the purchase.</span><span class="th">เครื่องแบบลูกสูบ AMIAD ทำงานได้ตั้งแต่ <strong>7 psi</strong> ส่วนแบบไดอะแฟรม TMB ต้องการ <strong>30 psi</strong> ในระบบแรงดันต่ำหรือระบบที่จ่ายด้วยแรงโน้มถ่วง แถวเดียวนี้ตัดสินการซื้อ</span></li>
+            <li><span class="en"><strong>A flow-through tank needs 4 tank volumes of water; a pressure tank needs 1.</strong> The four comes from <span class="mono">1 − e<sup>−4</sup> = 98%</span> for a perfectly mixed tank — the same tank on the same setting empties four times faster if it has a bladder. The flow-through tank also delivers a steeply falling concentration, while the pressure tank and the pumps deliver a flat one.</span><span class="th"><strong>ถังแบบน้ำไหลผ่านต้องใช้น้ำ 4 เท่าของความจุถัง ส่วนถังแบบแรงดันใช้ 1 เท่า</strong> เลขสี่มาจาก <span class="mono">1 − e<sup>−4</sup> = 98%</span> ของถังที่ผสมกันสมบูรณ์ ถังเดียวกันที่ตั้งค่าเท่ากันจะหมดเร็วกว่าสี่เท่าถ้ามีถุงยางอยู่ข้างใน อีกทั้งถังแบบน้ำไหลผ่านยังจ่ายความเข้มข้นที่ลดลงอย่างชัน ขณะที่ถังแบบแรงดันและปั๊มจ่ายความเข้มข้นคงที่</span></li>
+            <li><span class="en">The calculation chain: <span class="mono">nutrient × 100 ÷ % in the fertiliser</span> gives weight; <span class="mono">÷ density</span> gives volume; <span class="mono">× area</span> or <span class="mono">× m³ of water</span> gives the dose; <span class="mono">÷ time</span> gives the injection rate the device has to meet.</span><span class="th">ลูกโซ่การคำนวณ คือ <span class="mono">ธาตุอาหาร × 100 ÷ % ในปุ๋ย</span> ให้น้ำหนัก แล้ว <span class="mono">÷ ความหนาแน่น</span> ให้ปริมาตร จากนั้น <span class="mono">× พื้นที่</span> หรือ <span class="mono">× ลบ.ม. ของน้ำ</span> ให้ปริมาณที่ต้องใช้ และ <span class="mono">÷ เวลา</span> ให้อัตราการฉีดที่อุปกรณ์ต้องทำได้</span></li>
+            <li><span class="en">When two nutrients are specified, <strong>start with the one only a single fertiliser can supply</strong>, count the second nutrient that comes with it, and make up the remainder from the other compound. Then check the answer forwards.</span><span class="th">เมื่อกำหนดธาตุอาหารสองตัว <strong>ให้เริ่มจากตัวที่มีปุ๋ยเพียงชนิดเดียวที่ให้ได้</strong> นับธาตุอาหารตัวที่สองที่ติดมาด้วย แล้วเติมส่วนที่ขาดจากปุ๋ยอีกชนิด จากนั้นตรวจคำตอบโดยคิดย้อนไปข้างหน้า</span></li>
+            <li><span class="en"><strong>Five rules for the fertiliser:</strong> completely soluble; no precipitate after mixing; no phosphate that will react with hard water; not stronger than <strong>1 : 500</strong> in the main; and <strong>finish before the irrigation ends</strong> so clean water flushes the pipes.</span><span class="th"><strong>กฎห้าข้อของปุ๋ย</strong> คือละลายน้ำได้สมบูรณ์ ไม่ตกตะกอนหลังผสม ไม่ใช้ฟอสเฟตที่จะทำปฏิกิริยากับน้ำกระด้าง ไม่เข้มข้นเกิน <strong>1 : 500</strong> ในท่อเมน และ <strong>ให้ปุ๋ยเสร็จก่อนการให้น้ำจบ</strong> เพื่อให้น้ำสะอาดล้างท่อ</span></li>
+            <li><span class="en">A tank that is too small produces a more concentrated charge and a higher peak injection rate, and can break the 1 : 500 rule while delivering exactly the right total. <strong>Size the tank by the peak, not by the dose.</strong></span><span class="th">ถังที่เล็กเกินไปทำให้หัวเชื้อเข้มข้นกว่าและอัตราการฉีดสูงสุดสูงกว่า และอาจผิดกฎ 1 : 500 ได้ทั้งที่จ่ายปริมาณรวมถูกต้องพอดี <strong>ให้เลือกขนาดถังจากค่าสูงสุด ไม่ใช่จากปริมาณปุ๋ย</strong></span></li>
+            <li><span class="en">The injector that puts fertiliser in will also put <strong>hydrochloric acid</strong> in, and periodic acid injection is the most effective single measure for keeping emitters open on hard Thai groundwater. Never in the same drum as the fertiliser, and always acid into water.</span><span class="th">เครื่องฉีดปุ๋ยตัวเดียวกันใช้ฉีด <strong>กรดไฮโดรคลอริก</strong> ได้ด้วย และการฉีดกรดเป็นระยะเป็นมาตรการเดี่ยวที่ได้ผลที่สุดในการทำให้หัวจ่ายไม่ตันบนน้ำบาดาลกระด้างของไทย ห้ามใช้ถังเดียวกับปุ๋ย และต้องเทกรดลงน้ำเสมอ</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="s-exercises">
+        <h2><span class="en">End-of-chapter exercises</span><span class="th">แบบฝึกหัดท้ายบทเรียน</span></h2>
+        <p class="quiz-note">
+          <span class="en">Work them out on paper before revealing. Not graded.</span>
+          <span class="th">ลองทำลงกระดาษก่อนเปิดเฉลย ส่วนนี้ไม่คิดคะแนน</span>
+          &nbsp;<button class="btn" id="reveal-all"><span class="en">Toggle all answers</span><span class="th">เปิด/ปิดเฉลยทั้งหมด</span></button>
+        </p>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">1.</span>
+            <span class="en">A 20 rai block runs at <strong>24 m³/h</strong>. The fertigation window is <strong>2.5 hours</strong> and the target is <strong>120 ppm K₂O</strong> using potassium nitrate <strong>13.5-0-46.2</strong>. Find the mass of fertiliser per set and the nitrogen that comes with it. Then choose a stock tank volume that satisfies the 1 : 500 rule, and check the fertiliser will actually dissolve in it (KNO₃ dissolves to about 316 g/L at 20 °C).</span>
+            <span class="th">แปลงขนาด 20 ไร่ ระบบจ่ายน้ำ <strong>24 ลบ.ม./ชม.</strong> ช่วงเวลาให้ปุ๋ย <strong>2.5 ชั่วโมง</strong> เป้าหมายคือ <strong>K₂O 120 ppm</strong> โดยใช้โปแตสเซียมไนเตรต <strong>13.5-0-46.2</strong> จงหามวลปุ๋ยต่อรอบ และไนโตรเจนที่ติดมาด้วย จากนั้นเลือกขนาดถังหัวเชื้อที่ผ่านกฎ 1 : 500 และตรวจว่าปุ๋ยละลายในถังนั้นได้จริง (KNO₃ ละลายได้ราว 316 ก./ลิตร ที่ 20 องศาเซลเซียส)</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>Fertiliser.</strong> <span class="mono">120 × 100 / 46.2 = 259.7 g/m³</span>. Water in the window is <span class="mono">24 × 2.5 = 60 m³</span>, so the set needs <span class="mono">259.7 × 60 = 15,580 g = <strong>15.6 kg</strong></span>. <strong>The nitrogen that comes free.</strong> The same 259.7 g/m³ carries <span class="mono">259.7 × 0.135 = <strong>35 ppm N</strong></span> — which must be subtracted from whatever nitrogen the recommendation asks for separately, or you will over-apply. <strong>The stock tank.</strong> The injection rate is the stock volume divided by 2.5 h, and the dilution in the main is <span class="mono">24,000 ÷ rate</span>. A 200 L stock gives 80 L/h and <span class="mono">1 : 300</span> — <strong>it fails.</strong> 120 L gives 48 L/h and exactly 1 : 500, which is the limit rather than a margin. <strong>100 L gives 40 L/h and 1 : 600 ✓</strong>. <strong>Will it dissolve?</strong> 15.6 kg in 100 L is 156 g/L, comfortably under 316 g/L ✓. Note how the two constraints pull in opposite directions: the 1 : 500 rule wants a <em>small</em> stock tank here because a smaller tank means a lower flow over the same window — the opposite of §9.10, where the tank <em>was</em> the injector and a small tank meant a high peak. Always work out which quantity the rule actually constrains.</span>
+            <span class="th"><strong>ปริมาณปุ๋ย</strong> <span class="mono">120 × 100 / 46.2 = 259.7 ก./ลบ.ม.</span> น้ำในช่วงให้ปุ๋ยคือ <span class="mono">24 × 2.5 = 60 ลบ.ม.</span> ดังนั้นหนึ่งรอบต้องใช้ <span class="mono">259.7 × 60 = 15,580 ก. = <strong>15.6 กก.</strong></span> <strong>ไนโตรเจนที่ได้มาฟรี</strong> ปุ๋ย 259.7 ก./ลบ.ม. เท่าเดิมพาไนโตรเจนมาด้วย <span class="mono">259.7 × 0.135 = <strong>35 ppm</strong></span> ซึ่งต้องนำไปหักออกจากไนโตรเจนที่คำแนะนำสั่งไว้ต่างหาก มิฉะนั้นจะให้เกิน <strong>ถังหัวเชื้อ</strong> อัตราการฉีดคือปริมาตรถังหารด้วย 2.5 ชม. และความเจือจางในท่อเมนคือ <span class="mono">24,000 ÷ อัตรา</span> ถัง 200 ลิตร ให้ 80 ลิตร/ชม. และ <span class="mono">1 : 300</span> ซึ่ง <strong>ไม่ผ่าน</strong> ถัง 120 ลิตร ให้ 48 ลิตร/ชม. และได้ 1 : 500 พอดี ซึ่งเป็นขีดจำกัดไม่ใช่ส่วนเผื่อ <strong>ถัง 100 ลิตร ให้ 40 ลิตร/ชม. และ 1 : 600 ✓</strong> <strong>ละลายได้ไหม</strong> ปุ๋ย 15.6 กก. ใน 100 ลิตร คือ 156 ก./ลิตร ต่ำกว่า 316 ก./ลิตร อย่างสบาย ✓ ให้สังเกตว่าข้อจำกัดสองข้อดึงกันคนละทาง กฎ 1 : 500 ในข้อนี้ต้องการถังหัวเชื้อที่ <em>เล็ก</em> เพราะถังเล็กหมายถึงอัตราการไหลที่ต่ำกว่าในช่วงเวลาเท่ากัน ซึ่งตรงข้ามกับหัวข้อ 9.10 ที่ตัวถัง <em>คือ</em> เครื่องฉีดเอง และถังเล็กหมายถึงค่าสูงสุดที่สูง ให้หาให้ออกเสมอว่ากฎกำลังจำกัดปริมาณใดกันแน่</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">2.</span>
+            <span class="en">A <strong>90 litre</strong> tank is connected with <strong>1/2 in</strong> pipe and the by-pass valve is set to a <strong>3 m</strong> pressure difference. How long does it take to empty as a flow-through tank, and as a pressure tank? What fraction of the charge has been delivered by the time two tank volumes have passed, and why does that matter if the irrigation set is only 10 minutes long?</span>
+            <span class="th">ถังขนาด <strong>90 ลิตร</strong> ต่อด้วยท่อ <strong>1/2 นิ้ว</strong> และตั้งวาล์วคร่อมให้มีความต่างแรงดัน <strong>3 เมตร</strong> ถังจะหมดในเวลาเท่าใดเมื่อเป็นถังแบบน้ำไหลผ่าน และเมื่อเป็นถังแบบแรงดัน เมื่อน้ำผ่านไปสองเท่าของความจุถังแล้ว ปุ๋ยถูกจ่ายออกไปกี่เปอร์เซ็นต์ และเรื่องนี้สำคัญอย่างไรถ้าการให้น้ำหนึ่งรอบยาวเพียง 10 นาที</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">From the §9.6 table, 1/2 in pipe at 3 m gives <strong>1,200 L/h</strong>. <strong>Flow-through:</strong> <span class="mono">90 × 4 × 60 / 1,200 = <strong>18 minutes</strong></span>. <strong>Pressure tank:</strong> <span class="mono">90 × 60 / 1,200 = <strong>4.5 minutes</strong></span> — four times faster, as always. <strong>After two tank volumes:</strong> <span class="mono">1 − e<sup>−2</sup> = <strong>86.5%</strong></span>. <strong>Why a 10-minute set matters.</strong> Ten minutes is 2,000 tank-litres of throughput — about 2.2 tank volumes — so the flow-through tank has delivered roughly 89% of the charge and <strong>11% is still sitting in the tank when the water stops</strong>. That residue is not lost: it will go out at the start of the next irrigation, on top of that set's own dose, which is how a field ends up over-fertilised on Tuesday and under-fertilised on Monday. The pressure tank finished in 4.5 minutes with 5.5 minutes of clean water to follow, which is what rule 5 wants. <strong>On short sets, the tank type stops being a preference and becomes a requirement.</strong></span>
+            <span class="th">จากตารางในหัวข้อ 9.6 ท่อ 1/2 นิ้ว ที่ 3 เมตร ให้ <strong>1,200 ลิตร/ชม.</strong> <strong>แบบน้ำไหลผ่าน</strong> <span class="mono">90 × 4 × 60 / 1,200 = <strong>18 นาที</strong></span> <strong>แบบแรงดัน</strong> <span class="mono">90 × 60 / 1,200 = <strong>4.5 นาที</strong></span> เร็วกว่าสี่เท่าเช่นเคย <strong>เมื่อน้ำผ่านไปสองเท่าของความจุถัง</strong> จ่ายไปแล้ว <span class="mono">1 − e<sup>−2</sup> = <strong>86.5%</strong></span> <strong>ทำไมรอบ 10 นาทีจึงสำคัญ</strong> สิบนาทีคือน้ำผ่านถัง 200 ลิตร หรือราว 2.2 เท่าของความจุถัง ถังแบบน้ำไหลผ่านจึงจ่ายไปราว 89% และ <strong>อีก 11% ยังค้างอยู่ในถังตอนที่น้ำหยุด</strong> ส่วนที่ค้างนั้นไม่ได้หายไปไหน มันจะออกไปตอนต้นของการให้น้ำรอบถัดไป ทับกับปุ๋ยของรอบนั้นเอง ซึ่งเป็นวิธีที่ทำให้แปลงได้ปุ๋ยเกินในวันอังคารและขาดปุ๋ยในวันจันทร์ ส่วนถังแบบแรงดันเสร็จใน 4.5 นาที เหลือน้ำสะอาดตามหลังอีก 5.5 นาที ซึ่งเป็นสิ่งที่กฎข้อ 5 ต้องการ <strong>ในรอบการให้น้ำที่สั้น ชนิดของถังเลิกเป็นเรื่องความชอบ และกลายเป็นข้อกำหนด</strong></span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">3.</span>
+            <span class="en">The recommendation is <strong>80 ppm N</strong> and <strong>30 ppm P₂O₅</strong>. Available: liquid ammonium phosphate <strong>8-24-0</strong> and liquid ammonium nitrate at <strong>21% N</strong>, both with a specific gravity of <strong>1.3</strong>. Work out the millilitres of each per cubic metre of irrigation water, and check your answer.</span>
+            <span class="th">คำแนะนำคือ <strong>N 80 ppm</strong> และ <strong>P₂O₅ 30 ppm</strong> ปุ๋ยที่มีคือปุ๋ยน้ำแอมโมเนียมฟอสเฟต <strong>8-24-0</strong> และปุ๋ยน้ำแอมโมเนียมไนเตรต <strong>21% N</strong> ทั้งคู่ความถ่วงจำเพาะ <strong>1.3</strong> จงหาปริมาตรเป็นมิลลิลิตรของปุ๋ยแต่ละชนิดต่อน้ำชลประทานหนึ่งลูกบาศก์เมตร และตรวจคำตอบ</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>Start with the phosphate, because nothing else supplies P.</strong> <span class="mono">30 × 100 / 24 = 125 g/m³</span>, and <span class="mono">125 / 1.3 = <strong>96 mL/m³</strong></span>. <strong>Count the nitrogen it brings.</strong> <span class="mono">125 × 8 / 100 = 10 ppm N</span>. <strong>Make up the rest.</strong> <span class="mono">80 − 10 = 70 ppm</span> still needed, so <span class="mono">70 × 100 / 21 = 333 g/m³</span> of nitrate, and <span class="mono">333 / 1.3 = <strong>256 mL/m³</strong></span>. <strong>Check forwards.</strong> P₂O₅: <span class="mono">125 × 0.24 = 30.0 ppm ✓</span>. N: <span class="mono">125 × 0.08 + 333 × 0.21 = 10 + 70 = 80.0 ppm ✓</span>. <strong>The mistake this exercise is built to catch</strong> is computing the nitrate from the full 80 ppm instead of the remaining 70 — which gives 381 mL/m³ and an actual delivery of 90 ppm N, 12% over. On a nitrogen-sensitive crop near harvest that is the difference between firm fruit and soft fruit.</span>
+            <span class="th"><strong>เริ่มจากฟอสเฟต เพราะไม่มีปุ๋ยอื่นที่ให้ธาตุ P</strong> <span class="mono">30 × 100 / 24 = 125 ก./ลบ.ม.</span> และ <span class="mono">125 / 1.3 = <strong>96 มล./ลบ.ม.</strong></span> <strong>นับไนโตรเจนที่มันพามาด้วย</strong> <span class="mono">125 × 8 / 100 = 10 ppm</span> <strong>เติมส่วนที่เหลือ</strong> ยังขาด <span class="mono">80 − 10 = 70 ppm</span> ดังนั้นใช้ไนเตรต <span class="mono">70 × 100 / 21 = 333 ก./ลบ.ม.</span> และ <span class="mono">333 / 1.3 = <strong>256 มล./ลบ.ม.</strong></span> <strong>ตรวจโดยคิดไปข้างหน้า</strong> P₂O₅ <span class="mono">125 × 0.24 = 30.0 ppm ✓</span> ส่วน N <span class="mono">125 × 0.08 + 333 × 0.21 = 10 + 70 = 80.0 ppm ✓</span> <strong>ความผิดพลาดที่แบบฝึกหัดข้อนี้ตั้งใจจับ</strong> คือการคำนวณไนเตรตจาก 80 ppm เต็มแทนที่จะเป็น 70 ppm ที่เหลือ ซึ่งจะได้ 381 มล./ลบ.ม. และจ่ายไนโตรเจนจริง 90 ppm หรือเกินไป 12% ในพืชที่ไวต่อไนโตรเจนช่วงใกล้เก็บเกี่ยว นั่นคือความต่างระหว่างผลที่แน่นกับผลที่นิ่ม</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">4.</span>
+            <span class="en">A drip system is fed by a pump delivering <strong>30 m</strong> of head. The emitters need <strong>15 m</strong> to operate and friction plus fittings account for <strong>9 m</strong>. The farmer wants to add a venturi in the main line. Can the system afford it? If not, give two arrangements that solve the problem and state what each one costs instead.</span>
+            <span class="th">ระบบน้ำหยดรับน้ำจากปั๊มที่ให้แรงดัน <strong>30 เมตร</strong> หัวจ่ายต้องการ <strong>15 เมตร</strong> จึงจะทำงานได้ และความเสียดทานรวมข้อต่อกินไป <strong>9 เมตร</strong> เกษตรกรต้องการติดตั้งเวนจูรีในท่อเมน ระบบรับไหวหรือไม่ ถ้าไม่ไหว จงเสนอการจัดวางสองแบบที่แก้ปัญหาได้ และระบุว่าแต่ละแบบต้องจ่ายอะไรแทน</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The budget.</strong> <span class="mono">30 − 15 − 9 = <strong>6 m spare</strong></span>. <strong>The cost.</strong> An in-line venturi loses at least a third of its inlet pressure, and the inlet here is close to the full 30 m, so the loss is about <span class="mono">30 / 3 = <strong>10 m</strong></span>. <strong>10 m needed against 6 m available — it fails</strong>, and the symptom in the field would be emitters at the far end running below their design pressure whenever the injector is on, so the block is simultaneously under-watered and under-fertilised exactly where it is already weakest. A by-pass with a throttling valve does not save it either: that arrangement wants about 30% of the inlet, or 9 m, which is still more than 6. <strong>Two arrangements that work.</strong> <em>(a) Fit the venturi across the pump</em> — arrangement 6 in §9.5. The pump already produces a large difference between its suction and delivery sides, so the venturi runs on that and the main line loses <strong>nothing</strong>. The cost is that the injection point is now at the pump, so the whole main carries fertiliser and the flush in rule 5 has to cover all of it. <em>(b) Use an injector pump instead</em> — a TMB or AMIAD. Neither takes any pressure from the system at all. The cost is water: 2 litres per litre injected for the TMB, 3 for the AMIAD. Note that at 30 m ≈ 43 psi both are inside their working range, so either would run here.</span>
+            <span class="th"><strong>งบแรงดัน</strong> <span class="mono">30 − 15 − 9 = <strong>เหลือ 6 เมตร</strong></span> <strong>ราคาที่ต้องจ่าย</strong> เวนจูรีที่ติดในท่อเมนเสียแรงดันอย่างน้อยหนึ่งในสามของแรงดันขาเข้า และขาเข้าตรงนี้ใกล้เคียง 30 เมตรเต็ม การสูญเสียจึงราว <span class="mono">30 / 3 = <strong>10 เมตร</strong></span> <strong>ต้องการ 10 เมตร แต่มี 6 เมตร จึงไม่ผ่าน</strong> และอาการในแปลงคือหัวจ่ายที่ปลายแถวจะทำงานต่ำกว่าแรงดันออกแบบทุกครั้งที่เปิดเครื่องฉีดปุ๋ย แปลงนั้นจึงทั้งได้น้ำน้อยและได้ปุ๋ยน้อยพร้อมกัน ตรงจุดที่อ่อนแออยู่แล้วพอดี ส่วนการติดตั้งแบบคร่อมพร้อมวาล์วปรับก็ไม่ช่วย เพราะแบบนั้นต้องการราว 30% ของขาเข้า คือ 9 เมตร ซึ่งยังมากกว่า 6 <strong>สองแบบที่ใช้ได้</strong> <em>(ก) ติดตั้งเวนจูรีคร่อมเครื่องสูบน้ำ</em> คือแบบที่ 6 ในหัวข้อ 9.5 ปั๊มสร้างความต่างแรงดันขนาดใหญ่ระหว่างด้านดูดกับด้านส่งอยู่แล้ว เวนจูรีจึงทำงานบนความต่างนั้น และท่อเมน <strong>ไม่เสียแรงดันเลย</strong> ราคาที่จ่ายคือจุดฉีดย้ายไปอยู่ที่ปั๊ม ท่อเมนทั้งเส้นจึงมีปุ๋ยอยู่ และการล้างตามกฎข้อ 5 ต้องครอบคลุมทั้งเส้น <em>(ข) เปลี่ยนไปใช้ปั๊มฉีดปุ๋ย</em> ไม่ว่าจะเป็น TMB หรือ AMIAD ทั้งคู่ไม่กินแรงดันของระบบเลย ราคาที่จ่ายคือน้ำ คือ 2 ลิตรต่อปุ๋ยหนึ่งลิตรสำหรับ TMB และ 3 ลิตรสำหรับ AMIAD ให้สังเกตว่าที่ 30 เมตร หรือราว 43 psi ทั้งสองเครื่องอยู่ในช่วงทำงาน จึงใช้ได้ทั้งคู่</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">5.</span>
+            <span class="en">Two farms fertigate the same 20 litres of the same fertiliser into the same 30 m³/h main. One uses a 200 L tank, the other a 60 L tank. Both deliver exactly 20 litres. Explain why one of them may be damaging the crop and the other is not, without doing any arithmetic.</span>
+            <span class="th">ฟาร์มสองแห่งให้ปุ๋ยชนิดเดียวกันปริมาณ 20 ลิตรเท่ากัน เข้าสู่ท่อเมนที่ไหล 30 ลบ.ม./ชม. เท่ากัน แห่งหนึ่งใช้ถัง 200 ลิตร อีกแห่งใช้ถัง 60 ลิตร ทั้งสองจ่ายปุ๋ยออกไป 20 ลิตรพอดีทั้งคู่ จงอธิบายว่าเหตุใดแห่งหนึ่งอาจกำลังทำร้ายพืชและอีกแห่งไม่ โดยไม่ต้องคำนวณ</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en">The total is the same; the <strong>concentration</strong> is not. Twenty litres of fertiliser in a 60 L tank is a far stronger charge than the same twenty litres in a 200 L tank — roughly a third of the smaller tank is neat fertiliser, against a tenth of the larger one. Whatever flow the by-pass valve is set to, the fertiliser leaving the small tank is leaving at more than three times the concentration, so the peak injection rate into the main is more than three times higher. That peak is what the <strong>1 : 500</strong> rule constrains, and the small tank is the one likely to breach it. <strong>What breaching it does.</strong> A slug of concentrated solution moving down the lateral can scorch roots in the wetted zone directly, and it is also the condition under which phosphate meets the calcium in hard water and precipitates — inside the pipe, where you cannot see it until the emitters start failing. <strong>The general lesson:</strong> total dose and peak concentration are independent, and only one of them is what the farmer thinks they are controlling. Size the tank so the peak is safe; the dose takes care of itself.</span>
+            <span class="th">ปริมาณรวมเท่ากัน แต่ <strong>ความเข้มข้น</strong> ไม่เท่า ปุ๋ย 20 ลิตรในถัง 60 ลิตร เป็นหัวเชื้อที่เข้มข้นกว่าปุ๋ย 20 ลิตรเท่ากันในถัง 200 ลิตรมาก คือราวหนึ่งในสามของถังเล็กเป็นปุ๋ยล้วน เทียบกับหนึ่งในสิบของถังใหญ่ ไม่ว่าจะตั้งวาล์วคร่อมไว้ที่อัตราไหลเท่าใด ปุ๋ยที่ออกจากถังเล็กก็ออกมาด้วยความเข้มข้นมากกว่าสามเท่า อัตราการฉีดสูงสุดเข้าท่อเมนจึงสูงกว่าสามเท่าด้วย ค่าสูงสุดนั้นคือสิ่งที่กฎ <strong>1 : 500</strong> จำกัดไว้ และถังเล็กคือถังที่น่าจะละเมิดกฎนั้น <strong>ละเมิดแล้วเกิดอะไร</strong> ก้อนสารละลายเข้มข้นที่เคลื่อนลงไปตามท่อย่อยอาจเผารากในเขตเปียกได้โดยตรง และยังเป็นเงื่อนไขที่ฟอสเฟตพบกับแคลเซียมในน้ำกระด้างแล้วตกตะกอน โดยตกอยู่ภายในท่อซึ่งมองไม่เห็นจนกว่าหัวจ่ายจะเริ่มเสีย <strong>บทเรียนทั่วไป</strong> คือปริมาณรวมกับความเข้มข้นสูงสุดเป็นอิสระต่อกัน และมีเพียงค่าเดียวเท่านั้นที่เกษตรกรคิดว่าตนกำลังควบคุมอยู่ ให้เลือกขนาดถังเพื่อให้ค่าสูงสุดปลอดภัย ส่วนปริมาณรวมจะดูแลตัวเอง</span>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-q"><span class="qnum">6.</span>
+            <span class="en">A student is asked for <strong>100 ppm N</strong> using urea, which is <strong>46% N</strong>. They write "100 ppm means 100 g per m³, so dissolve 100 g of urea in every cubic metre" and set the injector accordingly. Find the error and give the correct figure. By what factor is the crop being under-fed?</span>
+            <span class="th">นักศึกษาได้รับโจทย์ให้ไนโตรเจน <strong>100 ppm</strong> โดยใช้ยูเรียซึ่งมีไนโตรเจน <strong>46%</strong> เขาเขียนว่า "100 ppm คือ 100 กรัมต่อ ลบ.ม. ดังนั้นละลายยูเรีย 100 กรัมในน้ำทุกลูกบาศก์เมตร" แล้วตั้งเครื่องฉีดตามนั้น จงหาจุดผิดและให้ค่าที่ถูกต้อง พืชได้รับปุ๋ยน้อยกว่าที่ควรกี่เท่า</span>
+          </div>
+          <button class="reveal-btn"><span class="en">Show answer</span><span class="th">ดูเฉลย</span></button>
+          <div class="answer">
+            <span class="en"><strong>The error is confusing the nutrient with the fertiliser that carries it.</strong> 100 ppm N does indeed mean 100 grams of <em>nitrogen</em> per cubic metre — but urea is only 46% nitrogen, so 100 g of urea contains only 46 g of N. The step the student skipped is dividing by the percentage: <span class="mono">100 × 100 / 46 = <strong>217 g/m³ of urea</strong></span>. <strong>The crop is getting 46 ppm N instead of 100 — a factor of 2.2 short.</strong> <strong>Why it is hard to catch.</strong> Nothing breaks. The system runs, the emitters stay clear, the injector is comfortably inside its range, and the only symptom is a crop that grows slightly less well than expected — which will be blamed on the weather, the variety or the soil long before anyone re-checks the arithmetic. This is the opposite failure mode to §9.10's over-concentration trap: that one damages the crop visibly, this one just quietly costs yield. <strong>The habit that prevents it:</strong> after computing any dose, multiply back by the percentage and confirm you recover the number you were asked for. Here, <span class="mono">217 × 0.46 = 100 ppm ✓</span>.</span>
+            <span class="th"><strong>จุดผิดคือการสับสนระหว่างธาตุอาหารกับปุ๋ยที่พามันมา</strong> ค่า 100 ppm N หมายถึงไนโตรเจน <em>ล้วน ๆ</em> 100 กรัมต่อลูกบาศก์เมตรจริง แต่ยูเรียมีไนโตรเจนเพียง 46% ยูเรีย 100 กรัมจึงมีไนโตรเจนเพียง 46 กรัม ขั้นตอนที่นักศึกษาข้ามไปคือการหารด้วยเปอร์เซ็นต์ <span class="mono">100 × 100 / 46 = <strong>ยูเรีย 217 กรัม/ลบ.ม.</strong></span> <strong>พืชได้ไนโตรเจน 46 ppm แทนที่จะเป็น 100 คือขาดไป 2.2 เท่า</strong> <strong>ทำไมจึงจับยาก</strong> เพราะไม่มีอะไรพัง ระบบยังเดิน หัวจ่ายไม่ตัน เครื่องฉีดอยู่ในช่วงทำงานสบาย ๆ และอาการเดียวคือพืชโตน้อยกว่าที่คาดไว้เล็กน้อย ซึ่งจะถูกโทษว่าเป็นเพราะอากาศ พันธุ์ หรือดิน ไปอีกนานก่อนที่ใครจะย้อนกลับมาตรวจเลขคณิต นี่คือความล้มเหลวตรงข้ามกับกับดักความเข้มข้นเกินในหัวข้อ 9.10 คือแบบนั้นทำร้ายพืชให้เห็น ส่วนแบบนี้แค่กินผลผลิตไปเงียบ ๆ <strong>นิสัยที่ป้องกันได้</strong> คือหลังคำนวณปริมาณปุ๋ยเสร็จ ให้คูณกลับด้วยเปอร์เซ็นต์แล้วยืนยันว่าได้ตัวเลขที่โจทย์ถามคืนมา ในที่นี้ <span class="mono">217 × 0.46 = 100 ppm ✓</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-quiz">
+        <h2><span class="en">Graded quiz</span><span class="th">แบบทดสอบเก็บคะแนน</span></h2>
+        <div class="quiz" id="quiz"></div>
+      </section>
+
+      <nav class="pager">
+        <a class="btn" data-nav="prev">←</a>
+        <a class="btn solid" data-nav="next">→</a>
+      </nav>
+
+    </article>
+
+    <footer>
+      <span class="en">Chapter 9 · Applying Fertiliser with the Irrigation Water</span>
+      <span class="th">บทที่ 9 · การให้ปุ๋ยร่วมกับการให้น้ำ</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.QUIZ = [
+  {
+    q: { en: 'Roots take up nutrients as ions from the soil solution. What does that imply for every fertiliser, however it is applied?',
+         th: 'รากพืชดูดธาตุอาหารในรูปไอออนจากสารละลายในดิน ข้อนี้มีนัยอย่างไรต่อปุ๋ยทุกชนิด ไม่ว่าจะใส่ด้วยวิธีใด' },
+    choices: [
+      { en: 'It has to dissolve before the plant can use any of it', th: 'ปุ๋ยต้องละลายเสียก่อน พืชจึงจะใช้ได้' },
+      { en: 'It has to be placed below the root zone', th: 'ต้องใส่ไว้ใต้เขตราก' },
+      { en: 'It has to be granular to release slowly', th: 'ต้องเป็นเม็ดเพื่อให้ปลดปล่อยช้า ๆ' },
+      { en: 'It has to be applied before planting', th: 'ต้องใส่ก่อนปลูก' }
+    ],
+    answer: 0,
+    why: { en: 'Fertigation does not change what the plant needs — it changes where the dissolving happens. Doing it upstream, in a tank, means the network can carry the nutrients to the wetted zone instead of waiting for rain to do the work on the surface.',
+           th: 'การให้ปุ๋ยไปกับน้ำไม่ได้เปลี่ยนสิ่งที่พืชต้องการ แต่เปลี่ยนตำแหน่งที่การละลายเกิดขึ้น การละลายไว้ตั้งแต่ต้นทางในถัง ทำให้ระบบท่อพาธาตุอาหารไปยังเขตเปียกได้ แทนที่จะรอให้ฝนมาทำงานนั้นบนผิวดิน' }
+  },
+  {
+    q: { en: 'What does a venturi injector cost the system?',
+         th: 'เครื่องฉีดปุ๋ยแบบเวนจูรีทำให้ระบบเสียอะไร' },
+    choices: [
+      { en: 'At least one third of the inlet pressure', th: 'แรงดันขาเข้าอย่างน้อยหนึ่งในสาม' },
+      { en: 'Two litres of water per litre injected', th: 'น้ำ 2 ลิตร ต่อปุ๋ยที่ฉีดหนึ่งลิตร' },
+      { en: 'Three litres of water per litre injected', th: 'น้ำ 3 ลิตร ต่อปุ๋ยที่ฉีดหนึ่งลิตร' },
+      { en: 'Nothing — it is driven by an external motor', th: 'ไม่เสียอะไร เพราะขับด้วยมอเตอร์ภายนอก' }
+    ],
+    answer: 0,
+    why: { en: 'The venturi needs no power and no water, and charges in pressure instead: at least a third of what enters it, some models half, a few as little as a tenth. On a system with little spare head that single figure rules it out — which is what exercise 4 works through.',
+           th: 'เวนจูรีไม่ต้องใช้ทั้งพลังงานและน้ำ แต่เก็บค่าตอบแทนเป็นแรงดันแทน คืออย่างน้อยหนึ่งในสามของแรงดันที่เข้ามา บางรุ่นครึ่งหนึ่ง และบางรุ่นเพียงหนึ่งในสิบ ในระบบที่มีแรงดันเหลือน้อย ตัวเลขเดียวนี้ตัดมันออกไป ซึ่งเป็นสิ่งที่แบบฝึกหัดข้อ 4 พาคิด' }
+  },
+  {
+    q: { en: 'A flow-through tank needs four tank volumes of water to empty. Where does the four come from?',
+         th: 'ถังแบบน้ำไหลผ่านต้องใช้น้ำสี่เท่าของความจุถังจึงจะหมด เลขสี่มาจากไหน' },
+    choices: [
+      { en: 'It is the point where 1 − e⁻ⁿ reaches 98%', th: 'เป็นจุดที่ 1 − e⁻ⁿ ขึ้นถึง 98%' },
+      { en: 'Fertiliser is four times denser than water', th: 'ปุ๋ยมีความหนาแน่นเป็นสี่เท่าของน้ำ' },
+      { en: 'The tank is designed to be filled only a quarter full', th: 'ถังออกแบบให้เติมได้เพียงหนึ่งในสี่' },
+      { en: 'Four is a safety factor with no derivation', th: 'สี่เป็นตัวคูณความปลอดภัยที่ไม่มีที่มา' }
+    ],
+    answer: 0,
+    why: { en: 'Treat the tank as perfectly mixed and the concentration decays as C₀e⁻ᵠᵗ⁄ⱽ, so the fraction delivered after n tank volumes is 1 − e⁻ⁿ. At n = 4 that is 98.2%, exactly the figure the source quotes. At n = 5 it is 99.3%, which is why granular fertiliser is given the extra volume.',
+           th: 'ถ้าถือว่าถังผสมกันสมบูรณ์ ความเข้มข้นจะลดลงตาม C₀e⁻ᵠᵗ⁄ⱽ สัดส่วนที่จ่ายออกไปหลังน้ำผ่าน n เท่าของความจุถังจึงเป็น 1 − e⁻ⁿ ที่ n = 4 ได้ 98.2% ตรงกับตัวเลขที่เอกสารต้นทางอ้างไว้พอดี ส่วนที่ n = 5 ได้ 99.3% ซึ่งเป็นเหตุผลที่ปุ๋ยเม็ดได้รับน้ำเพิ่มอีกหนึ่งเท่า' }
+  },
+  {
+    q: { en: 'The same 100 L tank on the same setting empties in 48 minutes as a flow-through tank. How long as a pressure tank?',
+         th: 'ถัง 100 ลิตรเดียวกันที่ตั้งค่าเท่ากัน หมดใน 48 นาทีเมื่อเป็นถังแบบน้ำไหลผ่าน ถ้าเป็นถังแบบแรงดันจะใช้เวลาเท่าใด' },
+    choices: [
+      { en: '12 minutes', th: '12 นาที' },
+      { en: '24 minutes', th: '24 นาที' },
+      { en: '48 minutes — the tank type does not affect timing', th: '48 นาที เพราะชนิดถังไม่มีผลต่อเวลา' },
+      { en: '96 minutes', th: '96 นาที' }
+    ],
+    answer: 0,
+    why: { en: 'The bladder displaces the solution one for one, so a single tank volume of water empties it instead of four. Exactly four times faster, every time. On a short irrigation set that is the difference between finishing with time to flush and leaving fertiliser in the tank.',
+           th: 'ถุงยางแทนที่สารละลายแบบหนึ่งต่อหนึ่ง น้ำเพียงหนึ่งเท่าของความจุถังจึงทำให้หมด แทนที่จะเป็นสี่เท่า เร็วกว่าสี่เท่าพอดีทุกครั้ง ในรอบการให้น้ำที่สั้น นั่นคือความต่างระหว่างการเสร็จทันโดยมีเวลาล้างระบบ กับการทิ้งปุ๋ยค้างไว้ในถัง' }
+  },
+  {
+    q: { en: 'Which device will still run on a gravity-fed system with only about 5 m of head at the injection point?',
+         th: 'อุปกรณ์ใดยังทำงานได้ในระบบที่จ่ายน้ำด้วยแรงโน้มถ่วง ซึ่งมีแรงดันที่จุดฉีดเพียงราว 5 เมตร' },
+    choices: [
+      { en: 'The AMIAD piston injector, which starts at 7 psi', th: 'เครื่องฉีดแบบลูกสูบ AMIAD ซึ่งเริ่มทำงานที่ 7 psi' },
+      { en: 'The TMB diaphragm injector, which starts at 30 psi', th: 'เครื่องฉีดแบบไดอะแฟรม TMB ซึ่งเริ่มทำงานที่ 30 psi' },
+      { en: 'The FERTIMIX mixing tank', th: 'ถังผสม FERTIMIX' },
+      { en: 'None of them can work below 30 psi', th: 'ไม่มีตัวใดทำงานได้ต่ำกว่า 30 psi' }
+    ],
+    answer: 0,
+    why: { en: 'Five metres of head is about 7 psi. The piston unit starts there; the diaphragm unit needs 30 psi, which is roughly 21 m, and simply will not turn over. Minimum working pressure is the first specification to check and it eliminates one device outright on many Thai farms.',
+           th: 'แรงดัน 5 เมตร คิดเป็นราว 7 psi เครื่องแบบลูกสูบเริ่มทำงานตรงนั้นพอดี ส่วนแบบไดอะแฟรมต้องการ 30 psi หรือราว 21 เมตร จึงไม่หมุนเลย แรงดันใช้งานต่ำสุดเป็นข้อมูลจำเพาะข้อแรกที่ต้องตรวจ และตัดอุปกรณ์ออกไปหนึ่งตัวทันทีในฟาร์มไทยจำนวนมาก' }
+  },
+  {
+    q: { en: 'A recommendation asks for 4 kg N per rai and the fertiliser is 21% N. How much fertiliser per rai?',
+         th: 'คำแนะนำขอไนโตรเจน 4 กก./ไร่ และปุ๋ยมีไนโตรเจน 21% ต้องใช้ปุ๋ยกี่กิโลกรัมต่อไร่' },
+    choices: [
+      { en: '19 kg/rai', th: '19 กก./ไร่' },
+      { en: '0.84 kg/rai', th: '0.84 กก./ไร่' },
+      { en: '4 kg/rai', th: '4 กก./ไร่' },
+      { en: '84 kg/rai', th: '84 กก./ไร่' }
+    ],
+    answer: 0,
+    why: { en: 'Divide the nutrient by the percentage: 4 × 100 ÷ 21 = 19 kg/rai. Multiplying instead of dividing gives 0.84 and is the same error as exercise 6 — confusing the nutrient with the fertiliser that carries it. Always multiply back to check: 19 × 0.21 = 4 kg N ✓',
+           th: 'ให้หารธาตุอาหารด้วยเปอร์เซ็นต์ คือ 4 × 100 ÷ 21 = 19 กก./ไร่ ถ้าคูณแทนที่จะหารจะได้ 0.84 ซึ่งเป็นความผิดพลาดเดียวกับแบบฝึกหัดข้อ 6 คือสับสนระหว่างธาตุอาหารกับปุ๋ยที่พามัน ให้คูณกลับเพื่อตรวจเสมอ คือ 19 × 0.21 = 4 กก. N ✓' }
+  },
+  {
+    q: { en: 'Blending 8-24-0 and a 21% N nitrate to reach 60 ppm N and 40 ppm P₂O₅, which nutrient do you satisfy first, and why?',
+         th: 'ในการผสมปุ๋ย 8-24-0 กับไนเตรต 21% N เพื่อให้ได้ N 60 ppm และ P₂O₅ 40 ppm ต้องคิดธาตุใดก่อน และเพราะอะไร' },
+    choices: [
+      { en: 'The phosphate, because only one of the two fertilisers supplies P', th: 'ฟอสเฟต เพราะมีปุ๋ยเพียงชนิดเดียวในสองชนิดที่ให้ธาตุ P' },
+      { en: 'The nitrogen, because it is the larger number', th: 'ไนโตรเจน เพราะเป็นตัวเลขที่ใหญ่กว่า' },
+      { en: 'Either order gives the same answer', th: 'คิดลำดับใดก่อนก็ได้คำตอบเดียวกัน' },
+      { en: 'The nitrogen, because nitrate dissolves faster', th: 'ไนโตรเจน เพราะไนเตรตละลายเร็วกว่า' }
+    ],
+    answer: 0,
+    why: { en: 'Start with the nutrient that has only one possible source, because that fixes its fertiliser completely. The 8-24-0 then brings 13 ppm of N with it, so the nitrate only has to supply the remaining 47. Forgetting that carried nitrogen is the commonest blending error and over-applies N by about 12%.',
+           th: 'ให้เริ่มจากธาตุอาหารที่มีแหล่งเดียว เพราะจะทำให้ปริมาณปุ๋ยตัวนั้นถูกกำหนดตายตัว จากนั้นปุ๋ย 8-24-0 จะพาไนโตรเจนมาด้วย 13 ppm ไนเตรตจึงต้องให้เพียงส่วนที่เหลือ 47 ppm การลืมไนโตรเจนที่ติดมานี้เป็นความผิดพลาดที่พบบ่อยที่สุดในการผสมปุ๋ย และทำให้ให้ไนโตรเจนเกินไปราว 12%' }
+  },
+  {
+    q: { en: 'Two farms inject the same total dose into the same main, one from a 200 L tank and one from a 60 L tank. What differs?',
+         th: 'ฟาร์มสองแห่งฉีดปุ๋ยปริมาณรวมเท่ากันเข้าท่อเมนเดียวกัน แห่งหนึ่งจากถัง 200 ลิตร อีกแห่งจากถัง 60 ลิตร สิ่งใดต่างกัน' },
+    choices: [
+      { en: 'The peak concentration — the small tank can breach the 1 : 500 rule', th: 'ความเข้มข้นสูงสุด โดยถังเล็กอาจละเมิดกฎ 1 : 500 ได้' },
+      { en: 'Nothing — the same dose gives the same result', th: 'ไม่ต่างกันเลย ปริมาณเท่ากันย่อมให้ผลเท่ากัน' },
+      { en: 'The small tank delivers less total fertiliser', th: 'ถังเล็กจ่ายปุ๋ยรวมได้น้อยกว่า' },
+      { en: 'The large tank loses more pressure', th: 'ถังใหญ่ทำให้เสียแรงดันมากกว่า' }
+    ],
+    answer: 0,
+    why: { en: 'Total dose and peak concentration are independent. The same fertiliser in a smaller tank is a stronger charge, so it leaves at a higher rate and hits the main harder. That peak is what the 1 : 500 rule constrains, and breaching it can scorch roots or precipitate phosphate inside the pipe. Size the tank by the peak, not by the dose.',
+           th: 'ปริมาณรวมกับความเข้มข้นสูงสุดเป็นอิสระต่อกัน ปุ๋ยเท่ากันในถังที่เล็กกว่าคือหัวเชื้อที่เข้มข้นกว่า จึงออกมาด้วยอัตราที่สูงกว่าและกระแทกท่อเมนแรงกว่า ค่าสูงสุดนั้นคือสิ่งที่กฎ 1 : 500 จำกัด และการละเมิดอาจเผารากหรือทำให้ฟอสเฟตตกตะกอนในท่อ ให้เลือกขนาดถังจากค่าสูงสุด ไม่ใช่จากปริมาณปุ๋ย' }
+  },
+  {
+    q: { en: 'Why must fertigation finish before the irrigation set ends?',
+         th: 'เหตุใดการให้ปุ๋ยจึงต้องเสร็จก่อนรอบการให้น้ำจบ' },
+    choices: [
+      { en: 'So clean water flushes fertiliser out of every pipe and emitter', th: 'เพื่อให้น้ำสะอาดล้างปุ๋ยออกจากท่อและหัวจ่ายทุกจุด' },
+      { en: 'So the pump has time to cool down', th: 'เพื่อให้ปั๊มมีเวลาระบายความร้อน' },
+      { en: 'So the fertiliser has time to dissolve in the soil', th: 'เพื่อให้ปุ๋ยมีเวลาละลายในดิน' },
+      { en: 'So the controller can log the volume', th: 'เพื่อให้กล่องควบคุมบันทึกปริมาตรได้' }
+    ],
+    answer: 0,
+    why: { en: 'Fertiliser left standing in a lateral overnight grows algae and deposits salts at the emitter orifice, which is how a drip system slowly blocks itself. This is rule 5 of §9.11, and on a controller it has a practical consequence: the zone that runs last never gets flushed unless you program a water-only station after it.',
+           th: 'ปุ๋ยที่ค้างอยู่ในท่อย่อยข้ามคืนจะเลี้ยงสาหร่ายและตกผลึกเกลือไว้ที่รูหัวจ่าย ซึ่งเป็นวิธีที่ระบบน้ำหยดค่อย ๆ อุดตันตัวเอง นี่คือกฎข้อ 5 ของหัวข้อ 9.11 และในระบบที่ใช้กล่องควบคุมยังมีผลในทางปฏิบัติด้วย คือโซนที่ทำงานเป็นลำดับสุดท้ายจะไม่ได้ล้างเลย เว้นแต่จะตั้งสถานีที่ให้น้ำเปล่าไว้ต่อท้าย' }
+  },
+  {
+    q: { en: 'A mixing tank controls EC and pH rather than measuring nitrogen directly. Why?',
+         th: 'ถังผสมปุ๋ยควบคุมค่า EC และ pH แทนที่จะวัดไนโตรเจนโดยตรง เพราะอะไร' },
+    choices: [
+      { en: 'No cheap sensor reads N in flowing water, but EC tracks total fertiliser and pH decides whether phosphate precipitates', th: 'ไม่มีเซนเซอร์ราคาถูกที่อ่านไนโตรเจนในน้ำที่ไหลได้ แต่ EC บอกปริมาณปุ๋ยรวม และ pH ตัดสินว่าฟอสเฟตจะตกตะกอนหรือไม่' },
+      { en: 'EC and pH are what the crop absorbs', th: 'ค่า EC และ pH คือสิ่งที่พืชดูดซึม' },
+      { en: 'Nitrogen sensors exist but are banned in agriculture', th: 'เซนเซอร์ไนโตรเจนมีอยู่ แต่ห้ามใช้ในการเกษตร' },
+      { en: 'EC replaces the need for a soil test', th: 'ค่า EC ใช้แทนการวิเคราะห์ดินได้' }
+    ],
+    answer: 0,
+    why: { en: 'EC rises with total dissolved salt and therefore with total fertiliser, and pH governs whether phosphate stays in solution. Between them they catch the two failures that matter — too much fertiliser, and fertiliser about to become a solid inside the pipe. Neither can report the N:P:K ratio; the controller trusts the stock tanks for that.',
+           th: 'ค่า EC สูงขึ้นตามเกลือที่ละลายทั้งหมด จึงสูงขึ้นตามปริมาณปุ๋ยรวม ส่วน pH เป็นตัวกำหนดว่าฟอสเฟตจะคงละลายอยู่หรือไม่ สองค่านี้รวมกันจับความล้มเหลวสองอย่างที่สำคัญได้ คือปุ๋ยมากเกินไป และปุ๋ยที่กำลังจะกลายเป็นของแข็งในท่อ ทั้งสองค่าบอกอัตราส่วน N:P:K ไม่ได้ กล่องควบคุมเชื่อถังหัวเชื้อในเรื่องนั้น' }
+  }
+];
+</script>
+<script src="js/sidebar.js"></script>
+<script src="js/site.js"></script>
+<script src="js/svgfit.js"></script>
+</body>
+</html>
